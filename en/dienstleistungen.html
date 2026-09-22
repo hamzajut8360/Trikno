@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services – Maintenance, Retrofit & R&D Lab | TRIKNO</title>
+<meta name="description" content="Learn more about TRIKNO's services (formerly Knobel): One-Shot training courses, spare parts service, plant retrofitting, and custom R&D laboratory testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — v3 stylesheet — bold, curvy, animated brand system
+   Blue #6cb8d2 / Grey #282d32 / Orange #d36a36
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.6rem, 5.6vw, 4.4rem); }
+h2{ font-size:clamp(2rem, 3.8vw, 3rem); }
+h3{ font-size:clamp(1.25rem, 2vw, 1.55rem); font-weight:600; }
+h1, h2{ color:var(--blue-dark); }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.08rem; }
+
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:1rem;
+  padding:15px 32px; border-radius:var(--radius-btn); border:none;
+  cursor:pointer; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn-primary{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75); }
+.btn-outline{ background:transparent; color:var(--ink); border:2px solid var(--ink); padding:13px 30px; }
+.btn-outline:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+.btn-ghost-light{ background:rgba(255,255,255,.08); color:#fff; border:2px solid rgba(255,255,255,.6); backdrop-filter:blur(4px); padding:13px 30px; }
+.btn-ghost-light:hover{ background:#fff; color:var(--blue-dark); border-color:#fff; transform:translateY(-2px); }
+
+/* -------------------- Header -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:12px 0; background:rgba(255,255,255,.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 4px 18px -10px rgba(40,45,50,.15); transition:box-shadow .25s ease; }
+.site-header.is-scrolled{ box-shadow:0 8px 24px -10px rgba(40,45,50,.25); }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto; padding:0 28px;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.1) rotate(-4deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a{
+  position:relative; display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a::after{ display:none; }
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; }
+.lang-switch a.active{ color:var(--blue-dark); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+
+.nav-toggle{ display:none; }
+
+/* -------------------- Hero -------------------- */
+.page-hero{
+  background:
+    radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
+    radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+}
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
+.page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
+.page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
+
+/* -------------------- Sections -------------------- */
+section{ padding:80px 0; }
+.section-soft{ background:var(--bg-soft); }
+
+.section-blue{
+  background:var(--blue-grad); color:#fff; position:relative; overflow:hidden;
+}
+.section-blue::before{ content:""; position:absolute; width:360px; height:360px; border-radius:50%; background:rgba(255,255,255,.14); filter:blur(6px); top:-140px; right:-90px; }
+.section-blue::after{ content:""; position:absolute; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,.1); filter:blur(6px); bottom:-100px; left:-60px; }
+.section-blue h2, .section-blue h3{ color:#fff; position:relative; z-index:1; }
+.section-blue p{ color:rgba(255,255,255,.92); position:relative; z-index:1; }
+.section-blue > .container{ position:relative; z-index:1; }
+.section-blue .btn-primary{ background:#fff; color:var(--blue-dark); box-shadow:0 10px 26px -12px rgba(0,0,0,.25); }
+.section-blue .btn-primary:hover{ background:var(--ink); color:#fff; }
+
+/* -------------------- Cards -------------------- */
+.grid{ display:grid; gap:28px; }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+
+.card{
+  background:#fff; border-radius:var(--radius-card); overflow:hidden;
+  border:1px solid var(--line); display:flex; flex-direction:column;
+  box-shadow:0 4px 18px -10px rgba(40,45,50,.15);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-blue);
+  border-color:var(--blue);
+}
+.card-media{ aspect-ratio:4/3; overflow:hidden; background:linear-gradient(135deg, var(--blue-soft), var(--orange-soft)); position:relative; }
+.card-media img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.card:hover .card-media img{ transform:scale(1.08); }
+.card-media--tint::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(27,31,35,.5) 100%);
+  opacity:.4; transition:opacity .3s ease;
+}
+.card:hover .card-media--tint::after{ opacity:.15; }
+
+.card-body{ padding:26px 26px 30px; display:flex; flex-direction:column; flex:1; }
+.card-kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+.card-body h3{ font-size:1.35rem; margin-bottom:10px; color:var(--ink); }
+.card-body p{ font-size:.98rem; line-height:1.6; color:var(--ink-soft); margin-bottom:18px; flex:1; }
+
+/* -------------------- Footer -------------------- */
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
+.footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+.footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
+.footer-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.footer-grid ul li{ line-height:1.75; }
+.footer-grid a{ color:rgba(255,255,255,.68); font-size:.92rem; line-height:inherit; }
+.footer-grid a:hover{ color:var(--blue); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:24px 0; font-size:.85rem; color:rgba(255,255,255,.55); }
+.footer-bottom a{ color:rgba(255,255,255,.55); }
+.footer-bottom a:hover{ color:var(--blue); }
+.social-row{ display:flex; gap:12px; margin-top:14px; }
+.social-row a{ width:36px; height:36px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88rem; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
+.social-row a:hover{ background:var(--blue); border-color:var(--blue); color:var(--ink); transform:translateY(-3px); }
+
+/* -------------------- Cookie banner -------------------- */
+.cookie-bar{
+  position:fixed; left:20px; right:20px; bottom:20px; z-index:500; background:#fff; border:1px solid var(--line-strong);
+  border-radius:var(--radius-card); box-shadow:0 24px 50px -18px rgba(40,45,50,.45); padding:20px 26px;
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap; max-width:780px; margin:0 auto;
+  transform:translateY(140%); transition:transform .4s ease;
+}
+.cookie-bar.is-visible{ transform:translateY(0); }
+.cookie-bar p{ margin:0; font-size:.92rem; flex:1; min-width:200px; color:var(--ink); }
+.cookie-actions{ display:flex; gap:10px; }
+.cookie-actions button{ font-family:"Poppins",sans-serif; font-weight:700; font-size:.85rem; padding:11px 22px; border-radius:999px; border:1px solid var(--line-strong); background:#fff; color:var(--ink); cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease; }
+.cookie-actions button:hover{ border-color:var(--blue); }
+.cookie-actions .accept{ background:var(--blue-grad); color:#fff; border-color:transparent; }
+.cookie-actions .accept:hover{ filter:brightness(.95); }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width:1020px){
+  .grid-2{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .main-nav{ display:none; }
+}
+@media (max-width:760px){
+  .site-header{ padding:14px 14px 0; }
+  .header-inner{ padding:8px 8px 8px 18px; border-radius:24px; }
+  .main-nav{
+    display:flex; position:fixed; inset:86px 14px auto 14px; background:#fff; flex-direction:column; align-items:stretch;
+    padding:14px; gap:6px; border-radius:24px; box-shadow:0 20px 44px -18px rgba(40,45,50,.4);
+    transform:translateY(-140%); opacity:0; transition:transform .3s ease, opacity .3s ease; max-height:70vh; overflow-y:auto;
+  }
+  .main-nav.is-open{ transform:translateY(0); opacity:1; }
+  .main-nav a{ width:100%; text-align:center; }
+  .nav-toggle{ display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; }
+  .nav-toggle span{ width:22px; height:2px; background:var(--ink); display:block; border-radius:2px; }
+  .header-cta .btn{ padding:10px 18px; font-size:.82rem; }
+  .grid-2{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  section{ padding:56px 0; }
+  .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
+  .site-footer{ border-radius:26px 26px 0 0; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo"></a>
+    <nav class="main-nav">
+      <a href="index.html">Competencies</a>
+      <a href="produkte.html">Products</a>
+      <a href="dienstleistungen.html" class="active">Services</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html">Company</a>
+      <a href="kontakt.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <div class="lang-switch"><a href="../dienstleistungen.html">DE</a><span>/</span><a class="active" href="#">EN</a></div>
+      <a class="btn btn-primary" href="produkte.html">Machines in Stock</a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker">TRIKNO Depositing Experts · Service · Retrofit · R&D Lab</span>
+    <h1>Our Services</h1>
+    <p>From hands-on technical training to spare parts, retrofitting, and custom recipe development – we support you across the entire life cycle of your production line.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid grid-2">
+      <a class="card reveal" href="https://trikno.ch/trikno-depositing-experts.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/One-Shot.jpeg" alt="TRIKNO Depositing Experts" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Training & Knowledge Platform</span>
+          <h3>TRIKNO Depositing Experts</h3>
+          <p>Since early 2024, we have successfully conducted our One-Shot Basic and One-Shot Advanced training courses, empowering operators worldwide. Our training sessions are deeply hands-on and practical.</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="https://trikno.ch/service.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Dienstleistungen/Service.jpg" alt="Service & Spare Parts Support" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Global Field Support</span>
+          <h3>Service & Spare Parts Support</h3>
+          <p>Our comprehensive suite of services ensures your machines run smoothly at all times – backed by an extensive original spare parts warehouse and expert upgrade packages.</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="https://trikno.ch/retrofit.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Dienstleistungen/Retrofit.jpg" alt="Retrofit" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Upgrade with TRIKNO</span>
+          <h3>Retrofit</h3>
+          <p>Produce new items, optimize existing processes, and elevate product quality. Third-party lines can be seamlessly modernized, extended, and upgraded using TRIKNO equipment.</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="https://trikno.ch/r_und_d_lab.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Dienstleistungen/Labor.jpg" alt="R&D Lab" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Innovative R&D Facility</span>
+          <h3>R&D Application Lab</h3>
+          <p>Have exciting product concepts you wish to test? At TRIKNO, we provide the test benches, machines, and expertise to bring your confectionery ideas into reality efficiently and with the highest quality.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-blue">
+  <div class="container" style="text-align:center;">
+    <h2 class="reveal">Looking to Extend Plant Life and Boost Performance?</h2>
+    <p class="reveal" style="margin:0 auto 24px;">Speak with our service specialists about retrofit opportunities, genuine spare parts, or bespoke R&D trials.</p>
+    <a class="btn btn-primary reveal" href="kontakt.html">Request Service Consultation</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (formerly Knobel) – Swiss experts for premium chocolate and confectionery machinery.</p>
+        <div class="social-row"><a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Competencies</a></li>
+          <li><a href="produkte.html">Products</a></li>
+          <li><a href="dienstleistungen.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Company</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Address</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Switzerland</address>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="kontakt.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Legal Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-bar">
+  <p>This website uses cookies to ensure you get the best possible experience.</p>
+  <div class="cookie-actions">
+    <button type="button">Learn more</button>
+    <button type="button" class="accept">Accept</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  var onScroll = function () {
+    if (!header) return;
+    if (window.scrollY > 12) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  var cookieBar = document.querySelector('.cookie-bar');
+  if (cookieBar) {
+    var dismissed = false;
+    try { dismissed = localStorage.getItem('trikno_cookie_ack') === '1'; } catch (e) {}
+    if (!dismissed) {
+      setTimeout(function () { cookieBar.classList.add('is-visible'); }, 900);
+    }
+    cookieBar.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        cookieBar.classList.remove('is-visible');
+        try { localStorage.setItem('trikno_cookie_ack', '1'); } catch (e) {}
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>

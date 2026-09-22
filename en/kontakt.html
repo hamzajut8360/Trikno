@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – TRIKNO AG & Global Dealer Network</title>
+<meta name="description" content="Contact TRIKNO AG in Switzerland directly or connect with your authorized regional representative worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — v3 stylesheet — bold, curvy, animated brand system
+   Blue #6cb8d2 / Grey #282d32 / Orange #d36a36
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.6rem, 5.6vw, 4.4rem); }
+h2{ font-size:clamp(2rem, 3.8vw, 3rem); }
+h3{ font-size:clamp(1.25rem, 2vw, 1.55rem); font-weight:600; }
+h1, h2{ color:var(--blue-dark); }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.08rem; }
+
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:1rem;
+  padding:15px 32px; border-radius:var(--radius-btn); border:none;
+  cursor:pointer; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn-primary{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75); }
+.btn-outline{ background:transparent; color:var(--ink); border:2px solid var(--ink); padding:13px 30px; }
+.btn-outline:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+.btn-ghost-light{ background:rgba(255,255,255,.08); color:#fff; border:2px solid rgba(255,255,255,.6); backdrop-filter:blur(4px); padding:13px 30px; }
+.btn-ghost-light:hover{ background:#fff; color:var(--blue-dark); border-color:#fff; transform:translateY(-2px); }
+
+/* -------------------- Header -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:12px 0; background:rgba(255,255,255,.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 4px 18px -10px rgba(40,45,50,.15); transition:box-shadow .25s ease; }
+.site-header.is-scrolled{ box-shadow:0 8px 24px -10px rgba(40,45,50,.25); }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto; padding:0 28px;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.1) rotate(-4deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a{
+  position:relative; display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a::after{ display:none; }
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; }
+.lang-switch a.active{ color:var(--blue-dark); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+
+.nav-toggle{ display:none; }
+
+/* -------------------- Hero -------------------- */
+.page-hero{
+  background:
+    radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
+    radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+}
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
+.page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
+.page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
+
+/* -------------------- Sections -------------------- */
+section{ padding:80px 0; }
+.section-soft{ background:var(--bg-soft); }
+.section-head{ max-width:660px; margin-bottom:46px; }
+.section-head .tag{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:block; letter-spacing:.02em; }
+.section-head h2{ font-size:clamp(1.7rem, 2.8vw, 2.3rem); }
+
+/* -------------------- Contact / Form -------------------- */
+.contact-panel{
+  background:var(--blue-grad); border-radius:var(--radius-card); color:#fff; padding:56px;
+  display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; position:relative; overflow:hidden;
+}
+.contact-panel::before{ content:""; position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,.14); top:-120px; right:-60px; }
+.contact-panel::after{ content:""; position:absolute; width:240px; height:240px; border-radius:50%; background:rgba(211,106,54,.25); bottom:-100px; left:-60px; filter:blur(6px); }
+.contact-panel > *{ position:relative; z-index:1; }
+.contact-panel h2{ color:#fff; }
+.contact-panel p{ color:rgba(255,255,255,.92); }
+.contact-panel input, .contact-panel textarea{ border-radius:var(--radius-sm) !important; }
+.contact-panel input:focus, .contact-panel textarea:focus{ outline:3px solid rgba(255,255,255,.6); outline-offset:1px; }
+.contact-panel .btn-primary{ background:#fff; color:var(--blue-dark); }
+.contact-panel .btn-primary:hover{ background:var(--ink); color:#fff; }
+
+.hq-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); padding:40px;
+  display:grid; grid-template-columns:1fr 1fr; gap:30px; box-shadow:var(--shadow);
+}
+.hq-card h3{ color:var(--blue-dark); margin-bottom:8px; font-size:1.5rem; }
+.hq-card address{ font-style:normal; font-size:1.05rem; line-height:1.7; color:var(--ink-soft); }
+.hq-card .contact-line{ font-size:1.05rem; line-height:1.8; color:var(--ink-soft); }
+.hq-card .contact-line a{ color:var(--blue-dark); font-weight:700; }
+.hq-card .contact-line a:hover{ color:var(--orange); }
+
+/* -------------------- Dealers -------------------- */
+.region{ margin-bottom:56px; }
+.region h3{ font-size:1.5rem; color:var(--ink); border-bottom:2px solid var(--line); padding-bottom:12px; margin-bottom:24px; }
+.dealer-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.dealer-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:24px;
+  box-shadow:0 4px 14px -6px rgba(40,45,50,.1); transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.dealer-card:hover{ transform:translateY(-4px); border-color:var(--blue); box-shadow:var(--shadow-blue); }
+.dealer-card .country{ color:var(--orange); font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+.dealer-card .company{ font-family:"Poppins",sans-serif; font-size:1.1rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.dealer-card address{ font-style:normal; font-size:.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:10px; }
+.dealer-card .contact-line{ font-size:.88rem; color:var(--ink-soft); line-height:1.6; }
+.dealer-card .contact-line a{ color:var(--blue-dark); font-weight:600; }
+.dealer-card .contact-line a:hover{ color:var(--orange); }
+
+/* -------------------- Footer -------------------- */
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
+.footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+.footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
+.footer-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.footer-grid ul li{ line-height:1.75; }
+.footer-grid a{ color:rgba(255,255,255,.68); font-size:.92rem; line-height:inherit; }
+.footer-grid a:hover{ color:var(--blue); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:24px 0; font-size:.85rem; color:rgba(255,255,255,.55); }
+.footer-bottom a{ color:rgba(255,255,255,.55); }
+.footer-bottom a:hover{ color:var(--blue); }
+.social-row{ display:flex; gap:12px; margin-top:14px; }
+.social-row a{ width:36px; height:36px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88rem; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
+.social-row a:hover{ background:var(--blue); border-color:var(--blue); color:var(--ink); transform:translateY(-3px); }
+
+/* -------------------- Cookie banner -------------------- */
+.cookie-bar{
+  position:fixed; left:20px; right:20px; bottom:20px; z-index:500; background:#fff; border:1px solid var(--line-strong);
+  border-radius:var(--radius-card); box-shadow:0 24px 50px -18px rgba(40,45,50,.45); padding:20px 26px;
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap; max-width:780px; margin:0 auto;
+  transform:translateY(140%); transition:transform .4s ease;
+}
+.cookie-bar.is-visible{ transform:translateY(0); }
+.cookie-bar p{ margin:0; font-size:.92rem; flex:1; min-width:200px; color:var(--ink); }
+.cookie-actions{ display:flex; gap:10px; }
+.cookie-actions button{ font-family:"Poppins",sans-serif; font-weight:700; font-size:.85rem; padding:11px 22px; border-radius:999px; border:1px solid var(--line-strong); background:#fff; color:var(--ink); cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease; }
+.cookie-actions button:hover{ border-color:var(--blue); }
+.cookie-actions .accept{ background:var(--blue-grad); color:#fff; border-color:transparent; }
+.cookie-actions .accept:hover{ filter:brightness(.95); }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width:1020px){
+  .dealer-grid{ grid-template-columns:repeat(2,1fr); }
+  .contact-panel{ grid-template-columns:1fr; padding:40px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .main-nav{ display:none; }
+}
+@media (max-width:760px){
+  .site-header{ padding:14px 14px 0; }
+  .header-inner{ padding:8px 8px 8px 18px; border-radius:24px; }
+  .main-nav{
+    display:flex; position:fixed; inset:86px 14px auto 14px; background:#fff; flex-direction:column; align-items:stretch;
+    padding:14px; gap:6px; border-radius:24px; box-shadow:0 20px 44px -18px rgba(40,45,50,.4);
+    transform:translateY(-140%); opacity:0; transition:transform .3s ease, opacity .3s ease; max-height:70vh; overflow-y:auto;
+  }
+  .main-nav.is-open{ transform:translateY(0); opacity:1; }
+  .main-nav a{ width:100%; text-align:center; }
+  .nav-toggle{ display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; }
+  .nav-toggle span{ width:22px; height:2px; background:var(--ink); display:block; border-radius:2px; }
+  .header-cta .btn{ padding:10px 18px; font-size:.82rem; }
+  .dealer-grid{ grid-template-columns:1fr; }
+  .hq-card{ grid-template-columns:1fr; padding:30px; }
+  .footer-grid{ grid-template-columns:1fr; }
+  section{ padding:56px 0; }
+  .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
+  .site-footer{ border-radius:26px 26px 0 0; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo"></a>
+    <nav class="main-nav">
+      <a href="index.html">Competencies</a>
+      <a href="produkte.html">Products</a>
+      <a href="dienstleistungen.html">Services</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html">Company</a>
+      <a href="kontakt.html" class="active">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <div class="lang-switch"><a href="../kontakt.html">DE</a><span>/</span><a class="active" href="#">EN</a></div>
+      <a class="btn btn-primary" href="produkte.html">Machines in Stock</a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker">Connect with Us Worldwide</span>
+    <h1>Contact Us</h1>
+    <p>Welcome to TRIKNO! Reach out to us directly or through your local authorized representative. Whether you have questions regarding machines, applications, or spare parts – our engineering team is here to support you.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="contact-panel reveal">
+      <div>
+        <h2>Send Us a Message</h2>
+        <p>Tell us briefly about your project or production requirements – our team will reply promptly.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you! Your message has been successfully sent.');" style="display:grid; gap:14px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <input required type="text" placeholder="First Name" style="padding:12px 14px; border-radius:3px; border:none;">
+          <input required type="text" placeholder="Last Name" style="padding:12px 14px; border-radius:3px; border:none;">
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <input required type="text" placeholder="Company / Organization" style="padding:12px 14px; border-radius:3px; border:none;">
+          <input required type="text" placeholder="Country" style="padding:12px 14px; border-radius:3px; border:none;">
+        </div>
+        <input required type="email" placeholder="Email Address" style="padding:12px 14px; border-radius:3px; border:none;">
+        <input type="tel" placeholder="Phone Number" style="padding:12px 14px; border-radius:3px; border:none;">
+        <textarea required rows="4" placeholder="Your Message / Project Details" style="padding:12px 14px; border-radius:3px; border:none; font-family:inherit; resize:vertical;"></textarea>
+        <button class="btn btn-primary" type="submit" style="justify-self:start;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section-soft">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Headquarters</span>
+      <h2>Switzerland</h2>
+    </div>
+    <div class="hq-card reveal">
+      <div>
+        <h3>TRIKNO AG</h3>
+        <address>Marksteinstrasse 5<br>8552 Felben-Wellhausen · Switzerland</address>
+      </div>
+      <div class="contact-line">
+        Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br>
+        Email: <a href="mailto:info@trikno.ch">info@trikno.ch</a><br>
+        Web: <a href="https://www.trikno.ch" target="_blank" rel="noopener">www.trikno.ch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Global Representation</span>
+      <h2>Global Dealer Network</h2>
+    </div>
+
+    <div class="region reveal">
+      <h3>Americas</h3>
+      <div class="dealer-grid">
+        <div class="dealer-card">
+          <div class="country">Argentina</div>
+          <div class="company">Malpa Machinery</div>
+          <address>Ing. Miguel Proto<br>Dean Funes 3701, Benavidez 1621<br>Tigre – Buenos Aires, Argentina</address>
+          <div class="contact-line">Mob: +54 911 617 588 92<br><a href="mailto:mproto2@gmail.com">mproto2@gmail.com</a> · <a href="https://www.malpa.com.ar" target="_blank" rel="noopener">malpa.com.ar</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Brazil</div>
+          <div class="company">Codipar</div>
+          <address>Rua Job Lane, 989 – Cep: 04639-001<br>São Paulo / SP, Brasil</address>
+          <div class="contact-line">Tel: +55 11 5687 9318<br><a href="mailto:stefan@codipar.com.br">stefan@codipar.com.br</a> · <a href="https://www.codipar.com.br" target="_blank" rel="noopener">codipar.com.br</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Colombia</div>
+          <div class="company">Funal S.A.S</div>
+          <address>Bogotá / Colombia</address>
+          <div class="contact-line">Tel: +57 315 8868620 · Mob: +57 315 635-4924<br><a href="mailto:uakoch@funal.com.co">uakoch@funal.com.co</a> · <a href="https://funal.com.co" target="_blank" rel="noopener">funal.com.co</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Mexico</div>
+          <div class="company">Candytech</div>
+          <address>Adolfo Prieto 1224 Int. 101 A<br>Mex-03100-DF</address>
+          <div class="contact-line">Tel: +52 55 1251 5910 · Fax: +52 55 1251 5911<br><a href="mailto:info@candytech.com.mx">info@candytech.com.mx</a> · <a href="https://www.candytech.com.mx" target="_blank" rel="noopener">candytech.com.mx</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">USA / Canada</div>
+          <div class="company">Dr. Choc Consulting</div>
+          <address>Laurent Besin<br>USA</address>
+          <div class="contact-line">Tel: +1 312 391 6772<br><a href="mailto:laurent@drchocconsulting.com">laurent@drchocconsulting.com</a> · <a href="https://drchocconsulting.com" target="_blank" rel="noopener">drchocconsulting.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region reveal">
+      <h3>Middle East</h3>
+      <div class="dealer-grid">
+        <div class="dealer-card">
+          <div class="country">Egypt</div>
+          <div class="company">Cairo Trading Center – Mahmoud Abouzeid & Partners S.A.E.</div>
+          <address>Eng. Amr Abouzeid<br>32 West Sumed Business Center, 6th of October, Giza, Egypt</address>
+          <div class="contact-line">Tel: +202 38381750 (9 lines) · Fax: +202 38381759 · Mob: +2012 222366867<br><a href="mailto:info@ctc-sweets.com">info@ctc-sweets.com</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Middle East</div>
+          <div class="company">CMSS Complete Machinery Solutions & Services S.A.L</div>
+          <address>Menassa Center, 1st Floor<br>Jamhour, Baabda, Lebanon</address>
+          <div class="contact-line">Tel: +961 5 768924 · Mob: +961 3 249194<br><a href="mailto:jamal@cmss.me">jamal@cmss.me</a> · <a href="https://www.cmss.me" target="_blank" rel="noopener">cmss.me</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Turkey</div>
+          <div class="company">Medley Dis. Tic. Mum. Ltd. Sti.</div>
+          <address>Cumhuriyet Cd. Merkez, Apt. No 105/5<br>Elmadag / Sisli, 34273 Istanbul</address>
+          <div class="contact-line">Tel: +90 212 233 59 20<br><a href="mailto:info@medley.com.tr">info@medley.com.tr</a> · <a href="https://www.medley.com.tr" target="_blank" rel="noopener">medley.com.tr</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region reveal">
+      <h3>Europe</h3>
+      <div class="dealer-grid">
+        <div class="dealer-card">
+          <div class="country">Czech Republic / Slovakia</div>
+          <div class="company">Cormac s.r.o.</div>
+          <address>Klimentská 1443/50<br>110 00 Praha 1, Czech Republic</address>
+          <div class="contact-line">Tel: +420 602 212 826<br><a href="mailto:soucek@cormac.eu">soucek@cormac.eu</a> · <a href="https://cormac.eu" target="_blank" rel="noopener">cormac.eu</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Eastern Europe (SI, RS, BA, AL, ME, HR, XK, MK, RO)</div>
+          <div class="company">TRIKNO AG South East Europe</div>
+          <address>Goran Trajkovic<br>Marksteinstrasse 5, 8552 Felben-Wellhausen, Switzerland</address>
+          <div class="contact-line">Tel: <a href="tel:+41527662525">+41 52 766 25 25</a> · Mob: <a href="tel:+41795664766">+41 79 566 47 66</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a> · <a href="https://www.trikno.ch" target="_blank" rel="noopener">trikno.ch</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Hungary</div>
+          <div class="company">Cormac Industrial BV</div>
+          <address>Baross u. 81. 2/20<br>1082 Budapest, Hungary</address>
+          <div class="contact-line">Eduard Puka, Manager · Tel: +36 70 942 3906<br><a href="mailto:puka@cormac.eu">puka@cormac.eu</a> · <a href="https://www.cormac.eu" target="_blank" rel="noopener">cormac.eu</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Poland</div>
+          <div class="company">Jan Szelagowski</div>
+          <address>Warschau / Poland</address>
+          <div class="contact-line">Tel: +48 22 751 86 16 · Fax: +48 22 751 86 16<br><a href="mailto:szelagow@wa.onet.pl">szelagow@wa.onet.pl</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">United Kingdom / Ireland</div>
+          <div class="company">Egan Food Technologies</div>
+          <address>4720 Clay Ave. SW<br>Grand Rapids, MI 49548</address>
+          <div class="contact-line">Tel: +1 616 855 1820 · Fax: +1 616 855 1821<br><a href="mailto:info@eganfoodtech.com">info@eganfoodtech.com</a> · <a href="https://www.eganfoodtech.com" target="_blank" rel="noopener">eganfoodtech.com</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Germany / Austria</div>
+          <div class="company">TRIKNO AG</div>
+          <address>Marksteinstrasse 5<br>8552 Felben-Wellhausen, Switzerland</address>
+          <div class="contact-line">Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a> · <a href="https://www.trikno.ch" target="_blank" rel="noopener">trikno.ch</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region reveal">
+      <h3>Asia / Pacific</h3>
+      <div class="dealer-grid">
+        <div class="dealer-card">
+          <div class="country">China</div>
+          <div class="company">Melchers China</div>
+          <address>Beijing / Shanghai / Guangzhou</address>
+          <div class="contact-line">Tel: +86 10 6590 6077<br><a href="mailto:contact@melchers.com.cn">contact@melchers.com.cn</a> · <a href="https://www.melchers-china.com" target="_blank" rel="noopener">melchers-china.com</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Japan</div>
+          <div class="company">Tanaka Food Machinery</div>
+          <address>Tokyo / Japan</address>
+          <div class="contact-line">Tel: +81 3 3254 0841<br><a href="mailto:info@tanaka-mach.co.jp">info@tanaka-mach.co.jp</a></div>
+        </div>
+        <div class="dealer-card">
+          <div class="country">Australia / New Zealand</div>
+          <div class="company">Hacos Australasia</div>
+          <address>Melbourne / Australia</address>
+          <div class="contact-line">Tel: +61 3 9876 5432<br><a href="mailto:sales@hacos.com.au">sales@hacos.com.au</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (formerly Knobel) – Swiss experts for premium chocolate and confectionery machinery.</p>
+        <div class="social-row"><a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Competencies</a></li>
+          <li><a href="produkte.html">Products</a></li>
+          <li><a href="dienstleistungen.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Company</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Address</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Switzerland</address>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="kontakt.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Legal Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-bar">
+  <p>This website uses cookies to ensure you get the best possible experience.</p>
+  <div class="cookie-actions">
+    <button type="button">Learn more</button>
+    <button type="button" class="accept">Accept</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  var onScroll = function () {
+    if (!header) return;
+    if (window.scrollY > 12) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  var cookieBar = document.querySelector('.cookie-bar');
+  if (cookieBar) {
+    var dismissed = false;
+    try { dismissed = localStorage.getItem('trikno_cookie_ack') === '1'; } catch (e) {}
+    if (!dismissed) {
+      setTimeout(function () { cookieBar.classList.add('is-visible'); }, 900);
+    }
+    cookieBar.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        cookieBar.classList.remove('is-visible');
+        try { localStorage.setItem('trikno_cookie_ack', '1'); } catch (e) {}
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>

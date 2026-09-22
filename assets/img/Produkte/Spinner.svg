@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#d9e1e6"/>
+      <stop offset="100%" stop-color="#b4bcc3"/>
+    </linearGradient>
+    <linearGradient id="spRotary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f93ab"/>
+      <stop offset="100%" stop-color="#2d6b82"/>
+    </linearGradient>
+    <radialGradient id="spShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a3842" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#2a3842" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="305" rx="135" ry="16" fill="url(#spShadow)"/>
+
+  <!-- 4 Base Feet -->
+  <rect x="90" y="260" width="16" height="35" rx="3" fill="#7d868e"/>
+  <ellipse cx="98" cy="295" rx="14" ry="4" fill="#a4adb5"/>
+  <rect x="294" y="260" width="16" height="35" rx="3" fill="#7d868e"/>
+  <ellipse cx="302" cy="295" rx="14" ry="4" fill="#a4adb5"/>
+
+  <!-- Heavy Duty Chassis / Stand -->
+  <rect x="80" y="195" width="240" height="75" rx="6" fill="url(#spMetal)" stroke="#98a2aa" stroke-width="1.2"/>
+  <rect x="95" y="208" width="100" height="50" rx="3" fill="#e2e8ec" stroke="#b2bcc4" stroke-width="0.8"/>
+  <rect x="205" y="208" width="100" height="50" rx="3" fill="#e2e8ec" stroke="#b2bcc4" stroke-width="0.8"/>
+
+  <!-- Rotating Drum / Centrifuge Basket -->
+  <circle cx="200" cy="120" r="85" fill="#f0f4f7" stroke="#7e8890" stroke-width="3"/>
+  <circle cx="200" cy="120" r="76" fill="none" stroke="url(#spRotary)" stroke-width="6" stroke-dasharray="24,12"/>
+  <circle cx="200" cy="120" r="62" fill="#e4ebf0" stroke="#9ba4ad" stroke-width="1.5"/>
+
+  <!-- Central Hub / Planetary Drive -->
+  <circle cx="200" cy="120" r="28" fill="url(#spMetal)" stroke="#6a737a" stroke-width="1.5"/>
+  <circle cx="200" cy="120" r="14" fill="#2d353b"/>
+  <circle cx="200" cy="120" r="5" fill="#4f93ab"/>
+
+  <!-- 6 Planetary Mold Clamps / Arms around ring -->
+  <rect x="194" y="44" width="12" height="24" rx="2" fill="#3d464d"/>
+  <rect x="194" y="172" width="12" height="24" rx="2" fill="#3d464d"/>
+  <rect x="134" y="78" width="22" height="14" rx="2" fill="#3d464d" transform="rotate(-30, 145, 85)"/>
+  <rect x="244" y="142" width="22" height="14" rx="2" fill="#3d464d" transform="rotate(-30, 255, 149)"/>
+  <rect x="134" y="142" width="22" height="14" rx="2" fill="#3d464d" transform="rotate(30, 145, 149)"/>
+  <rect x="244" y="78" width="22" height="14" rx="2" fill="#3d464d" transform="rotate(30, 255, 85)"/>
+
+  <!-- Mold holders (Yellow/Golden Hollow Forms) -->
+  <rect x="188" y="46" width="24" height="15" rx="3" fill="#e69c24" stroke="#ab6b08" stroke-width="0.8"/>
+  <rect x="188" y="179" width="24" height="15" rx="3" fill="#e69c24" stroke="#ab6b08" stroke-width="0.8"/>
+
+  <!-- Operator Console on Side Pillar -->
+  <rect x="330" y="110" width="12" height="100" rx="3" fill="#8d979f"/>
+  <rect x="316" y="85" width="40" height="52" rx="3" fill="#2d353b" stroke="#5a636a" stroke-width="1"/>
+  <rect x="320" y="90" width="32" height="42" rx="2" fill="#1b2832"/>
+  <circle cx="330" cy="105" r="4" fill="#2ecc71"/>
+  <circle cx="342" cy="105" r="4" fill="#e74c3c"/>
+
+  <!-- TRIKNO Badge -->
+  <rect x="175" y="242" width="50" height="14" rx="2" fill="#fff" stroke="#a2abb2" stroke-width="0.8"/>
+  <text x="180" y="252" font-family="'Montserrat', sans-serif" font-size="7" font-weight="800" fill="#2c343b">TRIKNO</text>
+  <circle cx="218" cy="249" r="1.5" fill="#e74c3c"/>
+</svg>

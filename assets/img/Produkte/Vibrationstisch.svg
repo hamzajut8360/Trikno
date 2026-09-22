@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" width="100%" height="100%">
+  <defs>
+    <!-- Background subtle studio glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#f5f8fa" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#eaf1f5" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Metal gradients -->
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2f5f7"/>
+      <stop offset="45%" stop-color="#e1e6ea"/>
+      <stop offset="75%" stop-color="#cfd6dc"/>
+      <stop offset="100%" stop-color="#bac2c9"/>
+    </linearGradient>
+
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a4adb5"/>
+      <stop offset="50%" stop-color="#b8c1c8"/>
+      <stop offset="100%" stop-color="#8d969e"/>
+    </linearGradient>
+
+    <linearGradient id="metalTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8ecf0"/>
+      <stop offset="100%" stop-color="#c5cdd4"/>
+    </linearGradient>
+
+    <!-- Conveyor Belt Blue -->
+    <linearGradient id="beltBlue" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#1b427b"/>
+      <stop offset="40%" stop-color="#245ca6"/>
+      <stop offset="100%" stop-color="#143666"/>
+    </linearGradient>
+
+    <!-- Acrylic / Plexiglass Glass Tint -->
+    <linearGradient id="acrylicGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4e8f5" stop-opacity="0.55"/>
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#b8d8ec" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#cce4f2" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="acrylicGlassSide" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#a8d0e8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#cbe2f0" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow -->
+    <radialGradient id="shadowFloor" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a3842" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#2a3842" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#2a3842" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Studio Floor Shadow -->
+  <ellipse cx="205" cy="305" rx="145" ry="18" fill="url(#shadowFloor)"/>
+
+  <!-- ===== MACHINE BASE (STAINLESS STEEL CABINET) ===== -->
+  <!-- 4 Adjustable Feet -->
+  <!-- Back Left Foot -->
+  <path d="M78 225 L88 225 L86 265 L80 265 Z" fill="#959ea6"/>
+  <ellipse cx="83" cy="265" rx="7" ry="2.5" fill="#788188"/>
+  <ellipse cx="83" cy="269" rx="10" ry="3.5" fill="#a4adb5"/>
+
+  <!-- Back Right Foot -->
+  <path d="M330 205 L340 205 L338 245 L332 245 Z" fill="#959ea6"/>
+  <ellipse cx="335" cy="245" rx="7" ry="2.5" fill="#788188"/>
+  <ellipse cx="335" cy="249" rx="10" ry="3.5" fill="#a4adb5"/>
+
+  <!-- Front Left Foot -->
+  <path d="M82 250 L94 250 L92 295 L84 295 Z" fill="#879098"/>
+  <ellipse cx="88" cy="295" rx="8" ry="3" fill="#6a7279"/>
+  <ellipse cx="88" cy="300" rx="12" ry="4" fill="#a8b2ba"/>
+
+  <!-- Front Right Foot -->
+  <path d="M336 225 L348 225 L346 270 L338 270 Z" fill="#879098"/>
+  <ellipse cx="342" cy="270" rx="8" ry="3" fill="#6a7279"/>
+  <ellipse cx="342" cy="275" rx="12" ry="4" fill="#a8b2ba"/>
+
+  <!-- Cabinet Body - Left Side -->
+  <polygon points="58,128 170,188 170,270 58,210" fill="url(#metalDark)" stroke="#7e878f" stroke-width="1"/>
+
+  <!-- Cabinet Body - Front Face -->
+  <polygon points="170,188 358,138 358,220 170,270" fill="url(#metalLight)" stroke="#b0b8bf" stroke-width="1"/>
+
+  <!-- Cabinet Top Surface -->
+  <polygon points="58,128 246,78 358,138 170,188" fill="url(#metalTop)" stroke="#b5bdc4" stroke-width="1"/>
+
+  <!-- Cabinet Front Doors Divider & Seams -->
+  <line x1="264" y1="163" x2="264" y2="245" stroke="#9099a1" stroke-width="2"/>
+  <rect x="258" y="195" width="4" height="8" rx="1" fill="#4f93ab"/>
+  <rect x="268" y="193" width="4" height="8" rx="1" fill="#4f93ab"/>
+
+  <!-- Warning Triangle Badge -->
+  <polygon points="278,212 284,202 290,212" fill="#ffd13b" stroke="#333" stroke-width="0.8"/>
+  <line x1="284" y1="205" x2="284" y2="209" stroke="#333" stroke-width="1.2"/>
+  <circle cx="284" cy="210.5" r="0.6" fill="#333"/>
+
+  <!-- Side Panel Screws / Details -->
+  <circle cx="70" cy="145" r="1.5" fill="#717981"/>
+  <circle cx="158" cy="192" r="1.5" fill="#717981"/>
+  <circle cx="70" cy="195" r="1.5" fill="#717981"/>
+  <circle cx="158" cy="255" r="1.5" fill="#717981"/>
+  <circle cx="180" cy="255" r="1.5" fill="#9ea7af"/>
+  <circle cx="348" cy="210" r="1.5" fill="#9ea7af"/>
+
+  <!-- ===== CONVEYOR VIBRATING BELT & DECK ===== -->
+  <!-- Deck Mount Risers (Vibration Springs) -->
+  <rect x="80" y="118" width="16" height="12" rx="2" fill="#384046"/>
+  <rect x="140" y="150" width="16" height="12" rx="2" fill="#384046"/>
+  <rect x="220" y="95" width="16" height="12" rx="2" fill="#384046"/>
+  <rect x="315" y="125" width="16" height="12" rx="2" fill="#384046"/>
+
+  <!-- Conveyor Bed Frame -->
+  <polygon points="62,118 240,70 365,115 187,163" fill="#313940"/>
+
+  <!-- Blue Conveyor Belt -->
+  <polygon points="66,117 238,71 361,114 189,160" fill="url(#beltBlue)" stroke="#1a3f73" stroke-width="1"/>
+
+  <!-- Belt Running Roller Heads (Chrome) -->
+  <ellipse cx="66" cy="120" rx="3.5" ry="5.5" fill="#d2d9de"/>
+  <ellipse cx="361" cy="116" rx="3.5" ry="5.5" fill="#d2d9de"/>
+
+  <!-- Central Vibrating Guide Rails (Stainless Steel Strips) -->
+  <polygon points="128,100 178,87 232,132 182,145" fill="#e5ebf0" opacity="0.9" stroke="#9ba4ad" stroke-width="0.8"/>
+  <polygon points="152,94 202,81 256,126 206,139" fill="#e5ebf0" opacity="0.9" stroke="#9ba4ad" stroke-width="0.8"/>
+
+  <!-- Vibration Drive Motor & Eccentric Units -->
+  <polygon points="175,70 205,62 215,75 185,83" fill="#58636d"/>
+  <rect x="180" y="65" width="14" height="8" rx="2" fill="#2d353b"/>
+  <rect x="202" y="58" width="14" height="8" rx="2" fill="#2d353b"/>
+
+  <!-- ===== ACRYLIC SAFETY ENCLOSURE (CLEAR CANOPY) ===== -->
+  <!-- Top Roof Frame (Stainless Bars) -->
+  <polygon points="46,75 238,24 374,68 182,119" fill="none" stroke="#9bb0c0" stroke-width="2.5"/>
+
+  <!-- Acrylic Roof Glass -->
+  <polygon points="46,75 238,24 374,68 182,119" fill="url(#acrylicGlass)" stroke="#ffffff" stroke-width="1.2"/>
+
+  <!-- Glass Glare Lines -->
+  <line x1="80" y1="65" x2="260" y2="18" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+  <line x1="120" y1="85" x2="310" y2="35" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+
+  <!-- Front Acrylic Panel (Slanted Hatch) -->
+  <polygon points="46,75 182,119 176,175 40,131" fill="url(#acrylicGlassSide)" stroke="#8cb5d0" stroke-width="1.2"/>
+
+  <!-- Right Acrylic Panel -->
+  <polygon points="182,119 374,68 368,124 176,175" fill="url(#acrylicGlassSide)" stroke="#8cb5d0" stroke-width="1.2"/>
+
+  <!-- Metal Support Posts / Corner Pillars -->
+  <line x1="46" y1="75" x2="40" y2="131" stroke="#89959f" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="182" y1="119" x2="176" y2="175" stroke="#89959f" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="374" y1="68" x2="368" y2="124" stroke="#89959f" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="238" y1="24" x2="232" y2="80" stroke="#89959f" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Front Center Glass Handle & Hinges -->
+  <rect x="98" y="112" width="28" height="4" rx="2" fill="#cfd6dc" stroke="#606970" stroke-width="0.8"/>
+  <circle cx="103" cy="114" r="1.5" fill="#333"/>
+  <circle cx="121" cy="114" r="1.5" fill="#333"/>
+
+  <!-- TRIKNO Logo Label on Machine Side -->
+  <rect x="176" y="142" width="54" height="15" rx="2" fill="#ffffff" opacity="0.92" stroke="#b0bac2" stroke-width="0.8"/>
+  <text x="180" y="153" font-family="'Montserrat', 'Poppins', sans-serif" font-size="7.5" font-weight="800" fill="#2c343b" letter-spacing="0.5">TRIKNO</text>
+  <circle cx="224" cy="148" r="2" fill="#e74c3c"/>
+
+  <!-- Subtle Specular Highlights -->
+  <path d="M48 76 L180 118" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M182 120 L372 70" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+</svg>

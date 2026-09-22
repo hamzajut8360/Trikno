@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products – Depositing Machines, Peripheral Devices & ColdPress | TRIKNO</title>
+<meta name="description" content="Discover TRIKNO's product portfolio (formerly Knobel): depositing machines, ColdPress systems, vibration tables, cooling spirals, and handling systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — v3 stylesheet — bold, curvy, animated brand system
+   Blue #6cb8d2 / Grey #282d32 / Orange #d36a36
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.6rem, 5.6vw, 4.4rem); }
+h2{ font-size:clamp(2rem, 3.8vw, 3rem); }
+h3{ font-size:clamp(1.25rem, 2vw, 1.55rem); font-weight:600; }
+h1, h2{ color:var(--blue-dark); }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.08rem; }
+
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:1rem;
+  padding:15px 32px; border-radius:var(--radius-btn); border:none;
+  cursor:pointer; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn-primary{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75); }
+.btn-outline{ background:transparent; color:var(--ink); border:2px solid var(--ink); padding:13px 30px; }
+.btn-outline:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+.btn-ghost-light{ background:rgba(255,255,255,.08); color:#fff; border:2px solid rgba(255,255,255,.6); backdrop-filter:blur(4px); padding:13px 30px; }
+.btn-ghost-light:hover{ background:#fff; color:var(--blue-dark); border-color:#fff; transform:translateY(-2px); }
+
+@keyframes pulseGlow{
+  0%,100%{ box-shadow:0 0 0 0 rgba(108,184,210,.55), 0 10px 26px -12px rgba(79,147,171,.6); }
+  50%{ box-shadow:0 0 0 16px rgba(108,184,210,0), 0 10px 26px -12px rgba(79,147,171,.6); }
+}
+.hero-actions .btn-primary{ animation:pulseGlow 2.6s ease-in-out infinite; }
+
+/* -------------------- Header -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:12px 0; background:rgba(255,255,255,.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 4px 18px -10px rgba(40,45,50,.15); transition:box-shadow .25s ease; }
+.site-header.is-scrolled{ box-shadow:0 8px 24px -10px rgba(40,45,50,.25); }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto; padding:0 28px;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.1) rotate(-4deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a{
+  position:relative; display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a::after{ display:none; }
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; }
+.lang-switch a.active{ color:var(--blue-dark); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+
+.nav-toggle{ display:none; }
+
+/* -------------------- Hero -------------------- */
+.page-hero{
+  background:
+    radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
+    radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+}
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
+.page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
+.page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
+
+/* -------------------- Sections -------------------- */
+section{ padding:80px 0; }
+.section-soft{ background:var(--bg-soft); }
+
+.section-blue{
+  background:var(--blue-grad); color:#fff; position:relative; overflow:hidden;
+}
+.section-blue::before{ content:""; position:absolute; width:360px; height:360px; border-radius:50%; background:rgba(255,255,255,.14); filter:blur(6px); top:-140px; right:-90px; }
+.section-blue::after{ content:""; position:absolute; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,.1); filter:blur(6px); bottom:-100px; left:-60px; }
+.section-blue h2, .section-blue h3{ color:#fff; position:relative; z-index:1; }
+.section-blue p{ color:rgba(255,255,255,.92); position:relative; z-index:1; }
+.section-blue > .container{ position:relative; z-index:1; }
+.section-blue .btn-primary{ background:#fff; color:var(--blue-dark); box-shadow:0 10px 26px -12px rgba(0,0,0,.25); }
+.section-blue .btn-primary:hover{ background:var(--ink); color:#fff; }
+
+.section-head{ max-width:660px; margin-bottom:46px; }
+.section-head .tag{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:block; letter-spacing:.02em; }
+.section-head h2{ font-size:clamp(1.7rem, 2.8vw, 2.3rem); }
+
+/* -------------------- Animated Infinite Reel -------------------- */
+.reel-band{ overflow:hidden; padding:22px 0; }
+.reel-band.on-dark{ background:var(--ink-deep); border-top:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1); }
+.reel-wrap{ display:flex; width:100%; overflow:hidden; mask-image:linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); }
+.reel-track{ display:flex; gap:16px; flex-shrink:0; animation:reelScroll 36s linear infinite; }
+.reel-track.reverse{ animation:reelScrollReverse 42s linear infinite; }
+@keyframes reelScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@keyframes reelScrollReverse{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
+
+.reel-photo{ width:120px; height:74px; border-radius:14px; background:#fff; padding:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.reel-photo img{ max-height:100%; max-width:100%; object-fit:contain; }
+
+/* -------------------- Cards -------------------- */
+.grid{ display:grid; gap:28px; }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+
+.card{
+  background:#fff; border-radius:var(--radius-card); overflow:hidden;
+  border:1px solid var(--line); display:flex; flex-direction:column;
+  box-shadow:0 4px 18px -10px rgba(40,45,50,.15);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-blue);
+  border-color:var(--blue);
+}
+.card-media{ aspect-ratio:4/3; overflow:hidden; background:linear-gradient(135deg, var(--blue-soft), var(--orange-soft)); position:relative; }
+.card-media img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.card:hover .card-media img{ transform:scale(1.08); }
+.card-media--tint::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(27,31,35,.5) 100%);
+  opacity:.4; transition:opacity .3s ease;
+}
+.card:hover .card-media--tint::after{ opacity:.15; }
+
+.card-body{ padding:26px 26px 30px; display:flex; flex-direction:column; flex:1; }
+.card-kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+.card-body h3{ font-size:1.35rem; margin-bottom:10px; color:var(--ink); }
+.card-body p{ font-size:.98rem; line-height:1.6; color:var(--ink-soft); margin-bottom:18px; flex:1; }
+
+/* -------------------- Footer -------------------- */
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
+.footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+.footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
+.footer-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.footer-grid ul li{ line-height:1.75; }
+.footer-grid a{ color:rgba(255,255,255,.68); font-size:.92rem; line-height:inherit; }
+.footer-grid a:hover{ color:var(--blue); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:24px 0; font-size:.85rem; color:rgba(255,255,255,.55); }
+.footer-bottom a{ color:rgba(255,255,255,.55); }
+.footer-bottom a:hover{ color:var(--blue); }
+.social-row{ display:flex; gap:12px; margin-top:14px; }
+.social-row a{ width:36px; height:36px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88rem; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
+.social-row a:hover{ background:var(--blue); border-color:var(--blue); color:var(--ink); transform:translateY(-3px); }
+
+/* -------------------- Cookie banner -------------------- */
+.cookie-bar{
+  position:fixed; left:20px; right:20px; bottom:20px; z-index:500; background:#fff; border:1px solid var(--line-strong);
+  border-radius:var(--radius-card); box-shadow:0 24px 50px -18px rgba(40,45,50,.45); padding:20px 26px;
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap; max-width:780px; margin:0 auto;
+  transform:translateY(140%); transition:transform .4s ease;
+}
+.cookie-bar.is-visible{ transform:translateY(0); }
+.cookie-bar p{ margin:0; font-size:.92rem; flex:1; min-width:200px; color:var(--ink); }
+.cookie-actions{ display:flex; gap:10px; }
+.cookie-actions button{ font-family:"Poppins",sans-serif; font-weight:700; font-size:.85rem; padding:11px 22px; border-radius:999px; border:1px solid var(--line-strong); background:#fff; color:var(--ink); cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease; }
+.cookie-actions button:hover{ border-color:var(--blue); }
+.cookie-actions .accept{ background:var(--blue-grad); color:#fff; border-color:transparent; }
+.cookie-actions .accept:hover{ filter:brightness(.95); }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width:1020px){
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .main-nav{ display:none; }
+}
+@media (max-width:760px){
+  .site-header{ padding:14px 14px 0; }
+  .header-inner{ padding:8px 8px 8px 18px; border-radius:24px; }
+  .main-nav{
+    display:flex; position:fixed; inset:86px 14px auto 14px; background:#fff; flex-direction:column; align-items:stretch;
+    padding:14px; gap:6px; border-radius:24px; box-shadow:0 20px 44px -18px rgba(40,45,50,.4);
+    transform:translateY(-140%); opacity:0; transition:transform .3s ease, opacity .3s ease; max-height:70vh; overflow-y:auto;
+  }
+  .main-nav.is-open{ transform:translateY(0); opacity:1; }
+  .main-nav a{ width:100%; text-align:center; }
+  .nav-toggle{ display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; }
+  .nav-toggle span{ width:22px; height:2px; background:var(--ink); display:block; border-radius:2px; }
+  .header-cta .btn{ padding:10px 18px; font-size:.82rem; }
+  .grid-4, .grid-3{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  section{ padding:56px 0; }
+  .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
+  .site-footer{ border-radius:26px 26px 0 0; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo"></a>
+    <nav class="main-nav">
+      <a href="index.html">Competencies</a>
+      <a href="produkte.html" class="active">Products</a>
+      <a href="dienstleistungen.html">Services</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html">Company</a>
+      <a href="kontakt.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <div class="lang-switch"><a href="../produkte.html">DE</a><span>/</span><a class="active" href="#">EN</a></div>
+      <a class="btn btn-primary" href="#giessmaschinen">Machines in Stock</a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker">Innovative, Versatile, High-Quality</span>
+    <h1>Our Product Portfolio</h1>
+    <p>From compact artisan confiseur machines to fully automated industrial lines – discover our depositing machines, peripheral devices, and patented ColdPress system.</p>
+  </div>
+</section>
+
+<section class="reel-band on-dark">
+  <div class="reel-wrap">
+    <div class="reel-track reverse">
+      <div class="reel-photo"><img src="../assets/img/Produkte/Alpha_CAD.jpg" alt="Alpha CAD" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Vibrationstisch.svg" alt="Vibration Table" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Spirale.png" alt="Cooling Spiral" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Hi-Flex.png" alt="Handling System" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/roboter.png" alt="Robotics" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Alpha_CAD.jpg" alt="Alpha CAD" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Vibrationstisch.svg" alt="Vibration Table" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Spirale.png" alt="Cooling Spiral" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/Hi-Flex.png" alt="Handling System" loading="lazy"></div>
+      <div class="reel-photo"><img src="../assets/img/Produkte/roboter.png" alt="Robotics" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      <a class="card reveal" href="#giessmaschinen">
+        <div class="card-media"><img src="../assets/img/Produkte/Alpha_CAD.jpg" alt="Depositing Machines" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Modular, High-Performance, Expandable</span>
+          <h3>Depositing Machines</h3>
+          <p>Our depositing machines are ideally suited for artisan chocolatiers as well as large-scale industrial applications.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="#peripherie">
+        <div class="card-media"><img src="../assets/img/Produkte/Vibrationstisch.svg" alt="Peripheral Devices" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">From Vibration Tables to Robotics</span>
+          <h3>Peripheral Devices</h3>
+          <p>Our range includes vibration tables, cooling spirals, handling systems, vision controls, spinning machines, and more.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-coldpress.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Produkte/Coldpress.jpg" alt="ColdPress" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">The Unique Patented System</span>
+          <h3>ColdPress</h3>
+          <p>The ColdPress system enables the production of perfectly thin chocolate shells – the foundation of every premium product.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-soft" id="giessmaschinen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Modular, Powerful, Expandable</span>
+      <h2>Our Depositing Machines</h2>
+    </div>
+    <div class="grid grid-4">
+      <a class="card reveal" href="https://trikno.ch/produkte-omega-compact.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/Produkte/Omega%20Compact.png" alt="Omega Compact" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Compact, Agile, Mobile</span>
+          <h3>Omega Compact</h3>
+          <p>The perfect tool for artisan confiseurs – ideally suited for small to mid-sized production batches.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-omega.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Compact, Maneuverable, Mobile</span>
+          <h3>Omega</h3>
+          <p>The versatile powerhouse for chocolatiers – fully mobile on caster wheels for flexible floor use.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-alpha-compact.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/Produkte/alpha_compact.png" alt="Alpha compact" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Space-Saving Design</span>
+          <h3>Alpha compact</h3>
+          <p>Compact depositing machine – optimized for high-precision one-shot filled chocolate items.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-alpha.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Ideal for Detailed Decoration</span>
+          <h3>Alpha</h3>
+          <p>Applied across both confectionery workshops and industrial operations depending on volume requirements.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-eta-theta.html" target="_blank" rel="noopener">
+        <div class="card-media card-media--tint"><img src="../assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Engineered for Third-Party Plants</span>
+          <h3>Eta</h3>
+          <p>Small and compact, ideal as a direct replacement for legacy depositors in space-constrained production lines.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="peripherie">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">The Ideal Addition to Your Line</span>
+      <h2>Our Peripheral Devices</h2>
+    </div>
+    <div class="grid grid-4">
+      <a class="card reveal" href="https://trikno.ch/produkte-vibrationstisch.html" target="_blank" rel="noopener">
+        <div class="card-media" style="background:#fff; display:flex; align-items:center; justify-content:center; padding:12px;"><img src="../assets/img/Produkte/Vibrationstisch.svg" alt="Vibration Table" loading="lazy" style="object-fit:contain;"></div>
+        <div class="card-body">
+          <span class="card-kicker">Quiet and Highly Effective</span>
+          <h3>Vibration Table</h3>
+          <p>Highly efficient, equipped with a proprietary engineered vibration table plate for perfect air release.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-spirale.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Produkte/Spirale.png" alt="Cooling Spiral" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">The Ideal Transport System</span>
+          <h3>Cooling Spiral</h3>
+          <p>Optimal multi-tier vertical cooling and conveying system for moulds of various dimensions.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-handlingsystem.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Produkte/Hi-Flex.png" alt="Handling System" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Handling System with 3D Motion</span>
+          <h3>Handling System</h3>
+          <p>Gearless linear servo robotic system offering positioning precision superior to 0.1 mm.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-vision-control.html" target="_blank" rel="noopener">
+        <div class="card-media" style="background:#fff; display:flex; align-items:center; justify-content:center; padding:12px;"><img src="../assets/img/Produkte/Vision-Control.svg" alt="Vision Control" loading="lazy" style="object-fit:contain;"></div>
+        <div class="card-body">
+          <span class="card-kicker">Empty Mould Inspection</span>
+          <h3>Vision Control</h3>
+          <p>Vision inspection control complete with automatic de-stacking and stacking units.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-schleuder.html" target="_blank" rel="noopener">
+        <div class="card-media" style="background:#fff; display:flex; align-items:center; justify-content:center; padding:12px;"><img src="../assets/img/Produkte/Spinner.svg" alt="Spinning Unit" loading="lazy" style="object-fit:contain;"></div>
+        <div class="card-body">
+          <span class="card-kicker">Compact Spinning Unit</span>
+          <h3>Spinner</h3>
+          <p>Spinning machine ensuring homogeneous chocolate distribution across up to 24 hollow figures simultaneously.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-elevator.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Produkte/elevator.png" alt="Elevator" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">With or Without Cooling</span>
+          <h3>Elevator</h3>
+          <p>Used primarily as a buffer accumulator or vertical lift for overhead mould return conveying.</p>
+        </div>
+      </a>
+      <a class="card reveal" href="https://trikno.ch/produkte-handlingsroboter.html" target="_blank" rel="noopener">
+        <div class="card-media"><img src="../assets/img/Produkte/roboter.png" alt="Robotics" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kicker">Versatile Application</span>
+          <h3>Robotics</h3>
+          <p>Industrial multi-axis robotics deployed rapidly for flexible picking, de-moulding, and handling operations.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-blue">
+  <div class="container" style="text-align:center;">
+    <h2 class="reveal">Unsure Which Machine Best Fits Your Production?</h2>
+    <p class="reveal" style="margin:0 auto 24px;">Our engineering team will advise you on applications, capacity, and modular integration to meet your exact needs.</p>
+    <a class="btn btn-primary reveal" href="kontakt.html">Request a Consultation</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (formerly Knobel) – Swiss experts for premium chocolate and confectionery machinery.</p>
+        <div class="social-row"><a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Competencies</a></li>
+          <li><a href="produkte.html">Products</a></li>
+          <li><a href="dienstleistungen.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Company</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Address</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Switzerland</address>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="kontakt.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Legal Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-bar">
+  <p>This website uses cookies to ensure you get the best possible experience.</p>
+  <div class="cookie-actions">
+    <button type="button">Learn more</button>
+    <button type="button" class="accept">Accept</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  var onScroll = function () {
+    if (!header) return;
+    if (window.scrollY > 12) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  var cookieBar = document.querySelector('.cookie-bar');
+  if (cookieBar) {
+    var dismissed = false;
+    try { dismissed = localStorage.getItem('trikno_cookie_ack') === '1'; } catch (e) {}
+    if (!dismissed) {
+      setTimeout(function () { cookieBar.classList.add('is-visible'); }, 900);
+    }
+    cookieBar.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        cookieBar.classList.remove('is-visible');
+        try { localStorage.setItem('trikno_cookie_ack', '1'); } catch (e) {}
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>

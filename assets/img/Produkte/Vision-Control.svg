@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vcMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f7fa"/>
+      <stop offset="60%" stop-color="#d6dde2"/>
+      <stop offset="100%" stop-color="#b0b8bf"/>
+    </linearGradient>
+    <linearGradient id="vcDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8e979e"/>
+      <stop offset="100%" stop-color="#5a636a"/>
+    </linearGradient>
+    <linearGradient id="vcScreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142129"/>
+      <stop offset="100%" stop-color="#2a3c48"/>
+    </linearGradient>
+    <radialGradient id="camLaser" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4f93ab" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#6cb8d2" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#6cb8d2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vcShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a3842" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#2a3842" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="305" rx="140" ry="16" fill="url(#vcShadow)"/>
+
+  <!-- Base Legs -->
+  <rect x="110" y="250" width="14" height="45" rx="3" fill="#889199"/>
+  <ellipse cx="117" cy="295" rx="12" ry="4" fill="#a2abb2"/>
+  <rect x="276" y="250" width="14" height="45" rx="3" fill="#889199"/>
+  <ellipse cx="283" cy="295" rx="12" ry="4" fill="#a2abb2"/>
+
+  <!-- Lower Frame -->
+  <polygon points="90,190 310,190 290,260 110,260" fill="url(#vcMetal)" stroke="#9ea7ae" stroke-width="1.2"/>
+
+  <!-- Conveyor Bed -->
+  <polygon points="60,190 340,190 350,210 50,210" fill="#1b427b" stroke="#102e59" stroke-width="1"/>
+  <line x1="50" y1="200" x2="350" y2="200" stroke="#255ca6" stroke-width="18"/>
+
+  <!-- Gantry Arch / Tower for Inspection Cameras -->
+  <path d="M140 190 L140 90 Q140 70 160 70 L240 70 Q260 70 260 90 L260 190 Z" fill="none" stroke="url(#vcMetal)" stroke-width="20" stroke-linejoin="round"/>
+  <path d="M140 190 L140 90 Q140 70 160 70 L240 70 Q260 70 260 90 L260 190 Z" fill="none" stroke="#9099a1" stroke-width="1"/>
+
+  <!-- Camera Optical Enclosure -->
+  <rect x="175" y="76" width="50" height="28" rx="4" fill="#2d353b" stroke="#606b73" stroke-width="1"/>
+  <circle cx="190" cy="90" r="7" fill="#15191d" stroke="#4f93ab" stroke-width="1.5"/>
+  <circle cx="190" cy="90" r="3" fill="#6cb8d2"/>
+  <circle cx="210" cy="90" r="7" fill="#15191d" stroke="#4f93ab" stroke-width="1.5"/>
+  <circle cx="210" cy="90" r="3" fill="#6cb8d2"/>
+
+  <!-- Vision Scan Beam -->
+  <polygon points="180,98 220,98 260,190 140,190" fill="url(#camLaser)"/>
+
+  <!-- Control Touch Screen on Pivot Arm -->
+  <path d="M260 130 L295 120" stroke="#717a82" stroke-width="6" stroke-linecap="round"/>
+  <rect x="290" y="85" width="48" height="68" rx="4" fill="#384148" stroke="#7e8890" stroke-width="1.5"/>
+  <rect x="294" y="90" width="40" height="58" rx="2" fill="url(#vcScreen)"/>
+  <line x1="298" y1="102" x2="330" y2="102" stroke="#4f93ab" stroke-width="2"/>
+  <rect x="298" y="110" width="14" height="10" rx="1" fill="#4f93ab" opacity="0.8"/>
+  <rect x="316" y="110" width="14" height="10" rx="1" fill="#2ecc71" opacity="0.8"/>
+  <circle cx="314" cy="138" r="3" fill="#2ecc71"/>
+
+  <!-- Mold / Tray under inspection -->
+  <rect x="165" y="186" width="70" height="14" rx="2" fill="#d08b38" stroke="#8c581a" stroke-width="1"/>
+
+  <!-- TRIKNO Badge -->
+  <rect x="175" y="225" width="50" height="13" rx="2" fill="#fff" stroke="#a2abb2" stroke-width="0.8"/>
+  <text x="180" y="234.5" font-family="'Montserrat', sans-serif" font-size="7" font-weight="800" fill="#2c343b">TRIKNO</text>
+  <circle cx="218" cy="231.5" r="1.5" fill="#e74c3c"/>
+</svg>
