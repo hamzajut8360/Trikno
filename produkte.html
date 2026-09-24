@@ -104,13 +104,18 @@ img{ max-width:100%; display:block; }
 }
 .hero-actions .btn-primary{ animation:pulseGlow 2.6s ease-in-out infinite; }
 
-/* -------------------- Header -------------------- */
-.site-header{ position:sticky; top:0; z-index:200; padding:12px 0; background:rgba(255,255,255,.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 4px 18px -10px rgba(40,45,50,.15); transition:box-shadow .25s ease; }
-.site-header.is-scrolled{ box-shadow:0 8px 24px -10px rgba(40,45,50,.25); }
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events:none; }
 .header-inner{
   display:flex; align-items:center; justify-content:space-between; gap:20px;
-  max-width:var(--container); margin:0 auto; padding:0 28px;
+  max-width:var(--container); margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease, padding .25s ease;
+  pointer-events:auto;
 }
+.site-header.is-scrolled .header-inner{ box-shadow:0 16px 34px -14px rgba(40,45,50,.4); }
 
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand img{ height:38px; width:auto; transition:transform .35s ease; }
@@ -445,21 +450,21 @@ section{ padding:80px 0; }
   <div class="reel-wrap">
     <div class="reel-track reverse">
       <div class="reel-photo"><img src="assets/img/Produkte/Alpha_CAD.jpg" alt="Alpha CAD" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Omega_9-18.png" alt="Omega" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Alpha X HD 48-96-30-2.jpg" alt="Alpha" loading="lazy"></div>
       <div class="reel-photo"><img src="assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Vibrationstisch.svg" alt="Vibrationstisch" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Spirale.png" alt="Spirale" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Hi-Flex.png" alt="Hi-Flex" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/roboter.png" alt="Roboter" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Vibrationstisch.jpg" alt="Vibrationstisch" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Spiral_50M.jpg" alt="Spirale" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Hi-Flex.jpg" alt="Hi-Flex" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Roboter.jpg" alt="Roboter" loading="lazy"></div>
       <div class="reel-photo"><img src="assets/img/Produkte/Alpha_CAD.jpg" alt="Alpha CAD" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Omega_9-18.png" alt="Omega" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Alpha X HD 48-96-30-2.jpg" alt="Alpha" loading="lazy"></div>
       <div class="reel-photo"><img src="assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Vibrationstisch.svg" alt="Vibrationstisch" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Spirale.png" alt="Spirale" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/Hi-Flex.png" alt="Hi-Flex" loading="lazy"></div>
-      <div class="reel-photo"><img src="assets/img/Produkte/roboter.png" alt="Roboter" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Vibrationstisch.jpg" alt="Vibrationstisch" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Spiral_50M.jpg" alt="Spirale" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Hi-Flex.jpg" alt="Hi-Flex" loading="lazy"></div>
+      <div class="reel-photo"><img src="assets/img/Produkte/Roboter.jpg" alt="Roboter" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -476,7 +481,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="#peripherie">
-        <div class="card-media"><img src="assets/img/Produkte/Vibrationstisch.svg" alt="Peripheriegeräte" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/peripheriegeraete.png" alt="Peripheriegeräte" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Vom Vibrationstisch bis zum Roboter</span>
           <h3>Peripheriegeräte</h3>
@@ -503,7 +508,7 @@ section{ padding:80px 0; }
     </div>
     <div class="grid grid-4">
       <a class="card reveal" href="https://trikno.ch/produkte-omega-compact.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="assets/img/Produkte/Omega%20Compact.png" alt="Omega Compact" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Omega Compact.png" alt="Omega Compact" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Kleiner, handlicher, mobil</span>
           <h3>Omega Compact</h3>
@@ -511,7 +516,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-omega.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="assets/img/Produkte/omega.png" alt="Omega" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Omega_9-18.png" alt="Omega" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Klein, handlich, mobil</span>
           <h3>Omega</h3>
@@ -519,7 +524,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-alpha-compact.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="assets/img/Produkte/alpha_compact.png" alt="Alpha compact" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Alpha Compact Z 9-18-35.jpg" alt="Alpha compact" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Platzsparend</span>
           <h3>Alpha compact</h3>
@@ -527,7 +532,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-alpha.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="assets/img/Produkte/alpha.png" alt="Alpha" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Alpha X HD 48-96-30-2.jpg" alt="Alpha" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Gut zum Dekorieren geeignet</span>
           <h3>Alpha</h3>
@@ -535,7 +540,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-eta-theta.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Konzipiert für Anlagen von Drittanbietern</span>
           <h3>Eta</h3>
@@ -554,7 +559,7 @@ section{ padding:80px 0; }
     </div>
     <div class="grid grid-4">
       <a class="card reveal" href="https://trikno.ch/produkte-vibrationstisch.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/Vibrationstisch.svg" alt="Vibrationstisch" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Vibrationstisch.jpg" alt="Vibrationstisch" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Leise und effektiv</span>
           <h3>Vibrationstisch</h3>
@@ -562,7 +567,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-spirale.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/Spirale.png" alt="Spirale" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Spiral_50M.jpg" alt="Spirale" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Das ideale Transportsystem</span>
           <h3>Spirale</h3>
@@ -570,7 +575,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-handlingsystem.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/Hi-Flex.png" alt="Handling System" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Hi-Flex.jpg" alt="Handling System" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Handlingsystem mit 3-D-Motion</span>
           <h3>Handling System</h3>
@@ -578,7 +583,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-vision-control.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/Vision-Control.svg" alt="Vision Control" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/vision-control.png" alt="Vision Control" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Leerformen-Kontrolle</span>
           <h3>Vision Control</h3>
@@ -586,7 +591,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-schleuder.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/Spinner.svg" alt="Spinner" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/spinner.jpg" alt="Spinner" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Kompakte Schleuder</span>
           <h3>Spinner</h3>
@@ -594,7 +599,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-elevator.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/elevator.png" alt="Elevator" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Elevator.jpg" alt="Elevator" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Mit und ohne Kühlung</span>
           <h3>Elevator</h3>
@@ -602,7 +607,7 @@ section{ padding:80px 0; }
         </div>
       </a>
       <a class="card reveal" href="https://trikno.ch/produkte-handlingsroboter.html" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/img/Produkte/roboter.png" alt="Roboter" loading="lazy"></div>
+        <div class="card-media"><img src="assets/img/Produkte/Roboter.jpg" alt="Roboter" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Vielseitig einsetzbar</span>
           <h3>Roboter</h3>

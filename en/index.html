@@ -104,13 +104,18 @@ img{ max-width:100%; display:block; }
 }
 .hero-actions .btn-primary{ animation:pulseGlow 2.6s ease-in-out infinite; }
 
-/* -------------------- Header -------------------- */
-.site-header{ position:sticky; top:0; z-index:200; padding:12px 0; background:rgba(255,255,255,.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 4px 18px -10px rgba(40,45,50,.15); transition:box-shadow .25s ease; }
-.site-header.is-scrolled{ box-shadow:0 8px 24px -10px rgba(40,45,50,.25); }
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events:none; }
 .header-inner{
   display:flex; align-items:center; justify-content:space-between; gap:20px;
-  max-width:var(--container); margin:0 auto; padding:0 28px;
+  max-width:var(--container); margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease, padding .25s ease;
+  pointer-events:auto;
 }
+.site-header.is-scrolled .header-inner{ box-shadow:0 16px 34px -14px rgba(40,45,50,.4); }
 
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand img{ height:38px; width:auto; transition:transform .35s ease; }
@@ -212,15 +217,21 @@ section{ padding:80px 0; }
 .reel-band.on-dark{ background:linear-gradient(160deg, var(--ink), var(--ink-deep)); }
 .reel-wrap{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .reel-track{ display:flex; gap:18px; width:max-content; animation:reelScroll 30s linear infinite; }
+.reel-track:hover{ animation-play-state:paused; }
 .reel-track.reverse{ animation-direction:reverse; animation-duration:36s; }
+.reel-track.reverse:hover{ animation-play-state:paused; }
 @keyframes reelScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .reel-chip{
   flex:0 0 auto; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line);
   border-radius:999px; padding:12px 24px; font-family:"Poppins",sans-serif; font-weight:600; font-size:.92rem;
   color:var(--ink); white-space:nowrap; box-shadow:0 8px 18px -14px rgba(40,45,50,.3);
+  text-decoration:none; cursor:pointer; transition:transform .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.reel-chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--orange); flex:0 0 auto; }
+.reel-chip:hover{ transform:translateY(-3px); border-color:var(--blue); color:var(--blue-dark); box-shadow:0 10px 22px -10px rgba(108,184,210,.5); text-decoration:none; }
+.reel-chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--orange); flex:0 0 auto; transition:background .2s ease, transform .2s ease; }
+.reel-chip:hover .dot{ background:var(--blue); transform:scale(1.25); }
 .reel-band.on-dark .reel-chip{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); color:#fff; }
+.reel-band.on-dark .reel-chip:hover{ background:#fff; color:var(--blue-dark); border-color:#fff; }
 .reel-photo{ flex:0 0 auto; width:190px; height:130px; border-radius:18px; overflow:hidden; border:3px solid #fff; box-shadow:0 14px 28px -16px rgba(40,45,50,.4); }
 .reel-photo img{ width:100%; height:100%; object-fit:cover; }
 .reel-pill-link{ flex:0 0 auto; }
@@ -451,24 +462,24 @@ section{ padding:80px 0; }
 <section class="reel-band on-white">
   <div class="reel-wrap">
     <div class="reel-track">
-      <span class="reel-chip"><span class="dot"></span>One-Shot</span>
-      <span class="reel-chip"><span class="dot"></span>Decoration</span>
-      <span class="reel-chip"><span class="dot"></span>Nuts & Fruits</span>
-      <span class="reel-chip"><span class="dot"></span>ColdPress</span>
-      <span class="reel-chip"><span class="dot"></span>Free-Dress</span>
-      <span class="reel-chip"><span class="dot"></span>Sandwich</span>
-      <span class="reel-chip"><span class="dot"></span>Solid</span>
-      <span class="reel-chip"><span class="dot"></span>Hollow Figures</span>
-      <span class="reel-chip"><span class="dot"></span>Biscuits</span>
-      <span class="reel-chip"><span class="dot"></span>One-Shot</span>
-      <span class="reel-chip"><span class="dot"></span>Decoration</span>
-      <span class="reel-chip"><span class="dot"></span>Nuts & Fruits</span>
-      <span class="reel-chip"><span class="dot"></span>ColdPress</span>
-      <span class="reel-chip"><span class="dot"></span>Free-Dress</span>
-      <span class="reel-chip"><span class="dot"></span>Sandwich</span>
-      <span class="reel-chip"><span class="dot"></span>Solid</span>
-      <span class="reel-chip"><span class="dot"></span>Hollow Figures</span>
-      <span class="reel-chip"><span class="dot"></span>Biscuits</span>
+      <a class="reel-chip" href="one-shot.html"><span class="dot"></span>One-Shot</a>
+      <a class="reel-chip" href="dekorieren.html"><span class="dot"></span>Decorate</a>
+      <a class="reel-chip" href="en-nuesse-und-fruechte.html"><span class="dot"></span>Nuts & Fruits</a>
+      <a class="reel-chip" href="coldpress.html"><span class="dot"></span>ColdPress method</a>
+      <a class="reel-chip" href="en-freidressieren.html"><span class="dot"></span>Free Dressing</a>
+      <a class="reel-chip" href="sandwich.html"><span class="dot"></span>Sandwich</a>
+      <a class="reel-chip" href="solid.html"><span class="dot"></span>Solid</a>
+      <a class="reel-chip" href="en-hohlformen.html"><span class="dot"></span>Hollow Figures</a>
+      <a class="reel-chip" href="biscuits.html"><span class="dot"></span>Biscuit</a>
+      <a class="reel-chip" href="one-shot.html"><span class="dot"></span>One-Shot</a>
+      <a class="reel-chip" href="dekorieren.html"><span class="dot"></span>Decorate</a>
+      <a class="reel-chip" href="en-nuesse-und-fruechte.html"><span class="dot"></span>Nuts & Fruits</a>
+      <a class="reel-chip" href="coldpress.html"><span class="dot"></span>ColdPress method</a>
+      <a class="reel-chip" href="en-freidressieren.html"><span class="dot"></span>Free Dressing</a>
+      <a class="reel-chip" href="sandwich.html"><span class="dot"></span>Sandwich</a>
+      <a class="reel-chip" href="solid.html"><span class="dot"></span>Solid</a>
+      <a class="reel-chip" href="en-hohlformen.html"><span class="dot"></span>Hollow Figures</a>
+      <a class="reel-chip" href="biscuits.html"><span class="dot"></span>Biscuit</a>
     </div>
   </div>
 </section>
@@ -493,7 +504,7 @@ section{ padding:80px 0; }
     </div>
 
     <div class="grid grid-3">
-      <a class="card reveal" href="https://trikno.ch/one-shot.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="one-shot.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/One-Shot.jpg" alt="One-Shot Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Efficiency in a Single Operation</span>
@@ -502,7 +513,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/dekorieren.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="dekorieren.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Dekorieren.jpg" alt="Decoration Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">For Extremely Intricate Detail</span>
@@ -511,34 +522,34 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/nuesse-und-fruechte.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="en-nuesse-und-fruechte.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Nusse_Fruechte.jpg" alt="Nuts & Fruits Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Nuts & Fruits</span>
-          <h3>Large Inclusions</h3>
+          <h3>Nuts & Fruits</h3>
           <p>Reliable processing of masses with large ingredients such as whole nuts, dried fruit, or marshmallows.</p>
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/coldpress.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="coldpress.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/ColdPress-shell.png" alt="ColdPress Process" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Patented – Only at TRIKNO</span>
-          <h3>ColdPress Process</h3>
+          <h3>ColdPress method</h3>
           <p>Our unique patented process for pralines, tablets, hollow figures, blister pre-products, and chocolate with wafers or biscuits.</p>
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/freidressieren.html" target="_blank" rel="noopener">
-        <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Freidressieren.jpg" alt="Free-Dress Application" loading="lazy"></div>
+      <a class="card reveal" href="en-freidressieren.html">
+        <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Freidressieren.jpg" alt="Free Dressing Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">For Small Works of Art</span>
-          <h3>Free-Dress Depositing</h3>
+          <h3>Free Dressing</h3>
           <p>Direct depositing without moulds onto a cooling belt for products with an artistic, premium, and creative appearance.</p>
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/sandwich.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="sandwich.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Sandwich.jpg" alt="Sandwich Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">For Macarons & More</span>
@@ -547,7 +558,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/solid.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="solid.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Solid.png" alt="Solid Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Simple yet Delicious</span>
@@ -556,7 +567,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/hohlformen.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="en-hohlformen.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Hohlformen.png" alt="Hollow Figures Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Seasonal & Hollow Figures</span>
@@ -565,7 +576,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/biscuits.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="biscuits.html">
         <div class="card-media card-media--tint"><img src="../assets/img/Applikationen/Biscuits.jpg" alt="Biscuits Application" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Two Textures United</span>

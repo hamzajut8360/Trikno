@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollow Figures – Application & Solutions | TRIKNO</title>
+<meta name="description" content="Hollow Figures - Who hasn’t seen them – chocolate Santa Clauses, Easter bunnies or lucky beetles?  Traditionally deposited in moulds and distributed using a centrifuga">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — Application Detail Page Style
+   Capsule Header, Hero Showcase, Curved Cards, Responsive Grid
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.4rem, 4.8vw, 3.8rem); color:var(--blue-dark); }
+h2{ font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:var(--blue-dark); }
+h3{ font-size:clamp(1.2rem, 1.8vw, 1.45rem); font-weight:600; }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.06rem; }
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events:none; }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease, padding .25s ease;
+  pointer-events:auto;
+}
+.site-header.is-scrolled .header-inner{ box-shadow:0 16px 34px -14px rgba(40,45,50,.4); }
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.08) rotate(-3deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a{
+  position:relative; display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a::after{ display:none; }
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; border-radius:4px; }
+.lang-switch a.active{ color:var(--blue-dark); font-weight:700; background:var(--blue-soft); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+.nav-toggle{ display:none; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:1rem;
+  padding:14px 30px; border-radius:var(--radius-btn); border:none;
+  cursor:pointer; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+  text-decoration:none;
+}
+.btn-primary{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75); color:#fff; }
+.btn-outline{ background:transparent; color:var(--ink); border:2px solid var(--ink); padding:12px 28px; }
+.btn-outline:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+.btn-ghost{ background:#fff; border:1px solid var(--line); color:var(--ink); box-shadow:0 6px 16px -8px rgba(40,45,50,.18); }
+.btn-ghost:hover{ border-color:var(--blue); color:var(--blue-dark); transform:translateY(-2px); }
+
+/* -------------------- Breadcrumb & Hero Header -------------------- */
+.app-hero{
+  position:relative; background:radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%), radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%), linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
+  color:#fff; padding:54px 0 50px; border-radius:0 0 40px 40px; margin-top:-14px; position:relative; overflow:hidden;
+}
+.app-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.breadcrumb-nav{ display:flex; align-items:center; gap:8px; font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); margin-bottom:20px; }
+.breadcrumb-nav a{ color:rgba(255,255,255,.75); }
+.breadcrumb-nav a:hover{ color:var(--blue); }
+.breadcrumb-nav span{ color:rgba(255,255,255,.4); }
+
+.hero-tag{ display:inline-flex; align-items:center; gap:8px; background:rgba(211,106,54,.2); border:1px solid rgba(211,106,54,.4); color:#ff9f73; font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; padding:6px 16px; border-radius:999px; margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
+.hero-tag .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange); }
+
+.app-hero h1{ color:#fff; font-size:clamp(2.4rem, 4.4vw, 3.6rem); margin-bottom:14px; }
+.app-hero-sub{ color:rgba(255,255,255,.82); font-size:1.15rem; max-width:65ch; line-height:1.6; margin:0; }
+
+/* -------------------- Main Application Layout -------------------- */
+.app-section{ padding:70px 0 90px; background:#fff; }
+.app-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:start; }
+
+.app-image-wrap{
+  position:relative; border-radius:28px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 24px 50px -20px rgba(40,45,50,.35); background:linear-gradient(135deg, var(--bg-soft), #fff);
+  margin-bottom:34px;
+}
+.app-image-wrap img{ width:100%; height:auto; object-fit:cover; display:block; transition:transform .6s ease; }
+.app-image-wrap:hover img{ transform:scale(1.03); }
+.app-image-badge{ position:absolute; bottom:20px; right:20px; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:999px; padding:8px 18px; font-family:"Poppins",sans-serif; font-weight:700; font-size:.82rem; color:var(--ink); box-shadow:0 8px 20px -8px rgba(0,0,0,.2); }
+
+.app-text{ font-size:1.08rem; line-height:1.75; color:var(--ink-soft); margin-bottom:20px; }
+
+/* Tag list for application fields */
+.app-subhead{ font-size:1.25rem; color:var(--ink); margin:36px 0 16px; font-weight:700; }
+.app-tags-list{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0 0 34px; list-style:none; }
+.app-tag-item{
+  display:inline-flex; align-items:center; gap:8px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:999px; padding:10px 20px; font-family:"Poppins",sans-serif; font-size:.9rem; font-weight:600;
+  color:var(--ink); transition:all .2s ease;
+}
+.app-tag-item:hover{ border-color:var(--blue); color:var(--blue-dark); transform:translateY(-2px); box-shadow:0 6px 14px -6px rgba(108,184,210,.4); }
+.app-tag-item .tag-bullet{ width:6px; height:6px; border-radius:50%; background:var(--orange); }
+
+/* Callout Box */
+.callout-box{
+  display:flex; gap:18px; background:linear-gradient(135deg, rgba(108,184,210,.1), rgba(211,106,54,.06));
+  border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:18px;
+  padding:22px 24px; margin-bottom:34px; align-items:flex-start;
+}
+.callout-icon{ color:var(--blue-dark); flex:0 0 auto; margin-top:2px; }
+.callout-content strong{ display:block; font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); margin-bottom:4px; }
+.callout-content span{ font-size:.98rem; color:var(--ink-soft); line-height:1.6; }
+
+/* App actions CTA */
+.app-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; }
+
+/* -------------------- Right Sidebar: Compatible Machines -------------------- */
+.sidebar-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 28px;
+  box-shadow:0 20px 44px -22px rgba(40,45,50,.25); position:sticky; top:110px;
+}
+.sidebar-card h3{ margin-bottom:8px; font-size:1.35rem; color:var(--ink); }
+.sidebar-card p{ font-size:.95rem; margin-bottom:24px; }
+
+.machines-list{ display:flex; flex-direction:column; gap:12px; }
+.machine-chip{
+  display:flex; align-items:center; gap:16px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:18px; padding:16px 18px; text-decoration:none; transition:all .25s ease;
+}
+.machine-chip:hover{
+  background:#fff; border-color:var(--blue); transform:translateX(5px);
+  box-shadow:0 12px 28px -14px rgba(108,184,210,.5);
+}
+.machine-icon-wrap{
+  width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex:0 0 auto;
+}
+.machine-details{ display:flex; flex-direction:column; gap:2px; flex:1; }
+.machine-details strong{ font-family:"Poppins",sans-serif; font-size:.98rem; color:var(--ink); }
+.machine-details span{ font-size:.82rem; color:var(--ink-soft); line-height:1.4; }
+.machine-arrow{ font-size:1.2rem; color:var(--ink-faint); transition:transform .2s ease; }
+.machine-chip:hover .machine-arrow{ transform:translateX(4px); color:var(--blue); }
+
+.sidebar-cta-box{
+  margin-top:28px; padding-top:24px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:12px; text-align:center;
+}
+.sidebar-cta-box p{ margin-bottom:6px; font-size:.92rem; }
+
+/* -------------------- CTA Bottom Band -------------------- */
+.section-blue{
+  background:var(--blue-grad); color:#fff; position:relative; overflow:hidden; padding:70px 0;
+}
+.section-blue::before{ content:""; position:absolute; width:360px; height:360px; border-radius:50%; background:rgba(255,255,255,.14); filter:blur(6px); top:-140px; right:-90px; }
+.section-blue::after{ content:""; position:absolute; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,.1); filter:blur(6px); bottom:-100px; left:-60px; }
+.section-blue h2, .section-blue p{ position:relative; z-index:1; color:#fff; }
+.section-blue .btn-primary{ background:#fff; color:var(--blue-dark); box-shadow:0 10px 26px -12px rgba(0,0,0,.25); }
+.section-blue .btn-primary:hover{ background:var(--ink); color:#fff; }
+
+/* -------------------- Footer -------------------- */
+.site-footer{ background:var(--ink-deep); color:#fff; padding:70px 0 34px; font-size:.96rem; position:relative; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:50px; }
+.site-footer h4{ font-family:"Poppins",sans-serif; font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:18px; }
+.site-footer p{ color:rgba(255,255,255,.7); font-size:.92rem; margin-bottom:14px; }
+.site-footer ul{ list-style:none; padding:0; margin:0; }
+.site-footer li{ margin-bottom:10px; }
+.site-footer a{ color:rgba(255,255,255,.75); transition:color .2s ease; }
+.site-footer a:hover{ color:var(--blue); }
+.social-row a{ display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.1); color:#fff; font-family:"Poppins",sans-serif; font-weight:700; }
+.social-row a:hover{ background:var(--blue); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding-top:28px; display:flex; justify-content:space-between; color:rgba(255,255,255,.5); font-size:.86rem; flex-wrap:wrap; gap:16px; }
+
+/* -------------------- Animations -------------------- */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+@media (max-width: 960px){
+  .app-grid{ grid-template-columns:1fr; gap:36px; }
+  .sidebar-card{ position:static; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media (max-width: 640px){
+  .footer-grid{ grid-template-columns:1fr; }
+  .main-nav{ display:none; }
+  .nav-toggle{ display:block; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--ink); }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    </a>
+
+    <nav class="main-nav">
+      <a class="active" href="index.html">Competencies</a>
+      <a href="produkte.html">Products</a>
+      <a href="dienstleistungen.html">Services</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html">Company</a>
+      <a href="kontakt.html">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <div class="lang-switch">
+        <a class="" href="../hohlformen.html">DE</a>
+        <span>·</span>
+        <a class="active" href="#">EN</a>
+      </div>
+      <a class="btn btn-primary" href="kontakt.html">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="index.html#applications">Applications</a>
+      <span>/</span>
+      <span>Hollow Figures</span>
+    </div>
+
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span>Easter Rabbits and co.</span>
+    </div>
+
+    <h1>Hollow Figures</h1>
+    <p class="app-hero-sub">Highest precision, Swiss engineering, and uncompromising reliability for your confectionery and chocolate production.</p>
+  </div>
+</section>
+
+<section class="app-section">
+  <div class="container">
+    <div class="app-grid">
+
+      <!-- Left Column: Details & Content -->
+      <div class="app-content-col">
+        <div class="app-image-wrap reveal">
+          <img src="../assets/img/Applikationen/Hohlformen.png" alt="Hollow Figures Application" loading="eager">
+          <div class="app-image-badge">TRIKNO Swiss Made</div>
+        </div>
+
+        <div class="reveal">
+          <p class="app-text">Who hasn’t seen them – chocolate Santa Clauses, Easter bunnies or lucky beetles?  Traditionally deposited in moulds and distributed using a centrifugal process.  In industrial production – for example, in the case of surprise eggs – the hollow shells are first filled by using a depositor, then formed into shells approximately 1 mm thick using a ColdPress and optionally filled. The two halves are then book-moulded together.</p>
+
+        </div>
+
+        
+        <div class="callout-box reveal">
+          <div class="callout-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <div class="callout-content">
+            <strong>Pro Tip:</strong>
+            <span>The centrifugal process is carried out using a spinning machine or a ColdPress.</span>
+          </div>
+        </div>
+        
+
+        <div class="reveal">
+          <h3 class="app-subhead">Possible areas of application include:</h3>
+          <ul class="app-tags-list">
+            <li class="app-tag-item"><span class="tag-bullet"></span>Santa Clause chocolates</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Easter Rabbit chocolates</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Easter Egg chocolates</li>
+
+          </ul>
+        </div>
+
+        <div class="app-actions reveal">
+          <a class="btn btn-primary" href="produkte.html">
+            <span>Explore Matching Machines</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-ghost" href="index.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Back to Overview</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Compatible Machines -->
+      <div class="app-sidebar-col">
+        <div class="sidebar-card reveal">
+          <h3>Compatible Machines</h3>
+          <p>These TRIKNO machine systems are perfectly designed for this application:</p>
+
+          <div class="machines-list">
+            
+        <a class="machine-chip reveal" href="produkte.html">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="machine-details">
+            <strong>Alpha</strong>
+            <span>The most flexible high-end depositing & decorating system</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+        
+        <a class="machine-chip reveal" href="produkte.html">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="machine-details">
+            <strong>Eta / Theta</strong>
+            <span>Fully automatic modular depositing lines for industry</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+        
+        <a class="machine-chip reveal" href="produkte.html">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="machine-details">
+            <strong>ColdPress System</strong>
+            <span>Patented cold-pressing system for flawless chocolate shells</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+        
+          </div>
+
+          <div class="sidebar-cta-box">
+            <p>Do you have custom requirements for your confectionery line?</p>
+            <a class="btn btn-primary" href="kontakt.html">Consult an Expert</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-blue">
+  <div class="container" style="text-align:center;">
+    <h2 class="reveal">Realize Your Vision With TRIKNO</h2>
+    <p class="reveal" style="margin:0 auto 26px; max-width:64ch;">From artisan chocolatiers to industrial producers – our modular machinery adapts seamlessly to your confectionery recipes.</p>
+    <a class="btn btn-primary reveal" href="kontakt.html">Schedule a Consultation</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (formerly Knobel) – Swiss experts for premium chocolate and confectionery depositing systems.</p>
+        <div class="social-row"><a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Competencies</a></li>
+          <li><a href="produkte.html">Products</a></li>
+          <li><a href="dienstleistungen.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Company</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Address</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Switzerland</address>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="kontakt.html">Contact Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Legal Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  var onScroll = function () {
+    if (!header) return;
+    if (window.scrollY > 12) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 3, 2) * 80) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+});
+</script>
+</body>
+</html>
