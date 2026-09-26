@@ -143,7 +143,7 @@ img{ max-width:100%; display:block; }
 .hero{
   position:relative; min-height:82vh; display:flex; align-items:flex-end; color:#fff; overflow:hidden;
   background:linear-gradient(135deg, var(--blue) 0%, var(--ink) 55%, var(--orange) 100%);
-  border-radius:0 0 40px 40px;
+  border-radius:0;
   margin-top:-14px;
 }
 .hero-media{ position:absolute; inset:0; }
@@ -173,9 +173,9 @@ img{ max-width:100%; display:block; }
     radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
     radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
     linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
-  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0; margin-top:-14px;
 }
-.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0; }
 .page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
 .page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
 .page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
@@ -350,7 +350,7 @@ section{ padding:80px 0; }
 .feature-copy p{ font-size:.96rem; margin-bottom:0; }
 
 /* -------------------- Footer -------------------- */
-.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:0; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
 .footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
 .footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
@@ -411,8 +411,8 @@ section{ padding:80px 0; }
   .dealer-grid{ grid-template-columns:1fr; }
   .hq-card{ padding:30px; }
   section{ padding:56px 0; }
-  .hero, .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
-  .site-footer{ border-radius:26px 26px 0 0; }
+  .hero, .page-hero, .site-footer{ border-radius:0; }
+  .site-footer{ border-radius:0; }
 }
 
 </style>
@@ -432,7 +432,7 @@ section{ padding:80px 0; }
     </nav>
     <div class="header-cta">
       <div class="lang-switch"><a class="active" href="#">DE</a><span>/</span><a href="en/produkte.html">EN</a></div>
-      <a class="btn btn-primary" href="#giessmaschinen">Maschinen ab Lager</a>
+      <a class="btn btn-primary" href="produkte-omega.html">Maschinen ab Lager</a>
       <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -488,7 +488,7 @@ section{ padding:80px 0; }
           <p>Unser Sortiment umfasst Vibrationstische, Kühlspiralen, Handling Systems, Vision Controls, Spinner und mehr.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-coldpress.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-coldpress.html">
         <div class="card-media"><img src="assets/img/Produkte/Coldpress.jpg" alt="Coldpress" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Das einzigartige System</span>
@@ -507,7 +507,7 @@ section{ padding:80px 0; }
       <h2>Unsere Giessmaschinen</h2>
     </div>
     <div class="grid grid-4">
-      <a class="card reveal" href="https://trikno.ch/produkte-omega-compact.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-omega-compact.html">
         <div class="card-media"><img src="assets/img/Produkte/Omega Compact.png" alt="Omega Compact" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Kleiner, handlicher, mobil</span>
@@ -515,7 +515,7 @@ section{ padding:80px 0; }
           <p>Das perfekte Werkzeug für den Confiseur – ideal geeignet für Kleinbetriebe.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-omega.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-omega.html">
         <div class="card-media"><img src="assets/img/Produkte/Omega_9-18.png" alt="Omega" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Klein, handlich, mobil</span>
@@ -523,7 +523,7 @@ section{ padding:80px 0; }
           <p>Das perfekte Werkzeug für den Confiseur – dank Rollen mobil einsetzbar.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-alpha-compact.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-alpha-compact.html">
         <div class="card-media"><img src="assets/img/Produkte/Alpha Compact Z 9-18-35.jpg" alt="Alpha compact" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Platzsparend</span>
@@ -531,7 +531,7 @@ section{ padding:80px 0; }
           <p>Die kompakte Giessmaschine – optimal für z. B. one-shot-gefüllte Produkte.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-alpha.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-alpha.html">
         <div class="card-media"><img src="assets/img/Produkte/Alpha X HD 48-96-30-2.jpg" alt="Alpha" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Gut zum Dekorieren geeignet</span>
@@ -539,7 +539,7 @@ section{ padding:80px 0; }
           <p>Kommt je nach Bedarf bei Confiseriebetrieben sowie im industriellen Bereich zur Anwendung.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-eta-theta.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-eta-theta.html">
         <div class="card-media"><img src="assets/img/Produkte/eta.png" alt="Eta" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Konzipiert für Anlagen von Drittanbietern</span>
@@ -558,7 +558,7 @@ section{ padding:80px 0; }
       <h2>Unsere Peripheriegeräte</h2>
     </div>
     <div class="grid grid-4">
-      <a class="card reveal" href="https://trikno.ch/produkte-vibrationstisch.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-vibrationstisch.html">
         <div class="card-media"><img src="assets/img/Produkte/Vibrationstisch.jpg" alt="Vibrationstisch" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Leise und effektiv</span>
@@ -566,7 +566,7 @@ section{ padding:80px 0; }
           <p>Hocheffizient, mit einer speziell entwickelten Vibrationsplatte ausgestattet.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-spirale.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-spirale.html">
         <div class="card-media"><img src="assets/img/Produkte/Spiral_50M.jpg" alt="Spirale" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Das ideale Transportsystem</span>
@@ -574,7 +574,7 @@ section{ padding:80px 0; }
           <p>Ideales Transportsystem für Formen von unterschiedlichsten Grössen.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-handlingsystem.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-handlingsystem.html">
         <div class="card-media"><img src="assets/img/Produkte/Hi-Flex.jpg" alt="Handling System" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Handlingsystem mit 3-D-Motion</span>
@@ -582,7 +582,7 @@ section{ padding:80px 0; }
           <p>Getriebeloses Linear-Servo-Robotersystem mit einer Präzision von besser als 0.1 mm.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-vision-control.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-vision-control.html">
         <div class="card-media"><img src="assets/img/Produkte/vision-control.png" alt="Vision Control" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Leerformen-Kontrolle</span>
@@ -590,7 +590,7 @@ section{ padding:80px 0; }
           <p>Vision Control mit Auf- und Abstapler.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-schleuder.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-schleuder.html">
         <div class="card-media"><img src="assets/img/Produkte/spinner.jpg" alt="Spinner" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Kompakte Schleuder</span>
@@ -598,7 +598,7 @@ section{ padding:80px 0; }
           <p>Schleuder für eine homogene Verteilung von bis zu 24 Hohlformen.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-elevator.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-elevator.html">
         <div class="card-media"><img src="assets/img/Produkte/Elevator.jpg" alt="Elevator" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Mit und ohne Kühlung</span>
@@ -606,7 +606,7 @@ section{ padding:80px 0; }
           <p>Hauptsächlich als Puffer oder Lift zum Überkopf-Formenrücktransport verwendet.</p>
         </div>
       </a>
-      <a class="card reveal" href="https://trikno.ch/produkte-handlingsroboter.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="produkte-handlingsroboter.html">
         <div class="card-media"><img src="assets/img/Produkte/Roboter.jpg" alt="Roboter" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kicker">Vielseitig einsetzbar</span>

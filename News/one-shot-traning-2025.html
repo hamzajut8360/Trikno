@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One-Shot Basic Training Mai 2025 | TRIKNO</title>
+<meta name="description" content="Fundiertes Praxistraining für Einsteiger und Fortgeschrittene in der One-Shot Schokoladenproduktion.">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — Authentic Detail Style
+   Capsule Floating Header, Responsive Showcase, 4-Col Footer
+   ========================================================= */
+
+:root {
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.72);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.14);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --container: 1200px;
+}
+
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.16;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1 { font-size:clamp(2.2rem, 4.4vw, 3.4rem); color:var(--blue-dark); }
+h2 { font-size:clamp(1.6rem, 2.8vw, 2.2rem); color:var(--blue-dark); }
+h3 { font-size:clamp(1.2rem, 1.8vw, 1.45rem); font-weight:600; }
+
+p { margin:0 0 1.1em; color:var(--ink-soft); font-size:1.06rem; line-height:1.75; }
+a { color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover { color:var(--blue-dark); }
+img { max-width:100%; display:block; }
+
+.container { max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header {
+  position:sticky; top:0; z-index:200; padding:18px 20px 0;
+  background:linear-gradient(to bottom, rgba(255,255,255,.92) 0%, rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+.header-inner {
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease;
+  pointer-events:auto;
+}
+.site-header.is-scrolled .header-inner { box-shadow:0 18px 36px -14px rgba(40,45,50,.45); }
+
+.brand { display:flex; align-items:center; gap:12px; }
+.brand img { height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img { transform:scale(1.06); }
+
+.main-nav { display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a {
+  display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a:hover { background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active { background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta { display:flex; align-items:center; gap:14px; }
+.lang-switch { display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a { color:var(--ink-soft); padding:2px 5px; border-radius:4px; text-decoration:none; }
+.lang-switch a.active { color:var(--blue-dark); font-weight:700; background:var(--blue-soft); }
+
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 24px; border-radius:var(--radius-btn);
+  font-family:"Poppins", "Roboto", sans-serif; font-weight:600; font-size:.88rem;
+  letter-spacing:.01em; border:none; cursor:pointer; text-decoration:none;
+  transition:all .22s ease;
+}
+.btn:hover { transform:translateY(-2px); }
+.btn-primary { background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none; }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75); }
+.btn-outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.4); padding:10px 22px; }
+.btn-outline:hover { background:rgba(255,255,255,.1); border-color:#fff; }
+.btn-ghost { background:var(--bg-soft); color:var(--ink); border:1px solid var(--line); }
+.btn-ghost:hover { background:#fff; border-color:var(--blue); color:var(--blue-dark); }
+
+/* -------------------- Hero -------------------- */
+.app-hero {
+  background:radial-gradient(100% 120% at 75% 20%, rgba(108,184,210,.25) 0%, rgba(27,31,35,0) 65%),
+             linear-gradient(135deg, #1b1f23 0%, #282d32 100%);
+  color:#fff;
+  padding:110px 0 75px;
+  position:relative;
+  border-radius:0;
+}
+.app-hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:4px; background:var(--blue-grad); }
+
+.breadcrumb-nav { display:flex; align-items:center; gap:8px; font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); margin-bottom:18px; }
+.breadcrumb-nav a { color:rgba(255,255,255,.75); text-decoration:none; }
+.breadcrumb-nav a:hover { color:var(--blue); }
+.breadcrumb-nav span { color:rgba(255,255,255,.4); }
+
+.hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(108,184,210,.14); border:1px solid rgba(108,184,210,.35); color:#2d6b80; font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; padding:6px 16px; border-radius:999px; margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
+.hero-tag .dot { width:7px; height:7px; border-radius:50%; background:var(--blue-dark); }
+
+.app-hero h1 { color:#fff; margin-bottom:14px; }
+.app-hero-sub { color:rgba(255,255,255,.82); font-size:1.15rem; max-width:65ch; margin:0; line-height:1.6; }
+
+/* -------------------- Main Grid -------------------- */
+.detail-section { padding:70px 0 95px; background:#fff; }
+.detail-grid { display:grid; grid-template-columns:1.25fr 0.75fr; gap:50px; align-items:start; }
+
+.detail-media {
+  position:relative; border-radius:24px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 20px 45px -20px rgba(40,45,50,.3); background:#f4f9fb; margin-bottom:36px;
+}
+.detail-media img { width:100%; height:auto; max-height:480px; object-fit:cover; display:block; }
+
+.article-text { font-size:1.08rem; color:var(--ink-soft); line-height:1.8; margin-bottom:22px; }
+
+.callout-box {
+  display:flex; gap:16px; background:var(--bg-soft);
+  border:1px solid var(--line); border-left:4px solid var(--blue-dark);
+  border-radius:16px; padding:22px 24px; margin:36px 0;
+}
+.callout-box strong { display:block; font-family:"Poppins",sans-serif; font-size:.98rem; color:var(--ink); margin-bottom:4px; }
+.callout-box span { font-size:1rem; color:var(--ink-soft); line-height:1.6; }
+
+/* -------------------- Sidebar -------------------- */
+.sidebar-card {
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 28px;
+  box-shadow:0 20px 44px -22px rgba(40,45,50,.25); position:sticky; top:110px;
+}
+.sidebar-item-card {
+  display:flex; flex-direction:column; gap:4px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:16px; padding:15px 18px; margin-bottom:12px; text-decoration:none; transition:all .22s ease;
+}
+.sidebar-item-card:hover {
+  background:#fff; border-color:var(--blue); transform:translateX(4px);
+  box-shadow:0 10px 24px -12px rgba(108,184,210,.5);
+}
+.sidebar-item-card strong { font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); }
+.sidebar-item-card span { font-size:.82rem; color:var(--ink-soft); line-height:1.4; }
+
+/* -------------------- Homepage Matching Footer -------------------- */
+.site-footer { background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:0; margin-top:80px; }
+.footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
+.footer-grid h4 { color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+.footer-grid p, .footer-grid address { font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; margin:0 0 10px; }
+.footer-grid ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.footer-grid ul li { line-height:1.75; }
+.footer-grid a { color:rgba(255,255,255,.68); font-size:.92rem; line-height:inherit; text-decoration:none; transition:color .2s ease; }
+.footer-grid a:hover { color:var(--blue); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:24px 0; font-size:.85rem; color:rgba(255,255,255,.55); }
+.footer-bottom a { color:rgba(255,255,255,.55); text-decoration:none; }
+.footer-bottom a:hover { color:var(--blue); }
+.social-row { display:flex; gap:12px; margin-top:14px; }
+.social-row a { width:36px; height:36px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88rem; color:#fff; text-decoration:none; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
+.social-row a:hover { background:var(--blue); border-color:var(--blue); color:var(--ink); transform:translateY(-3px); }
+
+@media (max-width:1020px) {
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .main-nav { display:none; }
+}
+@media (max-width:760px) {
+  .footer-grid { grid-template-columns:1fr; }
+  .detail-grid { grid-template-columns:1fr; }
+  .header-cta .btn { display:none; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html"><img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo"></a>
+    <nav class="main-nav">
+      <a href="../index.html">Kompetenzen</a>
+      <a href="../produkte.html">Produkte</a>
+      <a class="" href="../dienstleistungen.html">Dienstleistungen</a>
+      <a class="active" href="../news.html">News</a>
+      <a href="../unternehmen.html">Unternehmen</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <div class="header-cta">
+      <div class="lang-switch">
+        <a class="active" href="#">DE</a>
+        <span>·</span>
+        <a class="" href="../en/News/one-shot-traning-2025.html">EN</a>
+      </div>
+      <a class="btn btn-primary" href="../produkte-omega.html">Maschinen ab Lager</a>
+    </div>
+  </div>
+</header>
+
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="../index.html">Startseite</a>
+      <span>/</span>
+      <a href="../news.html">News</a>
+      <span>/</span>
+      <span>One-Shot Basic Training Mai 2025</span>
+    </div>
+    <div class="hero-tag"><span class="dot"></span><span>Basic Training · 23.01.2025</span></div>
+    <h1>One-Shot Basic Training Mai 2025</h1>
+    <p class="app-hero-sub">Fundiertes Praxistraining für Einsteiger und Fortgeschrittene in der One-Shot Schokoladenproduktion.</p>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-media">
+          <img src="../assets/img/News/Mockup_oneshot-25.jpg" alt="One-Shot Basic Training Mai 2025" loading="eager">
+        </div>
+        <h2 style="margin-bottom:20px;">Jetzt anmelden: One-Shot Basic Training 13.–14. Mai 2025</h2>
+        <p class="article-text">Das One-Shot Basic Training bietet das perfekte Fundament für alle, die das Maximum aus ihren TRIKNO Giessanlagen herausholen möchten.</p>
+<p class="article-text">An zwei intensiven Praxistagen vermitteln unsere Experten das essenzielle Rüstzeug: von der optimalen Temperierung über das Füllungsverhältnis bis hin zur täglichen Wartung und Reinigung.</p>
+<p class="article-text">Sichern Sie sich frühzeitig Ihren Platz für diesen beliebten Kurs, der in Wieze, Belgien, stattfindet.</p>
+
+
+        <div class="callout-box">
+          <div>
+            <strong>TRIKNO Swiss Engineering:</strong>
+            <span>Höchste Schweizer Präzision, Zuverlässigkeit und persönliche Betreuung für Ihren langfristigen Produktionserfolg.</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:36px;">
+          <a class="btn btn-primary" href="../kontakt.html">Beratungsgespräch anfragen</a>
+          <a class="btn btn-ghost" href="../news.html">Zurück zu News</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-card">
+          <h3 style="margin-top:0;">Individuelle Beratung & Projektierung</h3>
+          <p style="font-size:.95rem; margin-bottom:20px;">Sprechen Sie direkt mit unseren Schweizer Ingenieuren und Anwendungsspezialisten über Ihre Anforderungen.</p>
+          <div style="margin:20px 0 24px; font-size:.95rem; line-height:1.6; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0;">
+            <strong>TRIKNO AG</strong><br>
+            Marksteinstrasse 5<br>
+            8552 Felben-Wellhausen<br>
+            Schweiz<br><br>
+            Tel: <a href="tel:+41527662525" style="color:var(--blue-dark); font-weight:600;">+41 52 766 25 25</a><br>
+            Mail: <a href="mailto:info@trikno.ch" style="color:var(--blue-dark); font-weight:600;">info@trikno.ch</a>
+          </div>
+          
+          <h4 style="font-size:1.05rem; margin:20px 0 12px; color:var(--ink);">Weitere Themen</h4>
+          
+        <a class="sidebar-item-card" href="Marc-Fuchs.html">
+          <strong>Marc Fuchs neuer CEO</strong>
+          <span>Personelle Weichenstellung bei TRIKNO</span>
+        </a>
+        <a class="sidebar-item-card" href="ProSweets-2025.html">
+          <strong>Messe ProSweets 2025</strong>
+          <span>Besuchen Sie unseren Stand in Köln</span>
+        </a>
+        <a class="sidebar-item-card" href="one-shot-traning-2025.html">
+          <strong>One-Shot Training 2025</strong>
+          <span>Praxis-Schulung in Wieze</span>
+        </a>
+        <a class="sidebar-item-card" href="prosweets-review.html">
+          <strong>ProSweets Rückblick</strong>
+          <span>Messerückschau & Highlights</span>
+        </a>
+
+          <a class="btn btn-primary" style="width:100%; margin-top:16px;" href="../kontakt.html">Beratungsgespräch anfragen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (ehemals Knobel) – Schweizer Experten für hochwertigste Schokoladen- und Confiseriemaschinen, von der kleinen Giessmaschine bis zur kompletten Produktionslinie.</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">Kompetenzen</a></li>
+          <li><a href="../produkte.html">Produkte</a></li>
+          <li><a href="../dienstleistungen.html">Dienstleistungen</a></li>
+          <li><a href="../news.html">News</a></li>
+          <li><a href="../unternehmen.html">Unternehmen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Adresse</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Schweiz</address>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="../kontakt.html">Kontaktformular</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="#">Datenschutzbestimmungen</a> · <a href="#">Impressum</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.classList.add('is-scrolled');
+  } else {
+    header.classList.remove('is-scrolled');
+  }
+}, { passive: true });
+</script>
+</body>
+</html>

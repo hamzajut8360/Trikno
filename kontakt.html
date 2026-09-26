@@ -143,7 +143,7 @@ img{ max-width:100%; display:block; }
 .hero{
   position:relative; min-height:82vh; display:flex; align-items:flex-end; color:#fff; overflow:hidden;
   background:linear-gradient(135deg, var(--blue) 0%, var(--ink) 55%, var(--orange) 100%);
-  border-radius:0 0 40px 40px;
+  border-radius:0;
   margin-top:-14px;
 }
 .hero-media{ position:absolute; inset:0; }
@@ -173,9 +173,9 @@ img{ max-width:100%; display:block; }
     radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
     radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
     linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
-  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0; margin-top:-14px;
 }
-.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0; }
 .page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
 .page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
 .page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
@@ -350,7 +350,7 @@ section{ padding:80px 0; }
 .feature-copy p{ font-size:.96rem; margin-bottom:0; }
 
 /* -------------------- Footer -------------------- */
-.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:0; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
 .footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
 .footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
@@ -411,8 +411,8 @@ section{ padding:80px 0; }
   .dealer-grid{ grid-template-columns:1fr; }
   .hq-card{ padding:30px; }
   section{ padding:56px 0; }
-  .hero, .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
-  .site-footer{ border-radius:26px 26px 0 0; }
+  .hero, .page-hero, .site-footer{ border-radius:0; }
+  .site-footer{ border-radius:0; }
 }
 
 </style>
@@ -432,7 +432,7 @@ section{ padding:80px 0; }
     </nav>
     <div class="header-cta">
       <div class="lang-switch"><a class="active" href="#">DE</a><span>/</span><a href="en/kontakt.html">EN</a></div>
-      <a class="btn btn-primary" href="produkte.html">Maschinen ab Lager</a>
+      <a class="btn btn-primary" href="produkte-omega.html">Maschinen ab Lager</a>
       <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -575,9 +575,9 @@ section{ padding:80px 0; }
         </div>
         <div class="dealer-card">
           <div class="country">Frankreich</div>
-          <div class="company">Cadixpro</div>
-          <address>ZAC Léonard de Vinci, 12 avenue Graham Bell, Bâtiment F<br>77600 Bussy Saint Georges, France</address>
-          <div class="contact-line">Tel: +33 (0)6 48 16 13 91<br><a href="mailto:f.depuydt@cadixpro.com">f.depuydt@cadixpro.com</a> · <a href="https://www.cadixpro.com" target="_blank" rel="noopener">cadixpro.com</a></div>
+          <div class="company">PRO2PACK</div>
+          <address>François Depuydt<br>30, avenue du Général de Gaulle<br>59170 Croix, France</address>
+          <div class="contact-line">Tel: +33 (0) 6 48 16 13 91<br><a href="mailto:depuydt.francois@orange.fr">depuydt.francois@orange.fr</a></div>
         </div>
         <div class="dealer-card">
           <div class="country">Grossbritannien und Irland</div>

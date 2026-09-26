@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha compact – Maschinen-Details | TRIKNO</title>
+<meta name="description" content="Optimal für one-shot-gefüllte Produkte, Pralinen und Dekorarbeiten bei kompakter Stellfläche.">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — Product Detail Page Style
+   Capsule Header, Hero Showcase, Curved Cards, Responsive Grid
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.4rem, 4.8vw, 3.8rem); color:var(--blue-dark); }
+h2{ font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:var(--blue-dark); }
+h3{ font-size:clamp(1.2rem, 1.8vw, 1.45rem); font-weight:600; }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.06rem; }
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events:none; }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease, padding .25s ease;
+  pointer-events:auto;
+}
+.site-header.is-scrolled .header-inner{ box-shadow:0 16px 34px -14px rgba(40,45,50,.4); }
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:38px; width:auto; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.08) rotate(-3deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a{
+  position:relative; display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; border-radius:4px; }
+.lang-switch a.active{ color:var(--blue-dark); font-weight:700; background:var(--blue-soft); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+.nav-toggle{ display:none; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 30px; border-radius:var(--radius-btn);
+  font-family:"Poppins", "Roboto", sans-serif; font-weight:600; font-size:.95rem;
+  letter-spacing:.01em; border:1px solid transparent; cursor:pointer;
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  white-space:nowrap; text-decoration:none;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(0); }
+
+.btn-primary{
+  background:var(--orange); color:#fff;
+  box-shadow:0 10px 24px -10px var(--orange-glow);
+}
+.btn-primary:hover{
+  background:#bf5c2b; color:#fff;
+  box-shadow:0 14px 28px -10px rgba(211,106,54,.5);
+}
+
+.btn-ghost{
+  background:var(--bg-soft); color:var(--ink); border-color:var(--line);
+}
+.btn-ghost:hover{
+  background:#fff; border-color:var(--blue); color:var(--blue-dark);
+  box-shadow:0 6px 18px -8px rgba(108,184,210,.4);
+}
+
+/* -------------------- Hero Banner -------------------- */
+.app-hero{
+  background:radial-gradient(100% 120% at 75% 20%, rgba(108,184,210,.25) 0%, rgba(27,31,35,0) 65%),
+             linear-gradient(135deg, #1b1f23 0%, #282d32 100%);
+  color:#fff;
+  padding:110px 0 75px;
+  position:relative;
+  overflow:hidden;
+  border-radius:0;
+}
+.app-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); }
+.breadcrumb-nav{ display:flex; align-items:center; gap:8px; font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); margin-bottom:20px; }
+.breadcrumb-nav a{ color:rgba(255,255,255,.75); }
+.breadcrumb-nav a:hover{ color:var(--blue); }
+.breadcrumb-nav span{ color:rgba(255,255,255,.4); }
+
+.hero-tag{ display:inline-flex; align-items:center; gap:8px; background:rgba(211,106,54,.2); border:1px solid rgba(211,106,54,.4); color:#ff9f73; font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; padding:6px 16px; border-radius:999px; margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
+.hero-tag .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange); }
+
+.app-hero h1{ color:#fff; font-size:clamp(2.4rem, 4.4vw, 3.6rem); margin-bottom:14px; }
+.app-hero-sub{ color:rgba(255,255,255,.82); font-size:1.15rem; max-width:65ch; line-height:1.6; margin:0; }
+
+/* -------------------- Main Application Layout -------------------- */
+.app-section{ padding:70px 0 90px; background:#fff; }
+.app-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:start; }
+
+.app-image-wrap{
+  position:relative; border-radius:28px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 24px 50px -20px rgba(40,45,50,.35); background:linear-gradient(135deg, var(--bg-soft), #fff);
+  margin-bottom:34px;
+}
+.app-image-wrap img{ width:100%; height:auto; object-fit:contain; max-height:480px; margin:0 auto; display:block; transition:transform .6s ease; padding:18px; }
+.app-image-wrap:hover img{ transform:scale(1.02); }
+.app-image-badge{ position:absolute; bottom:20px; right:20px; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:999px; padding:8px 18px; font-family:"Poppins",sans-serif; font-weight:700; font-size:.82rem; color:var(--ink); box-shadow:0 8px 20px -8px rgba(0,0,0,.2); }
+
+.app-text{ font-size:1.08rem; line-height:1.75; color:var(--ink-soft); margin-bottom:20px; }
+
+.app-subhead{ font-size:1.25rem; color:var(--ink); margin:36px 0 16px; font-weight:700; }
+.app-tags-list{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0 0 34px; list-style:none; }
+.app-tag-item{
+  display:inline-flex; align-items:center; gap:8px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:999px; padding:10px 20px; font-family:"Poppins",sans-serif; font-size:.9rem; font-weight:600;
+  color:var(--ink); transition:all .2s ease;
+}
+.app-tag-item:hover{ border-color:var(--blue); color:var(--blue-dark); transform:translateY(-2px); box-shadow:0 6px 14px -6px rgba(108,184,210,.4); }
+.app-tag-item .tag-bullet{ width:6px; height:6px; border-radius:50%; background:var(--orange); }
+
+/* Callout Box */
+.callout-box{
+  display:flex; gap:18px; background:linear-gradient(135deg, rgba(108,184,210,.1), rgba(211,106,54,.06));
+  border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:18px;
+  padding:22px 24px; margin-bottom:34px; align-items:flex-start;
+}
+.callout-icon{ color:var(--blue-dark); flex:0 0 auto; margin-top:2px; }
+.callout-content strong{ display:block; font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); margin-bottom:4px; }
+.callout-content span{ font-size:.98rem; color:var(--ink-soft); line-height:1.6; }
+
+/* App actions CTA */
+.app-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; }
+
+/* -------------------- Right Sidebar: Specs & Compatible Apps -------------------- */
+.sidebar-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 28px;
+  box-shadow:0 20px 44px -22px rgba(40,45,50,.25); position:sticky; top:110px;
+}
+.sidebar-card h3{ margin-bottom:8px; font-size:1.35rem; color:var(--ink); }
+.sidebar-card p{ font-size:.95rem; margin-bottom:20px; }
+
+.machines-list{ display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+.machine-chip{
+  display:flex; align-items:center; gap:16px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:18px; padding:14px 18px; text-decoration:none; transition:all .25s ease;
+}
+.machine-chip:hover{
+  background:#fff; border-color:var(--blue); transform:translateX(5px);
+  box-shadow:0 12px 28px -14px rgba(108,184,210,.5);
+}
+.machine-icon-wrap{
+  width:42px; height:42px; border-radius:12px; background:#fff; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex:0 0 auto;
+}
+.machine-details{ display:flex; flex-direction:column; gap:2px; flex:1; }
+.machine-details strong{ font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); }
+.machine-details span{ font-size:.8rem; color:var(--ink-soft); line-height:1.4; }
+.machine-arrow{ font-size:1.2rem; color:var(--ink-faint); transition:transform .2s ease; }
+.machine-chip:hover .machine-arrow{ transform:translateX(4px); color:var(--blue); }
+
+.sidebar-cta-box{
+  margin-top:28px; padding-top:24px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:12px; text-align:center;
+}
+.sidebar-cta-box p{ margin:0; font-size:.95rem; color:var(--ink-soft); }
+
+/* -------------------- Footer -------------------- */
+.site-footer{
+  background:#1b1f23; color:#fff; padding:80px 0 34px; margin-top:0;
+  border-radius:0;
+}
+.footer-grid{ display:grid; grid-template-columns:1.8fr 1fr 1fr 1.2fr; gap:48px; margin-bottom:56px; }
+.footer-brand p{ color:rgba(255,255,255,.65); font-size:.95rem; margin-top:16px; max-width:36ch; }
+.footer-col h4{ color:#fff; font-size:.95rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px; }
+.footer-col ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; }
+.footer-col a{ color:rgba(255,255,255,.7); font-size:.92rem; }
+.footer-col a:hover{ color:var(--blue); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:28px; display:flex; justify-content:space-between; align-items:center; font-size:.85rem; color:rgba(255,255,255,.5); }
+.footer-bottom a{ color:rgba(255,255,255,.6); }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width:980px){
+  .main-nav{ display:none; }
+  .nav-toggle{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%; background:var(--bg-soft);
+    border:1px solid var(--line); cursor:pointer; color:var(--ink);
+  }
+  .app-grid{ grid-template-columns:1fr; gap:40px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:640px){
+  .header-inner{ padding:8px 12px 8px 18px; }
+  .header-cta .btn{ display:none; }
+  .footer-grid{ grid-template-columns:1fr; gap:28px; }
+  .footer-bottom{ flex-direction:column; gap:12px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Kompetenzen</a>
+      <a class="active" href="produkte.html">Produkte</a>
+      <a href="dienstleistungen.html">Dienstleistungen</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html">Unternehmen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="header-cta">
+      <div class="lang-switch">
+        <a class="active" href="#">DE</a>
+        <span>·</span>
+        <a class="" href="en/produkte-alpha-compact.html">EN</a>
+      </div>
+      <a class="btn btn-primary" href="produkte-omega.html">Maschinen ab Lager</a>
+    </div>
+  </div>
+</header>
+
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="index.html">Startseite</a>
+      <span>/</span>
+      <a href="produkte.html">Produkte</a>
+      <span>/</span>
+      <span>Alpha compact</span>
+    </div>
+
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span>Platzsparend & Effizient</span>
+    </div>
+
+    <h1>Alpha compact</h1>
+    <p class="app-hero-sub">Optimal für one-shot-gefüllte Produkte, Pralinen und Dekorarbeiten bei kompakter Stellfläche.</p>
+  </div>
+</section>
+
+<section class="app-section">
+  <div class="container">
+    <div class="app-grid">
+
+      <!-- Left Column: Details & Content -->
+      <div class="app-content-col">
+        <div class="app-image-wrap reveal">
+          <img src="assets/img/Produkte/Alpha Compact Z 9-18-35.jpg" alt="Alpha compact" loading="eager">
+          <div class="app-image-badge">TRIKNO Swiss Engineering</div>
+        </div>
+
+        <div class="reveal">
+          <h2 style="font-size:1.8rem; margin-bottom:18px;">Die kompakte High-Speed Giessmaschine</h2>
+          <p class="app-text">Die Alpha Compact wurde speziell für Betriebe entwickelt, die industrielle High-Speed-Performance auf begrenztem Raum fordern.</p>
+<p class="app-text">Ausgestattet mit getrennten Massenkreisläufen, hochdynamischen Servomotoren und modernster Ventiltechnik produziert sie One-Shot-Artikel mit bis zu 80% Füllungsanteil.</p>
+<p class="app-text">Die Maschine lässt sich als Stand-Alone-Einheit oder als modularer Baustein in bestehende Transportbänder und Kühlspiralen einbinden.</p>
+
+        </div>
+
+        <div class="callout-box reveal">
+          <div class="callout-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <div class="callout-content">
+            <strong>TRIKNO Vorteil: Bis zu 80% Füllungsanteil</strong>
+            <span>Hauchdünne Schokoladenhüllen mit flüssigem oder cremigem Kern – One-Shot in Perfektion.</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="app-subhead">Wichtigste Merkmale & Vorteile:</h3>
+          <ul class="app-tags-list">
+            <li class="app-tag-item"><span class="tag-bullet"></span>Kompakte modulare Servobauweise</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>One-Shot mit extrem dünnen Schalen</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Getrennte Temperaturkreise für Hülle & Füllung</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Bis zu 35 Takte pro Minute</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Schnellwechselsystem für Düsen und Ventile</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Integrierte Rezeptverwaltung mit USB/LAN-Export</li>
+
+          </ul>
+        </div>
+
+        <div class="app-actions reveal">
+          <a class="btn btn-primary" href="kontakt.html">
+            <span>Beratungsgespräch anfragen</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-ghost" href="produkte.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Zurück zur Übersicht</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Specs Table & Compatible Apps -->
+      <div class="app-sidebar-col">
+        <div class="sidebar-card reveal">
+          <h3>Technische Daten</h3>
+          <table style="width:100%; border-collapse:collapse; margin-bottom:24px;">
+            <tbody>
+              <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Taktleistung</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Bis zu 35 Takte/Min.</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Füllungsverhältnis</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Bis zu 80% Füllung zu Schale</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Massenkreise</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">2 getrennte Kreisläufe (beheizt)</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Genauigkeit</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">± 0.15 g pro Kavität</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Abmessungen</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Sehr kompakte Standfläche</td></tr>
+
+            </tbody>
+          </table>
+
+          <h3 style="font-size:1.15rem; margin-top:28px;">Passende Applikationen</h3>
+          <p>Diese Maschine wird idealerweise für folgende Applikationen eingesetzt:</p>
+
+          <div class="machines-list">
+            
+        <a class="machine-chip reveal" href="one-shot.html">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="machine-details">
+            <strong>One-Shot</strong>
+            <span>Pralinen & gefüllte Schokolade</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+        <a class="machine-chip reveal" href="dekorieren.html">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="machine-details">
+            <strong>Dekorieren</strong>
+            <span>Filigrane Muster & Streifen</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+          </div>
+
+          <div class="sidebar-cta-box">
+            <p>Haben Sie individuelle Anforderungen an Ihre Giesslinie?</p>
+            <a class="btn btn-primary" href="kontakt.html">Fachberatung anfordern</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html"><img src="assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px;"></a>
+        <p>Führender Schweizer Hersteller von hochpräzisen Giess- und Dekorieranlagen für Schokolade und Confiserie.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Kompetenzen</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Unternehmen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Produkte</h4>
+        <ul>
+          <li><a href="produkte-schleuder.html">Spinner (Schleuder)</a></li>
+          <li><a href="produkte-omega.html">Omega</a></li>
+          <li><a href="produkte-alpha.html">Alpha</a></li>
+          <li><a href="produkte-coldpress.html">ColdPress</a></li>
+          <li><a href="produkte-vibrationstisch.html">Vibrationstisch</a></li>
+          <li><a href="produkte-spirale.html">Kühlspirale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p style="color:rgba(255,255,255,.7); font-size:.92rem; line-height:1.6; margin:0 0 12px;">
+          TRIKNO AG<br>
+          Marksteinstrasse 5<br>
+          8552 Felben-Wellhausen<br>
+          Schweiz
+        </p>
+        <p style="color:rgba(255,255,255,.7); font-size:.92rem; margin:0;">
+          <a href="tel:+41527662525" style="color:rgba(255,255,255,.7);">+41 52 766 25 25</a><br>
+          <a href="mailto:info@trikno.ch" style="color:rgba(255,255,255,.7);">info@trikno.ch</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG. Alle Rechte vorbehalten.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="kontakt.html">Impressum & Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Floating header scroll shadow
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.classList.add('is-scrolled');
+  } else {
+    header.classList.remove('is-scrolled');
+  }
+}, { passive: true });
+</script>
+</body>
+</html>

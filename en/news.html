@@ -143,7 +143,7 @@ img{ max-width:100%; display:block; }
 .hero{
   position:relative; min-height:82vh; display:flex; align-items:flex-end; color:#fff; overflow:hidden;
   background:linear-gradient(135deg, var(--blue) 0%, var(--ink) 55%, var(--orange) 100%);
-  border-radius:0 0 40px 40px;
+  border-radius:0;
   margin-top:-14px;
 }
 .hero-media{ position:absolute; inset:0; }
@@ -173,9 +173,9 @@ img{ max-width:100%; display:block; }
     radial-gradient(1100px 380px at 15% -10%, var(--blue-glow), transparent 60%),
     radial-gradient(900px 320px at 100% 120%, var(--orange-glow), transparent 60%),
     linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
-  color:#fff; padding:74px 0 64px; position:relative; border-radius:0 0 40px 40px; margin-top:-14px;
+  color:#fff; padding:74px 0 64px; position:relative; border-radius:0; margin-top:-14px;
 }
-.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0 0 40px 40px; }
+.page-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); border-radius:0; }
 .page-hero .kicker{ color:var(--orange); font-family:"Poppins",sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; display:inline-block; letter-spacing:.03em; }
 .page-hero h1{ color:var(--blue); font-size:clamp(2rem, 3.8vw, 2.8rem); max-width:26ch; }
 .page-hero p{ color:rgba(255,255,255,.8); max-width:60ch; margin-top:10px; font-size:1.1rem; }
@@ -349,8 +349,24 @@ section{ padding:80px 0; }
 .feature-copy h4{ margin-bottom:4px; font-size:1.08rem; color:#fff; }
 .feature-copy p{ font-size:.96rem; margin-bottom:0; }
 
+/* -------------------- Newsletter List Block -------------------- */
+.newsletter-box{ background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 34px; margin-bottom:52px; box-shadow:0 14px 30px -18px rgba(40,45,50,.18); }
+.newsletter-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+.newsletter-head h3{ font-size:1.55rem; color:var(--blue-dark); margin:0; }
+.newsletter-grid{ display:flex; flex-direction:column; gap:11px; }
+.newsletter-row{ display:flex; align-items:center; gap:18px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:9px 24px 9px 10px; text-decoration:none; color:var(--ink); transition:all .22s ease; box-shadow:0 4px 12px -8px rgba(40,45,50,.1); }
+.newsletter-row:hover{ border-color:var(--blue); transform:translateX(5px); box-shadow:0 8px 22px -8px rgba(108,184,210,.5); color:var(--blue-dark); text-decoration:none; }
+.newsletter-btn-badge{ background:var(--blue); color:#fff; font-family:"Poppins",sans-serif; font-weight:700; font-size:.86rem; padding:8px 18px; border-radius:999px; white-space:nowrap; letter-spacing:.02em; transition:background .2s ease; }
+.newsletter-row:hover .newsletter-btn-badge{ background:var(--blue-dark); }
+.newsletter-label{ font-family:"Poppins",sans-serif; font-size:1.02rem; font-weight:600; color:var(--ink); flex:1; }
+.newsletter-action{ font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; color:var(--blue-dark); white-space:nowrap; }
+@media (max-width:680px){
+  .newsletter-row{ border-radius:20px; flex-direction:column; align-items:flex-start; gap:8px; padding:14px 18px; }
+  .newsletter-btn-badge{ width:100%; text-align:center; }
+}
+
 /* -------------------- Footer -------------------- */
-.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:40px 40px 0 0; }
+.site-footer{ background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:0; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
 .footer-grid h4{ color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
 .footer-grid p, .footer-grid address{ font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
@@ -411,8 +427,8 @@ section{ padding:80px 0; }
   .dealer-grid{ grid-template-columns:1fr; }
   .hq-card{ padding:30px; }
   section{ padding:56px 0; }
-  .hero, .page-hero, .site-footer{ border-radius:0 0 26px 26px; }
-  .site-footer{ border-radius:26px 26px 0 0; }
+  .hero, .page-hero, .site-footer{ border-radius:0; }
+  .site-footer{ border-radius:0; }
 }
 
 </style>
@@ -432,7 +448,7 @@ section{ padding:80px 0; }
     </nav>
     <div class="header-cta">
       <div class="lang-switch"><a href="../news.html">DE</a><span>/</span><a class="active" href="#">EN</a></div>
-      <a class="btn btn-primary" href="produkte.html">Machines in Stock</a>
+      <a class="btn btn-primary" href="produkte-omega.html">Machines in Stock</a>
       <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -448,27 +464,45 @@ section{ padding:80px 0; }
 
 <section>
   <div class="container">
-    <div class="section-head reveal">
-      <span class="tag">Newsletter</span>
-      <h2>Recent Editions</h2>
-    </div>
-    <div class="reel-wrap" style="margin-bottom:46px;">
-      <div class="reel-track">
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-05_Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-05</b> TDS – De-moulding Systems</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-04_Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-04</b> TCM – Depositing Machines</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-03_Interpack-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-03</b> interpack 2026 in Düsseldorf</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-02_TRIKNO-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-02</b> TCS – Cooling Spiral</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-01_Produkte-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-01</b> Launch of the New Newsletter Series</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-05_Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-05</b> TDS – De-moulding Systems</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-04_Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-04</b> TCM – Depositing Machines</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-03_Interpack-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-03</b> interpack 2026 in Düsseldorf</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-02_TRIKNO-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-02</b> TCS – Cooling Spiral</a>
-        <a class="pill reel-pill-link" href="https://trikno.ch/assets/pdf/2026-01_Produkte-Newsletter-DE.pdf" target="_blank" rel="noopener"><b>2026-01</b> Launch of the New Newsletter Series</a>
+    <div class="newsletter-box reveal">
+      <div class="newsletter-head">
+        <div>
+          <span class="tag" style="margin-bottom:6px;">Downloads & Updates</span>
+          <h3 style="margin-top:4px;">Newsletter</h3>
+        </div>
+        <p style="margin:0; font-size:.95rem; color:var(--ink-soft);">Access our latest editions directly as PDF</p>
+      </div>
+      <div class="newsletter-grid">
+        <a class="newsletter-row" href="../assets/pdf/2026-05_Newsletter-EN.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">Newsletter 2026-05</span>
+          <span class="newsletter-label">TDS – Formations (Demoulding System)</span>
+          <span class="newsletter-action">Open PDF ↗</span>
+        </a>
+        <a class="newsletter-row" href="../assets/pdf/2026-04_Newsletter-EN.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">Newsletter 2026-04</span>
+          <span class="newsletter-label">TCM – Casting machines (Depositors)</span>
+          <span class="newsletter-action">Open PDF ↗</span>
+        </a>
+        <a class="newsletter-row" href="../assets/pdf/2026-03_Interpack-Newsletter-EN.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">Newsletter 2026-03</span>
+          <span class="newsletter-label">interpack 2026 in Düsseldorf</span>
+          <span class="newsletter-action">Open PDF ↗</span>
+        </a>
+        <a class="newsletter-row" href="../assets/pdf/2026-02_TRIKNO-Newsletter-EN.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">Newsletter 2026-02</span>
+          <span class="newsletter-label">TCS spiral (Conditioning Spiral)</span>
+          <span class="newsletter-action">Open PDF ↗</span>
+        </a>
+        <a class="newsletter-row" href="../assets/pdf/2026-01_Produkte-Newsletter-EN.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">Newsletter 2026 01</span>
+          <span class="newsletter-label">Start of the new newsletter series</span>
+          <span class="newsletter-action">Open PDF ↗</span>
+        </a>
       </div>
     </div>
 
     <div class="news-grid">
-      <a class="card reveal" href="https://trikno.ch/assets/pdf/2026-09_Trikno%20Advanced%20Training_Registration.pdf" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/one-shot-advanced-traning-2025.html">
         <div class="card-media card-media--tint"><img src="../assets/img/one-shot-advanced-bar.jpg" alt="One-Shot Advanced Training" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">TRIKNO Depositing Experts · 15.06.2026</span>
@@ -477,7 +511,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/Callebaut_Trikno_Program_One-Shot_Basic_Training_June26_EN.pdf" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/Callebaut_Trikno_Program_One-Shot_Basic_Training_June26_EN.pdf" target="_blank" rel="noopener">
         <div class="card-media"><img src="../assets/img/News/2026-06_Team-Picture_OS-Basic-Training.jpeg" alt="One-Shot Basic Training" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">TRIKNO Depositing Experts · 15.06.2026</span>
@@ -486,7 +520,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/one-shot-advanced-traning-2025.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/one-shot-advanced-traning-2025.html">
         <div class="card-media"><img src="../assets/img/News/2025-09_Team_One-Shot-Training.jpg" alt="One-Shot Advanced Training 2025" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">TRIKNO Depositing Experts · 20.09.2025</span>
@@ -495,7 +529,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/one-shot-traning-2025.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/one-shot-traning-2025.html">
         <div class="card-media"><img src="../assets/img/News/Mockup_oneshot-25.jpg" alt="One-Shot Basic Training 2025" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">TRIKNO Depositing Experts · 23.01.2025</span>
@@ -504,7 +538,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/ProSweets-2025.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/ProSweets-2025.html">
         <div class="card-media"><img src="../assets/img/News/ProSweets_Stand.png" alt="ProSweets 2025" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Visit Our Stand · 23.01.2025</span>
@@ -513,7 +547,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/Frohe-Weihnachten.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/Frohe-Weihnachten.html">
         <div class="card-media"><img src="../assets/img/News/Frohe-Weihnachten.png" alt="Merry Christmas" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Holiday Season · 23.12.2024</span>
@@ -522,7 +556,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/prosweets-review.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/prosweets-review.html">
         <div class="card-media"><img src="../assets/img/News/ProSweets1.jpeg" alt="ProSweets Review" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Trade Fairs · 20.03.2024</span>
@@ -531,7 +565,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/one-shot-traning.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/one-shot-traning.html">
         <div class="card-media"><img src="../assets/img/News/Trikno_News_01-24_DE.jpg" alt="Barry Callebaut Training" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Success Story · 17.01.2024</span>
@@ -540,7 +574,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/ProSweets.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/ProSweets.html">
         <div class="card-media"><img src="../assets/img/News/ism_23_003_012.jpg" alt="ProSweets 2024" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Visit Our Stand · 16.01.2024</span>
@@ -549,7 +583,7 @@ section{ padding:80px 0; }
         </div>
       </a>
 
-      <a class="card reveal" href="https://trikno.ch/News/Marc-Fuchs.html" target="_blank" rel="noopener">
+      <a class="card reveal" href="News/Marc-Fuchs.html">
         <div class="card-media"><img src="../assets/img/News/Marc_134.jpg" alt="Marc Fuchs CEO" loading="lazy"></div>
         <div class="card-body">
           <span class="meta">Executive Personnel · 01.10.2023</span>
