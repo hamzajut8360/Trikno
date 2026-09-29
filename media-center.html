@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Center: Videos, Prospekte & Datenblätter | TRIKNO</title>
+<meta name="description" content="Erleben Sie TRIKNO Maschinen in Aktion und laden Sie offizielle Broschüren und technische Datenblätter herunter.">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.72);
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.14);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --radius-card: 20px;
+  --radius-btn: 999px;
+  --container: 1200px;
+  --shadow-card: 0 16px 36px -16px rgba(40,45,50,.18);
+  --shadow-blue: 0 20px 42px -16px rgba(108,184,210,.45);
+}
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink); background:var(--paper);
+  font-size:18px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4 {
+  font-family:"Poppins", "Roboto", sans-serif; color:var(--ink);
+  margin:0 0 .5em; line-height:1.2; font-weight:700; letter-spacing:-0.015em;
+}
+h1 { font-size:clamp(2.2rem, 4vw, 3.2rem); color:var(--blue-dark); }
+h2 { font-size:clamp(1.7rem, 2.8vw, 2.3rem); color:var(--blue-dark); }
+h3 { font-size:clamp(1.2rem, 1.8vw, 1.45rem); font-weight:600; }
+p { margin:0 0 1.1em; color:var(--ink-soft); font-size:1.05rem; line-height:1.75; }
+a { color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover { color:var(--blue-dark); }
+img { max-width:100%; display:block; }
+.container { max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* Buttons */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 28px; border-radius:var(--radius-btn);
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.95rem;
+  letter-spacing:.01em; border:none; cursor:pointer; text-decoration:none;
+  transition:all .22s ease;
+}
+.btn:hover { transform:translateY(-2px); }
+.btn-primary { background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+.btn-primary:hover { box-shadow:0 10px 22px -6px rgba(79,147,171,.75); color:#fff; }
+.btn-outline { background:transparent; color:var(--ink); border:2px solid var(--ink); padding:11px 26px; }
+.btn-outline:hover { background:var(--ink); color:#fff; }
+.btn-card-action { background:#fff; color:var(--blue-dark); border:2px solid var(--blue); padding:10px 22px; font-size:.9rem; }
+.btn-card-action:hover { background:var(--blue-grad); color:#fff; border-color:transparent; }
+
+/* Floating Capsule Header */
+.site-header { position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.92) 0%, rgba(255,255,255,0) 100%); pointer-events:none; }
+.header-inner {
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:var(--container); margin:0 auto; background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35); pointer-events:auto;
+}
+.site-header.is-scrolled .header-inner { box-shadow:0 18px 36px -14px rgba(40,45,50,.45); }
+.brand { display:flex; align-items:center; gap:12px; }
+.brand img { height:38px; width:auto; }
+.main-nav { display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; }
+.main-nav a {
+  display:inline-block; padding:11px 18px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  color:var(--ink); transition:all .22s ease;
+}
+.main-nav a:hover { background:#fff; color:var(--blue-dark); }
+.main-nav a.active { background:var(--blue-grad); color:#fff; }
+.header-cta { display:flex; align-items:center; gap:14px; }
+.lang-switch { display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft); }
+.lang-switch a { color:var(--ink-soft); padding:2px 5px; border-radius:4px; }
+.lang-switch a.active { color:var(--blue-dark); font-weight:700; background:var(--blue-soft); }
+.nav-toggle { display:none; }
+
+/* Hero */
+.app-hero {
+  background:radial-gradient(100% 120% at 75% 20%, rgba(108,184,210,.25) 0%, rgba(27,31,35,0) 65%),
+             linear-gradient(135deg, #1b1f23 0%, #282d32 100%);
+  color:#fff; padding:105px 0 70px; position:relative; overflow:hidden; border-radius:0;
+}
+.app-hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); }
+.breadcrumb-nav { display:flex; align-items:center; gap:8px; font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); margin-bottom:16px; }
+.breadcrumb-nav a { color:rgba(255,255,255,.75); }
+.hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); padding:6px 14px; border-radius:999px; font-size:.8rem; font-weight:600; color:#fff; margin-bottom:16px; }
+.hero-tag .dot { width:8px; height:8px; border-radius:50%; background:var(--blue); }
+.app-hero h1 { color:#fff; margin-bottom:12px; }
+.app-hero-sub { font-size:1.15rem; color:rgba(255,255,255,.88); max-width:760px; line-height:1.65; margin:0; }
+
+/* Sections */
+section { padding:72px 0; }
+.section-soft { background:var(--bg-soft); }
+.section-blue { background:linear-gradient(135deg, #282d32 0%, #1b1f23 100%); color:#fff; }
+.section-blue h2 { color:#fff; }
+.section-blue p { color:rgba(255,255,255,.85); }
+
+.split { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center; }
+.split-media { border-radius:var(--radius-card); overflow:hidden; box-shadow:var(--shadow-card); }
+.split-media img { width:100%; height:auto; display:block; }
+
+/* Cards Grid */
+.grid-3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+.grid-2 { display:grid; grid-template-columns:repeat(2, 1fr); gap:28px; }
+.card {
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card);
+  overflow:hidden; box-shadow:var(--shadow-card); transition:transform .25s ease, box-shadow .25s ease;
+  display:flex; flex-direction:column;
+}
+.card:hover { transform:translateY(-6px); box-shadow:var(--shadow-blue); }
+.card-media { aspect-ratio:16/10; overflow:hidden; background:#1b1f23; }
+.card-media img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+.card:hover .card-media img { transform:scale(1.05); }
+.card-body { padding:26px 24px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.card-kicker { color:var(--orange); font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; }
+
+/* Video embed */
+.video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:16px; background:#000; box-shadow:var(--shadow-card); }
+.video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+/* Callout Box */
+.callout-box {
+  background:linear-gradient(135deg, rgba(108,184,210,.14) 0%, rgba(108,184,210,.04) 100%);
+  border-left:4px solid var(--blue-dark); border-radius:0 16px 16px 0;
+  padding:24px 28px; margin:28px 0;
+}
+
+/* Footer */
+.site-footer { background:linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%); color:rgba(255,255,255,.82); padding-top:64px; border-radius:0; }
+.footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12); }
+.footer-grid h4 { color:var(--blue); font-size:.98rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+.footer-grid p, .footer-grid address { font-style:normal; font-size:.92rem; color:rgba(255,255,255,.68); line-height:1.75; }
+.footer-grid ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.footer-grid ul li { line-height:1.75; }
+.footer-grid a { color:rgba(255,255,255,.68); font-size:.92rem; line-height:inherit; }
+.footer-grid a:hover { color:var(--blue); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:24px 0; font-size:.85rem; color:rgba(255,255,255,.55); }
+.footer-bottom a { color:rgba(255,255,255,.55); }
+.footer-bottom a:hover { color:var(--blue); }
+.social-row { display:flex; gap:12px; margin-top:14px; }
+.social-row a { width:36px; height:36px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88rem; }
+.social-row a:hover { background:var(--blue); border-color:var(--blue); color:var(--ink); }
+
+@media (max-width:980px) {
+  .split { grid-template-columns:1fr; }
+  .grid-3 { grid-template-columns:1fr; }
+  .grid-2 { grid-template-columns:1fr; }
+  .main-nav { display:none; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px) {
+  .header-inner { padding:8px 14px; }
+  .header-cta .btn { display:none; }
+  .footer-grid { grid-template-columns:1fr; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    </a>
+    
+    <nav class="main-nav">
+      <a href="index.html">Kompetenzen</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="dienstleistungen.html">Dienstleistungen</a>
+      <a href="news.html">News</a>
+      <a href="unternehmen.html" class="active">Unternehmen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="header-cta">
+      <div class="lang-switch">
+        <a class="active" href="media-center.html">DE</a>
+        <span>·</span>
+        <a  href="en/media-center.html">EN</a>
+      </div>
+      <a class="btn btn-primary" href="produkte-omega.html">Maschinen ab Lager</a>
+    </div>
+  </div>
+</header>
+
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="index.html">Startseite</a>
+      <span>/</span>
+      <a href="unternehmen.html">Unternehmen</a>
+      <span>/</span>
+      <span>Media Center</span>
+    </div>
+    <div class="hero-tag"><span class="dot"></span><span>Videos & Produkt-Dokumentation</span></div>
+    <h1>Videos | Prospekte & Media Center</h1>
+    <p class="app-hero-sub">Erleben Sie unsere Schokoladengiessmaschinen in Bewegung, sehen Sie detaillierte Funktionsvideos und laden Sie offizielle Broschüren herunter.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center; max-width:700px; margin:0 auto 48px;">
+      <h2>Offizielle Maschinen-Videos & Prozessabläufe</h2>
+      <p>Sehen Sie, wie unsere Giess-, Rüttel-, Kühl- und ColdPress-Systeme mit höchster Schweizer Präzision arbeiten.</p>
+    </div>
+    <div class="grid-2">
+      
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/4YpnBv-A_vc" title="Teaser Interpack 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Video-Präsentation</span>
+          <h3 style="font-size:1.2rem; margin-bottom:6px;">Teaser Interpack 2026</h3>
+          <p style="font-size:.95rem; margin-bottom:0;">Was zeigen wir an der interpack 2026? Ein exklusiver Vorgeschmack auf unsere Messeneuheiten und Technologie-Highlights.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/-PtOOax2ico" title="Portfolio TRIKNO Produkte" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Video-Präsentation</span>
+          <h3 style="font-size:1.2rem; margin-bottom:6px;">Portfolio TRIKNO Produkte</h3>
+          <p style="font-size:.95rem; margin-bottom:0;">Präsentation aller TRIKNO Maschinen und modularer Lösungen für Handwerk und Grossindustrie.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/1Rl3hHPIub4" title="Linienkompetenz TRIKNO Step 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Video-Präsentation</span>
+          <h3 style="font-size:1.2rem; margin-bottom:6px;">Linienkompetenz TRIKNO Step 2</h3>
+          <p style="font-size:.95rem; margin-bottom:0;">Vollautomatisierter Produktionsablauf: Vorwärmen, Giessen, Vibrieren und Kühlen perfekt aufeinander abgestimmt.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/BX71j7lRWFQ" title="Linienkompetenz TRIKNO Step 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-kicker">Video-Präsentation</span>
+          <h3 style="font-size:1.2rem; margin-bottom:6px;">Linienkompetenz TRIKNO Step 1</h3>
+          <p style="font-size:.95rem; margin-bottom:0;">Kompakter Prozessablauf: Vorwärmen, Giessen und Kühlen für anspruchsvolle Confiserieprodukte.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-soft">
+  <div class="container">
+    <div style="text-align:center; max-width:760px; margin:0 auto 40px;">
+      <h2>Technische Datenblätter & Broschüren herunterladen (PDF)</h2>
+      <p>Alle offiziellen Datenblätter zu unseren Maschinen und Newslettern stehen hier zum direkten Download auf unserer Website bereit.</p>
+    </div>
+    
+    <h3 style="font-size:1.3rem; margin-bottom:20px; color:var(--blue-dark);">Technische Datenblätter</h3>
+    <div class="grid-3" style="margin-bottom:48px;">
+      
+      <a class="card" href="assets/pdf/TCM-Alpha_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Alpha Giessmaschine</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Alpha-Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Alpha Nut Giessmaschine</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Alpha-Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Alpha Compact</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Omega_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Omega Giessmaschine</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Omega Compact</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCP-Cold Press_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">ColdPress Kaltstempelanlage</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Eta_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Eta Giessmaschine</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCM-Eta Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Eta Nut Giessmaschine</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TVT-Vibration Table_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Vibrationstisch TVT</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TCS-Spiral_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Kühlspirale TCS</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/THS-Handling System_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Handlingsystem THS</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TVC-Vison Control_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Vision Control TVC</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="assets/pdf/TSP-Spinner_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:20px 22px; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </div>
+          <div style="flex:1;">
+            <strong style="color:var(--ink); font-size:1rem; display:block;">Schleuder / Spinner TSP</strong>
+            <span style="color:var(--blue-dark); font-size:.85rem; font-weight:600;">PDF Download</span>
+          </div>
+          <span style="color:var(--ink-soft); font-size:1.2rem;">→</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="card" style="padding:28px 32px; background:#fff;">
+      <h3 style="font-size:1.25rem; margin-bottom:14px; color:var(--blue-dark);">Unternehmens-Newsletter & Messe-Broschüren</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        
+        <a class="btn btn-outline" href="assets/pdf/2026-05_Newsletter-DE.pdf" target="_blank" rel="noopener" style="padding:10px 18px; font-size:.88rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Newsletter 2026-05 (PDF)</span>
+        </a>
+
+        <a class="btn btn-outline" href="assets/pdf/2026-04_Newsletter-DE.pdf" target="_blank" rel="noopener" style="padding:10px 18px; font-size:.88rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Newsletter 2026-04 (PDF)</span>
+        </a>
+
+        <a class="btn btn-outline" href="assets/pdf/2026-03_Interpack-Newsletter-DE.pdf" target="_blank" rel="noopener" style="padding:10px 18px; font-size:.88rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Newsletter 2026-03 Interpack (PDF)</span>
+        </a>
+
+        <a class="btn btn-outline" href="assets/pdf/2026-02_TRIKNO-Newsletter-DE.pdf" target="_blank" rel="noopener" style="padding:10px 18px; font-size:.88rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Newsletter 2026-02 TRIKNO (PDF)</span>
+        </a>
+
+        <a class="btn btn-outline" href="assets/pdf/2026-01_Produkte-Newsletter-DE.pdf" target="_blank" rel="noopener" style="padding:10px 18px; font-size:.88rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Newsletter 2026-01 Produkte (PDF)</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:38px; margin-bottom:16px;">
+        <p>TRIKNO (ehemals Knobel) – Schweizer Experten für hochwertigste Schokoladen- und Confiseriemaschinen, von der kleinen Giessmaschine bis zur kompletten Produktionslinie.</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/company/trikno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Kompetenzen</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="unternehmen.html">Unternehmen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Adresse</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Schweiz</address>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Tel: <a href="tel:+41527662525">+41 52 766 25 25</a><br><a href="mailto:info@trikno.ch">info@trikno.ch</a></p>
+        <a class="btn btn-outline" style="border:2px solid rgba(255,255,255,.4); color:#fff; margin-top:6px;" href="kontakt.html">Kontaktformular</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO AG</span>
+      <span><a href="assets/pdf/Datenschutz_Trikno.pdf" target="_blank">Datenschutzbestimmungen</a> · <a href="#">Impressum</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) header.classList.add('is-scrolled');
+  else header.classList.remove('is-scrolled');
+}, { passive: true });
+</script>
+</body>
+</html>
