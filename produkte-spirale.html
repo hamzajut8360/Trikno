@@ -129,12 +129,12 @@ img{ max-width:100%; display:block; }
 .btn:active{ transform:translateY(0); }
 
 .btn-primary{
-  background:var(--orange); color:#fff;
-  box-shadow:0 10px 24px -10px var(--orange-glow);
+  background:var(--blue-grad); color:#fff;
+  box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none;
 }
 .btn-primary:hover{
-  background:#bf5c2b; color:#fff;
-  box-shadow:0 14px 28px -10px rgba(211,106,54,.5);
+  background:linear-gradient(135deg, #6cb8d2 0%, #3e8198 100%); color:#fff;
+  transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75);
 }
 
 .btn-ghost{
@@ -371,19 +371,22 @@ img{ max-width:100%; display:block; }
           </a>
         </div>
       
-        <!-- Technical Datasheet Download Box -->
+                <!-- Technical Datasheet Download Box -->
         <div class="datasheet-box reveal" style="margin-top:24px; padding:22px; background:var(--bg-soft); border-radius:var(--radius-card); border:1px solid var(--line);">
-          <h4 style="font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--blue-dark);">Technisches Datenblatt</h4>
-          <p style="font-size:.9rem; color:var(--ink-soft); margin-bottom:16px;">Laden Sie das offizielle Datenblatt mit allen technischen Details herunter:</p>
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            
-          <a class="btn btn-primary" href="assets/pdf/TCS-Spiral_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="margin-bottom:10px; width:100%; justify-content:center; gap:8px;">
+          <h4 style="font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--blue-dark);">Downloads & Dokumentation</h4>
+          <p style="font-size:.9rem; color:var(--ink-soft); margin-bottom:16px;">Offizielle technische Dokumente, Broschüren und Videos:</p>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a class="btn btn-primary" href="assets/pdf/TCS-Spiral_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="flex:1 1 auto; justify-content:center; gap:8px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-            <span>Technisches Datenblatt Kühlspirale (PDF)</span>
+            <span>Technisches Datenblatt TCS-Spiral (PDF)</span>
+          </a>
+          <a class="btn btn-primary" href="assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf" target="_blank" rel="noopener" style="flex:1 1 auto; justify-content:center; gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>IMAGE BROSCHÜRE</span>
           </a>
           </div>
         </div>
-</div>
+      </div>
 
       <!-- Right Column: Specs Table & Compatible Apps -->
       <div class="app-sidebar-col">

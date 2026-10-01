@@ -226,8 +226,8 @@ section{ padding:80px 0; }
 }
 .reel-chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--orange); flex:0 0 auto; }
 .reel-band.on-dark .reel-chip{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); color:#fff; }
-.reel-photo{ flex:0 0 auto; width:190px; height:130px; border-radius:18px; overflow:hidden; border:3px solid #fff; box-shadow:0 14px 28px -16px rgba(40,45,50,.4); }
-.reel-photo img{ width:100%; height:100%; object-fit:cover; }
+.reel-photo{ flex:0 0 auto; width:190px; height:130px; border-radius:18px; overflow:hidden; border:3px solid #fff; box-shadow:0 14px 28px -16px rgba(40,45,50,.4); background:#fff; }
+.reel-photo img{ width:100%; height:100%; object-fit:contain; background:#fff; padding:4px 6px; }
 .reel-pill-link{ flex:0 0 auto; }
 
 /* -------------------- Cards / grids -------------------- */
@@ -413,6 +413,23 @@ section{ padding:80px 0; }
   section{ padding:56px 0; }
   .hero, .page-hero, .site-footer{ border-radius:0; }
   .site-footer{ border-radius:0; }
+}
+
+
+/* -------------------- Newsletter / Datasheet Pill Rows -------------------- */
+.newsletter-box{ background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 34px; margin-bottom:48px; box-shadow:0 14px 30px -18px rgba(40,45,50,.18); }
+.newsletter-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+.newsletter-head h3{ font-size:1.55rem; color:var(--blue-dark); margin:0; }
+.newsletter-grid{ display:flex; flex-direction:column; gap:11px; }
+.newsletter-row{ display:flex; align-items:center; gap:18px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:9px 24px 9px 10px; text-decoration:none; color:var(--ink); transition:all .22s ease; box-shadow:0 4px 12px -8px rgba(40,45,50,.1); }
+.newsletter-row:hover{ border-color:var(--blue); transform:translateX(5px); box-shadow:0 8px 22px -8px rgba(108,184,210,.5); color:var(--blue-dark); text-decoration:none; }
+.newsletter-btn-badge{ background:var(--blue); color:#fff; font-family:"Poppins",sans-serif; font-weight:700; font-size:.86rem; padding:8px 18px; border-radius:999px; white-space:nowrap; letter-spacing:.02em; transition:background .2s ease; min-width:140px; text-align:center; }
+.newsletter-row:hover .newsletter-btn-badge{ background:var(--blue-dark); }
+.newsletter-label{ font-family:"Poppins",sans-serif; font-size:1.02rem; font-weight:600; color:var(--ink); flex:1; }
+.newsletter-action{ font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; color:var(--blue-dark); white-space:nowrap; }
+@media (max-width:680px){
+  .newsletter-row{ border-radius:20px; flex-direction:column; align-items:flex-start; gap:8px; padding:14px 18px; }
+  .newsletter-btn-badge{ width:100%; text-align:center; min-width:unset; }
 }
 
 </style>
@@ -627,158 +644,88 @@ section{ padding:80px 0; }
 </section>
 
 
-<section class="section-soft datasheet-overview-section">
+<section class="section-soft datasheet-overview-section" style="padding:60px 0;">
   <div class="container">
-    <div style="text-align:center; max-width:720px; margin:0 auto 36px;">
-      <span class="tag" style="margin-bottom:8px;">PDF Downloads</span>
-      <h2>Technische Datenblätter zum Download</h2>
-      <p>Laden Sie die offiziellen Spezifikationsblätter (PDF) zu allen TRIKNO Maschinen direkt auf unserer Website herunter:</p>
-    </div>
-    <div class="grid-3">
-      
-        <a class="card reveal" href="assets/pdf/TCM-Alpha_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Alpha Giessmaschine</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+    <div class="newsletter-box reveal" style="background:#fff; margin-bottom:0;">
+      <div class="newsletter-head">
+        <div>
+          <span class="tag" style="margin-bottom:6px;">PDF Downloads</span>
+          <h3 style="margin-top:4px;">Technische Datenblätter</h3>
+        </div>
+        <p style="margin:0; font-size:.95rem; color:var(--ink-soft);">Offizielle Spezifikationsblätter aller TRIKNO Maschinen direkt abrufen</p>
+      </div>
+      <div class="newsletter-grid">
+        <a class="newsletter-row" href="assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf" target="_blank" rel="noopener" style="border:1.5px solid var(--blue); background:rgba(108,184,210,.08); grid-column:1/-1;">
+          <span class="newsletter-btn-badge" style="background:var(--blue-grad); color:#fff;">Broschüre</span>
+          <span class="newsletter-label" style="font-weight:700; color:var(--ink);">TRIKNO Image-Broschüre (Offizieller Firmenkatalog)</span>
+          <span class="newsletter-action" style="color:var(--blue-dark); font-weight:700;">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Alpha-Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Alpha Nut Giessmaschine</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Alpha_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Alpha</span>
+          <span class="newsletter-label">Alpha Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Alpha-Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Alpha Compact</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Alpha-Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Alpha Nut</span>
+          <span class="newsletter-label">Alpha Nut Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Omega_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Omega Giessmaschine</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Alpha-Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Compact</span>
+          <span class="newsletter-label">Alpha Compact Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Omega Compact</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Omega_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Omega</span>
+          <span class="newsletter-label">Omega Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCP-Cold Press_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">ColdPress Kaltstempelung</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Omega Compact</span>
+          <span class="newsletter-label">Omega Compact Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Eta_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Eta Giessmaschine</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCP-Cold Press_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCP-ColdPress</span>
+          <span class="newsletter-label">ColdPress Kaltstempel-System</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCM-Eta Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Eta Nut Giessmaschine</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Eta_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Eta</span>
+          <span class="newsletter-label">Eta Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TVT-Vibration Table_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Vibrationstisch TVT</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCM-Eta Nut_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCM-Eta Nut</span>
+          <span class="newsletter-label">Eta Nut Giessmaschine</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TCS-Spiral_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Kühlspirale TCS</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TVT-Vibration Table_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TVT-Table</span>
+          <span class="newsletter-label">Vibrationstisch TVT</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/THS-Handling System_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Handlingsystem THS</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TCS-Spiral_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TCS-Spiral</span>
+          <span class="newsletter-label">Kühlspirale TCS</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TVC-Vison Control_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Vision Control TVC</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/THS-Handling System_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">THS-Handling</span>
+          <span class="newsletter-label">Handlingsystem THS</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
-        <a class="card reveal" href="assets/pdf/TSP-Spinner_Technical DataSheet_DE.pdf" target="_blank" rel="noopener" style="padding:18px 20px; text-decoration:none; display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);">
-          <div style="width:38px; height:38px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
-          </div>
-          <div style="flex:1;">
-            <strong style="color:var(--ink); font-size:.95rem; display:block;">Schleuder / Spinner TSP</strong>
-            <span style="color:var(--blue-dark); font-size:.82rem; font-weight:600;">Datenblatt (PDF)</span>
-          </div>
-          <span style="color:var(--blue); font-size:1.1rem;">↗</span>
+        <a class="newsletter-row" href="assets/pdf/TVC-Vison Control_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TVC-Vision</span>
+          <span class="newsletter-label">Vision Control TVC</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
         </a>
-
+        <a class="newsletter-row" href="assets/pdf/TSP-Spinner_Technical DataSheet_DE.pdf" target="_blank" rel="noopener">
+          <span class="newsletter-btn-badge">TSP-Spinner</span>
+          <span class="newsletter-label">Schleuder / Spinner TSP</span>
+          <span class="newsletter-action">PDF öffnen ↗</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
