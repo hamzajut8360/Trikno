@@ -1,0 +1,434 @@
+{
+  "settings": {
+    "siteTitle": "TRIKNO – Giessmaschinen & Dosiertechnologie",
+    "brandTagline": "Modular, kraftvoll und erweiterbar",
+    "activeMachineId": "omega-compact",
+    "companyName": "TRIKNO AG",
+    "headquarters": "Schweiz",
+    "phone": "+41 55 286 15 50",
+    "email": "info@trikno.ch"
+  },
+  "machines": [
+    {
+      "id": "omega-compact",
+      "name": "Omega Compact",
+      "kicker": "Kleiner, handlicher, mobiler",
+      "badge": "Confiseur & Labor",
+      "description": "Die Omega Compact ist das perfekte Werkzeug für den Confiseur. Sie ist dank ihrer Rollen mobil einsetzbar. Ausführung in Freiarm-Bauweise für maximale Flexibilität, schnelle Reinigung und werkzeuglosen Formatwechsel.",
+      "longDescription": "Die Omega Compact vereint die bewährte Schweizer Dosiertechnologie von TRIKNO auf kleinstem Raum. Sie ist die ideale Einstiegs- und Erweiterungsmaschine für handwerkliche und gewerbliche Confiseriebetriebe sowie anspruchsvolle Laborversuche.",
+      "image": "assets/img/Produkte/Omega-compact.jpg",
+      "videoUrl": "https://www.youtube.com/embed/bzeZaDalT4Y",
+      "datasheetUrl": "assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf",
+      "datasheetTitle": "Technisches Datenblatt Omega Compact (PDF)",
+      "specs": [
+        {
+          "label": "Formenbreite",
+          "value": "Bis 430 mm"
+        },
+        {
+          "label": "Taktleistung",
+          "value": "Bis zu 25 Takte/Min."
+        },
+        {
+          "label": "Dosierbereich",
+          "value": "0.5 g bis 80 g pro Düse"
+        },
+        {
+          "label": "Kopfbewegung Z-Achse",
+          "value": "100 mm (Servomotor)"
+        },
+        {
+          "label": "Trichtervolumen",
+          "value": "15 bis 30 Liter beheizt"
+        },
+        {
+          "label": "Steuerung",
+          "value": "Volldigital PLC & Farb-Touchpanel"
+        },
+        {
+          "label": "Mobilität",
+          "value": "Fahrbar auf Rollen mit Feststellbremse"
+        }
+      ],
+      "features": [
+        {
+          "id": "f1",
+          "title": "Kopfbewegung in Z-Achse 100 mm",
+          "description": "Präzise elektrische Servomotoren steuern die vertikale Z-Achsen-Bewegung (100 mm) für sauberes, tropffreies Abreissen und exakte Dosierkurven.",
+          "hotspot": {
+            "x": 60,
+            "y": 38
+          },
+          "tag": "Antriebstechnik",
+          "icon": "move-vertical"
+        },
+        {
+          "id": "f2",
+          "title": "Schnelles Umrüsten ohne Zusatzwerkzeug",
+          "description": "Kolben, Büchsen und Düsenplatten lassen sich in wenigen Minuten vollständig ohne Hilfswerkzeuge demontieren und formatwechseln.",
+          "hotspot": {
+            "x": 58,
+            "y": 55
+          },
+          "tag": "Schnellwechsel",
+          "icon": "tool"
+        },
+        {
+          "id": "f3",
+          "title": "Dosiermaschine für Confiseure & Labore",
+          "description": "Speziell konzipiert für flexible Handwerksbetriebe und präzise Laborversuche bei optimaler Raumnutzung.",
+          "hotspot": {
+            "x": 72,
+            "y": 32
+          },
+          "tag": "Einsatzbereich",
+          "icon": "compass"
+        },
+        {
+          "id": "f4",
+          "title": "Hochpräzises Einzeldrehkolbensystem",
+          "description": "Identische Dosierwege für jede einzelne Düse garantieren höchste Gewichtsgenauigkeit bei Pralinen, Riegeln und Schalen.",
+          "hotspot": {
+            "x": 53,
+            "y": 48
+          },
+          "tag": "Dosiergenauigkeit",
+          "icon": "target"
+        },
+        {
+          "id": "f5",
+          "title": "Giesskopf in Freiarm-Ausführung",
+          "description": "Barrierefreier Zugang von drei Seiten für ergonomische Bedienung, rasche Reinigung und beste Sicht auf den Giessvorgang.",
+          "hotspot": {
+            "x": 45,
+            "y": 50
+          },
+          "tag": "Ergonomie",
+          "icon": "maximize"
+        },
+        {
+          "id": "f6",
+          "title": "Volldigitale Maschinensteuerung",
+          "description": "Industrie-PLC und intuitives HMI-Touchpanel mit mehr als 100 Rezepturspeichern für sekundenschnelle Produktwechsel.",
+          "hotspot": {
+            "x": 78,
+            "y": 44
+          },
+          "tag": "Steuerung",
+          "icon": "cpu"
+        },
+        {
+          "id": "f7",
+          "title": "Fernwartung auf PLC, HMI & Servoantriebe",
+          "description": "Direkte weltweite Online-Ferndiagnose und Remote-Support über sichere verschlüsselte LAN- oder WLAN-Verbindung.",
+          "hotspot": {
+            "x": 80,
+            "y": 58
+          },
+          "tag": "Konnektivität",
+          "icon": "wifi"
+        },
+        {
+          "id": "f8",
+          "title": "Einfache Reinigung von Kolben & Büchsen",
+          "description": "Hygienegerechte Konstruktion nach Schweizer Lebensmittelstandards. Alle produktberührenden Teile sind werkzeuglos entnehmbar.",
+          "hotspot": {
+            "x": 50,
+            "y": 66
+          },
+          "tag": "Hygiene",
+          "icon": "sparkles"
+        }
+      ],
+      "variants": [
+        {
+          "id": "v1",
+          "title": "Bedienung Links oder Rechts",
+          "description": "Wahlweise links- oder rechtsseitige Montage des Bedienpanels – optimal an Ihre Raumverhältnisse angepasst.",
+          "tag": "Ergonomie",
+          "badge": "Standardauswahl"
+        },
+        {
+          "id": "v2",
+          "title": "LAN oder WLAN Modem",
+          "description": "Zukunftssicheres Datenmodem für Fernwartung, Rezeptursicherungen und nahtlose Industrie-4.0-Anbindung.",
+          "tag": "Konnektivität",
+          "badge": "IoT & Support"
+        },
+        {
+          "id": "v3",
+          "title": "Band-Laufrichtung",
+          "description": "Transportband von links nach rechts oder von rechts nach links konfigurierbar, passend zu vorhandenen Kühlbändern.",
+          "tag": "Prozessführung",
+          "badge": "Flexibel"
+        },
+        {
+          "id": "v4",
+          "title": "Verschiedene Kolbendurchmesser",
+          "description": "Austauschbare Kolben und Zylinder in verschiedenen Durchmessern für Kleinstmengen (ab 0.5g) bis hin zu grossvolumigen Massen.",
+          "tag": "Modularität",
+          "badge": "Präzision"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "title": "Triple Shot Dosierung",
+          "description": "Gleichzeitiges Giessen von 1 Füllung mit 2 Schalen oder 2 Füllungen mit 1 Schale in einem einzigen Arbeitstakt.",
+          "tag": "Spezialtechnologie",
+          "badge": "Highlight",
+          "details": "Ermöglicht innovative dreischichtige Pralinen- und Schokoriegel-Kreationen."
+        },
+        {
+          "id": "o2",
+          "title": "Schleierdüse für Tafeln & Riegel",
+          "description": "Breitschlitzdüsen für vollflächiges, gleichmässiges Schichten von gefüllten Schokoladentafeln und Riegelmassen.",
+          "tag": "Düsensystem",
+          "badge": "Flächendosierung",
+          "details": "Ideal für Schichten mit Karamell, Nougat oder Fruchtgelees."
+        },
+        {
+          "id": "o3",
+          "title": "Bedienung eines Vibrationstisches via HMI",
+          "description": "Intelligente Ansteuerung und Frequenzregelung externer Rütteltische direkt über den Hauptbildschirm der Maschine.",
+          "tag": "Peripherie",
+          "badge": "Automation",
+          "details": "Optimale Entlüftung und Glättung der gegossenen Schokoladenformen."
+        },
+        {
+          "id": "o4",
+          "title": "Kundenspezifische Formauslegung",
+          "description": "Massgeschneiderte Düsenplatten, Düsenspitzen und Sondergeometrien passend zu Ihren kundenspezifischen Gussformen.",
+          "tag": "Engineering",
+          "badge": "Massanfertigung",
+          "details": "CAD-gefertigte Platten für exakte Formennester."
+        }
+      ],
+      "applications": [
+        {
+          "id": "a1",
+          "title": "Pralinen & Riegel",
+          "subtitle": "One-Shot & Triple-Shot",
+          "description": "2-farbig oder 3-farbig gefüllte Pralinen und Schokoriegel mit flüssigen, cremigen oder festen Ganache- und Pralinenfüllungen in mikrometergenauer Qualität.",
+          "image": "assets/img/Applikationen/One-Shot.jpg",
+          "bullets": [
+            "Pralinen 2-farbig gefüllt (One Shot)",
+            "Schokoriegel 2-farbig gefüllt (One Shot)",
+            "Pralinen 3-farbig gefüllt (Triple Shot)"
+          ]
+        },
+        {
+          "id": "a2",
+          "title": "Schokoladentafeln",
+          "subtitle": "Solid & mit Inklusionen",
+          "description": "Traditionelle massive Tafeln oder raffinierte Tafeln mit feinen Inklusionen bis 3 mm (gehackte Nüsse, Meersalz, Kakaonibs, Crisp) ohne Verstopfungsgefahr.",
+          "image": "assets/img/Applikationen/Solid.png",
+          "bullets": [
+            "Tafeln ohne Füllung (Massivschokolade)",
+            "Tafeln mit kleinen Inklusionen bis 3 mm",
+            "Exakt definierte Bruchlinien & glänzende Oberfläche"
+          ]
+        },
+        {
+          "id": "a3",
+          "title": "Sandwich-Produkte",
+          "subtitle": "Macarons & Alfajores",
+          "description": "Höchstpräzises Füllen und Aufdressieren für Gebäck wie Macarons, Alfajores und Sandwich-Biscuits mit exakter Randbegrenzung und tropffreiem Abriss.",
+          "image": "assets/img/Applikationen/Sandwich.jpg",
+          "bullets": [
+            "Füllungen für Macarons",
+            "Füllungen für Alfajores & Doppelbiscuits",
+            "Gleichmässige Cremeschicht ohne Randüberlauf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha",
+      "kicker": "Industrielle Hochleistungs-Giessmaschine",
+      "badge": "Industrie 24/7",
+      "description": "Das Kraftpaket für mittlere bis grosse Produktionskapazitäten. Entwickelt für Dauerbetrieb, höchste Taktzahlen und maximale Flexibilität in industriellen Linien.",
+      "longDescription": "Die Alpha-Baureihe ist das Rückgrat moderner Schokoladenfabriken weltweit. Mit ihrer massiven Bauweise und modularen Erweiterbarkeit erfüllt sie höchste Ansprüche an Verfügbarkeit und Hygiene.",
+      "image": "assets/img/Produkte/alpha.png",
+      "videoUrl": "https://www.youtube.com/embed/-PtOOax2ico",
+      "datasheetUrl": "assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf",
+      "datasheetTitle": "TRIKNO Gesamtbroschüre (PDF)",
+      "specs": [
+        {
+          "label": "Formenbreite",
+          "value": "Bis 800 mm"
+        },
+        {
+          "label": "Taktleistung",
+          "value": "Bis zu 40 Takte/Min."
+        },
+        {
+          "label": "Dosierbereich",
+          "value": "1 g bis 250 g pro Düse"
+        },
+        {
+          "label": "Kopfbewegung Z-Achse",
+          "value": "150 mm Servomotor"
+        },
+        {
+          "label": "Trichtervolumen",
+          "value": "40 bis 100 Liter"
+        },
+        {
+          "label": "Steuerung",
+          "value": "High-End PLC mit Fernüberwachung"
+        }
+      ],
+      "features": [
+        {
+          "id": "fa1",
+          "title": "Heavy-Duty Servomotor-Achsen",
+          "description": "Verstärkte Servoantriebe für Mehrschicht- und 24/7-Dauerbetrieb bei maximaler Dynamik.",
+          "hotspot": {
+            "x": 55,
+            "y": 42
+          },
+          "tag": "Performance",
+          "icon": "zap"
+        },
+        {
+          "id": "fa2",
+          "title": "Breite Formen bis 800 mm",
+          "description": "Ausgelegt für Standard-Industrieformen bis zu 800 mm Breite.",
+          "hotspot": {
+            "x": 65,
+            "y": 60
+          },
+          "tag": "Kapazität",
+          "icon": "maximize"
+        }
+      ],
+      "variants": [
+        {
+          "id": "va1",
+          "title": "Mehrkopf-Ausführung",
+          "description": "Bis zu drei hintereinander geschaltete Giessköpfe für komplexe mehrschichtige Artikel.",
+          "tag": "Erweiterung",
+          "badge": "Multi-Head"
+        }
+      ],
+      "options": [
+        {
+          "id": "oa1",
+          "title": "Automatisches Formen-Handling",
+          "description": "Nahtlose Übergabe an Kühlspiralen, Rütteltische und automatische Entformung.",
+          "tag": "Automation",
+          "badge": "Linienintegration"
+        }
+      ],
+      "applications": [
+        {
+          "id": "aa1",
+          "title": "Industrielle Tafellinien",
+          "subtitle": "Grossproduktion",
+          "description": "Kontinuierliche Fertigung von Schokoladentafeln und Riegeln im 24/7-Betrieb.",
+          "image": "assets/img/Applikationen/Solid.png",
+          "bullets": [
+            "Bis zu 40 Formen pro Minute",
+            "Automatisches Nachfüllen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alpha-compact",
+      "name": "Alpha Compact",
+      "kicker": "Kompakte Spitzenleistung für Handwerk & Industrie",
+      "badge": "Flexibel & Modular",
+      "description": "Die ideale Brücke zwischen handwerklicher Flexibilität und industrieller Leistung. Kompakte Stellfläche bei voller Modularität.",
+      "longDescription": "Die Alpha Compact bietet die hochentwickelte Technologie der grossen Alpha-Linie in einem platzsparenden Format für aufstrebende Manufakturen.",
+      "image": "assets/img/Produkte/alpha_compact.png",
+      "videoUrl": "https://www.youtube.com/embed/-PtOOax2ico",
+      "datasheetUrl": "assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf",
+      "datasheetTitle": "Alpha Compact Dokumentation (PDF)",
+      "specs": [
+        {
+          "label": "Formenbreite",
+          "value": "Bis 510 mm"
+        },
+        {
+          "label": "Taktleistung",
+          "value": "Bis zu 30 Takte/Min."
+        },
+        {
+          "label": "Dosierbereich",
+          "value": "0.5 g bis 120 g"
+        }
+      ],
+      "features": [
+        {
+          "id": "fac1",
+          "title": "Modulares Chassis",
+          "description": "Leicht in bestehende Förderbänder und Arbeitstische integrierbar.",
+          "hotspot": {
+            "x": 50,
+            "y": 50
+          },
+          "tag": "Design",
+          "icon": "layers"
+        }
+      ],
+      "variants": [],
+      "options": [],
+      "applications": []
+    },
+    {
+      "id": "eta",
+      "name": "Eta",
+      "kicker": "Die Spezialistin für kreative Produktformen",
+      "badge": "Vielseitig",
+      "description": "Vielseitige Giessmaschine für Formen und Freidressieren mit hoher Wiederholgenauigkeit und ergonomischer Bedienung.",
+      "longDescription": "Die Eta besticht durch ihre Vielseitigkeit bei wechselnden Kleinserien und anspruchsvollen Dosiermustern.",
+      "image": "assets/img/Produkte/eta-new.png",
+      "videoUrl": "https://www.youtube.com/embed/-PtOOax2ico",
+      "datasheetUrl": "assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf",
+      "datasheetTitle": "Eta Broschüre (PDF)",
+      "specs": [
+        {
+          "label": "Formenbreite",
+          "value": "Bis 430 mm"
+        },
+        {
+          "label": "Taktleistung",
+          "value": "Bis zu 25 Takte/Min."
+        }
+      ],
+      "features": [],
+      "variants": [],
+      "options": [],
+      "applications": []
+    },
+    {
+      "id": "omega",
+      "name": "Omega",
+      "kicker": "Das Flaggschiff der Schweizer Confiserie",
+      "badge": "Klassiker",
+      "description": "Die traditionsreiche und millionenfach bewährte Universalschokoladengiessmaschine für höchste handwerkliche Confiseriekunst.",
+      "longDescription": "Die Omega steht weltweit als Synonym für erstklassige One-Shot-Pralinenherstellung mit unübertroffener Schweizer Präzision.",
+      "image": "assets/img/Produkte/omega.png",
+      "videoUrl": "https://www.youtube.com/embed/bzeZaDalT4Y",
+      "datasheetUrl": "assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf",
+      "datasheetTitle": "Omega Dokumentation (PDF)",
+      "specs": [
+        {
+          "label": "Formenbreite",
+          "value": "Bis 600 mm"
+        },
+        {
+          "label": "Taktleistung",
+          "value": "Bis zu 30 Takte/Min."
+        }
+      ],
+      "features": [],
+      "variants": [],
+      "options": [],
+      "applications": []
+    }
+  ]
+}

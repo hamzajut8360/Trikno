@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIKNO – Admin Panel & Content Manager</title>
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — Professional Admin Panel Stylesheet
+   Swiss Industrial Luxury: Dark Carbon (#1b1f23) + TRIKNO Blue (#6cb8d2) + Orange (#d36a36)
+   ========================================================= */
+
+:root{
+  --sidebar-w: 270px;
+  --bg-main: #f4f7f9;
+  --bg-surface: #ffffff;
+  --ink: #1e2328;
+  --ink-soft: #63707e;
+  --ink-faint: #98a5b3;
+
+  --blue: #6cb8d2;
+  --blue-dark: #3f869f;
+  --blue-soft: rgba(108,184,210,.14);
+  --blue-glow: rgba(108,184,210,.4);
+
+  --orange: #d36a36;
+  --orange-hover: #b85524;
+  --orange-soft: rgba(211,106,54,.12);
+
+  --line: #e1e7eb;
+  --line-strong: #cbd5dc;
+
+  --radius-card: 18px;
+  --radius-btn: 999px;
+  --radius-sm: 10px;
+
+  --shadow-sm: 0 4px 14px -4px rgba(30,35,40,.08);
+  --shadow-md: 0 12px 28px -10px rgba(30,35,40,.12);
+  --shadow-lg: 0 20px 45px -12px rgba(30,35,40,.2);
+}
+
+*, *::before, *::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--ink); background:var(--bg-main);
+  display:flex; min-height:100vh; font-size:15px; line-height:1.6;
+}
+
+/* -------------------- Sidebar -------------------- */
+.admin-sidebar{
+  width:var(--sidebar-w); background:#1b1f23; color:#fff;
+  display:flex; flex-direction:column; position:fixed; top:0; bottom:0; left:0;
+  z-index:100; border-right:1px solid rgba(255,255,255,.08);
+}
+.sidebar-brand{
+  padding:26px 24px; border-bottom:1px solid rgba(255,255,255,.1);
+  display:flex; align-items:center; gap:12px;
+}
+.sidebar-brand img{ height:34px; filter:brightness(1.1); }
+.sidebar-badge{
+  background:var(--orange); color:#fff; font-size:.7rem; font-weight:800;
+  padding:3px 8px; border-radius:999px; text-transform:uppercase; letter-spacing:.05em;
+}
+
+.sidebar-menu{
+  list-style:none; padding:20px 14px; flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:6px;
+}
+.menu-category-title{
+  font-size:.72rem; text-transform:uppercase; letter-spacing:.08em;
+  color:rgba(255,255,255,.45); padding:10px 12px 4px; font-weight:700;
+}
+.sidebar-btn{
+  display:flex; align-items:center; gap:12px; width:100%; padding:12px 14px;
+  background:transparent; border:none; color:rgba(255,255,255,.75);
+  font-family:"Poppins",sans-serif; font-size:.88rem; font-weight:600;
+  border-radius:12px; cursor:pointer; transition:all .2s ease; text-align:left;
+}
+.sidebar-btn svg{ width:18px; height:18px; opacity:.8; flex-shrink:0; }
+.sidebar-btn:hover{
+  background:rgba(255,255,255,.08); color:#fff;
+}
+.sidebar-btn.active{
+  background:var(--blue-dark); color:#fff; box-shadow:0 6px 16px -4px rgba(63,134,159,.6);
+}
+.sidebar-btn.active svg{ opacity:1; }
+
+.sidebar-footer{
+  padding:18px; border-top:1px solid rgba(255,255,255,.1);
+  background:rgba(0,0,0,.2);
+}
+.view-site-btn{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  background:rgba(255,255,255,.12); color:#fff; text-decoration:none;
+  padding:11px 16px; border-radius:var(--radius-btn);
+  font-family:"Poppins",sans-serif; font-size:.84rem; font-weight:600;
+  transition:all .2s ease; border:1px solid rgba(255,255,255,.18);
+}
+.view-site-btn:hover{
+  background:var(--blue); color:#1b1f23; border-color:var(--blue); transform:translateY(-1px);
+}
+
+/* -------------------- Main Content Area -------------------- */
+.admin-main{
+  margin-left:var(--sidebar-w); flex:1; display:flex; flex-direction:column; min-width:0;
+}
+.admin-topbar{
+  background:#fff; height:74px; border-bottom:1px solid var(--line);
+  padding:0 36px; display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:90; box-shadow:0 2px 10px rgba(0,0,0,.03);
+}
+.topbar-left{
+  display:flex; align-items:center; gap:18px;
+}
+.topbar-left h1{
+  font-family:"Poppins",sans-serif; font-size:1.4rem; font-weight:700; color:var(--ink);
+}
+.machine-switch-select{
+  display:flex; align-items:center; gap:8px; background:var(--bg-main);
+  border:1px solid var(--line-strong); padding:7px 14px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-size:.86rem; font-weight:600; color:var(--ink);
+}
+.machine-switch-select select{
+  border:none; background:transparent; font-family:inherit; font-size:inherit;
+  font-weight:inherit; color:inherit; outline:none; cursor:pointer;
+}
+
+.topbar-actions{
+  display:flex; align-items:center; gap:12px;
+}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:10px 22px; border-radius:var(--radius-btn);
+  font-family:"Poppins",sans-serif; font-size:.86rem; font-weight:600;
+  cursor:pointer; border:1px solid transparent; transition:all .2s ease; text-decoration:none;
+}
+.btn-primary{
+  background:var(--blue-dark); color:#fff !important;
+  box-shadow:0 6px 14px -4px rgba(63,134,159,.5);
+}
+.btn-primary:hover{
+  background:#326d82; transform:translateY(-2px); box-shadow:0 8px 18px -4px rgba(63,134,159,.65);
+}
+.btn-save{
+  background:var(--orange); color:#fff !important;
+  box-shadow:0 6px 16px -4px rgba(211,106,54,.5);
+}
+.btn-save:hover{
+  background:var(--orange-hover); transform:translateY(-2px); box-shadow:0 10px 22px -4px rgba(211,106,54,.65);
+}
+.btn-outline{
+  background:#fff; border-color:var(--line-strong); color:var(--ink);
+}
+.btn-outline:hover{
+  border-color:var(--blue-dark); color:var(--blue-dark); background:var(--blue-soft);
+}
+.btn-danger{
+  background:#dc3545; color:#fff;
+}
+.btn-danger:hover{ background:#bb2d3b; }
+
+/* -------------------- Views / Tabs Container -------------------- */
+.admin-content{
+  padding:36px; flex:1; max-width:1400px; width:100%; margin:0 auto;
+}
+.view-panel{
+  display:none; animation:fadeInView .25s ease forwards;
+}
+.view-panel.active{ display:block; }
+@keyframes fadeInView{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:translateY(0); } }
+
+/* Cards & Layouts */
+.admin-card{
+  background:var(--bg-surface); border:1px solid var(--line);
+  border-radius:var(--radius-card); padding:28px; box-shadow:var(--shadow-sm);
+  margin-bottom:28px;
+}
+.card-header-bar{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--line);
+}
+.card-header-bar h2{
+  font-family:"Poppins",sans-serif; font-size:1.25rem; font-weight:700; color:var(--ink);
+}
+.card-header-bar p{ font-size:.9rem; color:var(--ink-soft); margin-top:2px; }
+
+/* Dashboard Overview Widgets */
+.stats-tiles-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-bottom:28px;
+}
+.stat-tile{
+  background:#fff; border:1px solid var(--line); border-radius:18px;
+  padding:22px; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:18px;
+  transition:transform .2s ease;
+}
+.stat-tile:hover{ transform:translateY(-3px); border-color:var(--blue); }
+.stat-icon-wrap{
+  width:50px; height:50px; border-radius:14px; background:var(--blue-soft);
+  color:var(--blue-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.stat-info strong{
+  font-family:"Poppins",sans-serif; font-size:1.8rem; color:var(--ink); display:block; line-height:1.2;
+}
+.stat-info span{
+  font-size:.85rem; color:var(--ink-soft); font-weight:500;
+}
+
+/* Form Controls */
+.form-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-bottom:20px;
+}
+.form-grid-2{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;
+}
+.form-group{
+  display:flex; flex-direction:column; gap:6px;
+}
+.form-group.full-width{
+  grid-column:1 / -1;
+}
+.form-label{
+  font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.04em; color:var(--ink);
+}
+.form-input, .form-textarea, .form-select{
+  width:100%; padding:11px 14px; border:1px solid var(--line-strong);
+  border-radius:var(--radius-sm); font-family:inherit; font-size:.95rem;
+  color:var(--ink); background:#fff; transition:border-color .2s ease, box-shadow .2s ease;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus{
+  outline:none; border-color:var(--blue-dark); box-shadow:0 0 0 3px var(--blue-soft);
+}
+.form-textarea{ resize:vertical; min-height:80px; }
+.form-help{ font-size:.8rem; color:var(--ink-faint); margin-top:2px; }
+
+/* Image Uploader Box */
+.image-upload-wrapper{
+  display:grid; grid-template-columns:160px 1fr; gap:22px; align-items:center;
+  background:var(--bg-main); border:1px dashed var(--line-strong);
+  border-radius:16px; padding:18px; margin-bottom:20px;
+}
+.image-thumb-preview{
+  width:160px; height:120px; border-radius:12px; background:#fff;
+  border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+  overflow:hidden; position:relative;
+}
+.image-thumb-preview img{
+  max-width:90%; max-height:90%; object-fit:contain;
+}
+.upload-controls{
+  display:flex; flex-direction:column; gap:10px;
+}
+
+/* Interactive Hotspot Placer Stage */
+.hotspot-interactive-stage{
+  display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start;
+}
+.placer-canvas-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card);
+  padding:16px; box-shadow:var(--shadow-sm); position:relative;
+}
+.placer-canvas-box{
+  position:relative; width:100%; aspect-ratio:4/3; background:radial-gradient(circle, #fff 0%, #eaf3f5 100%);
+  border-radius:12px; overflow:hidden; border:1px solid var(--line); cursor:crosshair;
+  display:flex; align-items:center; justify-content:center;
+}
+.placer-canvas-img{
+  max-width:92%; max-height:92%; object-fit:contain; pointer-events:none;
+}
+.placer-pin{
+  position:absolute; width:28px; height:28px; border-radius:50%;
+  background:var(--blue-dark); color:#fff; font-family:"Poppins",sans-serif;
+  font-size:.78rem; font-weight:800; display:flex; align-items:center; justify-content:center;
+  transform:translate(-50%, -50%); border:2px solid #fff; box-shadow:0 4px 10px rgba(0,0,0,.3);
+  cursor:pointer; transition:transform .2s ease;
+}
+.placer-pin.selected{
+  background:var(--orange); transform:translate(-50%, -50%) scale(1.25);
+  box-shadow:0 6px 16px rgba(211,106,54,.6); z-index:20;
+}
+.placer-helper-text{
+  margin-top:12px; font-size:.82rem; color:var(--ink-soft); text-align:center;
+  font-family:"Poppins",sans-serif;
+}
+
+/* Editable Items Lists */
+.item-entry-card{
+  background:#fff; border:1px solid var(--line); border-radius:14px;
+  padding:18px 20px; margin-bottom:14px; box-shadow:0 2px 6px rgba(0,0,0,.03);
+  display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+  transition:all .2s ease;
+}
+.item-entry-card:hover{
+  border-color:var(--blue); box-shadow:var(--shadow-sm);
+}
+.item-entry-card.is-active{
+  border-color:var(--orange); background:#fffaf7;
+}
+.item-entry-left{ flex:1; }
+.item-entry-left h4{ font-family:"Poppins",sans-serif; font-size:1.05rem; color:var(--ink); margin-bottom:4px; }
+.item-entry-left p{ font-size:.9rem; color:var(--ink-soft); margin-bottom:6px; line-height:1.5; }
+.item-entry-meta{ display:flex; gap:8px; flex-wrap:wrap; }
+.meta-chip{
+  font-size:.74rem; font-weight:700; padding:2px 8px; border-radius:999px;
+  background:var(--bg-main); color:var(--blue-dark); text-transform:uppercase;
+}
+.item-entry-actions{ display:flex; gap:6px; flex-shrink:0; }
+.action-icon-btn{
+  width:32px; height:32px; border-radius:8px; border:1px solid var(--line-strong);
+  background:#fff; color:var(--ink); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .18s ease;
+}
+.action-icon-btn:hover{
+  background:var(--blue-soft); border-color:var(--blue-dark); color:var(--blue-dark);
+}
+.action-icon-btn.delete:hover{
+  background:#fee2e2; border-color:#ef4444; color:#ef4444;
+}
+
+/* Specs Table Editor */
+.specs-table-editor{
+  width:100%; border-collapse:collapse; margin-bottom:16px;
+}
+.specs-table-editor th{
+  text-align:left; font-family:"Poppins",sans-serif; font-size:.8rem;
+  text-transform:uppercase; color:var(--ink-soft); padding:10px 8px; border-bottom:2px solid var(--line);
+}
+.specs-table-editor td{
+  padding:8px; border-bottom:1px solid var(--line);
+}
+
+/* Toast Notification */
+.toast-notice{
+  position:fixed; bottom:28px; right:28px; z-index:9999;
+  background:#1b1f23; color:#fff; padding:14px 24px; border-radius:999px;
+  box-shadow:0 14px 34px -8px rgba(0,0,0,.45); display:flex; align-items:center; gap:12px;
+  font-family:"Poppins",sans-serif; font-size:.9rem; font-weight:600;
+  transform:translateY(120%); opacity:0; transition:all .3s ease; pointer-events:none;
+}
+.toast-notice.is-visible{
+  transform:translateY(0); opacity:1;
+}
+.toast-notice.success{ border-left:4px solid #00e676; }
+.toast-notice.error{ border-left:4px solid #ff5252; }
+
+/* Responsive */
+@media (max-width:1020px){
+  .admin-sidebar{ width:76px; }
+  .sidebar-brand span, .menu-category-title, .sidebar-btn span, .sidebar-badge{ display:none; }
+  .admin-main{ margin-left:76px; }
+  .sidebar-btn{ justify-content:center; padding:14px; }
+  .hotspot-interactive-stage{ grid-template-columns:1fr; }
+  .form-grid-2{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<aside class="admin-sidebar">
+  <div class="sidebar-brand">
+    <img src="assets/img/Logo/trikno-logo.png" alt="TRIKNO">
+    <span class="sidebar-badge">Admin Panel</span>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li class="menu-category-title">Übersicht</li>
+    <li>
+      <button class="sidebar-btn active" data-view="view-dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Dashboard</span>
+      </button>
+    </li>
+
+    <li class="menu-category-title">Maschinen & Details</li>
+    <li>
+      <button class="sidebar-btn" data-view="view-machine">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>Maschine bearbeiten</span>
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-btn" data-view="view-features">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>Eigenschaften & Hotspots</span>
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-btn" data-view="view-variants">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Varianten</span>
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-btn" data-view="view-options">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>Optionen (Add-ons)</span>
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-btn" data-view="view-applications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        <span>Applikationen (Produkte)</span>
+      </button>
+    </li>
+
+    <li class="menu-category-title">Medien & Daten</li>
+    <li>
+      <button class="sidebar-btn" data-view="view-media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        <span>Bilder & Medien-Upload</span>
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-btn" data-view="view-settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>System & JSON</span>
+      </button>
+    </li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="index.html" target="_blank" class="view-site-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      <span>Live-Showcase ansehen</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Main Admin Area -->
+<div class="admin-main">
+  <!-- Topbar -->
+  <header class="admin-topbar">
+    <div class="topbar-left">
+      <h1 id="topbar-view-title">Dashboard</h1>
+      <div class="machine-switch-select">
+        <span>Maschine:</span>
+        <select id="global-machine-select">
+          <!-- Dynamically populated -->
+        </select>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="btn btn-save" id="btn-save-all">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        <span>Änderungen speichern</span>
+      </button>
+      <a href="index.html" target="_blank" class="btn btn-outline">
+        <span>Vorschau</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Content Views -->
+  <main class="admin-content">
+
+    <!-- VIEW 1: DASHBOARD -->
+    <div class="view-panel active" id="view-dashboard">
+      <div class="stats-tiles-grid">
+        <div class="stat-tile">
+          <div class="stat-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="stat-info">
+            <strong id="stat-count-machines">0</strong>
+            <span>Maschinen angelegt</span>
+          </div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          </div>
+          <div class="stat-info">
+            <strong id="stat-count-features">0</strong>
+            <span>Eigenschaften & Pins</span>
+          </div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <strong id="stat-count-variants">0</strong>
+            <span>Varianten-Optionen</span>
+          </div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line></svg>
+          </div>
+          <div class="stat-info">
+            <strong id="stat-count-apps">0</strong>
+            <span>Applikationen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Aktuell aktive Maschine</h2>
+            <p>Diese Maschine wird im interaktiven Showcase auf der Startseite hervorgehoben.</p>
+          </div>
+          <button class="btn btn-primary" onclick="switchView('view-machine')">Details bearbeiten</button>
+        </div>
+
+        <div style="display:flex; gap:24px; align-items:center; flex-wrap:wrap;">
+          <div style="width:140px; height:120px; background:var(--bg-main); border:1px solid var(--line); border-radius:14px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img id="dash-active-img" src="assets/img/Produkte/Omega Compact.png" style="max-height:85%; object-fit:contain;" alt="Maschine">
+          </div>
+          <div style="flex:1;">
+            <h3 id="dash-active-name" style="font-size:1.4rem; color:var(--ink); margin-bottom:4px;">Omega Compact</h3>
+            <div id="dash-active-kicker" style="color:var(--orange); font-weight:700; margin-bottom:8px;">Kleiner, handlicher, mobiler</div>
+            <p id="dash-active-desc" style="color:var(--ink-soft); max-width:65ch;">Die Omega Compact ist das perfekte Werkzeug für den Confiseur...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Schnellzugriff & Neue Maschine</h2>
+            <p>Fügen Sie eine neue Maschine hinzu oder verwalten Sie bestehende Baureihen.</p>
+          </div>
+          <button class="btn btn-save" onclick="promptNewMachine()">+ Neue Maschine anlegen</button>
+        </div>
+        <div id="dash-machines-list" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: MASCHINE BEARBEITEN -->
+    <div class="view-panel" id="view-machine">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Stammdaten der Maschine</h2>
+            <p>Bearbeiten Sie Namen, Texte, Bild und Download-Links für die aktuell ausgewählte Maschine.</p>
+          </div>
+          <button class="btn btn-save" onclick="saveCurrentMachineForm()">Formular übernehmen</button>
+        </div>
+
+        <form id="form-machine-details" onsubmit="event.preventDefault(); saveCurrentMachineForm();">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Maschinen-Name</label>
+              <input type="text" class="form-input" id="inp-m-name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Untertitel / Kicker</label>
+              <input type="text" class="form-input" id="inp-m-kicker">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Kategorie-Badge</label>
+              <input type="text" class="form-input" id="inp-m-badge" placeholder="z.B. Confiseur & Labor">
+            </div>
+          </div>
+
+          <div class="form-group full-width" style="margin-bottom:20px;">
+            <label class="form-label">Kurzbeschreibung (Showcase Hero)</label>
+            <textarea class="form-textarea" id="inp-m-desc" rows="2"></textarea>
+          </div>
+
+          <div class="form-group full-width" style="margin-bottom:20px;">
+            <label class="form-label">Ausführliche Beschreibung (Maschine Tab)</label>
+            <textarea class="form-textarea" id="inp-m-long-desc" rows="3"></textarea>
+          </div>
+
+          <!-- Machine Image Upload -->
+          <div class="form-group full-width">
+            <label class="form-label">Hauptbild der Maschine</label>
+            <div class="image-upload-wrapper">
+              <div class="image-thumb-preview">
+                <img id="preview-m-img" src="assets/img/Produkte/Omega Compact.png" alt="Vorschau">
+              </div>
+              <div class="upload-controls">
+                <input type="text" class="form-input" id="inp-m-img" placeholder="assets/img/Produkte/Omega Compact.png">
+                <div style="display:flex; gap:10px; align-items:center;">
+                  <input type="file" id="file-m-img" accept="image/*" style="display:none;" onchange="handleFileUpload(this, 'inp-m-img', 'preview-m-img')">
+                  <button type="button" class="btn btn-outline" onclick="document.getElementById('file-m-img').click();">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>Neues Bild vom Computer hochladen</span>
+                  </button>
+                  <span class="form-help">Unterstützt PNG, JPG, WebP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Video URL (YouTube Embed oder Watch Link)</label>
+              <input type="text" class="form-input" id="inp-m-video" placeholder="https://www.youtube.com/embed/bzeZaDalT4Y">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Technisches Datenblatt PDF Link</label>
+              <input type="text" class="form-input" id="inp-m-datasheet" placeholder="assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf">
+            </div>
+          </div>
+
+          <!-- Specs Table Builder -->
+          <div style="margin-top:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <label class="form-label" style="margin-bottom:0;">Technische Spezifikationen (Tabelle)</label>
+              <button type="button" class="btn btn-outline" style="padding:6px 14px; font-size:.8rem;" onclick="addSpecRow()">+ Zeile hinzufügen</button>
+            </div>
+            <table class="specs-table-editor" id="editor-specs-table">
+              <thead>
+                <tr>
+                  <th style="width:40%;">Eigenschaft / Parameter</th>
+                  <th style="width:45%;">Wert / Angabe</th>
+                  <th style="width:15%; text-align:right;">Aktion</th>
+                </tr>
+              </thead>
+              <tbody id="specs-table-body">
+                <!-- Dynamically generated rows -->
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- VIEW 3: EIGENSCHAFTEN & HOTSPOTS -->
+    <div class="view-panel" id="view-features">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Interaktive Eigenschaften & Hotspots</h2>
+            <p>Klicken Sie links direkt auf das Bild der Maschine, um die Position eines Hotspot-Pins festzulegen!</p>
+          </div>
+          <button class="btn btn-save" onclick="openNewFeatureModal()">+ Neue Eigenschaft anlegen</button>
+        </div>
+
+        <div class="hotspot-interactive-stage">
+          <!-- Left: Canvas / Click to place pin -->
+          <div class="placer-canvas-card">
+            <div class="placer-canvas-box" id="placer-box" onclick="handleCanvasClick(event)">
+              <img id="placer-img" class="placer-canvas-img" src="assets/img/Produkte/Omega Compact.png" alt="Maschine">
+              <div id="placer-pins-container">
+                <!-- Pins rendered here -->
+              </div>
+            </div>
+            <div class="placer-helper-text">
+              👉 <strong>Tipp:</strong> Wählen Sie rechts eine Eigenschaft aus und klicken Sie dann auf die gewünschte Stelle der Maschine, um den Pin zu platzieren.
+            </div>
+          </div>
+
+          <!-- Right: Features List -->
+          <div>
+            <div id="features-list-editor">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 4: VARIANTEN -->
+    <div class="view-panel" id="view-variants">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Varianten der Maschine</h2>
+            <p>Konfigurationsmöglichkeiten wie Links/Rechts-Bedienung, Netzwerk-Modem, Bandrichtung etc.</p>
+          </div>
+          <button class="btn btn-save" onclick="openNewVariantModal()">+ Neue Variante anlegen</button>
+        </div>
+        <div id="variants-list-editor">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 5: OPTIONEN -->
+    <div class="view-panel" id="view-options">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Technologische Optionen (Add-ons)</h2>
+            <p>Spezialausstattungen wie Triple Shot, Schleierdüse, Vibrationstisch-Anbindung etc.</p>
+          </div>
+          <button class="btn btn-save" onclick="openNewOptionModal()">+ Neue Option anlegen</button>
+        </div>
+        <div id="options-list-editor">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 6: APPLIKATIONEN -->
+    <div class="view-panel" id="view-applications">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Applikationen & Endprodukte</h2>
+            <p>Produkte, die mit dieser Maschine hergestellt werden (Pralinen, Tafeln, Sandwich-Gebäck etc.).</p>
+          </div>
+          <button class="btn btn-save" onclick="openNewAppModal()">+ Neue Applikation anlegen</button>
+        </div>
+        <div id="apps-list-editor">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 7: BILDER & MEDIEN UPLOAD -->
+    <div class="view-panel" id="view-media">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Medien-Manager & Datei-Upload</h2>
+            <p>Laden Sie neue Produktfotos, Applikationsbilder oder technische PDFs auf den Server hoch.</p>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-main); border:2px dashed var(--line-strong); border-radius:18px; padding:36px; text-align:center; margin-bottom:28px;">
+          <input type="file" id="media-bulk-file" style="display:none;" accept="image/*,application/pdf" onchange="uploadGenericMedia(this)">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--blue-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 12px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <h3 style="font-size:1.15rem; margin-bottom:6px;">Datei auswählen zum Hochladen</h3>
+          <p style="color:var(--ink-soft); font-size:.88rem; margin-bottom:16px;">Bilder (PNG, JPG, SVG, WebP) oder Dokumente (PDF) bis zu 20 MB</p>
+          <button class="btn btn-primary" onclick="document.getElementById('media-bulk-file').click();">Datei durchsuchen</button>
+        </div>
+
+        <h3 style="font-size:1.1rem; margin-bottom:14px;">Zuletzt verwendete System-Bilder:</h3>
+        <div id="media-library-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:16px;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 8: SYSTEM & JSON -->
+    <div class="view-panel" id="view-settings">
+      <div class="admin-card">
+        <div class="card-header-bar">
+          <div>
+            <h2>System-Konfiguration & JSON-Export</h2>
+            <p>Sichern Sie die gesamte Datenbank oder stellen Sie die Werkseinstellungen wieder her.</p>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Website Titel</label>
+            <input type="text" class="form-input" id="inp-site-title">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Standardmässig ausgewählte Maschine (ID)</label>
+            <select class="form-select" id="inp-default-machine"></select>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line); display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-outline" onclick="exportDataJson()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Datenbank als JSON exportieren</span>
+          </button>
+          <input type="file" id="import-json-file" accept=".json" style="display:none;" onchange="importDataJson(this)">
+          <button class="btn btn-outline" onclick="document.getElementById('import-json-file').click();">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <span>JSON importieren</span>
+          </button>
+          <button class="btn btn-danger" onclick="restoreFactoryDefaults()">
+            <span>Werkseinstellungen wiederherstellen</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Toast Notice -->
+<div class="toast-notice success" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <span id="toast-msg">Änderungen erfolgreich gespeichert!</span>
+</div>
+
+<!-- JavaScript Logic -->
+<script>
+(function(){
+  'use strict';
+
+  let currentData = null;
+  let activeMachineId = 'omega-compact';
+  let selectedFeatureIdForPin = null;
+
+  // 1. Initial Load
+  async function init() {
+    await fetchData();
+    setupNavigation();
+    setupMachineSelector();
+    renderDashboard();
+    renderCurrentMachineForm();
+    renderFeatures();
+    renderVariants();
+    renderOptions();
+    renderApplications();
+    renderMediaLibrary();
+    renderSettings();
+  }
+
+  // 2. Fetch Data from Server or LocalStorage
+  async function fetchData() {
+    try {
+      const res = await fetch('/api/data', { cache: 'no-store' });
+      if (res.ok) {
+        currentData = await res.json();
+        localStorage.setItem('trikno_data_cache', JSON.stringify(currentData));
+      } else {
+        throw new Error('API offline');
+      }
+    } catch(err) {
+      const cached = localStorage.getItem('trikno_data_cache');
+      if (cached) {
+        try { currentData = JSON.parse(cached); } catch(e){}
+      }
+      if (!currentData) {
+        const staticRes = await fetch('data/trikno-data.json');
+        if (staticRes.ok) currentData = await staticRes.json();
+      }
+    }
+
+    if (currentData) {
+      if (currentData.settings && currentData.settings.activeMachineId) {
+        activeMachineId = currentData.settings.activeMachineId;
+      }
+    }
+  }
+
+  // 3. Save Data to Server API & LocalStorage
+  async function saveData(notify = true) {
+    if (!currentData) return;
+
+    // Update localStorage immediately
+    localStorage.setItem('trikno_data_cache', JSON.stringify(currentData));
+
+    // Send to Server API
+    try {
+      const res = await fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(currentData)
+      });
+      if (res.ok) {
+        if (notify) showToast('Erfolgreich auf Server gespeichert! Live-Showcase ist aktualisiert.');
+      } else {
+        throw new Error('Server returned error');
+      }
+    } catch (e) {
+      if (notify) showToast('Lokal im Cache gespeichert (Server offline)', 'success');
+    }
+  }
+
+  // 4. Navigation
+  function setupNavigation() {
+    document.querySelectorAll('.sidebar-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetView = btn.getAttribute('data-view');
+        switchView(targetView);
+      });
+    });
+
+    document.getElementById('btn-save-all').addEventListener('click', () => {
+      saveCurrentMachineForm();
+      saveData(true);
+    });
+  }
+
+  window.switchView = function(viewId) {
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+
+    const btn = document.querySelector(`.sidebar-btn[data-view="${viewId}"]`);
+    if (btn) btn.classList.add('active');
+
+    const panel = document.getElementById(viewId);
+    if (panel) panel.classList.add('active');
+
+    // Update Title
+    const titleMap = {
+      'view-dashboard': 'Dashboard & Übersicht',
+      'view-machine': 'Maschinen-Stammdaten',
+      'view-features': 'Eigenschaften & Hotspot-Pins',
+      'view-variants': 'Maschinen-Varianten',
+      'view-options': 'Technologische Optionen',
+      'view-applications': 'Applikationen & Endprodukte',
+      'view-media': 'Bilder & Medien-Galerie',
+      'view-settings': 'System & Backup'
+    };
+    document.getElementById('topbar-view-title').textContent = titleMap[viewId] || 'Admin';
+
+    if (viewId === 'view-features') renderFeatures();
+  };
+
+  // 5. Machine Switcher
+  function setupMachineSelector() {
+    const select = document.getElementById('global-machine-select');
+    select.innerHTML = '';
+    currentData.machines.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = m.name;
+      if (m.id === activeMachineId) opt.selected = true;
+      select.appendChild(opt);
+    });
+
+    select.onchange = () => {
+      activeMachineId = select.value;
+      currentData.settings.activeMachineId = activeMachineId;
+      renderDashboard();
+      renderCurrentMachineForm();
+      renderFeatures();
+      renderVariants();
+      renderOptions();
+      renderApplications();
+      saveData(false);
+    };
+  }
+
+  function getActiveMachine() {
+    return currentData.machines.find(m => m.id === activeMachineId) || currentData.machines[0];
+  }
+
+  // 6. Dashboard Render
+  function renderDashboard() {
+    const m = getActiveMachine();
+    document.getElementById('stat-count-machines').textContent = currentData.machines.length;
+    document.getElementById('stat-count-features').textContent = (m.features || []).length;
+    document.getElementById('stat-count-variants').textContent = (m.variants || []).length;
+    document.getElementById('stat-count-apps').textContent = (m.applications || []).length;
+
+    document.getElementById('dash-active-img').src = m.image || 'assets/img/Produkte/Omega Compact.png';
+    document.getElementById('dash-active-name').textContent = m.name;
+    document.getElementById('dash-active-kicker').textContent = m.kicker || '';
+    document.getElementById('dash-active-desc').textContent = m.description || '';
+
+    // Machines Grid
+    const list = document.getElementById('dash-machines-list');
+    list.innerHTML = '';
+    currentData.machines.forEach(item => {
+      const card = document.createElement('div');
+      card.style.cssText = 'background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; display:flex; align-items:center; gap:14px;';
+      card.innerHTML = `
+        <div style="width:60px; height:60px; background:var(--bg-main); border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+          <img src="${item.image || 'assets/img/Produkte/Omega Compact.png'}" style="max-height:80%; object-fit:contain;">
+        </div>
+        <div style="flex:1;">
+          <strong style="font-family:'Poppins',sans-serif; color:var(--ink);">${escapeHtml(item.name)}</strong>
+          <div style="font-size:.8rem; color:var(--ink-soft);">${escapeHtml(item.badge || 'Maschine')}</div>
+        </div>
+        <button class="action-icon-btn" title="Bearbeiten" onclick="selectMachineAndEdit('${item.id}')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        </button>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  window.selectMachineAndEdit = function(id) {
+    activeMachineId = id;
+    document.getElementById('global-machine-select').value = id;
+    renderCurrentMachineForm();
+    renderFeatures();
+    renderVariants();
+    renderOptions();
+    renderApplications();
+    switchView('view-machine');
+  };
+
+  // 7. Form: Current Machine
+  function renderCurrentMachineForm() {
+    const m = getActiveMachine();
+    document.getElementById('inp-m-name').value = m.name || '';
+    document.getElementById('inp-m-kicker').value = m.kicker || '';
+    document.getElementById('inp-m-badge').value = m.badge || '';
+    document.getElementById('inp-m-desc').value = m.description || '';
+    document.getElementById('inp-m-long-desc').value = m.longDescription || '';
+    document.getElementById('inp-m-img').value = m.image || '';
+    document.getElementById('preview-m-img').src = m.image || 'assets/img/Produkte/Omega Compact.png';
+    document.getElementById('inp-m-video').value = m.videoUrl || '';
+    document.getElementById('inp-m-datasheet').value = m.datasheetUrl || '';
+
+    // Specs
+    renderSpecsTable(m.specs || []);
+  }
+
+  function renderSpecsTable(specs) {
+    const tbody = document.getElementById('specs-table-body');
+    tbody.innerHTML = '';
+    specs.forEach((s, idx) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><input type="text" class="form-input" style="padding:7px 10px; font-size:.88rem;" value="${escapeHtml(s.label)}" onchange="updateSpec(${idx}, 'label', this.value)"></td>
+        <td><input type="text" class="form-input" style="padding:7px 10px; font-size:.88rem;" value="${escapeHtml(s.value)}" onchange="updateSpec(${idx}, 'value', this.value)"></td>
+        <td style="text-align:right;">
+          <button type="button" class="action-icon-btn delete" style="display:inline-flex;" onclick="deleteSpec(${idx})">&times;</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  window.addSpecRow = function() {
+    const m = getActiveMachine();
+    if (!m.specs) m.specs = [];
+    m.specs.push({ label: 'Neue Angabe', value: 'Wert' });
+    renderSpecsTable(m.specs);
+  };
+
+  window.updateSpec = function(idx, key, val) {
+    const m = getActiveMachine();
+    if (m.specs && m.specs[idx]) {
+      m.specs[idx][key] = val;
+    }
+  };
+
+  window.deleteSpec = function(idx) {
+    const m = getActiveMachine();
+    if (m.specs) {
+      m.specs.splice(idx, 1);
+      renderSpecsTable(m.specs);
+    }
+  };
+
+  window.saveCurrentMachineForm = function() {
+    const m = getActiveMachine();
+    m.name = document.getElementById('inp-m-name').value;
+    m.kicker = document.getElementById('inp-m-kicker').value;
+    m.badge = document.getElementById('inp-m-badge').value;
+    m.description = document.getElementById('inp-m-desc').value;
+    m.longDescription = document.getElementById('inp-m-long-desc').value;
+    m.image = document.getElementById('inp-m-img').value;
+    m.videoUrl = document.getElementById('inp-m-video').value;
+    m.datasheetUrl = document.getElementById('inp-m-datasheet').value;
+
+    saveData(true);
+    renderDashboard();
+    setupMachineSelector();
+  };
+
+  // 8. Features & Hotspots Editor
+  function renderFeatures() {
+    const m = getActiveMachine();
+    document.getElementById('placer-img').src = m.image || 'assets/img/Produkte/Omega Compact.png';
+    const pinsContainer = document.getElementById('placer-pins-container');
+    const listEditor = document.getElementById('features-list-editor');
+    pinsContainer.innerHTML = '';
+    listEditor.innerHTML = '';
+
+    const features = m.features || [];
+    features.forEach((f, idx) => {
+      const num = idx + 1;
+
+      // Pin
+      if (f.hotspot && f.hotspot.x !== undefined && f.hotspot.y !== undefined) {
+        const pin = document.createElement('div');
+        pin.className = `placer-pin ${selectedFeatureIdForPin === f.id ? 'selected' : ''}`;
+        pin.style.left = `${f.hotspot.x}%`;
+        pin.style.top = `${f.hotspot.y}%`;
+        pin.textContent = num;
+        pin.title = f.title;
+        pin.onclick = (e) => {
+          e.stopPropagation();
+          selectFeatureForPin(f.id);
+        };
+        pinsContainer.appendChild(pin);
+      }
+
+      // Card
+      const card = document.createElement('div');
+      card.className = `item-entry-card ${selectedFeatureIdForPin === f.id ? 'is-active' : ''}`;
+      card.innerHTML = `
+        <div class="item-entry-left">
+          <h4>#${num} ${escapeHtml(f.title)}</h4>
+          <p>${escapeHtml(f.description)}</p>
+          <div class="item-entry-meta">
+            ${f.tag ? `<span class="meta-chip">${escapeHtml(f.tag)}</span>` : ''}
+            <span class="meta-chip" style="background:#e0f2fe; color:#0284c7;">Pin: X ${f.hotspot ? f.hotspot.x : 0}%, Y ${f.hotspot ? f.hotspot.y : 0}%</span>
+          </div>
+        </div>
+        <div class="item-entry-actions">
+          <button class="action-icon-btn" title="Pin auf Bild platzieren" onclick="selectFeatureForPin('${f.id}')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          </button>
+          <button class="action-icon-btn" title="Bearbeiten" onclick="editFeature('${f.id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
+          <button class="action-icon-btn delete" title="Löschen" onclick="deleteFeature('${f.id}')">&times;</button>
+        </div>
+      `;
+      listEditor.appendChild(card);
+    });
+  }
+
+  window.selectFeatureForPin = function(fId) {
+    selectedFeatureIdForPin = fId;
+    renderFeatures();
+    showToast('Klicken Sie jetzt auf das Maschinenbild, um den Pin zu setzen.', 'success');
+  };
+
+  window.handleCanvasClick = function(e) {
+    if (!selectedFeatureIdForPin) {
+      showToast('Wählen Sie zuerst rechts eine Eigenschaft aus!', 'error');
+      return;
+    }
+    const box = document.getElementById('placer-box');
+    const rect = box.getBoundingClientRect();
+    const xPercent = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+    const yPercent = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+
+    const m = getActiveMachine();
+    const feat = (m.features || []).find(f => f.id === selectedFeatureIdForPin);
+    if (feat) {
+      feat.hotspot = { x: xPercent, y: yPercent };
+      renderFeatures();
+      saveData(false);
+      showToast(`Pin gesetzt auf X: ${xPercent}%, Y: ${yPercent}%`, 'success');
+    }
+  };
+
+  window.openNewFeatureModal = function() {
+    const title = prompt('Titel der neuen Eigenschaft:');
+    if (!title) return;
+    const desc = prompt('Beschreibung:', 'Präzise Dosierung und Steuerung.');
+    const tag = prompt('Kategorie/Tag (z.B. Antrieb, Hygiene, Steuerung):', 'Technologie');
+
+    const m = getActiveMachine();
+    if (!m.features) m.features = [];
+    const newId = 'f_' + Date.now();
+    m.features.push({
+      id: newId,
+      title: title,
+      description: desc || '',
+      tag: tag || '',
+      hotspot: { x: 50, y: 50 }
+    });
+    selectedFeatureIdForPin = newId;
+    renderFeatures();
+    saveData(true);
+  };
+
+  window.editFeature = function(id) {
+    const m = getActiveMachine();
+    const f = (m.features || []).find(item => item.id === id);
+    if (!f) return;
+
+    const newTitle = prompt('Titel bearbeiten:', f.title);
+    if (newTitle !== null) f.title = newTitle;
+    const newDesc = prompt('Beschreibung bearbeiten:', f.description);
+    if (newDesc !== null) f.description = newDesc;
+    const newTag = prompt('Tag bearbeiten:', f.tag);
+    if (newTag !== null) f.tag = newTag;
+
+    renderFeatures();
+    saveData(true);
+  };
+
+  window.deleteFeature = function(id) {
+    if (!confirm('Eigenschaft wirklich löschen?')) return;
+    const m = getActiveMachine();
+    m.features = (m.features || []).filter(f => f.id !== id);
+    if (selectedFeatureIdForPin === id) selectedFeatureIdForPin = null;
+    renderFeatures();
+    saveData(true);
+  };
+
+  // 9. Variants Editor
+  function renderVariants() {
+    const m = getActiveMachine();
+    const container = document.getElementById('variants-list-editor');
+    container.innerHTML = '';
+    const variants = m.variants || [];
+
+    variants.forEach(v => {
+      const card = document.createElement('div');
+      card.className = 'item-entry-card';
+      card.innerHTML = `
+        <div class="item-entry-left">
+          <h4>${escapeHtml(v.title)}</h4>
+          <p>${escapeHtml(v.description)}</p>
+          <div class="item-entry-meta">
+            ${v.tag ? `<span class="meta-chip">${escapeHtml(v.tag)}</span>` : ''}
+            ${v.badge ? `<span class="meta-chip" style="background:#fef3c7; color:#b45309;">${escapeHtml(v.badge)}</span>` : ''}
+          </div>
+        </div>
+        <div class="item-entry-actions">
+          <button class="action-icon-btn" onclick="editVariant('${v.id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
+          <button class="action-icon-btn delete" onclick="deleteVariant('${v.id}')">&times;</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  window.openNewVariantModal = function() {
+    const title = prompt('Titel der Variante:');
+    if (!title) return;
+    const desc = prompt('Beschreibung:');
+    const badge = prompt('Badge / Hinweis (z.B. Ergonomie, Flexibel):', 'Option');
+
+    const m = getActiveMachine();
+    if (!m.variants) m.variants = [];
+    m.variants.push({
+      id: 'v_' + Date.now(),
+      title,
+      description: desc || '',
+      badge: badge || '',
+      tag: 'Variante'
+    });
+    renderVariants();
+    saveData(true);
+  };
+
+  window.editVariant = function(id) {
+    const m = getActiveMachine();
+    const v = (m.variants || []).find(item => item.id === id);
+    if (!v) return;
+    const title = prompt('Titel:', v.title);
+    if (title !== null) v.title = title;
+    const desc = prompt('Beschreibung:', v.description);
+    if (desc !== null) v.description = desc;
+    renderVariants();
+    saveData(true);
+  };
+
+  window.deleteVariant = function(id) {
+    if (!confirm('Variante löschen?')) return;
+    const m = getActiveMachine();
+    m.variants = (m.variants || []).filter(v => v.id !== id);
+    renderVariants();
+    saveData(true);
+  };
+
+  // 10. Options Editor
+  function renderOptions() {
+    const m = getActiveMachine();
+    const container = document.getElementById('options-list-editor');
+    container.innerHTML = '';
+    const options = m.options || [];
+
+    options.forEach(o => {
+      const card = document.createElement('div');
+      card.className = 'item-entry-card';
+      card.innerHTML = `
+        <div class="item-entry-left">
+          <h4>${escapeHtml(o.title)}</h4>
+          <p>${escapeHtml(o.description)}</p>
+          <div class="item-entry-meta">
+            ${o.tag ? `<span class="meta-chip">${escapeHtml(o.tag)}</span>` : ''}
+            ${o.badge ? `<span class="meta-chip" style="background:#fce7f3; color:#be185d;">${escapeHtml(o.badge)}</span>` : ''}
+          </div>
+        </div>
+        <div class="item-entry-actions">
+          <button class="action-icon-btn" onclick="editOption('${o.id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
+          <button class="action-icon-btn delete" onclick="deleteOption('${o.id}')">&times;</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  window.openNewOptionModal = function() {
+    const title = prompt('Titel der Option:');
+    if (!title) return;
+    const desc = prompt('Beschreibung:');
+    const badge = prompt('Badge (z.B. Highlight, Automation):', 'Technologie');
+
+    const m = getActiveMachine();
+    if (!m.options) m.options = [];
+    m.options.push({
+      id: 'o_' + Date.now(),
+      title,
+      description: desc || '',
+      badge: badge || '',
+      tag: 'Option'
+    });
+    renderOptions();
+    saveData(true);
+  };
+
+  window.editOption = function(id) {
+    const m = getActiveMachine();
+    const o = (m.options || []).find(item => item.id === id);
+    if (!o) return;
+    const title = prompt('Titel:', o.title);
+    if (title !== null) o.title = title;
+    const desc = prompt('Beschreibung:', o.description);
+    if (desc !== null) o.description = desc;
+    renderOptions();
+    saveData(true);
+  };
+
+  window.deleteOption = function(id) {
+    if (!confirm('Option löschen?')) return;
+    const m = getActiveMachine();
+    m.options = (m.options || []).filter(o => o.id !== id);
+    renderOptions();
+    saveData(true);
+  };
+
+  // 11. Applications Editor
+  function renderApplications() {
+    const m = getActiveMachine();
+    const container = document.getElementById('apps-list-editor');
+    container.innerHTML = '';
+    const apps = m.applications || [];
+
+    apps.forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'item-entry-card';
+      card.innerHTML = `
+        <div style="width:70px; height:60px; border-radius:10px; overflow:hidden; background:var(--bg-main); border:1px solid var(--line); flex-shrink:0;">
+          <img src="${a.image || 'assets/img/Applikationen/One-Shot.jpg'}" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="item-entry-left">
+          <h4>${escapeHtml(a.title)} ${a.subtitle ? `<span style="font-size:.85rem; color:var(--ink-soft); font-weight:normal;">(${escapeHtml(a.subtitle)})</span>` : ''}</h4>
+          <p>${escapeHtml(a.description)}</p>
+        </div>
+        <div class="item-entry-actions">
+          <button class="action-icon-btn" onclick="editApp('${a.id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
+          <button class="action-icon-btn delete" onclick="deleteApp('${a.id}')">&times;</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  window.openNewAppModal = function() {
+    const title = prompt('Titel der Applikation (z.B. Pralinen & Riegel):');
+    if (!title) return;
+    const subtitle = prompt('Untertitel (z.B. One-Shot):', '');
+    const desc = prompt('Beschreibung:');
+    const image = prompt('Bildpfad (z.B. assets/img/Applikationen/One-Shot.jpg):', 'assets/img/Applikationen/One-Shot.jpg');
+
+    const m = getActiveMachine();
+    if (!m.applications) m.applications = [];
+    m.applications.push({
+      id: 'a_' + Date.now(),
+      title,
+      subtitle,
+      description: desc || '',
+      image: image || 'assets/img/Applikationen/One-Shot.jpg',
+      bullets: ['Exakte Dosierung', 'Schweizer Qualität']
+    });
+    renderApplications();
+    saveData(true);
+  };
+
+  window.editApp = function(id) {
+    const m = getActiveMachine();
+    const a = (m.applications || []).find(item => item.id === id);
+    if (!a) return;
+    const title = prompt('Titel:', a.title);
+    if (title !== null) a.title = title;
+    const desc = prompt('Beschreibung:', a.description);
+    if (desc !== null) a.description = desc;
+    const image = prompt('Bildpfad:', a.image);
+    if (image !== null) a.image = image;
+    renderApplications();
+    saveData(true);
+  };
+
+  window.deleteApp = function(id) {
+    if (!confirm('Applikation löschen?')) return;
+    const m = getActiveMachine();
+    m.applications = (m.applications || []).filter(a => a.id !== id);
+    renderApplications();
+    saveData(true);
+  };
+
+  // 12. Media Library & Uploads
+  window.handleFileUpload = async function(fileInput, targetInputId, targetPreviewId) {
+    if (!fileInput.files || fileInput.files.length === 0) return;
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      showToast('Wird hochgeladen...', 'success');
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        const data = await res.json();
+        document.getElementById(targetInputId).value = data.url;
+        if (targetPreviewId) document.getElementById(targetPreviewId).src = data.url;
+        showToast('Datei erfolgreich hochgeladen!', 'success');
+        saveCurrentMachineForm();
+      } else {
+        throw new Error('Upload fehlgeschlagen');
+      }
+    } catch(err) {
+      // Fallback: create object URL or base64
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById(targetInputId).value = e.target.result;
+        if (targetPreviewId) document.getElementById(targetPreviewId).src = e.target.result;
+        showToast('Bild lokal geladen (Base64)', 'success');
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  window.uploadGenericMedia = async function(input) {
+    if (!input.files || input.files.length === 0) return;
+    const file = input.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      showToast('Wird hochgeladen...', 'success');
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        const data = await res.json();
+        showToast('Datei hochgeladen: ' + data.url, 'success');
+        renderMediaLibrary();
+      }
+    } catch (e) {
+      showToast('Upload-Endpunkt nicht erreichbar.', 'error');
+    }
+  };
+
+  function renderMediaLibrary() {
+    const grid = document.getElementById('media-library-grid');
+    grid.innerHTML = '';
+    const sampleImages = [
+      'assets/img/Produkte/Omega Compact.png',
+      'assets/img/Produkte/omega.png',
+      'assets/img/Produkte/alpha.png',
+      'assets/img/Produkte/alpha_compact.png',
+      'assets/img/Produkte/eta.png',
+      'assets/img/Applikationen/One-Shot.jpg',
+      'assets/img/Applikationen/Solid.png',
+      'assets/img/Applikationen/Sandwich.jpg',
+      'assets/img/Applikationen/Dekorieren.jpg',
+      'assets/img/Applikationen/ColdPress-shell.png'
+    ];
+
+    sampleImages.forEach(imgUrl => {
+      const item = document.createElement('div');
+      item.style.cssText = 'background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px; text-align:center;';
+      item.innerHTML = `
+        <div style="height:110px; display:flex; align-items:center; justify-content:center; background:var(--bg-main); border-radius:8px; margin-bottom:8px; overflow:hidden;">
+          <img src="${imgUrl}" style="max-height:90%; max-width:90%; object-fit:contain;">
+        </div>
+        <div style="font-size:.75rem; color:var(--ink-soft); word-break:break-all; margin-bottom:6px;">${imgUrl.split('/').pop()}</div>
+        <button class="btn btn-outline" style="padding:4px 10px; font-size:.75rem; width:100%;" onclick="copyToClipboard('${imgUrl}')">Pfad kopieren</button>
+      `;
+      grid.appendChild(item);
+    });
+  }
+
+  window.copyToClipboard = function(text) {
+    navigator.clipboard.writeText(text);
+    showToast('Pfad in die Zwischenablage kopiert!', 'success');
+  };
+
+  // 13. System & Settings
+  function renderSettings() {
+    document.getElementById('inp-site-title').value = currentData.settings ? currentData.settings.siteTitle : '';
+    const defSelect = document.getElementById('inp-default-machine');
+    defSelect.innerHTML = '';
+    currentData.machines.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = m.name;
+      if (m.id === (currentData.settings ? currentData.settings.activeMachineId : '')) opt.selected = true;
+      defSelect.appendChild(opt);
+    });
+  }
+
+  window.promptNewMachine = function() {
+    const name = prompt('Name der neuen Maschine (z.B. Delta 500):');
+    if (!name) return;
+    const id = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    if (currentData.machines.some(m => m.id === id)) {
+      alert('Eine Maschine mit dieser ID existiert bereits!');
+      return;
+    }
+
+    const newMachine = {
+      id,
+      name,
+      kicker: 'Moderne Schweizer Spitzentechnologie',
+      badge: 'Neu',
+      description: `${name} ist die neueste Generation modularer TRIKNO Giessmaschinen.`,
+      longDescription: `${name} bietet maximale Flexibilität, unerreichte Dosiergenauigkeit und sekundenschnelle Formatwechsel.`,
+      image: 'assets/img/Produkte/Omega Compact.png',
+      videoUrl: 'https://www.youtube.com/embed/bzeZaDalT4Y',
+      datasheetUrl: 'assets/pdf/TCM-Omega Compact_Technical DataSheet_DE.pdf',
+      specs: [
+        { label: 'Formenbreite', value: 'Bis 430 mm' },
+        { label: 'Taktleistung', value: 'Bis zu 30 Takte/Min.' }
+      ],
+      features: [
+        { id: 'f1', title: 'Servogesteuerte Hubachse', description: 'Elektrische Z-Achse für sauberes Abreissen.', hotspot: { x: 50, y: 50 }, tag: 'Antrieb' }
+      ],
+      variants: [],
+      options: [],
+      applications: []
+    };
+
+    currentData.machines.push(newMachine);
+    activeMachineId = id;
+    saveData(true);
+    setupMachineSelector();
+    renderDashboard();
+    selectMachineAndEdit(id);
+  };
+
+  window.exportDataJson = function() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentData, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", dataStr);
+    dlAnchor.setAttribute("download", `trikno-backup-${new Date().toISOString().slice(0,10)}.json`);
+    dlAnchor.click();
+  };
+
+  window.importDataJson = function(input) {
+    if (!input.files || input.files.length === 0) return;
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const parsed = JSON.parse(e.target.result);
+        if (parsed.machines) {
+          currentData = parsed;
+          saveData(true);
+          init();
+          showToast('Daten erfolgreich importiert!', 'success');
+        }
+      } catch(err) {
+        alert('Ungültiges JSON-Format!');
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  window.restoreFactoryDefaults = async function() {
+    if (!confirm('Möchten Sie wirklich alle Daten auf Werkseinstellungen zurücksetzen? Alle eigenen Änderungen gehen verloren!')) return;
+    try {
+      const res = await fetch('/api/reset', { method: 'POST' });
+      if (res.ok) {
+        const data = await res.json();
+        currentData = data.data;
+        localStorage.setItem('trikno_data_cache', JSON.stringify(currentData));
+        init();
+        showToast('Werkseinstellungen wiederhergestellt!', 'success');
+      }
+    } catch(err) {
+      alert('Reset-Funktion nur bei aktivem Node-Server verfügbar.');
+    }
+  };
+
+  // Helper Toast
+  function showToast(msg, type = 'success') {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    toast.className = `toast-notice ${type} is-visible`;
+    setTimeout(() => {
+      toast.classList.remove('is-visible');
+    }, 3800);
+  }
+
+  function escapeHtml(text) {
+    if (!text) return '';
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // Run
+  init();
+
+})();
+</script>
+
+</body>
+</html>
