@@ -269,6 +269,306 @@ img{ max-width:100%; display:block; }
   .footer-grid{ grid-template-columns:1fr; gap:28px; }
   .footer-bottom{ flex-direction:column; gap:12px; text-align:center; }
 }
+
+/* =========================================================
+   TRIKNO — Enhanced Mobile Optimization & Responsiveness
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero-content h1 { font-size: clamp(1.85rem, 6.5vw, 2.8rem) !important; line-height: 1.18 !important; }
+  .page-hero h1 { font-size: clamp(1.85rem, 6vw, 2.6rem) !important; line-height: 1.2 !important; }
+  .knobel-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .split { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .app-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal viewport overflow */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Header / Capsule navbar on tablet & mobile */
+  .site-header {
+    padding: 10px 12px 0 !important;
+  }
+  .header-inner {
+    padding: 6px 10px 6px 16px !important;
+    gap: 8px !important;
+  }
+  .brand img {
+    height: 30px !important;
+    max-width: 120px !important;
+  }
+  .header-cta {
+    gap: 8px !important;
+  }
+  .lang-switch {
+    font-size: 0.74rem !important;
+    gap: 4px !important;
+  }
+  .lang-switch a {
+    padding: 2px 3px !important;
+  }
+
+  /* Grids: MUST collapse to 1 column to avoid ultra-narrow cards */
+  .grid-4, .grid-3, .grid-2, .news-grid, .steps, .dealer-grid, .footer-grid, .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* News cards & general cards */
+  .card-body {
+    padding: 20px 18px 22px !important;
+  }
+  .card-body h3 {
+    font-size: 1.18rem !important;
+    line-height: 1.3 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  .card-body p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .card-media {
+    aspect-ratio: 16/10 !important;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+  .hero-content {
+    padding: 50px 18px 46px !important;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 6.8vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+    max-width: 100% !important;
+  }
+  .hero-content .lede {
+    font-size: 1.02rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 13px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Page hero (subpages) */
+  .page-hero {
+    padding: 45px 0 40px !important;
+  }
+  .app-hero {
+    padding: 55px 0 45px !important;
+  }
+
+  /* Section Spacing */
+  section {
+    padding: 44px 0 !important;
+  }
+
+  /* Next training banner */
+  .next-training-banner {
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .next-training-banner a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Knobel section buttons */
+  .knobel-actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .btn-cyan-pill {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* App banner */
+  .app-banner img {
+    height: 280px !important;
+  }
+  .app-banner-copy {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    padding: 24px 20px !important;
+    max-width: 100% !important;
+    background: rgba(27,31,35,0.85) !important;
+  }
+
+  /* Contact panel */
+  .contact-panel {
+    grid-template-columns: 1fr !important;
+    padding: 28px 20px !important;
+    gap: 28px !important;
+  }
+
+  /* Mobile Nav Drawer */
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    margin-left: 2px !important;
+    flex-shrink: 0 !important;
+  }
+  .nav-toggle span {
+    width: 22px !important;
+    height: 2px !important;
+    background: var(--ink) !important;
+    display: block !important;
+    border-radius: 2px !important;
+  }
+  .main-nav {
+    display: flex !important;
+    position: fixed !important;
+    top: 76px !important;
+    left: 14px !important;
+    right: 14px !important;
+    background: #fff !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 16px !important;
+    gap: 8px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 44px -18px rgba(40,45,50,0.45) !important;
+    border: 1px solid var(--line) !important;
+    transform: translateY(-140%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.28s ease, opacity 0.28s ease !important;
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+  }
+  .main-nav.is-open {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  .main-nav a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    font-size: 0.98rem !important;
+  }
+
+  /* Product details / Application details responsive layout */
+  .app-image-wrap {
+    margin-bottom: 24px !important;
+    border-radius: 20px !important;
+  }
+  .app-image-wrap img {
+    max-height: 320px !important;
+    padding: 10px !important;
+  }
+  .sidebar-card {
+    position: static !important;
+    padding: 24px 20px !important;
+  }
+  .app-actions {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .app-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .callout-box {
+    padding: 18px 16px !important;
+    gap: 12px !important;
+  }
+
+  /* Newsletter list rows */
+  .newsletter-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    border-radius: 18px !important;
+    padding: 14px 16px !important;
+  }
+  .newsletter-btn-badge {
+    width: 100% !important;
+    text-align: center !important;
+    min-width: unset !important;
+  }
+  .newsletter-head {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  /* Cookie bar */
+  .cookie-bar {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    padding: 16px 18px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Under 540px, hide or streamline the header CTA button so logo and hamburger don't get squished */
+  .header-cta .btn {
+    display: none !important;
+  }
+  .header-inner {
+    padding: 6px 10px 6px 14px !important;
+  }
+  .brand img {
+    height: 28px !important;
+  }
+
+  /* Make sure reels touch-scroll smoothly */
+  .reel-track {
+    gap: 12px !important;
+  }
+  .reel-chip {
+    padding: 9px 16px !important;
+    font-size: 0.85rem !important;
+  }
+  .reel-photo {
+    width: 150px !important;
+    height: 105px !important;
+    border-radius: 14px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -503,6 +803,27 @@ window.addEventListener('scroll', () => {
     header.classList.remove('is-scrolled');
   }
 }, { passive: true });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('is-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('is-open');
+      }
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
+    });
+  }
+});
 </script>
 </body>
 </html>
