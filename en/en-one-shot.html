@@ -727,6 +727,24 @@ img{ max-width:100%; display:block; }
     border-radius: 14px !important;
   }
 }
+
+.nav-mobile-cta { display:none !important; }
+@media (max-width:760px) {
+  .nav-mobile-cta {
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    width:100% !important;
+    margin-top:8px !important;
+    padding:12px 20px !important;
+    font-size:0.92rem !important;
+    color:#fff !important;
+    background:var(--blue-grad) !important;
+    border-radius:999px !important;
+    box-shadow:0 6px 16px -6px rgba(79,147,171,.6) !important;
+    text-decoration:none !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -744,14 +762,11 @@ img{ max-width:100%; display:block; }
       <a href="news.html">News</a>
       <a href="unternehmen.html">Company</a>
       <a href="kontakt.html">Contact</a>
+      <a class="btn btn-primary nav-mobile-cta" href="kontakt.html">Get in Touch</a>
     </nav>
 
     <div class="header-cta">
-      <div class="lang-switch">
-        <a class="" href="../one-shot.html">DE</a>
-        <span>·</span>
-        <a class="active" href="#">EN</a>
-    </div>
+      <div class="lang-switch"><a href="../en-one-shot.html">DE</a><span>/</span><a class="active" href="#">EN</a><span>/</span><a href="../es/en-one-shot.html">ES</a></div>
       <a class="btn btn-primary" href="kontakt.html">Get in Touch</a>
       <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div></div>
@@ -950,6 +965,25 @@ img{ max-width:100%; display:block; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /* Resume reel-track on mobile & back-button navigation (bfcache) */
+  window.addEventListener('pageshow', function () {
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+    document.querySelectorAll('.reel-track').forEach(function (track) {
+      track.style.animationPlayState = 'running';
+      var anim = track.style.animation;
+      track.style.animation = 'none';
+      void track.offsetWidth;
+      track.style.animation = anim || '';
+    });
+  });
+  document.querySelectorAll('.reel-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      this.blur();
+    });
+  });
+
   var header = document.querySelector('.site-header');
   var onScroll = function () {
     if (!header) return;

@@ -217,8 +217,13 @@ section{ padding:80px 0; }
 .reel-band.on-dark{ background:linear-gradient(160deg, var(--ink), var(--ink-deep)); }
 .reel-wrap{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .reel-track{ display:flex; gap:18px; width:max-content; animation:reelScroll 30s linear infinite; }
-.reel-track:hover{ animation-play-state:paused; }
-.reel-track.reverse{ animation-direction:reverse; animation-duration:36s; }
+@media (hover: hover) and (pointer: fine) {
+  .reel-track:hover{ animation-play-state:paused; }
+  .reel-track.reverse:hover{ animation-play-state:paused; }
+}
+@media (hover: none), (pointer: coarse) {
+  .reel-track, .reel-track.reverse { animation-play-state:running !important; }
+}.reel-track.reverse{ animation-direction:reverse; animation-duration:36s; }
 .reel-track.reverse:hover{ animation-play-state:paused; }
 @keyframes reelScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .reel-chip{
@@ -975,6 +980,24 @@ section{ padding:80px 0; }
     border-radius: 14px !important;
   }
 }
+
+.nav-mobile-cta { display:none !important; }
+@media (max-width:760px) {
+  .nav-mobile-cta {
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    width:100% !important;
+    margin-top:8px !important;
+    padding:12px 20px !important;
+    font-size:0.92rem !important;
+    color:#fff !important;
+    background:var(--blue-grad) !important;
+    border-radius:999px !important;
+    box-shadow:0 6px 16px -6px rgba(79,147,171,.6) !important;
+    text-decoration:none !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -989,9 +1012,10 @@ section{ padding:80px 0; }
       <a href="news.html">News</a>
       <a href="unternehmen.html">Company</a>
       <a href="kontakt.html">Contact</a>
+      <a class="btn btn-primary nav-mobile-cta" href="produkte-omega.html">Machines in Stock</a>
     </nav>
     <div class="header-cta">
-      <div class="lang-switch"><a href="../index.html">DE</a><span>/</span><a class="active" href="#">EN</a></div>
+      <div class="lang-switch"><a href="../index.html">DE</a><span>/</span><a class="active" href="#">EN</a><span>/</span><a href="../es/index.html">ES</a></div>
       <a class="btn btn-primary" href="produkte-omega.html">Machines in Stock</a>
       <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div></div>
@@ -1300,6 +1324,25 @@ section{ padding:80px 0; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /* Resume reel-track on mobile & back-button navigation (bfcache) */
+  window.addEventListener('pageshow', function () {
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+    document.querySelectorAll('.reel-track').forEach(function (track) {
+      track.style.animationPlayState = 'running';
+      var anim = track.style.animation;
+      track.style.animation = 'none';
+      void track.offsetWidth;
+      track.style.animation = anim || '';
+    });
+  });
+  document.querySelectorAll('.reel-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      this.blur();
+    });
+  });
+
 
   /* Sticky header shadow state */
   var header = document.querySelector('.site-header');
