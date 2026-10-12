@@ -337,9 +337,16 @@ section{ padding:80px 0; }
 .contact-panel > *{ position:relative; z-index:1; }
 .contact-panel h2{ color:#fff; }
 .contact-panel p{ color:rgba(255,255,255,.92); }
-.contact-panel input, .contact-panel textarea{ border-radius:var(--radius-sm) !important; }
+.contact-panel-form{ display:grid; gap:14px; width:100%; }
+.contact-form-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; }
+.contact-panel input, .contact-panel textarea{
+  width:100% !important; min-width:0 !important; box-sizing:border-box !important;
+  padding:13px 16px !important; border-radius:8px !important; border:1px solid rgba(255,255,255,.2) !important;
+  background:#fff !important; color:var(--ink) !important; font-family:inherit !important; font-size:16px !important;
+}
+.contact-panel textarea{ resize:vertical; }
 .contact-panel input:focus, .contact-panel textarea:focus{ outline:3px solid rgba(255,255,255,.6); outline-offset:1px; }
-.contact-panel .btn-primary{ background:#fff; color:var(--blue-dark); }
+.contact-panel .btn-primary{ background:#fff; color:var(--blue-dark); justify-self:start; padding:12px 28px; font-weight:700; border-radius:8px; border:none; cursor:pointer; }
 .contact-panel .btn-primary:hover{ background:var(--ink); color:#fff; }
 
 /* -------------------- FAQ-like / feature rows -------------------- */
@@ -828,8 +835,23 @@ section{ padding:80px 0; }
   /* Contact panel */
   .contact-panel {
     grid-template-columns: 1fr !important;
-    padding: 28px 20px !important;
-    gap: 28px !important;
+    padding: 24px 16px !important;
+    border-radius: 20px !important;
+    gap: 24px !important;
+  }
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .contact-panel-form {
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .contact-panel .btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
   }
 
   /* Newsletter list rows */
@@ -923,19 +945,19 @@ section{ padding:80px 0; }
         <h2>Schreiben Sie uns</h2>
         <p>Erzählen Sie uns kurz von Ihrem Projekt – wir melden uns umgehend zurück.</p>
       </div>
-      <form onsubmit="event.preventDefault(); this.reset(); alert('Vielen Dank! Ihre Nachricht wurde übermittelt.');" style="display:grid; gap:14px;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-          <input required type="text" placeholder="Vorname" style="padding:12px 14px; border-radius:3px; border:none;">
-          <input required type="text" placeholder="Nachname" style="padding:12px 14px; border-radius:3px; border:none;">
+      <form class="contact-panel-form" onsubmit="event.preventDefault(); this.reset(); alert('Vielen Dank! Ihre Nachricht wurde übermittelt.');">
+        <div class="contact-form-row">
+          <input required type="text" placeholder="Vorname">
+          <input required type="text" placeholder="Nachname">
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-          <input required type="text" placeholder="Firma / Unternehmen" style="padding:12px 14px; border-radius:3px; border:none;">
-          <input required type="text" placeholder="Land" style="padding:12px 14px; border-radius:3px; border:none;">
+        <div class="contact-form-row">
+          <input required type="text" placeholder="Firma / Unternehmen">
+          <input required type="text" placeholder="Land">
         </div>
-        <input required type="email" placeholder="E-Mail" style="padding:12px 14px; border-radius:3px; border:none;">
-        <input type="tel" placeholder="Telefonnummer" style="padding:12px 14px; border-radius:3px; border:none;">
-        <textarea required rows="4" placeholder="Ihre Nachricht" style="padding:12px 14px; border-radius:3px; border:none; font-family:inherit; resize:vertical;"></textarea>
-        <button class="btn btn-primary" type="submit" style="justify-self:start;">Nachricht senden</button>
+        <input required type="email" placeholder="E-Mail">
+        <input type="tel" placeholder="Telefonnummer">
+        <textarea required rows="4" placeholder="Ihre Nachricht"></textarea>
+        <button class="btn btn-primary" type="submit">Nachricht senden</button>
       </form>
     </div>
   </div>
