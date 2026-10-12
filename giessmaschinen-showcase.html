@@ -87,30 +87,30 @@ img{ max-width:100%; display:block; }
   pointer-events:none;
 }
 .header-inner{
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
-  max-width:var(--container); margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  max-width:1340px; margin:0 auto;
   background:#fff; border:1px solid var(--line);
   border-radius:999px; padding:8px 10px 8px 24px;
   box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
   pointer-events:auto;
 }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:38px; width:auto; transition:transform .3s ease; }
+.brand{ display:flex; align-items:center; gap:12px;  flex-shrink:0; }
+.brand img{ height:38px; width:auto; max-width:none; flex-shrink:0; object-fit:contain; transition:transform .3s ease; }
 .brand:hover img{ transform:scale(1.05); }
 
 .main-nav{
   display:flex; align-items:center; gap:4px;
-  background:var(--bg-soft); padding:5px; border-radius:999px;
+  background:var(--bg-soft); padding:5px; border-radius:999px; flex-shrink:0;
 }
 .main-nav a{
   padding:10px 18px; border-radius:999px;
-  font-family:"Poppins",sans-serif; font-weight:600; font-size:.85rem;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.83rem;
   color:var(--ink); transition:all .2s ease;
 }
 .main-nav a:hover{ background:#fff; color:var(--blue-dark); }
 .main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
 
-.header-cta{ display:flex; align-items:center; gap:10px; }
+.header-cta{ display:flex; align-items:center; gap:10px;  flex-shrink:0; }
 .admin-badge-btn{
   display:inline-flex; align-items:center; gap:8px;
   background:#1b1f23; color:#fff !important;
@@ -676,7 +676,7 @@ img{ max-width:100%; display:block; }
   .lang-switch {
     font-size: 0.74rem !important;
     gap: 4px !important;
-  }
+   flex-shrink:0; }
   .lang-switch a {
     padding: 2px 3px !important;
   }
@@ -1079,7 +1079,7 @@ img{ max-width:100%; display:block; }
   /* Under 540px, hide desktop CTA button so logo and hamburger don't get squished */
   .header-cta .btn {
     display: none !important;
-  }
+   white-space:nowrap; }
   .header-inner {
     padding: 6px 10px 6px 14px !important;
   }
