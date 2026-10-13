@@ -964,19 +964,23 @@ section{ padding:80px 0; }
         <h2>Envíenos un mensaje</h2>
         <p>Cuéntenos brevemente sobre su proyecto o requisitos de producción; nuestro equipo le responderá a la brevedad.</p>
       </div>
-      <form class="contact-panel-form" onsubmit="event.preventDefault(); this.reset(); alert('Thank you! Your message has been successfully sent.');">
+      <form class="contact-panel-form" id="contact-form" action="https://formsubmit.co/info@trikno.ch" method="POST">
+        <input type="hidden" name="_subject" value="Nueva consulta de contacto a través del sitio web de TRIKNO">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="contact-form-row">
-          <input required type="text" placeholder="Nombre">
-          <input required type="text" placeholder="Apellidos">
+          <input required type="text" name="Nombre" placeholder="Nombre">
+          <input required type="text" name="Apellidos" placeholder="Apellidos">
         </div>
         <div class="contact-form-row">
-          <input required type="text" placeholder="Empresa / Organización">
-          <input required type="text" placeholder="País">
+          <input required type="text" name="Empresa" placeholder="Empresa / Organización">
+          <input required type="text" name="Pais" placeholder="País">
         </div>
-        <input required type="email" placeholder="Correo electrónico">
-        <input type="tel" placeholder="Número de teléfono">
-        <textarea required rows="4" placeholder="Su mensaje / Detalles del proyecto"></textarea>
-        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        <input required type="email" name="Email" placeholder="Correo electrónico">
+        <input type="tel" name="Telefono" placeholder="Número de teléfono">
+        <textarea required rows="4" name="Mensaje" placeholder="Su mensaje / Detalles del proyecto"></textarea>
+        <button class="btn btn-primary" type="submit" id="contact-submit-btn">Enviar mensaje</button>
+        <div id="contact-status-msg" style="display:none; margin-top:6px; padding:12px 16px; border-radius:8px; font-size:.92rem; font-weight:600;"></div>
       </form>
     </div>
   </div>
@@ -1256,6 +1260,48 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.addEventListener('click', function () {
         cookieBar.classList.remove('is-visible');
         try { localStorage.setItem('trikno_cookie_ack', '1'); } catch (e) {}
+      });
+  /* Contact form handling -> info@trikno.ch */
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('contact-submit-btn');
+      var statusMsg = document.getElementById('contact-status-msg');
+      var origBtnText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Enviando...';
+      if (statusMsg) statusMsg.style.display = 'none';
+
+      var formData = new FormData(contactForm);
+      var payload = {};
+      formData.forEach(function (value, key) { payload[key] = value; });
+
+      fetch('https://formsubmit.co/ajax/info@trikno.ch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        contactForm.reset();
+        if (statusMsg) {
+          statusMsg.style.display = 'block';
+          statusMsg.style.background = '#e6f7ef';
+          statusMsg.style.color = '#0e6245';
+          statusMsg.style.border = '1px solid #a3e2c5';
+          statusMsg.innerHTML = '¡Muchas gracias! Su mensaje ha sido enviado con éxito a info@trikno.ch.';
+        }
+      })
+      .catch(function () {
+        contactForm.submit();
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.innerHTML = origBtnText;
       });
     });
   }
