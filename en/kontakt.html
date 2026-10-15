@@ -1263,6 +1263,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* Sticky header shadow state */
   var header = document.querySelector('.site-header');
   var onScroll = function () {
     if (!header) return;
@@ -1272,6 +1273,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* Mobile nav toggle */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
@@ -1283,6 +1285,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* Scroll reveal */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
@@ -1301,6 +1304,7 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* Cookie banner */
   var cookieBar = document.querySelector('.cookie-bar');
   if (cookieBar) {
     var dismissed = false;
@@ -1313,6 +1317,9 @@ document.addEventListener('DOMContentLoaded', function () {
         cookieBar.classList.remove('is-visible');
         try { localStorage.setItem('trikno_cookie_ack', '1'); } catch (e) {}
       });
+    });
+  }
+
   /* Contact form handling -> info@trikno.ch */
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -1345,7 +1352,7 @@ document.addEventListener('DOMContentLoaded', function () {
           statusMsg.style.background = '#e6f7ef';
           statusMsg.style.color = '#0e6245';
           statusMsg.style.border = '1px solid #a3e2c5';
-          statusMsg.innerHTML = 'Thank you! Your message has been successfully sent to info@trikno.ch.';
+          statusMsg.innerHTML = 'Thank you! Your message has been sent successfully to info@trikno.ch.';
         }
       })
       .catch(function () {
@@ -1358,7 +1365,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
 
   // Language dropdown toggle
   document.querySelectorAll('.lang-dropdown').forEach(function (dd) {
@@ -1377,7 +1383,6 @@ document.addEventListener('DOMContentLoaded', function () {
       if (b) b.setAttribute('aria-expanded', 'false');
     });
   });
-
 </script>
 </body>
 </html>
