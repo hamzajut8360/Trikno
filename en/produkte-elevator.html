@@ -758,28 +758,56 @@ img{ max-width:100%; display:block; }
     text-decoration:none !important;
   }
 }
+
+/* Language Dropdown */
+.lang-dropdown { position: relative; display: inline-flex; align-items: center; flex-shrink: 0; }
+.lang-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--bg-soft, #EEF6F8); color: var(--ink, #282d32); border: 1px solid var(--line, #DCE7EA); border-radius: 999px; padding: 5px 10px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; line-height: 1; flex-shrink: 0; }
+.lang-btn:hover, .lang-dropdown.is-open .lang-btn { background: #fff; border-color: var(--blue, #6cb8d2); color: var(--blue-dark, #4f93ab); box-shadow: 0 4px 12px -4px rgba(108,184,210,.35); }
+.lang-arrow { transition: transform 0.2s ease; flex-shrink: 0; }
+.lang-dropdown:hover .lang-arrow, .lang-dropdown.is-open .lang-arrow { transform: rotate(180deg); }
+.lang-menu { position: absolute; top: calc(100% + 6px); right: 0; background: #ffffff; border: 1px solid var(--line, #DCE7EA); border-radius: 12px; padding: 5px; min-width: 125px; box-shadow: 0 12px 28px -8px rgba(40,45,50,.22), 0 4px 10px -2px rgba(40,45,50,.06); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; z-index: 500; display: flex; flex-direction: column; gap: 2px; }
+.lang-dropdown:hover .lang-menu, .lang-dropdown:focus-within .lang-menu, .lang-dropdown.is-open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 10px; border-radius: 8px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft, rgba(40,45,50,.72)); text-decoration: none; transition: all 0.15s ease; }
+.lang-opt .lang-code { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.02em; }
+.lang-opt .lang-name { font-size: 0.76rem; color: var(--ink-faint, rgba(40,45,50,.5)); }
+.lang-opt:hover { background: var(--bg-soft, #EEF6F8); color: var(--blue-dark, #4f93ab); }
+.lang-opt:hover .lang-name { color: var(--blue-dark, #4f93ab); }
+.lang-opt.active { background: var(--blue-soft, rgba(108,184,210,.16)); color: var(--blue-dark, #4f93ab); font-weight: 700; }
+.lang-opt.active .lang-name { color: var(--blue-dark, #4f93ab); font-weight: 600; }
+
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../index">
+    <a class="brand" href="index">
       <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
     </a>
 
     <nav class="main-nav">
-      <a href="../index">Home</a>
-      <a class="active" href="../produkte">Products</a>
-      <a href="../dienstleistungen">Services</a>
-      <a href="../news">News</a>
-      <a href="../unternehmen">Company</a>
-      <a href="../kontakt">Contact</a>
+      <a href="index">Home</a>
+      <a class="active" href="produkte">Products</a>
+      <a href="dienstleistungen">Services</a>
+      <a href="news">News</a>
+      <a href="unternehmen">Company</a>
+      <a href="kontakt">Contact</a>
       <a class="btn btn-primary nav-mobile-cta" href="produkte-omega">Stock Machines</a>
     </nav>
 
     <div class="header-cta">
-      <div class="lang-switch"><a href="../produkte-elevator">DE</a><span>/</span><a class="active" href="#">EN</a><span>/</span><a href="../es/produkte-elevator">ES</a></div>
+      <div class="lang-dropdown">
+  <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+    <span class="lang-curr">EN</span>
+    <svg class="lang-arrow" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true"><path d="M1 1.25L4.5 4.75L8 1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="lang-menu" role="menu">
+    <a class="lang-opt" href="produkte-elevator" role="menuitem"><span class="lang-code">DE</span><span class="lang-name">Deutsch</span></a>
+    <a class="lang-opt active" href="#" role="menuitem"><span class="lang-code">EN</span><span class="lang-name">English</span></a>
+    <a class="lang-opt" href="../es/produkte-elevator" role="menuitem"><span class="lang-code">ES</span><span class="lang-name">Español</span></a>
+    <a class="lang-opt" href="../fr/produkte-elevator" role="menuitem"><span class="lang-code">FR</span><span class="lang-name">Français</span></a>
+  </div>
+</div>
       <a class="btn btn-primary" href="produkte-omega">Stock Machines</a>
       <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div></div>
@@ -788,9 +816,9 @@ img{ max-width:100%; display:block; }
 <section class="app-hero">
   <div class="container">
     <div class="breadcrumb-nav">
-      <a href="../index">Home</a>
+      <a href="index">Home</a>
       <span>/</span>
-      <a href="../produkte">Products</a>
+      <a href="produkte">Products</a>
       <span>/</span>
       <span>Elevator</span>
     </div>
@@ -847,11 +875,11 @@ img{ max-width:100%; display:block; }
         </div>
 
         <div class="app-actions reveal">
-          <a class="btn btn-primary" href="../kontakt">
+          <a class="btn btn-primary" href="kontakt">
             <span>Request Consultation</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <a class="btn btn-ghost" href="../produkte">
+          <a class="btn btn-ghost" href="produkte">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             <span>Back to Products</span>
           </a>
@@ -877,7 +905,7 @@ img{ max-width:100%; display:block; }
 
           <div class="machines-list">
             
-        <a class="machine-chip reveal" href="../solid">
+        <a class="machine-chip reveal" href="solid">
           <div class="machine-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </div>
@@ -887,7 +915,7 @@ img{ max-width:100%; display:block; }
           </div>
           <span class="machine-arrow">→</span>
         </a>
-        <a class="machine-chip reveal" href="../one-shot">
+        <a class="machine-chip reveal" href="one-shot">
           <div class="machine-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </div>
@@ -909,31 +937,31 @@ img{ max-width:100%; display:block; }
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="../index"><img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px;"></a>
+        <a href="index"><img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px;"></a>
         <p>Leading Swiss manufacturer of high-precision depositing and decorating machines for chocolate and confectionery.</p>
       </div>
 
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="../index">Home</a></li>
-          <li><a href="../produkte">Products</a></li>
-          <li><a href="../dienstleistungen">Services</a></li>
-          <li><a href="../news">News</a></li>
-          <li><a href="../unternehmen">Company</a></li>
-          <li><a href="../kontakt">Contact</a></li>
+          <li><a href="index">Home</a></li>
+          <li><a href="produkte">Products</a></li>
+          <li><a href="dienstleistungen">Services</a></li>
+          <li><a href="news">News</a></li>
+          <li><a href="unternehmen">Company</a></li>
+          <li><a href="kontakt">Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Products</h4>
         <ul>
-          <li><a href="../produkte-schleuder">Spinner</a></li>
-          <li><a href="../produkte-omega">Omega</a></li>
-          <li><a href="../produkte-alpha">Alpha</a></li>
-          <li><a href="../produkte-coldpress">ColdPress</a></li>
-          <li><a href="../produkte-vibrationstisch">Vibration Table</a></li>
-          <li><a href="../produkte-spirale">Spiral Cooler</a></li>
+          <li><a href="produkte-schleuder">Spinner</a></li>
+          <li><a href="produkte-omega">Omega</a></li>
+          <li><a href="produkte-alpha">Alpha</a></li>
+          <li><a href="produkte-coldpress">ColdPress</a></li>
+          <li><a href="produkte-vibrationstisch">Vibration Table</a></li>
+          <li><a href="produkte-spirale">Spiral Cooler</a></li>
         </ul>
       </div>
 
@@ -955,7 +983,7 @@ img{ max-width:100%; display:block; }
     <div class="footer-bottom">
       <span>© 2026 TRIKNO AG. All rights reserved.</span>
       <div style="display:flex; gap:16px;">
-        <a href="../kontakt">Imprint & Privacy</a>
+        <a href="kontakt">Imprint & Privacy</a>
       </div>
     </div>
   </div>
@@ -1011,6 +1039,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+
+  // Language dropdown toggle
+  document.querySelectorAll('.lang-dropdown').forEach(function (dd) {
+    var btn = dd.querySelector('.lang-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = dd.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.lang-dropdown.is-open').forEach(function (dd) {
+      dd.classList.remove('is-open');
+      var b = dd.querySelector('.lang-btn');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  });
+
 </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ Options -Indexes
 RewriteRule ^news/?$ news.html [NC,L]
 RewriteRule ^en/news/?$ en/news.html [NC,L]
 RewriteRule ^es/news/?$ es/news.html [NC,L]
+RewriteRule ^fr/news/?$ fr/news.html [NC,L]
 
 # 1. Remove .html from browser address bar if user types it directly (301 Redirect)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table vibrante – Détails de la machine | TRIKNO</title>
+<meta name="description" content="Highly efficient, equipped with a specially engineered vibration plate for optimal de-aeration and chocolate distribution.">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TRIKNO — Product Detail Page Style
+   Capsule Header, Hero Showcase, Curved Cards, Responsive Grid
+   ========================================================= */
+
+:root{
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40,45,50,.68);
+  --ink-faint: rgba(40,45,50,.5);
+
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108,184,210,.16);
+  --blue-glow: rgba(108,184,210,.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+
+  --orange: #d36a36;
+  --orange-soft: rgba(211,106,54,.12);
+  --orange-mid: rgba(211,106,54,.45);
+  --orange-glow: rgba(211,106,54,.25);
+
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --shadow: 0 20px 44px -22px rgba(40,45,50,.4);
+  --shadow-blue: 0 20px 44px -18px rgba(108,184,210,.55);
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Roboto", Arial, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:"Poppins", "Roboto", sans-serif;
+  color:var(--ink);
+  margin:0 0 .5em;
+  line-height:1.14;
+  font-weight:700;
+  letter-spacing:-0.015em;
+}
+h1{ font-size:clamp(2.4rem, 4.8vw, 3.8rem); color:var(--blue-dark); }
+h2{ font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:var(--blue-dark); }
+h3{ font-size:clamp(1.2rem, 1.8vw, 1.45rem); font-weight:600; }
+
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; font-size:1.06rem; }
+a{ color:var(--ink); text-decoration:none; transition:color .18s ease; }
+a:hover{ color:var(--blue-dark); }
+img{ max-width:100%; display:block; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+/* -------------------- Header / Floating pill nav -------------------- */
+.site-header{ position:sticky; top:0; z-index:200; padding:18px 20px 0; background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events:none; }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  max-width:1340px; margin:0 auto;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:10px 10px 10px 26px;
+  box-shadow:0 14px 34px -20px rgba(40,45,50,.35);
+  transition:box-shadow .25s ease, padding .25s ease;
+  pointer-events:auto;
+}
+.site-header.is-scrolled .header-inner{ box-shadow:0 16px 34px -14px rgba(40,45,50,.4); }
+
+.brand{ display:flex; align-items:center; gap:12px;  flex-shrink:0; }
+.brand img{ height:38px; width:auto; max-width:none; flex-shrink:0; object-fit:contain; transition:transform .35s ease; }
+.brand:hover img{ transform:scale(1.08) rotate(-3deg); }
+
+.main-nav{ display:flex; align-items:center; gap:4px; background:var(--bg-soft); padding:6px; border-radius:999px; flex-shrink:0; }
+.main-nav a{
+  position:relative; display:inline-block; white-space:nowrap; padding:9px 15px; border-radius:999px;
+  font-family:"Poppins",sans-serif; font-weight:600; font-size:.83rem;
+  letter-spacing:.02em; color:var(--ink); transition:background .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.main-nav a:hover{ background:#fff; color:var(--blue-dark); box-shadow:0 4px 12px -6px rgba(108,184,210,.5); }
+.main-nav a.active{ background:var(--blue-grad); color:#fff; box-shadow:0 6px 16px -6px rgba(79,147,171,.6); }
+
+.header-cta{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.lang-switch{ display:flex; gap:6px; font-family:"Poppins",sans-serif; font-size:.78rem; font-weight:600; color:var(--ink-soft);  flex-shrink:0; }
+.lang-switch a{ color:var(--ink-soft); padding:2px 4px; border-radius:4px; }
+.lang-switch a.active{ color:var(--blue-dark); font-weight:700; background:var(--blue-soft); }
+.header-cta .btn{ padding:12px 24px; font-size:.88rem; white-space:nowrap; }
+.nav-toggle{ display:none; }
+
+/* -------------------- Buttons -------------------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 30px; border-radius:var(--radius-btn);
+  font-family:"Poppins", "Roboto", sans-serif; font-weight:600; font-size:.95rem;
+  letter-spacing:.01em; border:1px solid transparent; cursor:pointer;
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  white-space:nowrap; text-decoration:none;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(0); }
+
+.btn-primary{
+  background:var(--blue-grad); color:#fff;
+  box-shadow:0 6px 16px -6px rgba(79,147,171,.6); border:none;
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg, #6cb8d2 0%, #3e8198 100%); color:#fff;
+  transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(79,147,171,.75);
+}
+
+.btn-ghost{
+  background:var(--bg-soft); color:var(--ink); border-color:var(--line);
+}
+.btn-ghost:hover{
+  background:#fff; border-color:var(--blue); color:var(--blue-dark);
+  box-shadow:0 6px 18px -8px rgba(108,184,210,.4);
+}
+
+/* -------------------- Hero Banner -------------------- */
+.app-hero{
+  background:radial-gradient(100% 120% at 75% 20%, rgba(108,184,210,.25) 0%, rgba(27,31,35,0) 65%),
+             linear-gradient(135deg, #1b1f23 0%, #282d32 100%);
+  color:#fff;
+  padding:110px 0 75px;
+  position:relative;
+  overflow:hidden;
+  border-radius:0;
+}
+.app-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:linear-gradient(90deg, var(--blue), var(--orange)); }
+.breadcrumb-nav{ display:flex; align-items:center; gap:8px; font-family:"Poppins",sans-serif; font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); margin-bottom:20px; }
+.breadcrumb-nav a{ color:rgba(255,255,255,.75); }
+.breadcrumb-nav a:hover{ color:var(--blue); }
+.breadcrumb-nav span{ color:rgba(255,255,255,.4); }
+
+.hero-tag{ display:inline-flex; align-items:center; gap:8px; background:rgba(211,106,54,.2); border:1px solid rgba(211,106,54,.4); color:#ff9f73; font-family:"Poppins",sans-serif; font-size:.85rem; font-weight:700; padding:6px 16px; border-radius:999px; margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
+.hero-tag .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange); }
+
+.app-hero h1{ color:#fff; font-size:clamp(2.4rem, 4.4vw, 3.6rem); margin-bottom:14px; }
+.app-hero-sub{ color:rgba(255,255,255,.82); font-size:1.15rem; max-width:65ch; line-height:1.6; margin:0; }
+
+/* -------------------- Main Application Layout -------------------- */
+.app-section{ padding:70px 0 90px; background:#fff; }
+.app-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:start; }
+
+.app-image-wrap{
+  position:relative; border-radius:28px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 24px 50px -20px rgba(40,45,50,.35); background:linear-gradient(135deg, var(--bg-soft), #fff);
+  margin-bottom:34px;
+}
+.app-image-wrap img{ width:100%; height:auto; object-fit:contain; max-height:480px; margin:0 auto; display:block; transition:transform .6s ease; padding:18px; }
+.app-image-wrap:hover img{ transform:scale(1.02); }
+.app-image-badge{ position:absolute; bottom:20px; right:20px; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:999px; padding:8px 18px; font-family:"Poppins",sans-serif; font-weight:700; font-size:.82rem; color:var(--ink); box-shadow:0 8px 20px -8px rgba(0,0,0,.2); }
+
+.app-text{ font-size:1.08rem; line-height:1.75; color:var(--ink-soft); margin-bottom:20px; }
+
+.app-subhead{ font-size:1.25rem; color:var(--ink); margin:36px 0 16px; font-weight:700; }
+.app-tags-list{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0 0 34px; list-style:none; }
+.app-tag-item{
+  display:inline-flex; align-items:center; gap:8px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:999px; padding:10px 20px; font-family:"Poppins",sans-serif; font-size:.9rem; font-weight:600;
+  color:var(--ink); transition:all .2s ease;
+}
+.app-tag-item:hover{ border-color:var(--blue); color:var(--blue-dark); transform:translateY(-2px); box-shadow:0 6px 14px -6px rgba(108,184,210,.4); }
+.app-tag-item .tag-bullet{ width:6px; height:6px; border-radius:50%; background:var(--orange); }
+
+/* Callout Box */
+.callout-box{
+  display:flex; gap:18px; background:linear-gradient(135deg, rgba(108,184,210,.1), rgba(211,106,54,.06));
+  border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:18px;
+  padding:22px 24px; margin-bottom:34px; align-items:flex-start;
+}
+.callout-icon{ color:var(--blue-dark); flex:0 0 auto; margin-top:2px; }
+.callout-content strong{ display:block; font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); margin-bottom:4px; }
+.callout-content span{ font-size:.98rem; color:var(--ink-soft); line-height:1.6; }
+
+/* App actions CTA */
+.app-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; }
+
+/* -------------------- Right Sidebar: Specs & Compatible Apps -------------------- */
+.sidebar-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); padding:32px 28px;
+  box-shadow:0 20px 44px -22px rgba(40,45,50,.25); position:sticky; top:110px;
+}
+.sidebar-card h3{ margin-bottom:8px; font-size:1.35rem; color:var(--ink); }
+.sidebar-card p{ font-size:.95rem; margin-bottom:20px; }
+
+.machines-list{ display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+.machine-chip{
+  display:flex; align-items:center; gap:16px; background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:18px; padding:14px 18px; text-decoration:none; transition:all .25s ease;
+}
+.machine-chip:hover{
+  background:#fff; border-color:var(--blue); transform:translateX(5px);
+  box-shadow:0 12px 28px -14px rgba(108,184,210,.5);
+}
+.machine-icon-wrap{
+  width:42px; height:42px; border-radius:12px; background:#fff; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--blue-dark); flex:0 0 auto;
+}
+.machine-details{ display:flex; flex-direction:column; gap:2px; flex:1; }
+.machine-details strong{ font-family:"Poppins",sans-serif; font-size:.95rem; color:var(--ink); }
+.machine-details span{ font-size:.8rem; color:var(--ink-soft); line-height:1.4; }
+.machine-arrow{ font-size:1.2rem; color:var(--ink-faint); transition:transform .2s ease; }
+.machine-chip:hover .machine-arrow{ transform:translateX(4px); color:var(--blue); }
+
+.sidebar-cta-box{
+  margin-top:28px; padding-top:24px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:12px; text-align:center;
+}
+.sidebar-cta-box p{ margin:0; font-size:.95rem; color:var(--ink-soft); }
+
+/* -------------------- Footer -------------------- */
+.site-footer{
+  background:#1b1f23; color:#fff; padding:80px 0 34px; margin-top:0;
+  border-radius:0;
+}
+.footer-grid{ display:grid; grid-template-columns:1.8fr 1fr 1fr 1.2fr; gap:48px; margin-bottom:56px; }
+.footer-brand p{ color:rgba(255,255,255,.65); font-size:.95rem; margin-top:16px; max-width:36ch; }
+.footer-col h4{ color:#fff; font-size:.95rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px; }
+.footer-col ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; }
+.footer-col a{ color:rgba(255,255,255,.7); font-size:.92rem; }
+.footer-col a:hover{ color:var(--blue); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:28px; display:flex; justify-content:space-between; align-items:center; font-size:.85rem; color:rgba(255,255,255,.5); }
+.footer-bottom a{ color:rgba(255,255,255,.6); }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width:980px){
+  .main-nav{ display:none; }
+  .nav-toggle{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%; background:var(--bg-soft);
+    border:1px solid var(--line); cursor:pointer; color:var(--ink);
+  }
+  .app-grid{ grid-template-columns:1fr; gap:40px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:640px){
+  .header-inner{ padding:8px 12px 8px 18px; }
+  .header-cta .btn{ display:none;  white-space:nowrap; }
+  .footer-grid{ grid-template-columns:1fr; gap:28px; }
+  .footer-bottom{ flex-direction:column; gap:12px; text-align:center; }
+}
+
+/* =========================================================
+   TRIKNO — Mobile Optimization Booster (Products, Apps & Subpages)
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero-content h1 { font-size: clamp(1.85rem, 6.5vw, 2.8rem) !important; line-height: 1.18 !important; }
+  .page-hero h1 { font-size: clamp(1.85rem, 6vw, 2.6rem) !important; line-height: 1.2 !important; }
+  .knobel-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .split { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .app-grid { display: flex !important; flex-direction: column !important; gap: 32px !important; width: 100% !important; }
+  .app-content-col, .app-sidebar-col { width: 100% !important; max-width: 100% !important; }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow without breaking sticky positioning */
+  html, body {
+    overflow-x: clip !important;
+    width: 100% !important;
+  }
+
+  .container {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  /* Header / Capsule navbar */
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    padding: 8px 12px 0 !important;
+  }
+  .header-inner {
+    padding: 6px 10px 6px 16px !important;
+    gap: 8px !important;
+  }
+  .brand img {
+    height: 30px !important;
+    max-width: 120px !important;
+  }
+  .header-cta {
+    gap: 8px !important;
+  }
+  .lang-switch {
+    font-size: 0.74rem !important;
+    gap: 4px !important;
+   flex-shrink:0; }
+  .lang-switch a {
+    padding: 2px 3px !important;
+  }
+
+  /* Mobile Nav Toggle Button */
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 38px !important;
+    height: 38px !important;
+    background: var(--bg-soft, #EEF6F8) !important;
+    border: 1px solid var(--line, #DCE7EA) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin-left: 2px !important;
+    flex-shrink: 0 !important;
+  }
+  .nav-toggle span {
+    width: 18px !important;
+    height: 2px !important;
+    background: var(--ink, #282d32) !important;
+    display: block !important;
+    border-radius: 2px !important;
+  }
+
+  /* Mobile Nav Drawer */
+  .main-nav {
+    display: flex !important;
+    position: fixed !important;
+    top: 66px !important;
+    left: 12px !important;
+    right: 12px !important;
+    background: #ffffff !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 16px !important;
+    gap: 8px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 44px -14px rgba(40,45,50,0.5) !important;
+    border: 1px solid var(--line, #DCE7EA) !important;
+    transform: translateY(-140%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease !important;
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+  }
+  .main-nav.is-open {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  .main-nav a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    font-size: 0.96rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* Grids: MUST collapse to 1 column */
+  .grid-4, .grid-3, .grid-2, .news-grid, .steps, .dealer-grid, .footer-grid, .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Cards */
+  .card-body {
+    padding: 20px 18px 22px !important;
+  }
+  .card-body h3 {
+    font-size: 1.18rem !important;
+    line-height: 1.3 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  .card-body p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .card-media {
+    aspect-ratio: 16/10 !important;
+  }
+
+  /* Standard Heroes */
+  .hero {
+    min-height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+  .hero-content {
+    padding: 50px 18px 46px !important;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 6.8vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+    max-width: 100% !important;
+  }
+  .hero-content .lede {
+    font-size: 1.02rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 13px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Subpage Hero */
+  .page-hero {
+    padding: 45px 0 40px !important;
+  }
+
+  /* ==========================================
+     PRODUCT & APPLICATION DETAIL PAGES MOBILE
+     ========================================== */
+  .app-hero {
+    padding: 70px 0 35px !important;
+    margin-top: 0 !important;
+  }
+  .breadcrumb-nav {
+    font-size: 0.76rem !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-tag {
+    font-size: 0.72rem !important;
+    padding: 4px 12px !important;
+    margin-bottom: 12px !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: left !important;
+    display: inline-flex !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+  }
+  .app-hero h1 {
+    font-size: clamp(1.8rem, 7.5vw, 2.3rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 10px !important;
+    word-break: break-word !important;
+  }
+  .app-hero-sub {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .app-section {
+    padding: 30px 0 50px !important;
+  }
+  .app-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    width: 100% !important;
+  }
+  .app-content-col, .app-sidebar-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Product Machine Image Showcase Box */
+  .app-image-wrap {
+    margin-bottom: 20px !important;
+    border-radius: 18px !important;
+    padding: 14px 12px 16px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    text-align: center !important;
+  }
+  .app-image-wrap img {
+    max-height: 250px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    padding: 4px !important;
+    display: block !important;
+  }
+  /* Fix badge truncation on mobile by centering as static pill beneath machine */
+  .app-image-badge {
+    position: static !important;
+    display: table !important;
+    margin: 10px auto 0 !important;
+    font-size: 0.72rem !important;
+    padding: 5px 14px !important;
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.15) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  .app-text {
+    font-size: 0.98rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 16px !important;
+  }
+  .app-subhead {
+    font-size: 1.12rem !important;
+    margin: 24px 0 14px !important;
+  }
+  .app-tags-list {
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+  }
+  .app-tag-item {
+    font-size: 0.82rem !important;
+    padding: 7px 14px !important;
+    border-radius: 12px !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+
+  .callout-box {
+    padding: 16px 14px !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+    border-radius: 16px !important;
+  }
+  .callout-content strong {
+    font-size: 0.88rem !important;
+  }
+  .callout-content span {
+    font-size: 0.85rem !important;
+  }
+
+  .app-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 24px !important;
+    width: 100% !important;
+  }
+  .app-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px 18px !important;
+    box-sizing: border-box !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* Datasheets & Downloads */
+  .datasheet-box {
+    padding: 18px 14px !important;
+    border-radius: 18px !important;
+    margin-top: 24px !important;
+  }
+  .datasheet-box a.btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    padding: 12px 14px !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Right Sidebar Card & Technical Specs Table */
+  .sidebar-card {
+    position: static !important;
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebar-card h3 {
+    font-size: 1.18rem !important;
+  }
+  .sidebar-card p {
+    font-size: 0.88rem !important;
+    margin-bottom: 16px !important;
+  }
+  .sidebar-card table {
+    table-layout: fixed !important;
+    width: 100% !important;
+  }
+  .sidebar-card td {
+    padding: 8px 0 !important;
+    font-size: 0.84rem !important;
+    word-break: break-word !important;
+  }
+  .machines-list {
+    gap: 10px !important;
+  }
+  .machine-chip {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    border-radius: 14px !important;
+  }
+  .machine-icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .machine-details strong {
+    font-size: 0.88rem !important;
+  }
+  .machine-details span {
+    font-size: 0.76rem !important;
+  }
+
+  /* Section Spacing */
+  section {
+    padding: 44px 0 !important;
+  }
+
+  /* Next training banner */
+  .next-training-banner {
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .next-training-banner a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Knobel section buttons */
+  .knobel-actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .btn-cyan-pill {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* App banner */
+  .app-banner img {
+    height: 280px !important;
+  }
+  .app-banner-copy {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    padding: 24px 20px !important;
+    max-width: 100% !important;
+    background: rgba(27,31,35,0.85) !important;
+  }
+
+  /* Contact panel */
+  .contact-panel {
+    grid-template-columns: 1fr !important;
+    padding: 28px 20px !important;
+    gap: 28px !important;
+  }
+
+  /* Newsletter list rows */
+  .newsletter-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    border-radius: 18px !important;
+    padding: 14px 16px !important;
+  }
+  .newsletter-btn-badge {
+    width: 100% !important;
+    text-align: center !important;
+    min-width: unset !important;
+  }
+  .newsletter-head {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  /* Cookie bar */
+  .cookie-bar {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    padding: 16px 18px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Under 540px, hide desktop CTA button so logo and hamburger don't get squished */
+  .header-cta .btn {
+    display: none !important;
+   white-space:nowrap; }
+  .header-inner {
+    padding: 6px 10px 6px 14px !important;
+  }
+  .brand img {
+    height: 28px !important;
+  }
+
+  /* Reel track smooth touch scrolling */
+  .reel-track {
+    gap: 12px !important;
+  }
+  .reel-chip {
+    padding: 9px 16px !important;
+    font-size: 0.85rem !important;
+  }
+  .reel-photo {
+    width: 150px !important;
+    height: 105px !important;
+    border-radius: 14px !important;
+  }
+}
+
+.nav-mobile-cta { display:none !important; }
+@media (max-width:760px) {
+  .nav-mobile-cta {
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    width:100% !important;
+    margin-top:8px !important;
+    padding:12px 20px !important;
+    font-size:0.92rem !important;
+    color:#fff !important;
+    background:var(--blue-grad) !important;
+    border-radius:999px !important;
+    box-shadow:0 6px 16px -6px rgba(79,147,171,.6) !important;
+    text-decoration:none !important;
+  }
+}
+
+/* Language Dropdown */
+.lang-dropdown { position: relative; display: inline-flex; align-items: center; flex-shrink: 0; }
+.lang-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--bg-soft, #EEF6F8); color: var(--ink, #282d32); border: 1px solid var(--line, #DCE7EA); border-radius: 999px; padding: 5px 10px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; line-height: 1; flex-shrink: 0; }
+.lang-btn:hover, .lang-dropdown.is-open .lang-btn { background: #fff; border-color: var(--blue, #6cb8d2); color: var(--blue-dark, #4f93ab); box-shadow: 0 4px 12px -4px rgba(108,184,210,.35); }
+.lang-arrow { transition: transform 0.2s ease; flex-shrink: 0; }
+.lang-dropdown:hover .lang-arrow, .lang-dropdown.is-open .lang-arrow { transform: rotate(180deg); }
+.lang-menu { position: absolute; top: calc(100% + 6px); right: 0; background: #ffffff; border: 1px solid var(--line, #DCE7EA); border-radius: 12px; padding: 5px; min-width: 125px; box-shadow: 0 12px 28px -8px rgba(40,45,50,.22), 0 4px 10px -2px rgba(40,45,50,.06); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; z-index: 500; display: flex; flex-direction: column; gap: 2px; }
+.lang-dropdown:hover .lang-menu, .lang-dropdown:focus-within .lang-menu, .lang-dropdown.is-open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 10px; border-radius: 8px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft, rgba(40,45,50,.72)); text-decoration: none; transition: all 0.15s ease; }
+.lang-opt .lang-code { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.02em; }
+.lang-opt .lang-name { font-size: 0.76rem; color: var(--ink-faint, rgba(40,45,50,.5)); }
+.lang-opt:hover { background: var(--bg-soft, #EEF6F8); color: var(--blue-dark, #4f93ab); }
+.lang-opt:hover .lang-name { color: var(--blue-dark, #4f93ab); }
+.lang-opt.active { background: var(--blue-soft, rgba(108,184,210,.16)); color: var(--blue-dark, #4f93ab); font-weight: 700; }
+.lang-opt.active .lang-name { color: var(--blue-dark, #4f93ab); font-weight: 600; }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index">
+      <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    </a>
+
+    <nav class="main-nav">
+      <a href="index">Accueil</a>
+      <a class="active" href="produkte">Produits</a>
+      <a href="dienstleistungen">Services</a>
+      <a href="news">Actualités</a>
+      <a href="unternehmen">Entreprise</a>
+      <a href="kontakt">Contact</a>
+      <a class="btn btn-primary nav-mobile-cta" href="produkte-omega">Machines de stock</a>
+    </nav>
+
+    <div class="header-cta">
+      <div class="lang-dropdown">
+  <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choisir la langue">
+    <span class="lang-curr">FR</span>
+    <svg class="lang-arrow" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true"><path d="M1 1.25L4.5 4.75L8 1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="lang-menu" role="menu">
+    <a class="lang-opt" href="produkte-vibrationstisch" role="menuitem"><span class="lang-code">DE</span><span class="lang-name">Deutsch</span></a>
+    <a class="lang-opt" href="../en/produkte-vibrationstisch" role="menuitem"><span class="lang-code">EN</span><span class="lang-name">English</span></a>
+    <a class="lang-opt" href="../es/produkte-vibrationstisch" role="menuitem"><span class="lang-code">ES</span><span class="lang-name">Español</span></a>
+    <a class="lang-opt active" href="#" role="menuitem"><span class="lang-code">FR</span><span class="lang-name">Français</span></a>
+  </div>
+</div>
+    
+      <a class="btn btn-primary" href="produkte-omega">Machines de stock</a>
+      <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div></div>
+</header>
+
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="index">Accueil</a>
+      <span>/</span>
+      <a href="produkte">Produits</a>
+      <span>/</span>
+      <span>Table vibrante</span>
+    </div>
+
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span>Silencieux et efficace</span>
+    </div>
+
+    <h1>Table vibrante</h1>
+    <p class="app-hero-sub">Très efficace, équipé d'une plaque vibrante spécialement conçue pour une désaération et une distribution optimales du chocolat.</p>
+  </div>
+</section>
+
+<section class="app-section">
+  <div class="container">
+    <div class="app-grid">
+
+      <!-- Left Column: Details & Content -->
+      <div class="app-content-col">
+        <div class="app-image-wrap reveal">
+          <img src="../assets/img/Produkte/Vibrationstisch.jpg" alt="Vibration Table" loading="eager">
+          <div class="app-image-badge">TRIKNO Ingénierie Suisse</div>
+        </div>
+
+        <div class="reveal">
+          <h2 style="font-size:1.8rem; margin-bottom:18px;">Table vibrante à haute efficacité</h2>
+          <p class="app-text">La table vibrante TRIKNO assure une répartition du chocolat sans bulles dans toutes les cavités du moule. Les poches d'air sont éliminées de manière fiable et la masse s'écoule même dans les contours les plus fins.</p>
+<p class="app-text">Son système d'amortissement spécialement découplé garantit un fonctionnement silencieux, améliorant considérablement les conditions de travail des opérateurs sur le site de production.</p>
+<p class="app-text">La fréquence et l'amplitude sont réglables en continu pour s'adapter à toutes les viscosités du chocolat et dimensions du moule.</p>
+
+        </div>
+
+        <div class="callout-box reveal">
+          <div class="callout-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <div class="callout-content">
+            <strong>Avantage TRIKNO : isolation contre les vibrations et faible bruit</strong>
+            <span>Efficacité de désaération maximale à des niveaux de décibels minimes. Cadre en acier inoxydable robuste et hygiénique, prêt à être lavable.</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="app-subhead">Points forts et avantages clés :</h3>
+          <ul class="app-tags-list">
+            <li class="app-tag-item"><span class="tag-bullet"></span>Plateforme vibrante découplée exclusive</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Fonctionnement silencieux et à faibles décibels</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Fréquence et amplitude infiniment variables</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Aucun transfert d'oscillation indésirable vers le cadre</li>
+<li class="app-tag-item"><span class="tag-bullet"></span>Construction hygiénique en acier inoxydable (HACCP)</li>
+
+          </ul>
+        </div>
+
+        <div class="app-actions reveal">
+          <a class="btn btn-primary" href="kontakt">
+            <span>Demander une consultation</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-ghost" href="produkte">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Retour aux produits</span>
+          </a>
+        </div>
+      
+                <!-- Technical Datasheet Download Box -->
+        <div class="datasheet-box reveal" style="margin-top:24px; padding:22px; background:var(--bg-soft); border-radius:var(--radius-card); border:1px solid var(--line);">
+          <h4 style="font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--blue-dark);">Téléchargements et documentation</h4>
+          <p style="font-size:.9rem; color:var(--ink-soft); margin-bottom:16px;">Documents techniques officiels, brochures et vidéos :</p>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a class="btn btn-primary" href="../assets/pdf/TVT-Vibration Table_Technical DataSheet_EN.pdf" target="_blank" rel="noopener" style="flex:1 1 auto; justify-content:center; gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+            <span>Fiche technique TVT-Table de vibrations (PDF)</span>
+          </a>
+          <a class="btn btn-primary" href="../assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf" target="_blank" rel="noopener" style="flex:1 1 auto; justify-content:center; gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>BROCHURE D'IMAGES</span>
+          </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Specs Table & Compatible Apps -->
+      <div class="app-sidebar-col">
+        <div class="sidebar-card reveal">
+          <h3>Spécifications techniques</h3>
+          <table style="width:100%; border-collapse:collapse; margin-bottom:24px;">
+            <tbody>
+              <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Largeurs de moule</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Jusqu'à 800 mm</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Taux de vibration</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Réglable jusqu'à 3000 tr/min</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Niveau de bruit</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">< 68 dB(A)</td></tr>
+<tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 0; font-weight:600; color:var(--ink); font-size:.9rem;">Matériel</td><td style="padding:10px 0; text-align:right; color:var(--ink-soft); font-size:.9rem;">Acier inoxydable AISI 304</td></tr>
+
+            </tbody>
+          </table>
+
+          <h3 style="font-size:1.15rem; margin-top:28px;">Applications compatibles</h3>
+          <p>Cette machine est déployée sur ces applications de production :</p>
+
+          <div class="machines-list">
+            
+        <a class="machine-chip reveal" href="solid">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="machine-details">
+            <strong>Massif</strong>
+            <span>Tablettes de chocolat solide sans bulles</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+        <a class="machine-chip reveal" href="hohlformen">
+          <div class="machine-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="machine-details">
+            <strong>Moulages creux</strong>
+            <span>Revêtement uniforme des murs creux</span>
+          </div>
+          <span class="machine-arrow">→</span>
+        </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index"><img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px;"></a>
+        <p>Premier fabricant suisse de machines de dépose et de décoration de haute précision pour le chocolat et la confiserie.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index">Accueil</a></li>
+          <li><a href="produkte">Produits</a></li>
+          <li><a href="dienstleistungen">Services</a></li>
+          <li><a href="news">Actualités</a></li>
+          <li><a href="unternehmen">Entreprise</a></li>
+          <li><a href="kontakt">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Produits</h4>
+        <ul>
+          <li><a href="produkte-schleuder">Fileur</a></li>
+          <li><a href="produkte-omega">Oméga</a></li>
+          <li><a href="produkte-alpha">Alpha</a></li>
+          <li><a href="produkte-coldpress">ColdPress</a></li>
+          <li><a href="produkte-vibrationstisch">Table vibrante</a></li>
+          <li><a href="produkte-spirale">Refroidisseur en spirale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.7); font-size:.92rem; line-height:1.6; margin:0 0 12px;">
+          TRIKNO AG<br>
+          Marksteinstrasse 5<br>
+          8552, Felben-Wellhausen<br>
+          Suisse
+        </p>
+        <p style="color:rgba(255,255,255,.7); font-size:.92rem; margin:0;">
+          <a href="tel:+41527662525" style="color:rgba(255,255,255,.7);">+41 52 766 25 25</a><br>
+          <a href="mailto:info@trikno.ch" style="color:rgba(255,255,255,.7);">info@trikno.ch</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TRIKNO SA. Tous droits réservés.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="kontakt">Mentions légales et confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Floating header scroll shadow
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.classList.add('is-scrolled');
+  } else {
+    header.classList.remove('is-scrolled');
+  }
+}, { passive: true });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  /* Resume reel-track on mobile & back-button navigation (bfcache) */
+  window.addEventListener('pageshow', function () {
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+    document.querySelectorAll('.reel-track').forEach(function (track) {
+      track.style.animationPlayState = 'running';
+      var anim = track.style.animation;
+      track.style.animation = 'none';
+      void track.offsetWidth;
+      track.style.animation = anim || '';
+    });
+  });
+  document.querySelectorAll('.reel-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      this.blur();
+    });
+  });
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('is-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('is-open');
+      }
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
+    });
+  }
+});
+
+
+  // Language dropdown toggle
+  document.querySelectorAll('.lang-dropdown').forEach(function (dd) {
+    var btn = dd.querySelector('.lang-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = dd.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.lang-dropdown.is-open').forEach(function (dd) {
+      dd.classList.remove('is-open');
+      var b = dd.querySelector('.lang-btn');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+</script>
+</body>
+</html>
