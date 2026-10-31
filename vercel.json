@@ -1,4 +1,23 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "redirects": [
+    { "source": "/en-nuesse-und-fruechte", "destination": "/en/nuesse-und-fruechte", "permanent": true },
+    { "source": "/en-freidressieren", "destination": "/en/freidressieren", "permanent": true },
+    { "source": "/en-hohlformen", "destination": "/en/hohlformen", "permanent": true },
+    { "source": "/en-one-shot", "destination": "/en/one-shot", "permanent": true },
+    { "source": "/en-sandwich", "destination": "/en/sandwich", "permanent": true },
+    { "source": "/en-coldpress", "destination": "/en/coldpress", "permanent": true },
+    { "source": "/en-dekorieren", "destination": "/en/dekorieren", "permanent": true },
+    { "source": "/en-biscuits", "destination": "/en/biscuits", "permanent": true },
+    { "source": "/en-solid", "destination": "/en/solid", "permanent": true },
+    { "source": "/en/en-nuesse-und-fruechte", "destination": "/en/nuesse-und-fruechte", "permanent": true },
+    { "source": "/en/en-freidressieren", "destination": "/en/freidressieren", "permanent": true },
+    { "source": "/en/en-hohlformen", "destination": "/en/hohlformen", "permanent": true },
+    { "source": "/es/en-nuesse-und-fruechte", "destination": "/es/nuesse-und-fruechte", "permanent": true },
+    { "source": "/es/en-freidressieren", "destination": "/es/freidressieren", "permanent": true },
+    { "source": "/es/en-hohlformen", "destination": "/es/hohlformen", "permanent": true },
+    { "source": "/fr/en-nuesse-und-fruechte", "destination": "/fr/nuesse-und-fruechte", "permanent": true },
+    { "source": "/fr/en-freidressieren", "destination": "/fr/freidressieren", "permanent": true },
+    { "source": "/fr/en-hohlformen", "destination": "/fr/hohlformen", "permanent": true }
+  ]
 }

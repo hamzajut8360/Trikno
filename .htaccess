@@ -5,6 +5,11 @@ RewriteBase /
 # Prevent directory listing
 Options -Indexes
 
+# Legacy application redirects
+RewriteRule ^en-nuesse-und-fruechte/?$ en/nuesse-und-fruechte [R=301,NC,L]
+RewriteRule ^en-freidressieren/?$ en/freidressieren [R=301,NC,L]
+RewriteRule ^en-hohlformen/?$ en/hohlformen [R=301,NC,L]
+
 # Special directory conflicts: prioritize the main overview pages
 RewriteRule ^news/?$ news.html [NC,L]
 RewriteRule ^en/news/?$ en/news.html [NC,L]
