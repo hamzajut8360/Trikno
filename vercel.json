@@ -1,5 +1,24 @@
 {
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)\\.wasm",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.glb",
+      "headers": [
+        { "key": "Content-Type", "value": "model/gltf-binary" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/draco/:match*", "destination": "/portal/configurator/draco/:match*" }
+  ],
   "redirects": [
     { "source": "/en-nuesse-und-fruechte", "destination": "/en/nuesse-und-fruechte", "permanent": true },
     { "source": "/en-freidressieren", "destination": "/en/freidressieren", "permanent": true },

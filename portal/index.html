@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="dashTitle">Dashboard | TRIKNO Partner Portal</title>
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Auth Guard -->
+<script src="auth-guard.js"></script>
+
+<style>
+:root {
+  --ink: #282d32;
+  --ink-deep: #1b1f23;
+  --ink-soft: rgba(40, 45, 50, 0.72);
+  --blue: #6cb8d2;
+  --blue-dark: #4f93ab;
+  --blue-soft: rgba(108, 184, 210, 0.14);
+  --blue-glow: rgba(108, 184, 210, 0.32);
+  --blue-grad: linear-gradient(135deg, #7cc4dc 0%, #4f93ab 100%);
+  --orange: #d36a36;
+  --orange-soft: rgba(211, 106, 54, 0.12);
+  --paper: #FFFFFF;
+  --bg-soft: #EEF6F8;
+  --line: #DCE7EA;
+  --line-strong: #C2D2D7;
+  --radius-card: 24px;
+  --radius-btn: 999px;
+  --container: 1200px;
+  --shadow-card: 0 16px 36px -16px rgba(40, 45, 50, 0.18);
+  --shadow-blue: 0 20px 42px -16px rgba(108, 184, 210, 0.45);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", "Roboto", sans-serif;
+  color: var(--ink);
+  margin: 0 0 0.5em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+p { margin: 0 0 1.1em; color: var(--ink-soft); font-size: 1rem; line-height: 1.65; }
+a { color: var(--blue-dark); text-decoration: none; transition: color 0.18s ease; }
+a:hover { color: var(--ink); }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+/* Floating Capsule Header */
+.site-header {
+  position: sticky; top: 0; z-index: 200; padding: 18px 20px 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  max-width: 1340px; margin: 0 auto; background: #fff; border: 1px solid var(--line);
+  border-radius: 999px; padding: 10px 14px 10px 24px;
+  box-shadow: 0 14px 34px -20px rgba(40, 45, 50, 0.28);
+}
+.brand img { height: 38px; width: auto; }
+.header-actions {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.user-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Poppins", sans-serif; font-size: 0.84rem; font-weight: 600;
+  color: var(--blue-dark); background: var(--blue-soft);
+  padding: 6px 14px; border-radius: 999px;
+}
+.user-badge .indicator {
+  width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+}
+.lang-switch-capsule {
+  display: inline-flex; align-items: center; background: var(--bg-soft);
+  border: 1px solid var(--line); border-radius: 999px; padding: 3px 4px; gap: 2px;
+}
+.lang-pill {
+  border: none; background: transparent; font-family: "Poppins", sans-serif;
+  font-weight: 700; font-size: 0.78rem; color: var(--ink-soft); padding: 4px 10px;
+  border-radius: 999px; cursor: pointer; transition: all 0.2s ease;
+}
+.lang-pill:hover { color: var(--blue-dark); }
+.lang-pill.active {
+  background: var(--blue-grad); color: #fff; box-shadow: 0 2px 8px -2px rgba(79, 147, 171, 0.6);
+}
+.btn-nav-admin {
+  display: none; /* strictly hidden by default */
+  font-family: "Poppins", sans-serif; font-size: 0.84rem; font-weight: 600;
+  color: var(--blue-dark); border: 1.5px solid var(--blue); padding: 6px 14px;
+  border-radius: 999px; background: var(--blue-soft); transition: all 0.2s;
+}
+.btn-nav-admin:hover {
+  background: var(--blue-grad); color: #fff;
+}
+.btn-nav-logout {
+  font-family: "Poppins", sans-serif; font-size: 0.84rem; font-weight: 600;
+  color: var(--orange); border: 1px solid rgba(211, 106, 54, 0.35); padding: 6px 14px;
+  border-radius: 999px; background: #FFF5F2; cursor: pointer; transition: all 0.2s;
+}
+.btn-nav-logout:hover {
+  background: var(--orange); color: #fff;
+}
+
+/* Page Hero */
+.app-hero {
+  background: radial-gradient(100% 120% at 75% 20%, rgba(108, 184, 210, 0.25) 0%, rgba(27, 31, 35, 0) 65%),
+              linear-gradient(135deg, #1b1f23 0%, #282d32 100%);
+  color: #fff; padding: 90px 0 65px; position: relative; overflow: hidden;
+}
+.app-hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+.breadcrumb-nav {
+  display: flex; align-items: center; gap: 8px; font-family: "Poppins", sans-serif;
+  font-size: 0.82rem; font-weight: 500; color: rgba(255, 255, 255, 0.65); margin-bottom: 14px;
+}
+.breadcrumb-nav a { color: rgba(255, 255, 255, 0.75); }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 14px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; color: #fff; margin-bottom: 14px;
+}
+.hero-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+.app-hero h1 { color: #fff; font-size: clamp(2rem, 3.4vw, 2.7rem); margin-bottom: 10px; }
+.app-hero-sub { font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); max-width: 680px; margin: 0; }
+
+/* Dashboard Section */
+.section-dashboard {
+  background: var(--bg-soft);
+  padding: 70px 0 95px;
+}
+.section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+.section-intro h2 {
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+/* 2 Luxury Cards Grid */
+.grid-2-portal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+@media (max-width: 860px) {
+  .grid-2-portal { grid-template-columns: 1fr; }
+}
+
+.card-portal {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-portal:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-blue);
+}
+
+.card-media {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--bg-soft);
+  position: relative;
+}
+.card-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card-portal:hover .card-media img {
+  transform: scale(1.04);
+}
+.card-pill {
+  position: absolute; top: 16px; left: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 5px 13px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.card-body {
+  padding: 34px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-kicker {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.card-portal:nth-child(1) .card-kicker {
+  color: var(--blue-dark);
+}
+.card-title {
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.card-desc {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 30px;
+  flex: 1;
+}
+
+/* Buttons */
+.btn-action-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-btn);
+  font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.96rem;
+  text-decoration: none; border: none; cursor: pointer;
+  background: var(--blue-grad); color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(79, 147, 171, 0.65);
+  transition: all 0.22s ease;
+}
+.btn-action-primary:hover {
+  box-shadow: 0 10px 22px -6px rgba(79, 147, 171, 0.85);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.btn-action-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-btn);
+  font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.96rem;
+  text-decoration: none; cursor: pointer;
+  background: #fff; color: var(--ink);
+  border: 1.5px solid var(--line);
+  box-shadow: 0 4px 14px -6px rgba(40, 45, 50, 0.12);
+  transition: all 0.22s ease;
+}
+.btn-action-secondary:hover {
+  border-color: var(--blue-dark);
+  color: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(160deg, var(--ink) 0%, var(--ink-deep) 100%);
+  color: rgba(255, 255, 255, 0.82);
+  padding: 60px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 42px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+.footer-grid h4 {
+  color: var(--blue);
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.footer-grid p, .footer-grid address {
+  font-style: normal;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+}
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  padding-top: 24px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.55);
+}
+.footer-bottom a { color: rgba(255, 255, 255, 0.55); }
+.footer-bottom a:hover { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    </a>
+
+    <div class="header-actions">
+      <div class="user-badge">
+        <span class="indicator"></span>
+        <span id="user-display">Partner Access</span>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="lang-switch-capsule">
+        <button type="button" class="lang-pill lang-btn-de active" onclick="TriknoI18n.setLang('de')">DE</button>
+        <button type="button" class="lang-pill lang-btn-en" onclick="TriknoI18n.setLang('en')">EN</button>
+      </div>
+
+      <!-- Admin link strictly for admin user -->
+      <a href="admin.html" class="btn-nav-admin" id="btn-admin-link" data-i18n="adminNav">Benutzerverwaltung</a>
+
+      <button type="button" class="btn-nav-logout" onclick="TriknoAuth.logout()" data-i18n="logout">Abmelden</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="app-hero">
+  <div class="container">
+    <div class="breadcrumb-nav">
+      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+      <span>/</span>
+      <span data-i18n="partnerPortal">Partner-Portal</span>
+    </div>
+    <div class="hero-tag"><span class="dot"></span><span data-i18n="dashHeroTag">Geschützter Bereich</span></div>
+    <h1 data-i18n="dashHeroTitle">Willkommen im Partner-Portal</h1>
+    <p class="app-hero-sub" data-i18n="dashHeroSub">Wählen Sie eine der beiden Plattformen, um 3D-Modelle zu konfigurieren oder die vollständigen Maschinenspezifikationen einzusehen.</p>
+  </div>
+</section>
+
+<!-- Dashboard: Exactly 2 Luxury Cards -->
+<section class="section-dashboard">
+  <div class="container">
+    <div class="section-intro">
+      <h2 data-i18n="dashSectionTitle">Verfügbare Plattformen</h2>
+      <p data-i18n="dashSectionSub">Wählen Sie das gewünschte System für Ihre Arbeit aus.</p>
+    </div>
+
+    <div class="grid-2-portal">
+      
+      <!-- Card 1: 3D Configurator -->
+      <div class="card-portal">
+        <div class="card-media">
+          <img src="../assets/img/Produkte/Alpha_CAD.jpg" alt="TRIKNO 3D Configurator">
+        </div>
+        <div class="card-body">
+          <div class="card-kicker" data-i18n="card1Kicker">Planung &amp; Konfiguration</div>
+          <h3 class="card-title" data-i18n="card1Title">3D-Anlagenkonfigurator</h3>
+          <p class="card-desc" data-i18n="card1Desc">Modulare Schokoladen- und Giessanlagen in Echtzeit interaktiv planen, Baugruppen kombinieren, Masse prüfen und 3D-Layouts visualisieren.</p>
+          <a class="btn-action-primary" href="configurator/index.html">
+            <span data-i18n="card1Btn">3D-Konfigurator starten</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Product Portfolio -->
+      <div class="card-portal">
+        <div class="card-media">
+          <img src="../assets/img/Produkte/Step-1.jpg" alt="TRIKNO Product Portfolio">
+        </div>
+        <div class="card-body">
+          <div class="card-kicker" data-i18n="card2Kicker">Maschinen-Dokumentation</div>
+          <h3 class="card-title" data-i18n="card2Title">Produkt-Portfolio</h3>
+          <p class="card-desc" data-i18n="card2Desc">Umfassende Übersicht aller Maschinentypen, Detailbeschreibungen der Baugruppen, technische Alleinstellungsmerkmale und Verkaufsargumente.</p>
+          <a class="btn-action-secondary" href="portfolio/index.html">
+            <span data-i18n="card2Btn">Portfolio öffnen</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px; margin-bottom:16px;">
+        <p data-i18n="footerDesc">TRIKNO AG – Schweizer Experten für hochpräzise Schokoladen- und Confiseriemaschinen von der handwerklichen Kleinmaschine bis zur industriellen Produktionslinie.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footerAddressTitle">Adresse</h4>
+        <address>TRIKNO AG<br>Marksteinstrasse 5<br>8552 Felben-Wellhausen<br>Schweiz</address>
+      </div>
+      <div>
+        <h4 data-i18n="footerContactTitle">Kontakt</h4>
+        <p>Tel: +41 52 766 25 25<br>info@trikno.ch</p>
+      </div>
+      <div>
+        <h4 data-i18n="footerSecurityTitle">Sicherheit</h4>
+        <p data-i18n="footerSecurityDesc">Dieser Bereich ist verschlüsselt und ausschliesslich autorisierten Kunden, Lieferanten und Partnern vorbehalten.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerCopyright">© 2026 TRIKNO AG · Alle Rechte vorbehalten.</span>
+      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+<script src="i18n.js"></script>
+<script>
+// Display user info in header
+const user = TriknoAuth.getUser();
+if (user) {
+  const badgeText = document.getElementById('user-display');
+  badgeText.textContent = user.email;
+  
+  // STRICT: Only show admin link to the administrator (admin@trikno.ch or role === 'admin')
+  // Guests, suppliers and standard users NEVER see this button
+  const adminBtn = document.getElementById('btn-admin-link');
+  if (user.role === 'admin' || (user.email && user.email.toLowerCase().includes('admin'))) {
+    adminBtn.style.display = 'inline-block';
+  } else {
+    adminBtn.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>
