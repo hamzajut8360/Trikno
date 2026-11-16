@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="loginTitle">Partner &amp; Supplier Portal – Login | TRIKNO</title>
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/favicon/favicon180.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -285,15 +285,15 @@ img { max-width: 100%; display: block; }
 <!-- Header -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../index.html">
-      <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    <a class="brand" href="/index.html">
+      <img src="/assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
     </a>
     <div class="header-nav-right">
       <div class="lang-switch-capsule">
         <button type="button" class="lang-pill lang-btn-de active" onclick="TriknoI18n.setLang('de')">DE</button>
         <button type="button" class="lang-pill lang-btn-en" onclick="TriknoI18n.setLang('en')">EN</button>
       </div>
-      <a href="../index.html" class="btn-back-main" data-i18n="backToMain">← Hauptwebsite</a>
+      <a href="/index.html" class="btn-back-main" data-i18n="backToMain">← Hauptwebsite</a>
     </div>
   </div>
 </header>
@@ -302,7 +302,7 @@ img { max-width: 100%; display: block; }
 <section class="app-hero">
   <div class="container">
     <div class="breadcrumb-nav">
-      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+      <a href="/index.html" data-i18n="mainSite">Hauptwebsite</a>
       <span>/</span>
       <span data-i18n="partnerPortal">Partner &amp; Lieferantenportal</span>
     </div>
@@ -360,7 +360,7 @@ img { max-width: 100%; display: block; }
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px; margin-bottom:16px;">
+        <img src="/assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px; margin-bottom:16px;">
         <p data-i18n="footerDesc">TRIKNO AG – Schweizer Experten für hochpräzise Schokoladen- und Confiseriemaschinen von der handwerklichen Kleinmaschine bis zur industriellen Produktionslinie.</p>
       </div>
       <div>
@@ -378,7 +378,7 @@ img { max-width: 100%; display: block; }
     </div>
     <div class="footer-bottom">
       <span data-i18n="footerCopyright">© 2026 TRIKNO AG · Alle Rechte vorbehalten.</span>
-      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+      <a href="/index.html" data-i18n="mainSite">Hauptwebsite</a>
     </div>
   </div>
 </footer>
@@ -386,15 +386,15 @@ img { max-width: 100%; display: block; }
 <!-- Firebase, i18n & Auth Core -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
-<script src="i18n.js"></script>
+<script src="/portal/firebase-config.js"></script>
+<script src="/portal/auth.js"></script>
+<script src="/portal/i18n.js"></script>
 
 <script>
 // If already logged in, redirect to dashboard
 const user = PortalAuth.getCurrentUser();
 if (user) {
-  window.location.replace('index.html');
+  window.location.replace('/portal/index.html');
 }
 
 document.getElementById('login-form').addEventListener('submit', async function (e) {
@@ -422,7 +422,7 @@ document.getElementById('login-form').addEventListener('submit', async function 
       if (redirect && redirect.includes('/portal/')) {
         window.location.replace(redirect);
       } else {
-        window.location.replace('index.html');
+        window.location.replace('/portal/index.html');
       }
     } else {
       errorEl.textContent = TriknoI18n.t('errInvalid');

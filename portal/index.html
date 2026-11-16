@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="dashTitle">Dashboard | TRIKNO Partner Portal</title>
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/favicon/favicon180.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/img/favicon/favicon180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <!-- Auth Guard -->
-<script src="auth-guard.js"></script>
+<script src="/portal/auth-guard.js"></script>
 
 <style>
 :root {
@@ -316,8 +316,8 @@ img { max-width: 100%; display: block; }
 <!-- Header -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../index.html">
-      <img src="../assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
+    <a class="brand" href="/index.html">
+      <img src="/assets/img/Logo/trikno-logo.png" alt="TRIKNO Logo">
     </a>
 
     <div class="header-actions">
@@ -333,7 +333,7 @@ img { max-width: 100%; display: block; }
       </div>
 
       <!-- Admin link strictly for admin user -->
-      <a href="admin.html" class="btn-nav-admin" id="btn-admin-link" data-i18n="adminNav">Benutzerverwaltung</a>
+      <a href="/portal/admin.html" class="btn-nav-admin" id="btn-admin-link" data-i18n="adminNav">Benutzerverwaltung</a>
 
       <button type="button" class="btn-nav-logout" onclick="TriknoAuth.logout()" data-i18n="logout">Abmelden</button>
     </div>
@@ -344,7 +344,7 @@ img { max-width: 100%; display: block; }
 <section class="app-hero">
   <div class="container">
     <div class="breadcrumb-nav">
-      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+      <a href="/index.html" data-i18n="mainSite">Hauptwebsite</a>
       <span>/</span>
       <span data-i18n="partnerPortal">Partner-Portal</span>
     </div>
@@ -367,13 +367,13 @@ img { max-width: 100%; display: block; }
       <!-- Card 1: 3D Configurator -->
       <div class="card-portal">
         <div class="card-media">
-          <img src="../assets/img/Produkte/Alpha_CAD.jpg" alt="TRIKNO 3D Configurator">
+          <img src="/assets/img/Produkte/Alpha_CAD.jpg" alt="TRIKNO 3D Configurator">
         </div>
         <div class="card-body">
           <div class="card-kicker" data-i18n="card1Kicker">Planung &amp; Konfiguration</div>
           <h3 class="card-title" data-i18n="card1Title">3D-Anlagenkonfigurator</h3>
           <p class="card-desc" data-i18n="card1Desc">Modulare Schokoladen- und Giessanlagen in Echtzeit interaktiv planen, Baugruppen kombinieren, Masse prüfen und 3D-Layouts visualisieren.</p>
-          <a class="btn-action-primary" href="configurator/index.html">
+          <a class="btn-action-primary" href="/portal/configurator/index.html">
             <span data-i18n="card1Btn">3D-Konfigurator starten</span>
             <span>→</span>
           </a>
@@ -383,13 +383,13 @@ img { max-width: 100%; display: block; }
       <!-- Card 2: Product Portfolio -->
       <div class="card-portal">
         <div class="card-media">
-          <img src="../assets/img/Produkte/Step-1.jpg" alt="TRIKNO Product Portfolio">
+          <img src="/assets/img/Produkte/Step-1.jpg" alt="TRIKNO Product Portfolio">
         </div>
         <div class="card-body">
           <div class="card-kicker" data-i18n="card2Kicker">Maschinen-Dokumentation</div>
           <h3 class="card-title" data-i18n="card2Title">Produkt-Portfolio</h3>
           <p class="card-desc" data-i18n="card2Desc">Umfassende Übersicht aller Maschinentypen, Detailbeschreibungen der Baugruppen, technische Alleinstellungsmerkmale und Verkaufsargumente.</p>
-          <a class="btn-action-secondary" href="portfolio/index.html">
+          <a class="btn-action-secondary" href="/portal/portfolio/index.html">
             <span data-i18n="card2Btn">Portfolio öffnen</span>
             <span>→</span>
           </a>
@@ -405,7 +405,7 @@ img { max-width: 100%; display: block; }
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="../assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px; margin-bottom:16px;">
+        <img src="/assets/img/Logo/trikno-logo-footer.png" alt="TRIKNO Logo" style="height:36px; margin-bottom:16px;">
         <p data-i18n="footerDesc">TRIKNO AG – Schweizer Experten für hochpräzise Schokoladen- und Confiseriemaschinen von der handwerklichen Kleinmaschine bis zur industriellen Produktionslinie.</p>
       </div>
       <div>
@@ -423,16 +423,16 @@ img { max-width: 100%; display: block; }
     </div>
     <div class="footer-bottom">
       <span data-i18n="footerCopyright">© 2026 TRIKNO AG · Alle Rechte vorbehalten.</span>
-      <a href="../index.html" data-i18n="mainSite">Hauptwebsite</a>
+      <a href="/index.html" data-i18n="mainSite">Hauptwebsite</a>
     </div>
   </div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
-<script src="i18n.js"></script>
+<script src="/portal/firebase-config.js"></script>
+<script src="/portal/auth.js"></script>
+<script src="/portal/i18n.js"></script>
 <script>
 // Display user info in header
 const user = TriknoAuth.getUser();

@@ -101,7 +101,9 @@
     }
     sessionStorage.removeItem(SESSION_KEY);
     localStorage.removeItem(SESSION_KEY);
-    window.location.replace('/portal/login.html');
+    let loginUrl = '/portal/login.html';
+    if (window.location.protocol === 'file:') loginUrl = 'login.html';
+    window.location.replace(loginUrl);
   }
 
   function getCurrentUser() {
@@ -176,9 +178,11 @@
     login: login,
     logout: logout,
     getCurrentUser: getCurrentUser,
+    getUser: getCurrentUser,
     getAllAccounts: getAllAccounts,
     addUser: addUser,
     deleteUser: deleteUser,
     generatePassword: generatePassword
   };
+  window.TriknoAuth = window.PortalAuth;
 })();

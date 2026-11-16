@@ -7,7 +7,6 @@
       const data = sessionStorage.getItem(SESSION_KEY) || localStorage.getItem(SESSION_KEY);
       if (!data) return null;
       const parsed = JSON.parse(data);
-      // Optional: check session expiry (e.g. 7 days)
       if (parsed.expiresAt && Date.now() > parsed.expiresAt) {
         logout();
         return null;
@@ -19,8 +18,16 @@
   }
 
   function logout() {
+    if (window.firebase && window.firebase.auth) {
+      try { firebase.auth().signOut(); } catch (e) {}
+    }
     sessionStorage.removeItem(SESSION_KEY);
     localStorage.removeItem(SESSION_KEY);
+    let loginUrl = '/portal/login.html';
+    if (window.location.protocol === 'file:') {
+      loginUrl = 'login.html';
+    }
+    window.location.replace(loginUrl);
   }
 
   const user = getSession();
@@ -28,12 +35,10 @@
   
   // If not on login page and not authenticated -> redirect to login
   if (!user && !currentPath.includes('login')) {
-    // Determine relative login path
     let loginUrl = '/portal/login.html';
-    if (window.location.protocol === 'file:' || !window.location.pathname.startsWith('/portal')) {
+    if (window.location.protocol === 'file:') {
       loginUrl = 'login.html';
     }
-    // Store where user was trying to go
     sessionStorage.setItem('trikno_portal_redirect', window.location.href);
     window.location.replace(loginUrl);
   }
@@ -41,10 +46,8 @@
   // Export helper globally
   window.TriknoAuth = {
     getUser: getSession,
-    logout: function () {
-      logout();
-      window.location.replace('/portal/login.html');
-    }
+    getCurrentUser: getSession,
+    logout: logout
   };
+  window.PortalAuth = window.PortalAuth || window.TriknoAuth;
 })();
-
