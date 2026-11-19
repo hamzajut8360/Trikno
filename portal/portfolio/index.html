@@ -122,10 +122,8 @@
               <div id="item3645" class="pageItem hero-portfolio-heading-wrap" alt="TRIKNO PORTFOLIO">
                 <h1 class="hero-trikno-portfolio-heading">TRIKNO PORTFOLIO</h1>
               </div>
-              <div id="item3668" class="pageItem" alt="Modular, kraftvoll und erweiterbar">
-                <img src="assets/images/item_3668.svg" style="left:-38px;top:-40px"
-                  alt="Modular, kraftvoll und erweiterbar" class="svg-img pageItem"
-                  data-src="assets/images/item_3668.svg" />
+              <div id="item3668" class="pageItem hero-portfolio-subheading-wrap" alt="Präzise, schnell, modular, kraftvoll und erweiterbar">
+                <p class="hero-trikno-portfolio-subheading" id="hero-portfolio-subheading">Präzise, schnell, modular, kraftvoll und erweiterbar</p>
               </div>
             </div>
             <img src="assets/images/item_3691.png"
@@ -1836,33 +1834,40 @@
       in5</a>.</footer>
   </div>
   <div id="trikno-video-modal"
-    style="display:none; position:fixed; z-index:9999999; left:0; top:0; width:100vw; height:100vh; background:rgba(27,31,35,0.85); backdrop-filter:blur(10px); justify-content:center; align-items:center;">
+    style="display:none; position:fixed; z-index:9999999; left:0; top:0; width:100vw; height:100vh; background:rgba(27,31,35,0.85); backdrop-filter:blur(10px); justify-content:center; align-items:center; padding:20px; box-sizing:border-box;">
     <div
-      style="position:relative; width:90%; max-width:1120px; background:#ffffff; border:1px solid #DCE7EA; border-radius:24px; overflow:hidden; box-shadow:0 25px 60px rgba(40,45,50,0.35); animation:modalFadeIn 0.3s ease-out;">
+      style="position:relative; width:100%; max-width:1080px; max-height:calc(100vh - 40px); display:flex; flex-direction:column; background:#ffffff; border:1px solid #DCE7EA; border-radius:20px; overflow:hidden; box-shadow:0 25px 60px rgba(15,23,42,0.45); animation:modalFadeIn 0.25s ease-out;">
       <div
-        style="display:flex; justify-content:space-between; align-items:center; padding:16px 24px; background:#EEF6F8; border-bottom:1px solid #DCE7EA;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span
-            style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#6cb8d2; box-shadow:0 0 10px rgba(108,184,210,0.6);"></span>
-          <h3
-            style="margin:0; font-family:'Poppins', sans-serif; font-size:18px; color:#282d32; font-weight:700; letter-spacing:0.5px;">
-            Omega Compact – Video</h3>
+        style="display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#EEF6F8; border-bottom:1px solid #DCE7EA; flex-shrink:0;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <button id="btn-video-modal-back" type="button" aria-label="Zurück"
+            style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:7px 18px; font-family:'Roboto', sans-serif; font-weight:600; font-size:14px; background:#ffffff; border:1px solid #C2D2D7; border-radius:999px; color:#282d32; box-shadow:0 2px 6px rgba(40,45,50,0.06); transition:all 0.2s;"
+            onmouseover="this.style.background='#6cb8d2'; this.style.color='#ffffff'; this.style.borderColor='#6cb8d2';"
+            onmouseout="this.style.background='#ffffff'; this.style.color='#282d32'; this.style.borderColor='#C2D2D7';">
+            <span id="btn-video-modal-back-text">← Zurück</span>
+          </button>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span
+              style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#6cb8d2; box-shadow:0 0 10px rgba(108,184,210,0.6);"></span>
+            <h3
+              style="margin:0; font-family:'Poppins', sans-serif; font-size:16px; color:#282d32; font-weight:700; letter-spacing:0.3px;">
+              <span id="trikno-video-modal-title">TRIKNO Video</span></h3>
+          </div>
         </div>
-        <button id="trikno-video-close" aria-label="Schließen"
-          style="background:rgba(40,45,50,0.08); border:none; color:#282d32; font-size:24px; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; line-height:1;"
-          onmouseover="this.style.background='#6cb8d2'; this.style.color='#fff';"
+        <button id="trikno-video-close" type="button" aria-label="Schließen"
+          style="background:rgba(40,45,50,0.08); border:none; color:#282d32; font-size:24px; width:34px; height:34px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; line-height:1;"
+          onmouseover="this.style.background='#e0533c'; this.style.color='#fff';"
           onmouseout="this.style.background='rgba(40,45,50,0.08)'; this.style.color='#282d32';">&times;</button>
       </div>
-      <div style="position:relative; padding-top:56.25%; background:#000;">
-        <video id="trikno-modal-video" controls playsinline
-          style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; background:#000;">
-          <source src="assets/media/Test_Video.mp4" type="video/mp4">
+      <div style="position:relative; width:100%; display:flex; justify-content:center; align-items:center; background:#000000; overflow:hidden;">
+        <video id="trikno-modal-video" controls playsinline preload="auto" class="mejs-none"
+          style="display:block; width:100%; height:auto; max-height:calc(88vh - 70px); object-fit:contain; background:#000;">
+          <source src="assets/media/hero-bg-chocolate.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </div>
   </div>
-
   <style>
     @keyframes modalFadeIn {
       from {
@@ -1914,7 +1919,7 @@
 
       $(document).on('click', '#item971, #item971 *', openModal);
 
-      $('#trikno-video-close').on('click', function (e) {
+      $('#trikno-video-close, #btn-video-modal-back').on('click', function (e) {
         e.stopPropagation();
         closeModal();
       });
@@ -2047,9 +2052,6 @@
         <button class="btn-topbar-back btn-back-step" aria-label="Back">
           <span class="btn-back-text">← Back</span>
         </button>
-        <button class="btn-back-intro" aria-label="Intro Video">
-          <span>Intro Video</span>
-        </button>
         <div class="trikno-lang-dropdown">
           <button class="btn-lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">
             <span class="lang-globe-icon">🌐</span>
@@ -2083,20 +2085,30 @@
 
           <div class="about-text-container">
             <p class="about-lead-desc" id="about-main-lead">
-              We are the Swiss experts for the highest quality chocolate and confectionery machines on the market: from
-              small casting machines to support artisanal production to complete production lines for the largest
-              chocolate manufacturers worldwide.
+              Wir sind die Schweizer Experten für hochwertigste Schokoladen- und Süsswarenmaschinen auf dem Markt: von
+              handlichen Giessmaschinen zur Unterstützung der handwerklichen Produktion bis hin zu kompletten
+              Produktionslinien für die grössten Schokoladenhersteller weltweit.
+            </p>
+            <p class="about-vision-statement" id="about-main-vision">
+              <strong>Unsere Vision:</strong> «Süsses nur mit Trikno!» Unsere Technologien, unsere Verfahrenstechnik und unsere Maschinen sollen der weltweite Goldstandard in der Industriellen Branche werden.
             </p>
             <p class="about-mission-statement" id="about-main-mission">
-              Our mission is to work with you to make the most luxurious and creative dreams of confectionery designers
-              come true.
+              <strong>Unsere Mission:</strong> «Ihre Idee – unsere flexible Lösung». Zusammen entwickeln wir Ihren Erfolg.
             </p>
           </div>
 
           <div class="about-page-action">
-            <button id="btn-about-to-products" class="btn-gold-large" aria-label="Our Products">
-              <span id="btn-about-to-products-text">Our Products</span>
+            <button id="btn-about-to-products" class="btn-gold-large" aria-label="Unsere Produkte">
+              <span id="btn-about-to-products-text">Unsere Produkte</span>
             </button>
+            <button id="btn-about-video" class="btn-about-secondary" aria-label="Trikno Video">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <span id="btn-about-video-text">Trikno Video</span>
+            </button>
+            <a id="btn-about-presentation" class="btn-about-secondary" href="assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf" target="_blank" rel="noopener" aria-label="Firmenpräsentation">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span id="btn-about-presentation-text">Firmenpräsentation</span>
+            </a>
           </div>
         </div>
 
@@ -2106,7 +2118,7 @@
             <img src="assets/img/About/Gemini_Generated_Image_seamless.png" alt="TRIKNO Production Facility Layout"
               class="about-render-img">
             <div class="about-image-caption">
-              <span id="about-render-caption">Bedre Chocolates – Turnkey Production Line Layout</span>
+              <span id="about-render-caption">Step 3 - Schlüsselfertiges Produktionsanlagen-Layout</span>
             </div>
           </div>
         </div>
@@ -2126,9 +2138,6 @@
         <a href="/portal/index.html" class="btn-topbar-portal" title="Portal Dashboard"><span>← Portal Dashboard</span></a>
         <button class="btn-topbar-back btn-back-step" aria-label="Back">
           <span class="btn-back-text">← Back</span>
-        </button>
-        <button class="btn-back-intro" aria-label="Intro Video">
-          <span>Intro Video</span>
         </button>
         <div class="trikno-lang-dropdown">
           <button class="btn-lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">
@@ -2174,9 +2183,6 @@
         <a href="/portal/index.html" class="btn-topbar-portal" title="Portal Dashboard"><span>← Portal Dashboard</span></a>
         <button class="btn-topbar-back btn-back-step" aria-label="Back">
           <span class="btn-back-text">← Back</span>
-        </button>
-        <button class="btn-back-intro" aria-label="Intro Video">
-          <span>Intro Video</span>
         </button>
         <div class="trikno-lang-dropdown">
           <button class="btn-lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">

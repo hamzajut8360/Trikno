@@ -2255,3 +2255,140 @@ body.inner-page-open #homepage-lang-fixed {
   color: #3b8ba4;
   text-align: center;
 }
+
+/* --- HERO SUBTITLE (PRÄZISE, SCHNELL, MODULAR, KRAFTVOLL UND ERWEITERBAR) --- */
+.hero-portfolio-subheading-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.hero-trikno-portfolio-subheading {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 38px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  color: #d36a36 !important;
+  text-align: center !important;
+  text-shadow: 0 3px 20px rgba(27, 31, 35, 0.75) !important;
+  white-space: nowrap !important;
+}
+
+/* --- ABOUT VISION STATEMENT --- */
+.about-vision-statement {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+  line-height: 1.6 !important;
+  max-width: 100% !important;
+  margin: 0 0 20px 0 !important;
+  text-align: left !important;
+  padding-left: 18px !important;
+  border-left: 4px solid var(--blue-dark) !important;
+}
+
+.about-vision-statement strong {
+  color: var(--blue-dark) !important;
+  font-weight: 700 !important;
+}
+
+.about-mission-statement strong {
+  color: var(--orange) !important;
+  font-weight: 700 !important;
+}
+
+/* --- UNIFIED ACTION BUTTONS BAR (OUR PRODUCTS, TRIKNO VIDEO & PRESENTATION) --- */
+.about-split-grid {
+  display: grid !important;
+  grid-template-columns: 54% 46% !important;
+  gap: 36px !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.about-page-action {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  flex-wrap: nowrap !important;
+  margin: 22px 0 0 0 !important;
+  padding: 0 !important;
+}
+
+.about-page-action .btn-gold-large {
+  background: var(--blue-grad) !important;
+  border: 2px solid transparent !important;
+  border-radius: var(--radius-btn) !important;
+  padding: 11px 24px !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 18px -4px rgba(79, 147, 171, 0.6) !important;
+  transition: all 0.25s ease !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.about-page-action .btn-gold-large:hover {
+  background: linear-gradient(135deg, #8ad0e6 0%, #46869d 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px -6px rgba(79, 147, 171, 0.85) !important;
+}
+
+.about-page-action .btn-about-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: #ffffff !important;
+  border: 1.5px solid var(--blue, #6cb8d2) !important;
+  border-radius: var(--radius-btn) !important;
+  padding: 11px 20px !important;
+  color: var(--blue-dark, #4f93ab) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px -4px rgba(40, 45, 50, 0.08) !important;
+  transition: all 0.25s ease !important;
+  margin: 0 !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.about-page-action .btn-about-secondary:hover {
+  background: var(--blue-soft, rgba(108, 184, 210, 0.12)) !important;
+  border-color: var(--blue-dark, #4f93ab) !important;
+  color: var(--blue-dark, #4f93ab) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px -6px rgba(108, 184, 210, 0.4) !important;
+}
+
+.about-page-action .btn-about-secondary svg {
+  flex-shrink: 0 !important;
+}
+
+/* --- HIDE TOPBAR INTRO VIDEO BUTTONS --- */
+.btn-back-intro {
+  display: none !important;
+}

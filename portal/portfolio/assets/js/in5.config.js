@@ -1173,8 +1173,8 @@ function initMedia(hasSlider){
 			$(e.currentTarget).next().find('audio,video').filter('[data-autoplay]').each(function(){ if(this.load) this.load(); });
 		});
 	}
-	if(hasSlider && isMobile) $('video,audio').mediaelementplayer({iPhoneUseNativeControls:!0,success:onMediaLoadSuccess});
-	else { $('video,audio').mediaelementplayer({pluginPath:'assets/media/',iPadUseNativeControls:!0, iPhoneUseNativeControls:!0, mode:playerMode,
+	if(hasSlider && isMobile) $('video,audio').not('#trikno-modal-video').mediaelementplayer({iPhoneUseNativeControls:!0,success:onMediaLoadSuccess});
+	else { $('video,audio').not('#trikno-modal-video').mediaelementplayer({pluginPath:'assets/media/',iPadUseNativeControls:!0, iPhoneUseNativeControls:!0, mode:playerMode,
 		AndroidUseNativeControls:!0, enableKeyboard:!1, success:onMediaLoadSuccess,defaultAudioWidth:280});
 	}
 	}

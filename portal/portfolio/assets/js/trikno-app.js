@@ -164,9 +164,26 @@
     $('#about-badge-label').text(t.aboutBadge);
     $('#about-main-heading').text(t.aboutTitle);
     $('#about-main-lead').text(t.aboutLead);
-    $('#about-main-mission').text(t.aboutMission);
+    if ($('#about-main-vision').length) {
+      $('#about-main-vision').html('<strong>' + (lang === 'de' ? 'Unsere Vision: ' : 'Our Vision: ') + '</strong>' + (t.aboutVision || ''));
+    }
+    if ($('#about-main-mission').length) {
+      $('#about-main-mission').html('<strong>' + (lang === 'de' ? 'Unsere Mission: ' : 'Our Mission: ') + '</strong>' + (t.aboutMission || ''));
+    }
     $('#btn-about-to-products-text').text(t.aboutBtn);
+    if ($('#btn-about-video-text').length) {
+      $('#btn-about-video-text').text(t.aboutBtnVideo || 'Trikno Video');
+    }
+    if ($('#btn-about-presentation-text').length) {
+      $('#btn-about-presentation-text').text(t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
+    }
+    if ($('#btn-video-modal-back-text').length) {
+      $('#btn-video-modal-back-text').text(t.videoModalBack || (lang === 'de' ? '← Zurück' : '← Back'));
+    }
     $('#about-render-caption').text(t.aboutCaption);
+    if ($('#hero-portfolio-subheading').length && t.heroSubtitle) {
+      $('#hero-portfolio-subheading').text(t.heroSubtitle);
+    }
 
     // Update Products Page header
     $('#products-header-badge').text(t.productsBadge);
@@ -229,6 +246,24 @@
       e.preventDefault();
       closeAboutView();
       openProductsView();
+    });
+
+    // "Trikno Video" button inside About Full Page
+    $(document).on('click', '#btn-about-video', function(e) {
+      e.preventDefault();
+      var $modal = $('#trikno-video-modal');
+      var $video = $('#trikno-modal-video');
+      $modal.find('h3, #trikno-video-modal-title').text('TRIKNO Video');
+      var $source = $video.find('source');
+      if ($source.attr('src') !== 'assets/media/hero-bg-chocolate.mp4') {
+        $source.attr('src', 'assets/media/hero-bg-chocolate.mp4');
+        if ($video[0]) $video[0].load();
+      }
+      $modal.css('display', 'flex').hide().fadeIn(250);
+      if ($video.length && $video[0].play) {
+        $video[0].currentTime = 0;
+        $video[0].play().catch(function() {});
+      }
     });
   }
 
@@ -1013,7 +1048,7 @@
       }
     });
 
-    $(document).on('click', '#trikno-video-close', function(e) {
+    $(document).on('click', '#trikno-video-close, #btn-video-modal-back', function(e) {
       e.preventDefault();
       closeVideoModal();
     });
