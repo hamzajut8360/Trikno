@@ -208,8 +208,6 @@
           $card.find('.app-card-kicker').text(app.kicker);
           $card.find('h3').text(app.title);
           $card.find('p').text(app.desc);
-          var linkPrefix = (lang === 'de') ? '../../' : '../../en/';
-          $card.attr('href', linkPrefix + app.slug);
         }
       });
     }

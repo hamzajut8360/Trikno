@@ -2547,16 +2547,8 @@ body.inner-page-open #homepage-lang-fixed {
   text-decoration: none !important;
   color: inherit !important;
   box-shadow: 0 4px 18px -4px rgba(40, 45, 50, 0.06) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
-  cursor: pointer !important;
-}
-
-.app-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 16px 36px -10px rgba(79, 147, 171, 0.32) !important;
-  border-color: #4f93ab !important;
-  color: inherit !important;
-  text-decoration: none !important;
+  cursor: default !important;
+  user-select: text !important;
 }
 
 .app-card-media {
@@ -2570,12 +2562,7 @@ body.inner-page-open #homepage-lang-fixed {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  transition: transform 0.5s ease !important;
   display: block !important;
-}
-
-.app-card:hover .app-card-media img {
-  transform: scale(1.06) !important;
 }
 
 .app-card-media::after {
@@ -2593,7 +2580,6 @@ body.inner-page-open #homepage-lang-fixed {
   gap: 8px !important;
   flex: 1 !important;
   background: #ffffff !important;
-  transition: background 0.3s ease !important;
 }
 
 .app-card-kicker {
@@ -2601,7 +2587,6 @@ body.inner-page-open #homepage-lang-fixed {
   font-size: 0.84rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.02em !important;
-  transition: color 0.3s ease !important;
 }
 
 .app-card-body h3 {
@@ -2610,7 +2595,6 @@ body.inner-page-open #homepage-lang-fixed {
   font-weight: 700 !important;
   color: #282d32 !important;
   margin: 0 !important;
-  transition: color 0.3s ease !important;
 }
 
 .app-card-body p {
@@ -2618,15 +2602,4 @@ body.inner-page-open #homepage-lang-fixed {
   color: #5d676e !important;
   line-height: 1.55 !important;
   margin: 0 !important;
-  transition: color 0.3s ease !important;
-}
-
-.app-card:hover .app-card-body {
-  background: linear-gradient(135deg, #4f93ab, #3b7b93) !important;
-}
-
-.app-card:hover .app-card-body h3,
-.app-card:hover .app-card-body p,
-.app-card:hover .app-card-kicker {
-  color: #ffffff !important;
 }
