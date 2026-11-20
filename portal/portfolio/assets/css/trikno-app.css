@@ -1157,10 +1157,44 @@ body.inner-page-open #homepage-lang-fixed {
   color: #ffffff !important;
 }
 
-/* "Video" Button removed from product machine pages */
+/* "Video" Button on product machine pages */
 .btn-machine-video,
 #btn-machine-video {
-  display: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: #ffffff !important;
+  border: 1.5px solid var(--line-strong, #C2D2D7) !important;
+  border-radius: var(--radius-btn) !important;
+  padding: 13px 32px !important;
+  color: var(--ink, #282d32) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  box-shadow: 0 4px 14px rgba(40, 45, 50, 0.08) !important;
+}
+
+.btn-machine-video:hover,
+#btn-machine-video:hover {
+  background: #ffffff !important;
+  border-color: var(--blue, #6cb8d2) !important;
+  color: var(--blue-dark, #4f93ab) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(108, 184, 210, 0.25) !important;
+}
+
+.btn-machine-video svg {
+  color: var(--blue-dark, #4f93ab);
+  transition: transform 0.2s;
+}
+
+.btn-machine-video:hover svg {
+  transform: scale(1.15);
 }
 
 /* Tab 03: Characteristics View */

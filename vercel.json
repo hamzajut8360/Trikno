@@ -14,9 +14,20 @@
         { "key": "Content-Type", "value": "model/gltf-binary" },
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    },
+    {
+      "source": "/(.*)\\.hdr",
+      "headers": [
+        { "key": "Content-Type", "value": "image/vnd.radiance" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     }
   ],
   "rewrites": [
+    { "source": "/assets/models/:match*", "destination": "/portal/configurator/assets/models/:match*" },
+    { "source": "/assets/thumbs/:match*", "destination": "/portal/configurator/assets/thumbs/:match*" },
+    { "source": "/assets/img/:match*", "destination": "/portal/configurator/assets/img/:match*" },
+    { "source": "/models/:match*", "destination": "/portal/configurator/assets/models/:match*" },
     { "source": "/draco/:match*", "destination": "/portal/configurator/draco/:match*" }
   ],
   "redirects": [

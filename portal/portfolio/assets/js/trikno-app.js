@@ -496,6 +496,21 @@
     var pdfHref = modeData.pdf || product.pdf || 'assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf';
     $('#btn-machine-datasheet').attr('href', pdfHref).show();
 
+    // Machine Video Button
+    var videoSrc = modeData.video || product.video;
+    var videoTitle = (product.fullName || product.name) + ' – Video';
+    if (videoSrc) {
+      $('#btn-machine-video')
+        .data('video-src', videoSrc)
+        .data('video-title', videoTitle)
+        .show();
+    } else {
+      $('#btn-machine-video')
+        .data('video-src', '')
+        .data('video-title', videoTitle)
+        .show();
+    }
+
     // --- TAB 03: Characteristics / Eigenschaften ---
     var $charContainer = $('#container-characteristics').empty();
     if (modeData.baseUsps && modeData.baseUsps.length) {
@@ -1039,8 +1054,18 @@
   function initModalHandlers() {
     $(document).on('click', '#btn-machine-video, [data-video-open]', function(e) {
       e.preventDefault();
+      var videoSrc = $(this).data('video-src') || $(this).attr('data-video-src');
+      var videoTitle = $(this).data('video-title') || $(this).attr('data-video-title') || 'TRIKNO Video';
       var $modal = $('#trikno-video-modal');
       var $video = $('#trikno-modal-video');
+      $modal.find('h3, #trikno-video-modal-title').text(videoTitle);
+      if (videoSrc) {
+        var $source = $video.find('source');
+        if ($source.attr('src') !== videoSrc) {
+          $source.attr('src', videoSrc);
+          if ($video[0]) $video[0].load();
+        }
+      }
       $modal.css('display', 'flex').hide().fadeIn(250);
       if ($video.length && $video[0].play) {
         $video[0].currentTime = 0;
