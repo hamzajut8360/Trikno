@@ -297,8 +297,8 @@
       var $video = $('#trikno-modal-video');
       $modal.find('h3, #trikno-video-modal-title').text('TRIKNO Video');
       var $source = $video.find('source');
-      if ($source.attr('src') !== 'assets/media/hero-bg-chocolate.mp4') {
-        $source.attr('src', 'assets/media/hero-bg-chocolate.mp4');
+      if ($source.attr('src') !== 'assets/media/trikno-company-video.mp4') {
+        $source.attr('src', 'assets/media/trikno-company-video.mp4');
         if ($video[0]) $video[0].load();
       }
       $modal.css('display', 'flex').hide().fadeIn(250);
