@@ -2426,3 +2426,207 @@ body.inner-page-open #homepage-lang-fixed {
 .btn-back-intro {
   display: none !important;
 }
+
+/* ===================================================================== */
+/* --- 14. OUR APPLICATIONS SHOWCASE VIEW --- */
+/* ===================================================================== */
+#trikno-applications-view {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 100000 !important;
+  background:
+    radial-gradient(1100px 420px at 12% -10%, var(--blue-glow), transparent 60%),
+    radial-gradient(900px 360px at 100% 115%, var(--orange-glow), transparent 60%),
+    var(--bg-soft) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  color: var(--ink) !important;
+  font-family: 'Roboto', Arial, sans-serif !important;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.35s ease !important;
+}
+
+#trikno-applications-view.active {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+#trikno-applications-view::-webkit-scrollbar {
+  width: 9px;
+}
+
+#trikno-applications-view::-webkit-scrollbar-track {
+  background: var(--bg-soft);
+}
+
+#trikno-applications-view::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 4px;
+}
+
+.applications-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 28px 80px;
+  box-sizing: border-box;
+}
+
+.applications-header {
+  text-align: center;
+  padding: 24px 20px 40px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.applications-header-badge {
+  display: inline-block !important;
+  background: var(--orange-soft) !important;
+  border: 1px solid var(--orange-mid) !important;
+  color: var(--orange) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+
+.applications-header h1 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  font-weight: 800 !important;
+  color: #3b7b93 !important;
+  margin: 0 0 14px !important;
+  letter-spacing: -0.5px !important;
+  line-height: 1.2 !important;
+}
+
+.applications-header p {
+  font-size: clamp(15px, 1.3vw, 17px) !important;
+  color: var(--muted) !important;
+  line-height: 1.65 !important;
+  margin: 0 auto !important;
+  max-width: 780px !important;
+}
+
+.applications-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+@media (max-width: 992px) {
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .applications-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+.app-card {
+  background: #ffffff !important;
+  border: 1px solid var(--line, #DCE7EA) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 4px 18px -4px rgba(40, 45, 50, 0.06) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.app-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 36px -10px rgba(79, 147, 171, 0.32) !important;
+  border-color: #4f93ab !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.app-card-media {
+  aspect-ratio: 4 / 3 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: #eef6f8 !important;
+}
+
+.app-card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease !important;
+  display: block !important;
+}
+
+.app-card:hover .app-card-media img {
+  transform: scale(1.06) !important;
+}
+
+.app-card-media::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(79, 147, 171, 0.75) 0%, rgba(79, 147, 171, 0) 55%) !important;
+  pointer-events: none !important;
+}
+
+.app-card-body {
+  padding: 24px 22px 26px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  flex: 1 !important;
+  background: #ffffff !important;
+  transition: background 0.3s ease !important;
+}
+
+.app-card-kicker {
+  color: #c95c2b !important;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  transition: color 0.3s ease !important;
+}
+
+.app-card-body h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #282d32 !important;
+  margin: 0 !important;
+  transition: color 0.3s ease !important;
+}
+
+.app-card-body p {
+  font-size: 0.94rem !important;
+  color: #5d676e !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+  transition: color 0.3s ease !important;
+}
+
+.app-card:hover .app-card-body {
+  background: linear-gradient(135deg, #4f93ab, #3b7b93) !important;
+}
+
+.app-card:hover .app-card-body h3,
+.app-card:hover .app-card-body p,
+.app-card:hover .app-card-kicker {
+  color: #ffffff !important;
+}

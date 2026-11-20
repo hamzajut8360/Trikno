@@ -69,6 +69,13 @@
         return;
       }
 
+      // If Applications view is open -> Go back to About Trikno
+      if ($('#trikno-applications-view').hasClass('active')) {
+        closeApplicationsView();
+        openAboutView();
+        return;
+      }
+
       // If Products view is open -> Go back to About Trikno
       if ($('#trikno-products-view').hasClass('active')) {
         closeProductsView();
@@ -174,6 +181,9 @@
     if ($('#btn-about-video-text').length) {
       $('#btn-about-video-text').text(t.aboutBtnVideo || 'Trikno Video');
     }
+    if ($('#btn-about-applications-text').length) {
+      $('#btn-about-applications-text').text(t.aboutBtnApplications || (lang === 'de' ? 'Unsere Applikationen' : 'Our Applications'));
+    }
     if ($('#btn-about-presentation-text').length) {
       $('#btn-about-presentation-text').text(t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
     }
@@ -183,6 +193,25 @@
     $('#about-render-caption').text(t.aboutCaption);
     if ($('#hero-portfolio-subheading').length && t.heroSubtitle) {
       $('#hero-portfolio-subheading').text(t.heroSubtitle);
+    }
+
+    // Update Applications Page header & cards
+    if ($('#applications-header-badge').length) {
+      $('#applications-header-badge').text(t.appBadge || '');
+      $('#applications-header-title').text(t.appTitle || '');
+      $('#applications-header-desc').text(t.appDesc || '');
+    }
+    if (t.applications && t.applications.length) {
+      t.applications.forEach(function(app) {
+        var $card = $('.app-card[data-slug="' + app.slug + '"]');
+        if ($card.length) {
+          $card.find('.app-card-kicker').text(app.kicker);
+          $card.find('h3').text(app.title);
+          $card.find('p').text(app.desc);
+          var linkPrefix = (lang === 'de') ? '../../' : '../../en/';
+          $card.attr('href', linkPrefix + app.slug);
+        }
+      });
     }
 
     // Update Products Page header
@@ -226,6 +255,7 @@
   // --- 2. ABOUT TRIKNO FULL PAGE VIEW ---
   function openAboutView() {
     closeProductsView();
+    closeApplicationsView();
     closeMachineView();
     $('#trikno-portfolio-nav').hide();
     $('#trikno-about-view').addClass('active').scrollTop(0);
@@ -235,7 +265,7 @@
   function closeAboutView() {
     $('#trikno-about-view').removeClass('active');
     // Show homepage lang btn only if no other inner page is active
-    if (!$('#trikno-products-view').hasClass('active') && !$('#trikno-machine-view').hasClass('active')) {
+    if (!$('#trikno-products-view').hasClass('active') && !$('#trikno-applications-view').hasClass('active') && !$('#trikno-machine-view').hasClass('active')) {
       $('#homepage-lang-fixed').show();
     }
   }
@@ -246,6 +276,20 @@
       e.preventDefault();
       closeAboutView();
       openProductsView();
+    });
+
+    // "Unsere Applikationen" button inside About Full Page
+    $(document).on('click', '#btn-about-applications', function(e) {
+      e.preventDefault();
+      closeAboutView();
+      openApplicationsView();
+    });
+
+    // "Back" button from Applications View
+    $(document).on('click', '#btn-applications-back', function(e) {
+      e.preventDefault();
+      closeApplicationsView();
+      openAboutView();
     });
 
     // "Trikno Video" button inside About Full Page
@@ -267,9 +311,27 @@
     });
   }
 
+  // --- 2B. OUR APPLICATIONS VIEW ---
+  function openApplicationsView() {
+    closeAboutView();
+    closeProductsView();
+    closeMachineView();
+    $('#trikno-portfolio-nav').hide();
+    $('#trikno-applications-view').addClass('active').scrollTop(0);
+    $('#homepage-lang-fixed').hide();
+  }
+
+  function closeApplicationsView() {
+    $('#trikno-applications-view').removeClass('active');
+    if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-products-view').hasClass('active') && !$('#trikno-machine-view').hasClass('active')) {
+      $('#homepage-lang-fixed').show();
+    }
+  }
+
   // --- 3. OUR PRODUCTS VIEW (BALANCED 2-COLUMN GRID, PERFECT ALIGNMENT) ---
   function openProductsView() {
     closeAboutView();
+    closeApplicationsView();
     closeMachineView();
     $('#trikno-portfolio-nav').hide();
     $('#trikno-products-view').addClass('active').scrollTop(0);
@@ -279,7 +341,7 @@
   function closeProductsView() {
     $('#trikno-products-view').removeClass('active');
     // Show homepage lang btn only if no other inner page is active
-    if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-machine-view').hasClass('active')) {
+    if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-applications-view').hasClass('active') && !$('#trikno-machine-view').hasClass('active')) {
       $('#homepage-lang-fixed').show();
     }
   }
@@ -1000,7 +1062,7 @@
   function closeMachineView() {
     $('#trikno-machine-view').removeClass('active');
     // Show homepage lang btn only if no other inner page is active
-    if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-products-view').hasClass('active')) {
+    if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-products-view').hasClass('active') && !$('#trikno-applications-view').hasClass('active')) {
       $('#homepage-lang-fixed').show();
     }
   }
