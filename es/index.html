@@ -1132,7 +1132,7 @@ section{ padding:80px 0; }
       <div class="stat-card reveal"><strong data-count="44">0</strong><span>Años de experiencia en dosificado</span></div>
       <div class="stat-card reveal"><strong data-count="5">0</strong><span>Continentes con Representación local</span></div>
       <div class="stat-card reveal"><strong data-count="9">0</strong><span>Aplicaciones en cartera</span></div>
-      <div class="stat-card reveal"><strong data-count="5">0</strong><span>Procesos patentados</span></div>
+      <div class="stat-card reveal"><strong data-prefix="&gt;" data-count="800">0</strong><span>Clientes en todo el mundo</span></div>
     </div>
   </div>
 </section>
@@ -1434,15 +1434,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!entry.isIntersecting) return;
         var el = entry.target;
         var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
         var duration = 1200;
         var startTime = null;
         function step(ts) {
           if (!startTime) startTime = ts;
           var progress = Math.min((ts - startTime) / duration, 1);
           var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * target);
+          el.textContent = prefix + Math.round(eased * target) + suffix;
           if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target;
+          else el.textContent = prefix + target + suffix;
         }
         requestAnimationFrame(step);
         countIo.unobserve(el);
@@ -1450,7 +1452,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.4 });
     counters.forEach(function (el) { countIo.observe(el); });
   } else {
-    counters.forEach(function (el) { el.textContent = el.getAttribute('data-count'); });
+    counters.forEach(function (el) { el.textContent = (el.getAttribute('data-prefix') || '') + el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); });
   }
 
   /* Cookie banner */
