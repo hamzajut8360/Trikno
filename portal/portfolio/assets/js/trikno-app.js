@@ -187,6 +187,13 @@
     if ($('#btn-about-presentation-text').length) {
       $('#btn-about-presentation-text').text(t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
     }
+    if ($('#btn-about-presentation').length) {
+      var presPdf = (lang === 'de')
+        ? 'assets/pdf/Trikno_company_presentation_german_01-26.pdf'
+        : 'assets/pdf/Trikno_company_presentation_english_1-26.pdf';
+      $('#btn-about-presentation').attr('href', presPdf);
+      $('#btn-about-presentation').attr('aria-label', t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
+    }
     if ($('#btn-video-modal-back-text').length) {
       $('#btn-video-modal-back-text').text(t.videoModalBack || (lang === 'de' ? '← Zurück' : '← Back'));
     }
