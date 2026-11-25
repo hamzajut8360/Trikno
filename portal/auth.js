@@ -49,7 +49,7 @@
     password = (password || '').trim();
 
     if (!email || !password) {
-      return { success: false, message: "Bitte geben Sie E-Mail und Passwort ein." };
+      return { success: false, message: (window.TriknoI18n ? window.TriknoI18n.t("errEmpty") : "Bitte geben Sie E-Mail und Passwort ein.") };
     }
 
     // 1. Try Live Firebase Cloud Auth
@@ -92,7 +92,7 @@
       return { success: true, user: sessionUser };
     }
 
-    return { success: false, message: "Ungültige E-Mail oder falsches Passwort." };
+    return { success: false, message: (window.TriknoI18n ? window.TriknoI18n.t("errInvalid") : "Ungültige E-Mail oder falsches Passwort.") };
   }
 
   function logout() {

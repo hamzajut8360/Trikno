@@ -1,4 +1,4 @@
-// TRIKNO Partner Portal - Internationalization (DE / EN)
+// TRIKNO Partner Portal - Internationalization (DE / EN / ES / FR)
 (function () {
   const LANG_KEY = 'trikno_portal_lang';
 
@@ -172,29 +172,208 @@
       copySuccess: "Credentials copied to clipboard:",
       deleteConfirm: "Are you sure you want to delete access for",
       accessDenied: "Access Denied: You do not have administrator privileges."
+    },
+    es: {
+      // Nav & Common
+      backToMain: "← Sitio web principal",
+      mainSite: "Sitio web principal",
+      partnerPortal: "Portal de Socios y Proveedores",
+      loggedAs: "Conectado como:",
+      adminNav: "Gestión de usuarios",
+      logout: "Cerrar sesión",
+      switchLang: "Idioma",
+
+      // Login Page
+      loginTitle: "Portal de Socios y Proveedores – Acceso | TRIKNO",
+      loginHeroTag: "Acceso autorizado",
+      loginHeroTitle: "Portal de Socios y Proveedores",
+      loginHeroSub: "Acceso exclusivo y seguro a la planificación interactiva de maquinaria 3D y documentación técnica de TRIKNO AG.",
+      loginCardTitle: "Acceso al Portal",
+      loginCardSub: "Inicie sesión con sus credenciales autorizadas.",
+      labelEmail: "Correo electrónico",
+      phEmail: "ejemplo@trikno.ch",
+      labelPassword: "Contraseña",
+      phPassword: "••••••••••••",
+      rememberMe: "Mantener sesión iniciada",
+      contactSupport: "Solicitar acceso",
+      btnLogin: "Iniciar sesión",
+      loggingIn: "Verificando...",
+      errEmpty: "Por favor, introduzca su correo electrónico y contraseña.",
+      errInvalid: "Correo electrónico o contraseña incorrectos.",
+      supportNote: "¿Aún no tiene cuenta de acceso? Póngase en contacto con su representante en <strong>TRIKNO AG</strong> o escriba a <a href=\"mailto:info@trikno.ch\">info@trikno.ch</a>.",
+
+      // Dashboard Page
+      dashTitle: "Panel de control | TRIKNO Partner Portal",
+      dashHeroTag: "Área protegida",
+      dashHeroTitle: "Bienvenido al Portal de Socios",
+      dashHeroSub: "Seleccione una plataforma para configurar equipos en 3D o consultar las especificaciones técnicas completas de las máquinas.",
+      dashSectionTitle: "Plataformas disponibles",
+      dashSectionSub: "Elija la plataforma a la que desea acceder.",
+
+      // Card 1
+      card1Badge: "Herramienta 3D interactiva",
+      card1Kicker: "Planificación y configuración",
+      card1Title: "Configurador de maquinaria 3D",
+      card1Desc: "Planifique líneas modulares de chocolate y dosificación en tiempo real, combine módulos, verifique dimensiones y visualice esquemas 3D.",
+      card1Btn: "Iniciar configurador 3D",
+
+      // Card 2
+      card2Badge: "Especificaciones y detalles",
+      card2Kicker: "Documentación técnica",
+      card2Title: "Catálogo de productos",
+      card2Desc: "Visión completa de todos los tipos de máquinas, detalles de ensamblaje, ventajas competitivas (USP) y documentación técnica.",
+      card2Btn: "Abrir catálogo",
+
+      // Footer
+      footerDesc: "TRIKNO AG – Expertos suizos en maquinaria de alta precisión para chocolate y confitería, desde unidades artesanales compactas hasta líneas de producción industriales.",
+      footerAddressTitle: "Dirección",
+      footerContactTitle: "Contacto",
+      footerSecurityTitle: "Seguridad",
+      footerSecurityDesc: "Esta área está encriptada y estrictamente reservada para clientes, proveedores y socios autorizados.",
+      footerCopyright: "© 2026 TRIKNO AG · Todos los derechos reservados.",
+
+      // Admin Page
+      adminTitle: "Gestión de usuarios | TRIKNO Partner Portal",
+      adminHeroTag: "Solo administradores",
+      adminHeroTitle: "Gestión de usuarios del Portal",
+      adminHeroSub: "Cree accesos para empleados, clientes y proveedores, genere contraseñas seguras y gestione cuentas de usuario existentes.",
+      adminBackToDash: "← Volver al panel",
+      adminCreateTitle: "Crear nueva cuenta de usuario",
+      adminCreateSub: "Introduzca el correo electrónico y genere una contraseña segura con un solo clic.",
+      labelRole: "Rol de acceso",
+      roleGuest: "Invitado / Proveedor / Cliente (Solo Configurador y Catálogo)",
+      roleEmployee: "Empleado (Acceso interno)",
+      roleAdmin: "Administrador (Acceso total al sistema)",
+      btnGeneratePwd: "Regenerar contraseña",
+      btnSaveUser: "Guardar y activar usuario",
+      activeUsersTitle: "Cuentas de usuario activas",
+      activeUsersSub: "Resumen de todas las cuentas registradas almacenadas en el sistema.",
+      colEmail: "Correo electrónico",
+      colRole: "Rol",
+      colPassword: "Contraseña",
+      colActions: "Acciones",
+      btnCopy: "Copiar",
+      btnDelete: "Eliminar",
+      copySuccess: "Credenciales copiadas al portapapeles:",
+      deleteConfirm: "¿Realmente desea eliminar el acceso para",
+      accessDenied: "Acceso denegado: No tiene permisos de administrador."
+    },
+    fr: {
+      // Nav & Common
+      backToMain: "← Site principal",
+      mainSite: "Site principal",
+      partnerPortal: "Portail Partenaires & Fournisseurs",
+      loggedAs: "Connecté en tant que :",
+      adminNav: "Gestion des utilisateurs",
+      logout: "Déconnexion",
+      switchLang: "Langue",
+
+      // Login Page
+      loginTitle: "Portail Partenaires & Fournisseurs – Connexion | TRIKNO",
+      loginHeroTag: "Accès autorisé",
+      loginHeroTitle: "Portail Partenaires & Fournisseurs",
+      loginHeroSub: "Accès exclusif et sécurisé à la planification interactive 3D des équipements et à la documentation technique de TRIKNO AG.",
+      loginCardTitle: "Connexion au Portail",
+      loginCardSub: "Connectez-vous avec vos identifiants autorisés.",
+      labelEmail: "Adresse e-mail",
+      phEmail: "exemple@trikno.ch",
+      labelPassword: "Mot de passe",
+      phPassword: "••••••••••••",
+      rememberMe: "Rester connecté",
+      contactSupport: "Demander un accès",
+      btnLogin: "Se connecter",
+      loggingIn: "Vérification...",
+      errEmpty: "Veuillez saisir votre e-mail et votre mot de passe.",
+      errInvalid: "Adresse e-mail ou mot de passe incorrect.",
+      supportNote: "Vous ne possédez pas encore de compte ? Contactez votre interlocuteur chez <strong>TRIKNO AG</strong> ou écrivez à <a href=\"mailto:info@trikno.ch\">info@trikno.ch</a>.",
+
+      // Dashboard Page
+      dashTitle: "Tableau de bord | TRIKNO Partner Portal",
+      dashHeroTag: "Zone protégée",
+      dashHeroTitle: "Bienvenue sur le Portail Partenaires",
+      dashHeroSub: "Sélectionnez l'une des plateformes pour configurer vos équipements 3D ou consulter les spécifications techniques complètes des machines.",
+      dashSectionTitle: "Plateformes disponibles",
+      dashSectionSub: "Choisissez la plateforme à laquelle vous souhaitez accéder.",
+
+      // Card 1
+      card1Badge: "Outil 3D interactif",
+      card1Kicker: "Planification & Configuration",
+      card1Title: "Configurateur de machines 3D",
+      card1Desc: "Planifiez des lignes modulaires de chocolat et de dosage en temps réel, combinez les assemblages, vérifiez les cotes et visualisez vos agencements 3D.",
+      card1Btn: "Lancer le configurateur 3D",
+
+      // Card 2
+      card2Badge: "Spécifications & Détails",
+      card2Kicker: "Documentation des machines",
+      card2Title: "Portefeuille de produits",
+      card2Desc: "Aperçu complet de tous les types de machines, détails d'assemblage, atouts techniques et commerciaux (USP) et documentation technique.",
+      card2Btn: "Ouvrir le portefeuille",
+
+      // Footer
+      footerDesc: "TRIKNO AG – Experts suisses des machines de haute précision pour le chocolat et la confiserie, des appareils artisanaux compacts aux lignes industrielles complètes.",
+      footerAddressTitle: "Adresse",
+      footerContactTitle: "Contact",
+      footerSecurityTitle: "Sécurité",
+      footerSecurityDesc: "Cette zone est cryptée et strictement réservée aux clients, fournisseurs et partenaires autorisés.",
+      footerCopyright: "© 2026 TRIKNO AG · Tous droits réservés.",
+
+      // Admin Page
+      adminTitle: "Gestion des utilisateurs | TRIKNO Partner Portal",
+      adminHeroTag: "Réservé aux administrateurs",
+      adminHeroTitle: "Gestion des utilisateurs du Portail",
+      adminHeroSub: "Créez des accès pour les collaborateurs, clients et fournisseurs, générez des mots de passe sécurisés et gérez les comptes existants.",
+      adminBackToDash: "← Retour au tableau de bord",
+      adminCreateTitle: "Créer un nouveau compte",
+      adminCreateSub: "Saisissez l'adresse e-mail et générez un mot de passe sécurisé en un clic.",
+      labelRole: "Rôle d'accès",
+      roleGuest: "Invité / Fournisseur / Client (Configurateur & Portefeuille uniquement)",
+      roleEmployee: "Collaborateur (Accès interne)",
+      roleAdmin: "Administrateur (Accès complet au système)",
+      btnGeneratePwd: "Régénérer le mot de passe",
+      btnSaveUser: "Enregistrer et activer l'utilisateur",
+      activeUsersTitle: "Comptes d'utilisateurs actifs",
+      activeUsersSub: "Aperçu de tous les comptes enregistrés dans le système.",
+      colEmail: "E-mail",
+      colRole: "Rôle",
+      colPassword: "Mot de passe",
+      colActions: "Actions",
+      btnCopy: "Copier",
+      btnDelete: "Supprimer",
+      copySuccess: "Identifiants copiés dans le presse-papiers :",
+      deleteConfirm: "Voulez-vous vraiment supprimer l'accès pour",
+      accessDenied: "Accès refusé : Vous ne disposez pas des droits d'administrateur."
     }
   };
+
+  const SUPPORTED_LANGS = ['de', 'en', 'es', 'fr'];
 
   function getLang() {
     const urlParams = new URLSearchParams(window.location.search);
     const paramLang = urlParams.get('lang');
-    if (paramLang && (paramLang === 'de' || paramLang === 'en')) {
+    if (paramLang && SUPPORTED_LANGS.includes(paramLang)) {
       localStorage.setItem(LANG_KEY, paramLang);
       return paramLang;
     }
     const saved = localStorage.getItem(LANG_KEY);
-    if (saved && (saved === 'de' || saved === 'en')) {
+    if (saved && SUPPORTED_LANGS.includes(saved)) {
       return saved;
     }
-    // Default to German, but if browser is English and no saved pref, default to EN
-    if (navigator.language && navigator.language.startsWith('en')) {
-      return 'en';
+    // Check document referrer
+    if (document.referrer) {
+      if (document.referrer.includes('/es/')) return 'es';
+      if (document.referrer.includes('/fr/')) return 'fr';
+      if (document.referrer.includes('/en/')) return 'en';
+    }
+    if (navigator.language) {
+      if (navigator.language.startsWith('es')) return 'es';
+      if (navigator.language.startsWith('fr')) return 'fr';
+      if (navigator.language.startsWith('en')) return 'en';
     }
     return 'de';
   }
 
   function setLang(lang) {
-    if (lang !== 'de' && lang !== 'en') lang = 'de';
+    if (!SUPPORTED_LANGS.includes(lang)) lang = 'de';
     localStorage.setItem(LANG_KEY, lang);
     applyTranslations(lang);
     updateLangSwitchUI(lang);
@@ -236,17 +415,21 @@
       }
     });
 
+    // Back to main website link localized
+    const mainHref = (lang === 'es') ? '/es/index' : (lang === 'fr') ? '/fr/index' : (lang === 'en') ? '/en/index' : '/index.html';
+    document.querySelectorAll('.btn-back-main, [data-i18n="mainSite"]').forEach(el => {
+      if (el.tagName === 'A') el.setAttribute('href', mainHref);
+    });
+
     updateLangSwitchUI(lang);
   }
 
   function updateLangSwitchUI(lang) {
-    document.querySelectorAll('.lang-btn-de').forEach(b => {
-      if (lang === 'de') b.classList.add('active');
-      else b.classList.remove('active');
-    });
-    document.querySelectorAll('.lang-btn-en').forEach(b => {
-      if (lang === 'en') b.classList.add('active');
-      else b.classList.remove('active');
+    SUPPORTED_LANGS.forEach(code => {
+      document.querySelectorAll('.lang-btn-' + code).forEach(b => {
+        if (lang === code) b.classList.add('active');
+        else b.classList.remove('active');
+      });
     });
   }
 
@@ -264,4 +447,3 @@
     apply: applyTranslations
   };
 })();
-

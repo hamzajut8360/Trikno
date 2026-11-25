@@ -117,7 +117,7 @@
     $(document).on('click', '.lang-option-btn', function(e) {
       e.preventDefault();
       var lang = $(this).attr('data-lang');
-      if (lang && (lang === 'de' || lang === 'en')) {
+      if (lang && (['de', 'en', 'es', 'fr'].includes(lang))) {
         setLanguage(lang);
       }
       $('.trikno-lang-dropdown').removeClass('open');
