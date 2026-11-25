@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+<script src="/portal/i18n.js"></script>
 <script src="/portal/auth-guard.js"></script>
 
 <style>
@@ -75,19 +76,19 @@ img { max-width: 100%; display: block; }
 .header-actions {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.lang-switch-capsule {
-  display: inline-flex; align-items: center; background: var(--bg-soft);
-  border: 1px solid var(--line); border-radius: 999px; padding: 3px 4px; gap: 2px;
-}
-.lang-pill {
-  border: none; background: transparent; font-family: "Poppins", sans-serif;
-  font-weight: 700; font-size: 0.78rem; color: var(--ink-soft); padding: 4px 10px;
-  border-radius: 999px; cursor: pointer; transition: all 0.2s ease;
-}
-.lang-pill:hover { color: var(--blue-dark); }
-.lang-pill.active {
-  background: var(--blue-grad); color: #fff; box-shadow: 0 2px 8px -2px rgba(79, 147, 171, 0.6);
-}
+/* Language Dropdown */
+.lang-dropdown { position: relative; display: inline-flex; align-items: center; flex-shrink: 0; }
+.lang-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; line-height: 1; flex-shrink: 0; }
+.lang-btn:hover, .lang-dropdown.is-open .lang-btn { background: #fff; border-color: var(--blue-dark); color: var(--blue-dark); box-shadow: 0 4px 12px -4px rgba(108,184,210,.35); }
+.lang-arrow { transition: transform 0.2s ease; flex-shrink: 0; }
+.lang-dropdown:hover .lang-arrow, .lang-dropdown.is-open .lang-arrow { transform: rotate(180deg); }
+.lang-menu { position: absolute; top: calc(100% + 6px); right: 0; background: #ffffff; border: 1px solid var(--line); border-radius: 12px; padding: 5px; min-width: 135px; box-shadow: 0 12px 28px -8px rgba(40,45,50,.22), 0 4px 10px -2px rgba(40,45,50,.06); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; z-index: 500; display: flex; flex-direction: column; gap: 2px; }
+.lang-dropdown:hover .lang-menu, .lang-dropdown:focus-within .lang-menu, .lang-dropdown.is-open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-opt { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 12px; border-radius: 8px; font-family: "Poppins", sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; transition: all 0.15s ease; background: transparent; border: none; width: 100%; cursor: pointer; text-align: left; }
+.lang-opt .lang-code { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.02em; }
+.lang-opt .lang-name { font-size: 0.76rem; color: rgba(40,45,50,.55); }
+.lang-opt:hover, .lang-opt.active { background: var(--bg-soft); color: var(--blue-dark); }
+.lang-opt:hover .lang-name, .lang-opt.active .lang-name { color: var(--blue-dark); font-weight: 600; }
 .btn-nav-dash {
   font-family: "Poppins", sans-serif; font-size: 0.84rem; font-weight: 600;
   color: var(--ink); border: 1px solid var(--line); padding: 6px 16px;
@@ -379,11 +380,17 @@ img { max-width: 100%; display: block; }
 
     <div class="header-actions">
       <!-- Language Switcher -->
-      <div class="lang-switch-capsule">
-        <button type="button" class="lang-pill lang-btn-de" onclick="TriknoI18n.setLang('de'); renderUsers();">DE</button>
-        <button type="button" class="lang-pill lang-btn-en" onclick="TriknoI18n.setLang('en'); renderUsers();">EN</button>
-        <button type="button" class="lang-pill lang-btn-es" onclick="TriknoI18n.setLang('es'); renderUsers();">ES</button>
-        <button type="button" class="lang-pill lang-btn-fr" onclick="TriknoI18n.setLang('fr'); renderUsers();">FR</button>
+      <div class="lang-dropdown">
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Sprache wählen">
+          <span class="lang-curr">DE</span>
+          <svg class="lang-arrow" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true"><path d="M1 1.25L4.5 4.75L8 1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <button type="button" class="lang-opt active" data-lang="de" role="menuitem"><span class="lang-code">DE</span><span class="lang-name">Deutsch</span></button>
+          <button type="button" class="lang-opt" data-lang="en" role="menuitem"><span class="lang-code">EN</span><span class="lang-name">English</span></button>
+          <button type="button" class="lang-opt" data-lang="es" role="menuitem"><span class="lang-code">ES</span><span class="lang-name">Español</span></button>
+          <button type="button" class="lang-opt" data-lang="fr" role="menuitem"><span class="lang-code">FR</span><span class="lang-name">Français</span></button>
+        </div>
       </div>
 
       <a href="/portal/index.html" class="btn-nav-dash" data-i18n="adminBackToDash">← Zum Dashboard</a>
@@ -517,7 +524,6 @@ img { max-width: 100%; display: block; }
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="/portal/firebase-config.js"></script>
 <script src="/portal/auth.js"></script>
-<script src="/portal/i18n.js"></script>
 
 <script>
 // STRICT ACCESS CHECK: Only admin can view this page
@@ -614,6 +620,9 @@ document.getElementById('btn-copy-creds').addEventListener('click', function () 
 });
 
 // Init
+window.addEventListener('trikno-lang-change', function () {
+  renderUsers();
+});
 autoGenerate();
 renderUsers();
 </script>

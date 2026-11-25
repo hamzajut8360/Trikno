@@ -165,27 +165,29 @@
     // Update Topbar buttons text
     $('.btn-back-text').text(t.back);
     $('.btn-back-intro span').text(t.introVideo);
-    $('#btn-hero-about-text').text(lang === 'de' ? 'Über Trikno' : 'About Trikno');
+    $('#btn-hero-about-text').text(lang === 'de' ? 'Über Trikno' : (lang === 'es' ? 'Sobre Trikno' : (lang === 'fr' ? 'À propos de Trikno' : 'About Trikno')));
 
     // Update About Page
     $('#about-badge-label').text(t.aboutBadge);
     $('#about-main-heading').text(t.aboutTitle);
     $('#about-main-lead').text(t.aboutLead);
     if ($('#about-main-vision').length) {
-      $('#about-main-vision').html('<strong>' + (lang === 'de' ? 'Unsere Vision: ' : 'Our Vision: ') + '</strong>' + (t.aboutVision || ''));
+      var visionPrefix = (lang === 'de') ? 'Unsere Vision: ' : (lang === 'es' ? 'Nuestra visión: ' : (lang === 'fr' ? 'Notre vision : ' : 'Our Vision: '));
+      $('#about-main-vision').html('<strong>' + visionPrefix + '</strong>' + (t.aboutVision || ''));
     }
     if ($('#about-main-mission').length) {
-      $('#about-main-mission').html('<strong>' + (lang === 'de' ? 'Unsere Mission: ' : 'Our Mission: ') + '</strong>' + (t.aboutMission || ''));
+      var missionPrefix = (lang === 'de') ? 'Unsere Mission: ' : (lang === 'es' ? 'Nuestra misión: ' : (lang === 'fr' ? 'Notre mission : ' : 'Our Mission: '));
+      $('#about-main-mission').html('<strong>' + missionPrefix + '</strong>' + (t.aboutMission || ''));
     }
     $('#btn-about-to-products-text').text(t.aboutBtn);
     if ($('#btn-about-video-text').length) {
       $('#btn-about-video-text').text(t.aboutBtnVideo || 'Trikno Video');
     }
     if ($('#btn-about-applications-text').length) {
-      $('#btn-about-applications-text').text(t.aboutBtnApplications || (lang === 'de' ? 'Unsere Applikationen' : 'Our Applications'));
+      $('#btn-about-applications-text').text(t.aboutBtnApplications || (lang === 'de' ? 'Unsere Applikationen' : (lang === 'es' ? 'Nuestras aplicaciones' : (lang === 'fr' ? 'Nos applications' : 'Our Applications'))));
     }
     if ($('#btn-about-presentation-text').length) {
-      $('#btn-about-presentation-text').text(t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
+      $('#btn-about-presentation-text').text(t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : (lang === 'es' ? 'Presentación de la empresa' : (lang === 'fr' ? 'Présentation de l\'entreprise' : 'Company Presentation'))));
     }
     if ($('#btn-about-presentation').length) {
       var presPdf = (lang === 'de')
@@ -195,7 +197,7 @@
       $('#btn-about-presentation').attr('aria-label', t.aboutBtnPresentation || (lang === 'de' ? 'Firmenpräsentation' : 'Company Presentation'));
     }
     if ($('#btn-video-modal-back-text').length) {
-      $('#btn-video-modal-back-text').text(t.videoModalBack || (lang === 'de' ? '← Zurück' : '← Back'));
+      $('#btn-video-modal-back-text').text(t.videoModalBack || (lang === 'de' ? '← Zurück' : (lang === 'es' ? '← Volver' : (lang === 'fr' ? '← Retour' : '← Back'))));
     }
     $('#about-render-caption').text(t.aboutCaption);
     if ($('#hero-portfolio-subheading').length && t.heroSubtitle) {

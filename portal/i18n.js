@@ -375,8 +375,16 @@
   function setLang(lang) {
     if (!SUPPORTED_LANGS.includes(lang)) lang = 'de';
     localStorage.setItem(LANG_KEY, lang);
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url.toString());
+    } catch (e) {}
     applyTranslations(lang);
     updateLangSwitchUI(lang);
+    try {
+      window.dispatchEvent(new CustomEvent('trikno-lang-change', { detail: { lang } }));
+    } catch (e) {}
   }
 
   function t(key, lang) {
@@ -425,6 +433,25 @@
   }
 
   function updateLangSwitchUI(lang) {
+    lang = lang || getLang();
+    // Update dropdown current label
+    document.querySelectorAll('.lang-curr').forEach(el => {
+      el.textContent = lang.toUpperCase();
+    });
+
+    // Update active state in dropdown options
+    document.querySelectorAll('.lang-opt').forEach(opt => {
+      const optLang = opt.getAttribute('data-lang');
+      if (optLang === lang) {
+        opt.classList.add('active');
+        opt.setAttribute('aria-selected', 'true');
+      } else {
+        opt.classList.remove('active');
+        opt.removeAttribute('aria-selected');
+      }
+    });
+
+    // Support legacy pills if present
     SUPPORTED_LANGS.forEach(code => {
       document.querySelectorAll('.lang-btn-' + code).forEach(b => {
         if (lang === code) b.classList.add('active');
@@ -433,11 +460,56 @@
     });
   }
 
+  function initDropdownEvents() {
+    document.querySelectorAll('.lang-dropdown').forEach(dd => {
+      const btn = dd.querySelector('.lang-btn');
+      if (btn && !btn._hasTriknoListener) {
+        btn._hasTriknoListener = true;
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const isOpen = dd.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
+
+      dd.querySelectorAll('.lang-opt').forEach(opt => {
+        if (!opt._hasTriknoListener) {
+          opt._hasTriknoListener = true;
+          opt.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetLang = opt.getAttribute('data-lang');
+            if (targetLang) {
+              setLang(targetLang);
+            }
+            dd.classList.remove('is-open');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    });
+
+    if (!document._hasTriknoLangDocListener) {
+      document._hasTriknoLangDocListener = true;
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.lang-dropdown.is-open').forEach(dd => {
+          dd.classList.remove('is-open');
+          const b = dd.querySelector('.lang-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  }
+
   // Auto apply on DOM ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => applyTranslations());
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTranslations();
+      initDropdownEvents();
+    });
   } else {
     applyTranslations();
+    initDropdownEvents();
   }
 
   window.TriknoI18n = {
