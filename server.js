@@ -74,6 +74,15 @@ function resolvePath(reqPath) {
     }
   }
 
+  // e.g. /portal/portfolio/assets/pdf/... -> /assets/pdf/...
+  if (safePath.includes('portfolio') && safePath.includes(path.join('assets', 'pdf'))) {
+    let pdfName = path.basename(safePath);
+    let rootPdf = path.join(ROOT, 'assets', 'pdf', pdfName);
+    if (fs.existsSync(rootPdf)) {
+      return rootPdf;
+    }
+  }
+
   // If clean url (e.g. /jobs -> /jobs.html)
   let htmlPath = fullPath + '.html';
   if (fs.existsSync(htmlPath)) {
