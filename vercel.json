@@ -24,6 +24,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/portal/portfolio/assets/pdf/:match*", "destination": "/assets/pdf/:match*" },
     { "source": "/assets/models/:match*", "destination": "/portal/configurator/assets/models/:match*" },
     { "source": "/assets/thumbs/:match*", "destination": "/portal/configurator/assets/thumbs/:match*" },
     { "source": "/assets/img/:match*", "destination": "/portal/configurator/assets/img/:match*" },
