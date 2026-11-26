@@ -190,7 +190,13 @@ const products = [
     cutoutImage: "assets/img/Produkte/Alpha Compact Z 9-18-35-clean.png",
     diagramImage: "assets/img/Produkte/Alpha Compact Z 9-18-35-clean.png",
     pdf: "/assets/pdf/TCM-Alpha Compact_Technisches Datenblatt.pdf",
-    video: "assets/media/products/Standard-Piston_EN_4k.mp4",
+    video: "https://www.youtube.com/playlist?list=PLJ2T3_x-XuTU",
+    youtubePlaylist: "https://www.youtube.com/playlist?list=PLJ2T3_x-XuTU",
+    youtubeVideos: [
+      { id: "MZMBirXAaGA", title: "Curtain One-Shot" },
+      { id: "D2Ae4B-54jo", title: "One-Shot Transfer Sheet" },
+      { id: "PS_WdaBkYcQ", title: "Alpha Compact (Step 1 Line)" }
+    ],
     lead: "Die kompakte High-Speed Giessmaschine – optimal für One-Shot gefüllte Produkte und begrenzte Platzverhältnisse.",
     description: "Die Alpha compact vereint Schweizer Hochleistungstechnologie im kompakten Format. Konzipiert für anspruchsvolle Confiseure und mittelständische Produktionen.",
     variantsTitle: "Ausführungs-Varianten",
@@ -276,8 +282,13 @@ const products = [
     cutoutImage: "assets/img/Produkte/Alpha X HD 48-96-30-2-clean.png",
     diagramImage: "assets/img/Produkte/Alpha X HD 48-96-30-2-clean.png",
     pdf: "/assets/pdf/TCM-Alpha_Technisches Datenblatt.pdf",
-        video: "assets/media/products/cad tablet decoration sep 22 trikno .movie.mp4",
-    video: "assets/media/products/cad tablet decoration sep 22 trikno .movie.mp4",
+    video: "https://www.youtube.com/playlist?list=PLJ2T3_x-XuTU",
+    youtubePlaylist: "https://www.youtube.com/playlist?list=PLJ2T3_x-XuTU",
+    youtubeVideos: [
+      { id: "MZMBirXAaGA", title: "Curtain One-Shot" },
+      { id: "D2Ae4B-54jo", title: "One-Shot Transfer Sheet" },
+      { id: "PS_WdaBkYcQ", title: "Alpha Compact (Step 1 Line)" }
+    ],
     lead: "Die Referenz für höchste Anforderungen im industriellen Bereich und in grossen Confiserien.",
     description: "Die Alpha ist das Flaggschiff unter den Giessmaschinen. Mit unübertroffener Flexibilität meistert sie selbst anspruchsvollste Dekorations- und Dosiermuster.",
     variantsTitle: "Ausführungs-Varianten",

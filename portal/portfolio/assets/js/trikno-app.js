@@ -568,15 +568,21 @@
     // Machine Video Button
     var videoSrc = modeData.video || product.video;
     var videoTitle = (product.fullName || product.name) + ' – Video';
+    var youtubeVideos = modeData.youtubeVideos || product.youtubeVideos || null;
+    var youtubePlaylist = modeData.youtubePlaylist || product.youtubePlaylist || null;
     if (videoSrc) {
       $('#btn-machine-video')
         .data('video-src', videoSrc)
         .data('video-title', videoTitle)
+        .data('youtube-videos', youtubeVideos)
+        .data('youtube-playlist', youtubePlaylist)
         .show();
     } else {
       $('#btn-machine-video')
         .data('video-src', '')
         .data('video-title', videoTitle)
+        .data('youtube-videos', null)
+        .data('youtube-playlist', null)
         .show();
     }
 
@@ -1125,21 +1131,78 @@
       e.preventDefault();
       var videoSrc = $(this).data('video-src') || $(this).attr('data-video-src');
       var videoTitle = $(this).data('video-title') || $(this).attr('data-video-title') || 'TRIKNO Video';
+      var ytVideos = $(this).data('youtube-videos');
+      var ytPlaylist = $(this).data('youtube-playlist');
+
       var $modal = $('#trikno-video-modal');
       var $video = $('#trikno-modal-video');
+      var $iframe = $('#trikno-modal-iframe');
+      var $playlistBar = $('#trikno-modal-playlist-bar');
+
       $modal.find('h3, #trikno-video-modal-title').text(videoTitle);
-      if (videoSrc) {
-        var $source = $video.find('source');
-        if ($source.attr('src') !== videoSrc) {
-          $source.attr('src', videoSrc);
-          if ($video[0]) $video[0].load();
+
+      var isYouTube = videoSrc && (videoSrc.indexOf('youtube.com') !== -1 || videoSrc.indexOf('youtu.be') !== -1);
+
+      if (isYouTube) {
+        if ($video.length && $video[0].pause) $video[0].pause();
+        $video.hide();
+        $iframe.show();
+
+        // Convert playlist URL or watch URL to embed URL
+        var embedUrl = videoSrc;
+        if (embedUrl.indexOf('playlist?list=') !== -1) {
+          var listId = embedUrl.split('list=')[1].split('&')[0];
+          embedUrl = 'https://www.youtube.com/embed/videoseries?list=' + listId + '&autoplay=1';
+        } else if (embedUrl.indexOf('watch?v=') !== -1) {
+          var vId = embedUrl.split('v=')[1].split('&')[0];
+          embedUrl = 'https://www.youtube.com/embed/' + vId + '?autoplay=1';
+        }
+
+        $iframe.attr('src', embedUrl);
+
+        // If multiple playlist videos are configured, show interactive track buttons
+        if (ytVideos && ytVideos.length) {
+          $playlistBar.empty().css('display', 'flex');
+
+          var $allBtn = $('<button type="button" class="btn-yt-track" style="cursor:pointer; background:#6cb8d2; color:#fff; border:none; border-radius:20px; padding:6px 14px; font-size:12px; font-weight:600; white-space:nowrap; transition:all 0.2s;">▶ Ganze Playlist</button>');
+          $allBtn.on('click', function() {
+            $playlistBar.find('button').css({background: 'rgba(255,255,255,0.12)', color: '#fff'});
+            $(this).css({background: '#6cb8d2', color: '#fff'});
+            $iframe.attr('src', embedUrl);
+          });
+          $playlistBar.append($allBtn);
+
+          ytVideos.forEach(function(v, idx) {
+            var $vBtn = $('<button type="button" class="btn-yt-track" style="cursor:pointer; background:rgba(255,255,255,0.12); color:#fff; border:none; border-radius:20px; padding:6px 14px; font-size:12px; font-weight:500; white-space:nowrap; transition:all 0.2s;">' + (idx+1) + '. ' + v.title + '</button>');
+            $vBtn.on('click', function() {
+              $playlistBar.find('button').css({background: 'rgba(255,255,255,0.12)', color: '#fff'});
+              $(this).css({background: '#6cb8d2', color: '#fff'});
+              var singleEmbed = 'https://www.youtube.com/embed/' + v.id + '?autoplay=1';
+              $iframe.attr('src', singleEmbed);
+            });
+            $playlistBar.append($vBtn);
+          });
+        } else {
+          $playlistBar.hide();
+        }
+      } else {
+        $iframe.attr('src', 'about:blank').hide();
+        $playlistBar.hide();
+        $video.show();
+        if (videoSrc) {
+          var $source = $video.find('source');
+          if ($source.attr('src') !== videoSrc) {
+            $source.attr('src', videoSrc);
+            if ($video[0]) $video[0].load();
+          }
+          if ($video.length && $video[0].play) {
+            $video[0].currentTime = 0;
+            $video[0].play().catch(function() {});
+          }
         }
       }
+
       $modal.css('display', 'flex').hide().fadeIn(250);
-      if ($video.length && $video[0].play) {
-        $video[0].currentTime = 0;
-        $video[0].play().catch(function() {});
-      }
     });
 
     $(document).on('click', '#trikno-video-close, #btn-video-modal-back', function(e) {
@@ -1163,9 +1226,13 @@
   function closeVideoModal() {
     var $modal = $('#trikno-video-modal');
     var $video = $('#trikno-modal-video');
+    var $iframe = $('#trikno-modal-iframe');
     $modal.fadeOut(200);
     if ($video.length && $video[0].pause) {
       $video[0].pause();
+    }
+    if ($iframe.length) {
+      $iframe.attr('src', 'about:blank');
     }
   }
 
