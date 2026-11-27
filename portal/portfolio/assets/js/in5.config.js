@@ -879,6 +879,11 @@ function initScaling(){
     }
 }
 function scaleLayout(getOnly,sf) {
+	if($(window).innerWidth() <= 860) {
+		if(getOnly) return 1;
+		$('#container').css(prefix.css + 'transform', 'none').css('zoom', '1');
+		return 1;
+	}
 	var targ = ((multifile || $('.activePage').is(':empty')) ? $('.page') : $('.activePage')).find('.page-scale-wrap').eq(window.currentLayout || 0), $body = $(document.body);
 	if(!targ.length) { return; }
 	var targW = targ.width(), targH = targ.height(), winW = $(window).innerWidth(), winH = $(window).innerHeight(),
@@ -910,6 +915,7 @@ function scaleFlipLayout(getOnly,sf) {
 	if(!getOnly && !sf) $('body').removeClass('zoomed');
 }
 function getScaleFactor(targW, targH){
+	if($(window).innerWidth() <= 860) return 1;
 	var maxWF = maxScaleWidth ? maxScaleWidth/targW : Infinity, maxHF = maxScaleHeight ? maxScaleHeight/targH : Infinity;
 	var atMaxW = targW>maxWF;
 	var $optwrap = $('#viewer-options-wrap'), collapsed = $optwrap.is('.collapsed'), 

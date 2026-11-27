@@ -43,8 +43,16 @@
 
   // --- 1. HERO SLIDE CENTER BUTTON ---
   function initHeroEvents() {
+    // Click "Discover Products" Button -> Opens Products Showcase directly
+    $(document).on('click touchend', '#btn-hero-products', function(e) {
+      e.preventDefault();
+      closeAboutView();
+      closeMachineView();
+      openProductsView();
+    });
+
     // Click "About Trikno" Button -> Opens FULL PAGE About Trikno
-    $(document).on('click', '#btn-about-trikno', function(e) {
+    $(document).on('click touchend', '#btn-about-trikno', function(e) {
       e.preventDefault();
       openAboutView();
     });
@@ -179,6 +187,7 @@
     $('.btn-back-text').text(t.back);
     $('.btn-back-intro span').text(t.introVideo);
     $('#btn-hero-about-text').text(lang === 'de' ? 'Über Trikno' : (lang === 'es' ? 'Sobre Trikno' : (lang === 'fr' ? 'À propos de Trikno' : 'About Trikno')));
+    $('#btn-hero-products-text').text(lang === 'de' ? 'Produkte entdecken' : (lang === 'es' ? 'Descubrir productos' : (lang === 'fr' ? 'Découvrir nos produits' : 'Discover Products')));
 
     // Update About Page
     $('#about-badge-label').text(t.aboutBadge);
@@ -1026,6 +1035,12 @@
 
   function switchMachineTab(tabId) {
     currentTab = tabId;
+
+    // Scroll machine view container to top on tab change
+    var machineView = document.getElementById('trikno-machine-view');
+    if (machineView) {
+      machineView.scrollTop = 0;
+    }
 
     // Highlight active dock button
     $('#trikno-dynamic-dock .dock-tab-btn').removeClass('active');

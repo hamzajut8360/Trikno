@@ -1,0 +1,329 @@
+/* ==========================================================================
+   TRIKNO 3D CONFIGURATOR — MOBILE TOUCH OPTIMIZATION (<= 768px)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. Global Viewport Reset */
+  html, body {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    position: fixed !important;
+  }
+
+  .configurator-app {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+  /* 2. Compact Mobile Navigation Bar */
+  .top-nav {
+    height: 52px !important;
+    padding: 0 10px !important;
+    justify-content: space-between !important;
+    z-index: 100 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .nav-left {
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  .btn-portal-back {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+    margin-right: 4px !important;
+  }
+
+  .brand-logo {
+    height: 22px !important;
+    width: auto !important;
+  }
+
+  .divider-vertical,
+  .app-subtitle,
+  .nav-center,
+  .viewport-hints {
+    display: none !important;
+  }
+
+  .nav-right {
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  .lang-switch {
+    padding: 2px 6px !important;
+    gap: 2px !important;
+    font-size: 10.5px !important;
+  }
+
+  .btn-lang {
+    padding: 2px 4px !important;
+    font-size: 10.5px !important;
+  }
+
+  .btn-primary-header {
+    padding: 6px 10px !important;
+    font-size: 11.5px !important;
+  }
+
+  #btnHeaderSaveText {
+    display: none !important;
+  }
+
+  .btn-mobile-menu {
+    display: inline-flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: var(--radius-sm) !important;
+    font-size: 15px !important;
+  }
+
+  /* 3. 3D Canvas & Viewport Container */
+  .main-workspace {
+    flex: 1 !important;
+    height: calc(100vh - 52px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .viewport-container {
+    width: 100vw !important;
+    height: 100% !important;
+    position: relative !important;
+  }
+
+  .viewport-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    touch-action: none !important;
+    display: block !important;
+  }
+
+  /* 4. Sleek Horizontal Left Toolbar (No obstruction of 3D center) */
+  .floating-toolbar.left-tools {
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    max-width: calc(100vw - 20px) !important;
+    padding: 4px 6px !important;
+    gap: 5px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 6px 18px -4px rgba(40, 45, 50, 0.2) !important;
+    z-index: 30 !important;
+    scrollbar-width: none !important;
+  }
+
+  .floating-toolbar.left-tools::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .tool-btn {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+    font-size: 12px !important;
+    border-radius: 50% !important;
+  }
+
+  .tool-key {
+    font-size: 12px !important;
+  }
+
+  .tool-divider {
+    width: 1px !important;
+    height: 18px !important;
+    margin: 0 1px !important;
+  }
+
+  .tool-tooltip {
+    display: none !important;
+  }
+
+  /* 5. Mobile Floating Action Button (Centered Bottom) */
+  .btn-mobile-float-bar {
+    display: inline-flex !important;
+    position: fixed !important;
+    bottom: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 12px 22px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    background: var(--blue-grad) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px -4px rgba(79, 147, 171, 0.85) !important;
+    z-index: 100 !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .btn-mobile-float-bar:active {
+    transform: translateX(-50%) scale(0.96) !important;
+  }
+
+  /* 6. Mobile Sidebar Drawer */
+  .sidebar-backdrop {
+    display: block !important;
+    z-index: 1900 !important;
+  }
+
+  .config-sidebar {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 2000 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .config-sidebar.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  .sidebar-mobile-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 14px 18px !important;
+    background: var(--bg-soft) !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .mobile-header-title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--blue-dark) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .btn-sidebar-close {
+    font-size: 26px !important;
+    color: var(--ink-soft) !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    line-height: 1 !important;
+    padding: 0 4px !important;
+  }
+
+  .sidebar-tabs {
+    display: flex !important;
+    width: 100% !important;
+    border-bottom: 1px solid var(--line) !important;
+    background: var(--bg-soft) !important;
+  }
+
+  .tab-btn {
+    flex: 1 !important;
+    padding: 11px 6px !important;
+    font-size: 12px !important;
+    text-align: center !important;
+  }
+
+  .sidebar-scroll-body {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 14px 14px 90px 14px !important;
+  }
+
+  /* 7. Component Catalog Modal (Full-Screen Bottom Sheet on Mobile) */
+  .modal-dialog {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 94vh !important;
+    max-height: 94vh !important;
+    border-radius: 22px 22px 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .modal-header {
+    padding: 14px 18px !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .modal-title {
+    font-size: 16px !important;
+  }
+
+  .category-tabs {
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 10px 14px !important;
+    gap: 6px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .category-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .cat-tab {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 11.5px !important;
+    height: 32px !important;
+    padding: 0 12px !important;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 14px 14px 50px 14px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex: 1 !important;
+  }
+
+  /* 8. PDF Save Modal */
+  .modal-dialog-sm {
+    width: 94vw !important;
+    max-height: 90vh !important;
+    border-radius: 18px !important;
+    padding: 18px !important;
+    overflow-y: auto !important;
+  }
+
+  .form-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
