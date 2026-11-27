@@ -442,8 +442,9 @@ body.inner-page-open #homepage-lang-fixed {
   z-index: 100000 !important;
   background: #daf1f7 !important;
   overflow-y: auto !important;
-  display: none;
-  opacity: 0;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 0.35s ease !important;
   color: var(--ink) !important;
   font-family: 'Roboto', Arial, sans-serif !important;
@@ -453,6 +454,7 @@ body.inner-page-open #homepage-lang-fixed {
   display: flex !important;
   flex-direction: column !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .about-fullscreen-container {
@@ -653,14 +655,16 @@ body.inner-page-open #homepage-lang-fixed {
   box-sizing: border-box !important;
   color: var(--ink) !important;
   font-family: 'Roboto', Arial, sans-serif !important;
-  display: none;
-  opacity: 0;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 0.35s ease !important;
 }
 
 #trikno-products-view.active {
   display: block !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 #trikno-products-view::-webkit-scrollbar {
@@ -802,6 +806,7 @@ body.inner-page-open #homepage-lang-fixed {
 
 /* Product Card: White Clean Card matching trikno.vercel.app .card */
 .trikno-prod-card {
+  cursor: pointer !important;
   background: #ffffff !important;
   border: 1px solid var(--line) !important;
   border-radius: 20px !important;
@@ -951,8 +956,9 @@ body.inner-page-open #homepage-lang-fixed {
     radial-gradient(1000px 420px at 85% 90%, var(--orange-glow), transparent 60%),
     var(--bg-soft) !important;
   overflow: hidden !important;
-  display: none;
-  opacity: 0;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 0.35s ease !important;
   color: var(--ink) !important;
   font-family: 'Roboto', Arial, sans-serif !important;
@@ -961,6 +967,7 @@ body.inner-page-open #homepage-lang-fixed {
 #trikno-machine-view.active {
   display: block !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .btn-machine-back-list {
@@ -993,9 +1000,9 @@ body.inner-page-open #homepage-lang-fixed {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 50% 50% !important;
   align-items: center;
-  padding: 60px 50px 130px 50px !important;
+  padding: 24px 48px 105px 48px !important;
   box-sizing: border-box;
 }
 
@@ -1021,12 +1028,13 @@ body.inner-page-open #homepage-lang-fixed {
 
 .machine-visual-img {
   max-width: 95% !important;
-  max-height: calc(100vh - 240px) !important;
+  max-height: calc(100vh - 210px) !important;
   transform: none !important;
-  margin-bottom: 15px !important;
+  margin-bottom: 0px !important;
   object-fit: contain;
-  mix-blend-mode: multiply !important;
-  filter: drop-shadow(0 20px 40px rgba(40, 45, 50, 0.2)) !important;
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 16px 32px rgba(40, 45, 50, 0.18)) !important;
+  border-radius: 14px;
   position: relative;
   z-index: 2;
   animation: machineFloat 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -1057,28 +1065,28 @@ body.inner-page-open #homepage-lang-fixed {
 
 .machine-kicker {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 22px !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
   color: var(--orange) !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 4px !important;
   letter-spacing: 0.5px !important;
 }
 
 .machine-title {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 58px !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
   font-weight: 700 !important;
   color: var(--blue-dark) !important;
-  margin: 0 0 18px 0 !important;
-  letter-spacing: -1.2px !important;
-  line-height: 1.1 !important;
+  margin: 0 0 10px 0 !important;
+  letter-spacing: -1px !important;
+  line-height: 1.15 !important;
 }
 
 .machine-tab-content-area {
-  max-height: calc(100vh - 240px) !important;
+  max-height: calc(100vh - 210px) !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  padding-bottom: 95px !important;
+  padding-bottom: 15px !important;
   padding-right: 12px !important;
   box-sizing: border-box !important;
 }
@@ -1099,35 +1107,37 @@ body.inner-page-open #homepage-lang-fixed {
 
 .machine-desc-text {
   font-family: 'Roboto', Arial, sans-serif !important;
-  font-size: 19.5px !important;
-  line-height: 1.7 !important;
-  color: var(--ink-soft) !important;
-  margin: 0 0 24px 0 !important;
-  max-width: 720px !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+  color: #334155 !important;
+  margin: 0 0 12px 0 !important;
+  max-width: 680px !important;
 }
 
 .machine-subhead {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 22px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
-  color: var(--ink) !important;
-  margin: 0 0 8px 0 !important;
+  color: var(--blue-dark) !important;
+  margin: 0 0 4px 0 !important;
 }
 
 .machine-subtext {
   font-family: 'Roboto', Arial, sans-serif !important;
-  font-size: 17.5px !important;
-  line-height: 1.65 !important;
-  color: var(--ink-soft) !important;
-  margin: 0 0 30px 0 !important;
-  max-width: 720px !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  color: #64748b !important;
+  margin: 0 0 14px 0 !important;
+  max-width: 680px !important;
 }
 
 .machine-action-buttons {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-top: 6px !important;
+  margin-bottom: 8px !important;
 }
 
 /* "Technisches Datenblatt" Button (Cyan Pill) */
@@ -1135,14 +1145,14 @@ body.inner-page-open #homepage-lang-fixed {
   background: var(--blue-grad) !important;
   border: none !important;
   border-radius: var(--radius-btn) !important;
-  padding: 13px 36px !important;
+  padding: 9px 24px !important;
   color: #ffffff !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 17px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   letter-spacing: 0.3px !important;
   cursor: pointer !important;
-  box-shadow: 0 8px 22px -6px rgba(79, 147, 171, 0.7) !important;
+  box-shadow: 0 6px 18px -4px rgba(79, 147, 171, 0.6) !important;
   transition: all 0.25s ease !important;
   text-decoration: none !important;
   display: inline-flex !important;
@@ -1163,20 +1173,20 @@ body.inner-page-open #homepage-lang-fixed {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   background: #ffffff !important;
   border: 1.5px solid var(--line-strong, #C2D2D7) !important;
   border-radius: var(--radius-btn) !important;
-  padding: 13px 32px !important;
+  padding: 9px 22px !important;
   color: var(--ink, #282d32) !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   letter-spacing: 0.3px !important;
   cursor: pointer !important;
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-  box-shadow: 0 4px 14px rgba(40, 45, 50, 0.08) !important;
+  box-shadow: 0 3px 10px rgba(40, 45, 50, 0.06) !important;
 }
 
 .btn-machine-video:hover,
@@ -1263,9 +1273,9 @@ body.inner-page-open #homepage-lang-fixed {
 }
 
 .sub-items-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 14px !important;
 }
 
 .sub-item-card {
@@ -1835,156 +1845,208 @@ body.inner-page-open #homepage-lang-fixed {
   flex-shrink: 0;
 }
 
-/* --- TAB 06: ANWENDUNG VIEW (PRODUCTS ON TOP, SPECS TABLE ON BOTTOM) --- */
+/* --- TAB 06: ANWENDUNG VIEW (DATASHEET-FAITHFUL CIRCULAR CARDS GRID) --- */
 .application-view-stage {
   width: 100%;
   height: 100%;
-  padding: 20px 50px 115px 50px !important;
+  max-height: 100%;
+  padding: 16px 48px 110px 48px !important; /* Leaves 110px clear at bottom so NOTHING goes behind dock */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: 1040px;
+  max-width: 1360px;
   margin: 0 auto;
-  overflow-y: auto;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+@media (max-height: 720px) {
+  .application-view-stage {
+    padding: 12px 32px 115px 32px !important;
+  }
 }
 
 .app-view-header {
-  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.app-view-header-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
 }
 
 .app-view-title {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 30px !important;
+  font-size: 26px !important;
   font-weight: 700 !important;
   color: #54acc9 !important;
-  margin: 0 0 2px 0 !important;
+  margin: 0 !important;
   letter-spacing: -0.5px !important;
   line-height: 1.15 !important;
 }
 
 .app-view-subtitle {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 17px !important;
-  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
   color: var(--orange) !important;
   margin: 0 !important;
 }
 
-.app-content-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  width: 100% !important;
+.app-cards-section-subhead {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #54acc9 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  margin-bottom: 12px !important;
+  flex-shrink: 0 !important;
 }
 
-/* Application Products Output Grid (Generous, balanced cards) */
-.app-products-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  gap: 18px !important;
+/* Applications Cards Grid */
+.app-ds-grid {
+  display: grid !important;
+  gap: 14px 18px !important;
   width: 100% !important;
-  justify-content: flex-start !important;
+  align-items: stretch !important;
 }
 
-.app-product-card {
+.app-ds-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.app-ds-grid.cols-2,
+.app-ds-grid.cols-2-or-4 {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+@media (max-width: 1080px) {
+  .app-ds-grid.cols-3,
+  .app-ds-grid.cols-2-or-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-ds-grid.cols-3,
+  .app-ds-grid.cols-2,
+  .app-ds-grid.cols-2-or-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Card matching official datasheet PDF style */
+.app-ds-card {
   background: #ffffff !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 14px !important;
-  padding: 10px 16px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 14px !important;
-  width: fit-content !important;
-  min-width: unset !important;
-  max-width: fit-content !important;
-  flex: 0 0 auto !important;
-  box-shadow: 0 4px 14px -6px rgba(40, 45, 50, 0.1) !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  border: 1px solid #dce8ec !important;
+  border-radius: 16px !important;
+  padding: 14px 16px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  box-shadow: 0 4px 14px -4px rgba(40, 45, 50, 0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+  box-sizing: border-box !important;
+  min-height: 105px !important;
 }
 
-.app-product-card:hover {
+.app-ds-card:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 10px 24px -6px rgba(79, 147, 171, 0.25) !important;
+  box-shadow: 0 10px 24px -6px rgba(79, 147, 171, 0.22) !important;
   border-color: #54acc9 !important;
 }
 
-.app-product-thumb {
-  width: 90px !important;
-  height: 68px !important;
-  object-fit: cover !important;
-  border-radius: 8px !important;
+/* Circular thumbnail cutout matching the datasheet PDF */
+.app-ds-circle-wrap {
+  width: 74px !important;
+  height: 74px !important;
   flex-shrink: 0 !important;
-  background: #f4f8fa !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #f1f5f9 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 4px 12px rgba(40, 45, 50, 0.16) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.app-product-info {
+.app-ds-circle-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  display: block !important;
+}
+
+/* Content block */
+.app-ds-content {
+  flex: 1 !important;
+  min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 2px !important;
 }
 
-.app-product-title {
+.app-ds-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  margin-bottom: 6px !important;
+}
+
+.app-ds-title {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 16.5px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
-  color: var(--ink) !important;
-  margin-bottom: 2px !important;
+  color: #1e293b !important;
+  margin: 0 !important;
   line-height: 1.25 !important;
 }
 
-.app-product-stat {
-  font-family: 'Roboto', Arial, sans-serif !important;
-  font-size: 13.5px !important;
-  color: var(--text-muted) !important;
-  line-height: 1.3 !important;
-}
-
-/* Specs Table (on BOTTOM - generous, clear, fully visible above dock) */
-.app-specs-section {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  width: 100% !important;
-}
-
-.app-section-subhead {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 19px !important;
+.app-ds-stat {
+  font-size: 11px !important;
   font-weight: 700 !important;
-  color: #54acc9 !important;
+  background: #f0fdf4 !important;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0 !important;
+  padding: 1px 7px !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+}
+
+/* Bullet list directly from datasheet */
+.app-ds-bullets {
   margin: 0 !important;
+  padding: 0 0 0 16px !important;
+  list-style-type: disc !important;
 }
 
-.app-specs-table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  background: #ffffff !important;
-  border: 1px solid #c8dce4 !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 16px -6px rgba(40, 45, 50, 0.1) !important;
+.app-ds-bullets li {
+  font-family: 'Roboto', Arial, sans-serif !important;
+  font-size: 12.5px !important;
+  color: #475569 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 3px !important;
 }
 
-.app-specs-table td {
-  padding: 7px 14px !important;
-  border-bottom: 1px solid #dce8ec !important;
-  font-size: 14px !important;
-  color: var(--ink) !important;
-  line-height: 1.3 !important;
+.app-ds-bullets li:last-child {
+  margin-bottom: 0 !important;
 }
 
-.app-specs-table tr:last-child td {
-  border-bottom: none !important;
+.app-ds-desc {
+  font-family: 'Roboto', Arial, sans-serif !important;
+  font-size: 12.5px !important;
+  color: #475569 !important;
+  line-height: 1.35 !important;
 }
 
-.app-specs-table td:first-child {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 600 !important;
-  color: #3b8ba4 !important;
-  width: 34% !important;
-  border-right: 1px solid #dce8ec !important;
-}
 
 /* Right Column: Visual + Badges */
 .app-right-col {
@@ -2447,14 +2509,16 @@ body.inner-page-open #homepage-lang-fixed {
   box-sizing: border-box !important;
   color: var(--ink) !important;
   font-family: 'Roboto', Arial, sans-serif !important;
-  display: none;
-  opacity: 0;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 0.35s ease !important;
 }
 
 #trikno-applications-view.active {
   display: block !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 #trikno-applications-view::-webkit-scrollbar {

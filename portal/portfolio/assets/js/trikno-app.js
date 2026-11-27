@@ -26,6 +26,19 @@
 
     // Apply initial language
     setLanguage(currentLang);
+
+    // Deep linking for products and tabs (e.g. ?product=alpha-nuss&tab=06)
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var prodId = params.get('product') || (window.location.hash ? window.location.hash.replace('#', '') : null);
+      var tabId = params.get('tab') || (prodId ? '06' : null);
+      if (prodId) {
+        setTimeout(function() {
+          openMachineDetail(prodId);
+          if (tabId) switchMachineTab(tabId);
+        }, 100);
+      }
+    } catch(e) {}
   });
 
   // --- 1. HERO SLIDE CENTER BUTTON ---
@@ -343,6 +356,11 @@
     $('#trikno-portfolio-nav').hide();
     $('#trikno-products-view').addClass('active').scrollTop(0);
     $('#homepage-lang-fixed').hide(); // hide homepage lang btn when inner page opens
+
+    // Clean URL query parameters when returning to catalog so navigation stays clean
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   }
 
   function closeProductsView() {
@@ -426,11 +444,13 @@
 
     $container.html(layoutHtml);
 
-    // View Product Click
-    $(document).off('click', '.btn-view-product').on('click', '.btn-view-product', function(e) {
+    // View Product Click (supports clicking on either the button or the entire card)
+    $(document).off('click', '.trikno-prod-card, .btn-view-product').on('click', '.trikno-prod-card, .btn-view-product', function(e) {
       e.preventDefault();
-      var pId = $(this).attr('data-product-id');
-      openMachineDetail(pId);
+      var pId = $(this).attr('data-product-id') || $(this).closest('.trikno-prod-card').attr('data-id');
+      if (pId) {
+        openMachineDetail(pId);
+      }
     });
   }
 
@@ -522,7 +542,8 @@
       optionsCustom: pickField('optionsCustom'),
       optionsNote: pickField('optionsNote'),
       baseApplicationCustom: pickBaseField('applicationCustom'),
-      applicationCustom: pickField('applicationCustom')
+      applicationCustom: pickField('applicationCustom'),
+      applications: pickField('applications')
     };
   }
 
@@ -628,11 +649,7 @@
 
     // --- TAB 06: Application / Anwendung ---
     var $appContainer = $('#container-application').empty();
-    if (modeData.baseApplicationCustom || modeData.applicationCustom) {
-      renderCustomApplication($appContainer, product, modeData);
-    } else {
-      renderFallbackApplications($appContainer, applications);
-    }
+    renderApplicationTab($appContainer, product, modeData, applications);
   }
 
   // --- SHARED INTERACTIVE DIAGRAM RENDERER (TAB 03 & TAB 04) ---
@@ -767,122 +784,15 @@
     $container.html(html);
   }
 
-  // Tab 06: Application / Anwendung (Supports output cards, single/multi-col specs tables, bullets & flow diagrams)
-  function renderCustomApplication($container, product, modeData) {
-    var baseAppData = modeData.baseApplicationCustom || {};
-    var appData = modeData.applicationCustom || baseAppData;
-    var subModeHtml = renderSubModePills(modeData);
-
-    var specsList = appData.specs || baseAppData.specs || [];
-    var isMultiCol = specsList.some(function(s) { return Array.isArray(s.values); });
-    var maxCols = specsList.reduce(function(max, s) {
-      return Array.isArray(s.values) ? Math.max(max, s.values.length) : max;
-    }, 1);
-
-    var specsRowsHtml = specsList.map(function(s) {
-      if (Array.isArray(s.values)) {
-        var cells = s.values.map(function(v) { return `<td>${v}</td>`; }).join('');
-        return `<tr><td>${s.label}</td>${cells}</tr>`;
-      }
-      var colSpanAttr = (isMultiCol && maxCols > 1) ? ` colspan="${maxCols}"` : '';
-      return `<tr><td>${s.label}</td><td${colSpanAttr}>${s.value}</td></tr>`;
-    }).join('');
-
-    var productsList = appData.products || baseAppData.products || [];
-    var productsHtml = productsList.map(function(p, idx) {
-      var baseProd = (baseAppData.products && baseAppData.products[idx]) ? baseAppData.products[idx] : {};
-      var img = p.image || baseProd.image || '';
-      var stat2Html = p.stat2 ? `<div class="app-product-stat">${p.stat2}</div>` : '';
-      return `
-        <div class="app-product-card">
-          <img src="${img}" alt="${p.title}" class="app-product-thumb">
-          <div class="app-product-info">
-            <div class="app-product-title">${p.title}</div>
-            <div class="app-product-stat">${p.stat1}</div>
-            ${stat2Html}
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    var productsBlockHtml = productsList.length > 0
-      ? `<div class="app-products-grid">${productsHtml}</div>`
-      : '';
-
-    var specsBlockHtml = specsList.length > 0
-      ? `
-        <div class="app-specs-section">
-          ${appData.specsTitle ? `<div class="app-section-subhead">${appData.specsTitle}</div>` : ''}
-          <table class="app-specs-table${isMultiCol ? ' is-multicolumn' : ''}">
-            <tbody>${specsRowsHtml}</tbody>
-          </table>
-        </div>
-      `
-      : '';
-
-    var bulletsList = appData.bullets || baseAppData.bullets || [];
-    var bulletsBlockHtml = bulletsList.length > 0
-      ? `
-        <div class="app-bullets-card">
-          ${appData.bulletsTitle ? `<div class="app-bullets-title">${appData.bulletsTitle}</div>` : ''}
-          <ul class="app-bullets-list">
-            ${bulletsList.map(function(b) { return `<li>${b}</li>`; }).join('')}
-          </ul>
-        </div>
-      `
-      : '';
-
-    var flowObj = appData.flowDiagram || baseAppData.flowDiagram || null;
-    var flowBlockHtml = flowObj
-      ? `
-        <div class="app-flow-card">
-          <img src="${(baseAppData.flowDiagram && baseAppData.flowDiagram.image) || flowObj.image}" alt="${flowObj.caption || ''}" class="app-flow-img">
-          ${flowObj.caption ? `<div class="app-flow-caption">${flowObj.caption}</div>` : ''}
-        </div>
-      `
-      : '';
-
-    var html = `
-      <div class="application-view-stage">
-        <div class="app-view-header${subModeHtml ? ' app-view-header-row' : ''}">
-          <div>
-            <h2 class="app-view-title">${appData.title || product.name}</h2>
-            ${appData.subtitle ? `<div class="app-view-subtitle">${appData.subtitle}</div>` : ''}
-          </div>
-          ${subModeHtml}
-        </div>
-
-        <div class="app-content-container">
-          ${productsBlockHtml}
-          ${specsBlockHtml}
-          ${bulletsBlockHtml}
-          ${flowBlockHtml}
-        </div>
-      </div>
-    `;
-
-    $container.html(html);
-  }
-
-  // --- FALLBACK RENDERERS FOR OTHER MACHINES ---
+  // --- FALLBACK RENDERERS FOR MACHINES WITHOUT INTERACTIVE DIAGRAMS ---
   function renderFallbackCharacteristics($container, characteristics, specs) {
-    var charsListHtml = (characteristics || []).map(function(item) {
-      return `<li class="chars-item">✔ ${item}</li>`;
-    }).join('');
-
-    var specsHtml = (specs || []).map(function(s) {
-      return `<tr><td>${s.label}</td><td>${s.value}</td></tr>`;
-    }).join('');
-
+    var title = (currentLang === 'de') ? "Eigenschaften" : "Characteristics";
     var html = `
-      <div class="machine-stage" style="align-items: flex-start; padding-top: 80px;">
-        <div style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto; width: 100%;">
-          <h3 class="machine-subhead">Merkmale & Technische Highlights</h3>
-          <ul class="chars-list">${charsListHtml}</ul>
-          <h3 class="machine-subhead" style="margin-top:20px;">Technische Daten</h3>
-          <table class="specs-table">
-            <tbody>${specsHtml}</tbody>
-          </table>
+      <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
+        <div class="diagram-header"><h2 class="diagram-heading">${title}</h2></div>
+        <div class="options-clean-card" style="margin-top: 20px; padding: 24px; background: #fff; border-radius: 16px; border: 1px solid #dce8ec; box-shadow: 0 4px 14px rgba(40,45,50,0.06);">
+          ${characteristics ? `<p style="font-size: 15px; line-height: 1.6; color: #334155;">${characteristics}</p>` : ''}
+          ${specs ? `<p style="font-size: 14px; line-height: 1.5; color: #64748b; margin-top: 12px;">${specs}</p>` : ''}
         </div>
       </div>
     `;
@@ -890,30 +800,13 @@
   }
 
   function renderFallbackVariants($container, variantsDetail, variantsText, t) {
-    var itemsHtml = '';
-    if (variantsDetail && variantsDetail.length) {
-      itemsHtml = variantsDetail.map(function(v) {
-        return `
-          <div class="sub-item-card">
-            <strong>${v.name}</strong>
-            <p>${v.desc}</p>
-          </div>
-        `;
-      }).join('');
-    } else if (variantsText) {
-      itemsHtml = `
-        <div class="sub-item-card">
-          <strong>${t.modularVariant}</strong>
-          <p>${variantsText}</p>
-        </div>
-      `;
-    }
-
+    var title = (currentLang === 'de') ? "Varianten" : "Variants";
     var html = `
-      <div class="machine-stage" style="align-items: flex-start; padding-top: 80px;">
-        <div style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto; width: 100%;">
-          <h3 class="machine-subhead">Ausführungs-Varianten im Detail</h3>
-          <div class="sub-items-grid">${itemsHtml}</div>
+      <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
+        <div class="diagram-header"><h2 class="diagram-heading">${title}</h2></div>
+        <div class="options-clean-card" style="margin-top: 20px; padding: 24px; background: #fff; border-radius: 16px; border: 1px solid #dce8ec; box-shadow: 0 4px 14px rgba(40,45,50,0.06);">
+          ${variantsDetail ? `<p style="font-size: 15px; line-height: 1.6; color: #334155;">${variantsDetail}</p>` : ''}
+          ${variantsText ? `<p style="font-size: 14px; line-height: 1.5; color: #64748b; margin-top: 12px;">${variantsText}</p>` : ''}
         </div>
       </div>
     `;
@@ -921,111 +814,138 @@
   }
 
   function renderFallbackOptions($container, options, t) {
-    var itemsHtml = (options || []).map(function(opt) {
+    var heading = (currentLang === 'de') ? "Optionen" : "Options";
+    var optionsList = Array.isArray(options) ? options : (options ? [options] : []);
+    var itemsHtml = optionsList.map(function(opt) {
       return `
-        <div class="sub-item-card">
-          <strong>${t.additionalOption}</strong>
-          <p>${opt}</p>
+        <div class="options-clean-item" style="padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 10px;">
+          <div class="options-bullet-icon" style="width: 8px; height: 8px; border-radius: 50%; background: #6cb8d2; flex-shrink: 0;"></div>
+          <div style="font-size: 14px; color: #334155;">${opt}</div>
         </div>
       `;
     }).join('');
-
     var html = `
-      <div class="machine-stage" style="align-items: flex-start; padding-top: 80px;">
-        <div style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto; width: 100%;">
-          <h3 class="machine-subhead">Verfügbare Optionen & Zubehör</h3>
-          <div class="sub-items-grid">${itemsHtml}</div>
+      <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
+        <div class="diagram-header"><h2 class="diagram-heading">${heading}</h2></div>
+        <div class="options-clean-card" style="margin-top: 20px; padding: 24px; background: #fff; border-radius: 16px; border: 1px solid #dce8ec; box-shadow: 0 4px 14px rgba(40,45,50,0.06);">
+          ${itemsHtml || '<p style="color: #64748b;">' + ((currentLang === 'de') ? 'Keine speziellen Optionen aufgeführt.' : 'No special options listed.') + '</p>'}
         </div>
       </div>
     `;
     $container.html(html);
   }
 
-  function renderFallbackApplications($container, applications) {
-    var itemsHtml = (applications || []).map(function(app) {
-      return `
-        <div class="sub-item-card">
-          <strong>${app.title}</strong>
-          <p>${app.desc}</p>
-        </div>
-      `;
-    }).join('');
-
-    var html = `
-      <div class="machine-stage" style="align-items: flex-start; padding-top: 80px;">
-        <div style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto; width: 100%;">
-          <h3 class="machine-subhead">Einsatzgebiete & Applikationen</h3>
-          <div class="sub-items-grid">${itemsHtml}</div>
-        </div>
-      </div>
-    `;
-    $container.html(html);
-  }
-
-  // --- SVG CONNECTOR LINES CALCULATION ---
-  function drawDiagramLines(diagramId, svgId) {
-    var $diagram = $('#' + diagramId);
-    var $svg = $('#' + svgId);
-    if (!$diagram.length || !$svg.length || !$diagram.is(':visible')) return;
-
-    var $img = $diagram.find('.diagram-machine-img');
-    if (!$img.length) return;
-
-    var imgEl = $img[0];
-    if (!imgEl.complete || imgEl.naturalWidth === 0) {
-      $img.off('load.lines').one('load.lines', function() {
-        drawDiagramLines(diagramId, svgId);
-      });
-      return;
-    }
-
-    var svgEl = $svg[0];
-    var svgRect = svgEl.getBoundingClientRect();
-    var imgRect = imgEl.getBoundingClientRect();
-    if (!svgRect.width || !svgRect.height || !imgRect.width || !imgRect.height) return;
-
-    var svgLinesHtml = '';
-
-    function appendSideLines(selector, useRightEdge) {
-      $diagram.find(selector).each(function() {
-        var $card = $(this);
-        var targetId = $card.attr('data-target');
-        var $dot = $diagram.find(`.diagram-dot[data-target="${targetId}"]`);
-        if (!$card.length || !$dot.length) return;
-
-        var dotXPercent = parseFloat($dot.attr('data-dot-x'));
-        var dotYPercent = parseFloat($dot.attr('data-dot-y'));
-        var dotX = (imgRect.left - svgRect.left) + (dotXPercent / 100 * imgRect.width);
-        var dotY = (imgRect.top - svgRect.top) + (dotYPercent / 100 * imgRect.height);
-
-        $dot.css({
-          left: dotX + 'px',
-          top: dotY + 'px',
-          display: 'flex'
-        });
-
-        var cardRect = $card[0].getBoundingClientRect();
-        var cardX = (useRightEdge ? cardRect.right : cardRect.left) - svgRect.left;
-        var cardY = cardRect.top + (cardRect.height / 2) - svgRect.top;
-        var isActive = $card.hasClass('is-active') ? ' is-active' : '';
-        var isDimmed = $card.hasClass('is-dimmed') ? ' is-dimmed' : '';
-
-        svgLinesHtml += `<line class="diagram-line${isActive}${isDimmed}" data-target="${targetId}" x1="${cardX}" y1="${cardY}" x2="${dotX}" y2="${dotY}" />`;
-      });
-    }
-
-    appendSideLines('.diagram-cards-left .diagram-card', true);
-    appendSideLines('.diagram-cards-right .diagram-card', false);
-
-    $svg.html(svgLinesHtml);
-  }
-
+  // --- SAFE DIAGRAM LINE UPDATER ---
   function updateActiveDiagramLines() {
-    if (currentTab === '03') {
-      drawDiagramLines('omega-usp-diagram', 'omega-usp-lines');
-    } else if (currentTab === '04') {
-      drawDiagramLines('omega-variants-diagram', 'omega-variants-lines');
-    }
+    try {
+      var $activePane = $('.machine-stage-pane.active');
+      if (!$activePane.length) return;
+      var $view = $activePane.find('.trikno-diagram-view');
+      if (!$view.length) return;
+      var $svg = $view.find('.diagram-lines-svg');
+      if (!$svg.length) return;
+
+      var viewOffset = $view.offset();
+      if (!viewOffset) return;
+
+      $svg.empty();
+
+      var $activeCard = $view.find('.diagram-card.is-active');
+      if (!$activeCard.length) return;
+
+      var targetId = $activeCard.attr('data-target');
+      var $dot = $view.find('.diagram-dot[data-target="' + targetId + '"]');
+      if (!$dot.length) return;
+
+      var cardOffset = $activeCard.offset();
+      var dotOffset = $dot.offset();
+      if (!cardOffset || !dotOffset) return;
+
+      var isLeft = $activeCard.closest('.diagram-cards-left').length > 0;
+      var cardX = isLeft
+        ? (cardOffset.left + $activeCard.outerWidth() - viewOffset.left)
+        : (cardOffset.left - viewOffset.left);
+      var cardY = cardOffset.top + ($activeCard.outerHeight() / 2) - viewOffset.top;
+
+      var dotX = dotOffset.left + ($dot.outerWidth() / 2) - viewOffset.left;
+      var dotY = dotOffset.top + ($dot.outerHeight() / 2) - viewOffset.top;
+
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', cardX);
+      line.setAttribute('y1', cardY);
+      line.setAttribute('x2', dotX);
+      line.setAttribute('y2', dotY);
+      line.setAttribute('class', 'diagram-line is-active');
+      $svg.append(line);
+    } catch (err) {}
+  }
+
+  // Tab 06: Application / Anwendung (Datasheet-accurate layout with circular images, categories & bullet lists)
+  function renderApplicationTab($container, product, modeData, applications) {
+    var appsList = applications || (modeData && modeData.applications) || product.applications || [];
+
+    var headerTitle = (currentLang === 'en') ? 'Possible Applications' :
+                      ((currentLang === 'es') ? 'Posibles aplicaciones' :
+                      ((currentLang === 'fr') ? 'Possibilités d\'application' : 'Anwendungsmöglichkeiten'));
+
+    var prodName = (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[product.id] && (window.TRIKNO_PRODUCTS_EN[product.id].fullName || window.TRIKNO_PRODUCTS_EN[product.id].name)) || product.fullName || product.name;
+    var prodKicker = (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[product.id] && window.TRIKNO_PRODUCTS_EN[product.id].kicker) || product.kicker || '';
+
+    var cardsCount = appsList.length;
+    var gridClass = (cardsCount <= 2) ? 'cols-2' : ((cardsCount <= 4) ? 'cols-2-or-4' : 'cols-3');
+
+    var cardsHtml = appsList.map(function(app) {
+      var img = app.image || 'assets/img/Applikationen/Solid.png';
+
+      var bulletsHtml = '';
+      if (Array.isArray(app.items) && app.items.length > 0) {
+        bulletsHtml = `
+          <ul class="app-ds-bullets">
+            ${app.items.map(function(item) {
+              return `<li>${item}</li>`;
+            }).join('')}
+          </ul>
+        `;
+      } else if (app.desc) {
+        bulletsHtml = `<div class="app-ds-desc">${app.desc}</div>`;
+      }
+
+      var statBadge = app.stat ? `<span class="app-ds-stat">${app.stat}</span>` : '';
+
+      return `
+        <div class="app-ds-card">
+          <div class="app-ds-circle-wrap">
+            <img src="${img}" alt="${app.title}" class="app-ds-circle-img" loading="lazy">
+          </div>
+          <div class="app-ds-content">
+            <div class="app-ds-card-header">
+              <h4 class="app-ds-title">${app.title}</h4>
+              ${statBadge}
+            </div>
+            ${bulletsHtml}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    var html = `
+      <div class="application-view-stage">
+        <div class="app-view-header">
+          <div class="app-view-header-text">
+            <h2 class="app-view-title">${prodName}</h2>
+            ${prodKicker ? `<div class="app-view-subtitle">${prodKicker}</div>` : ''}
+          </div>
+        </div>
+
+        <div class="app-cards-section-subhead">${headerTitle}</div>
+
+        <div class="app-ds-grid ${gridClass}">
+          ${cardsHtml}
+        </div>
+      </div>
+    `;
+
+    $container.html(html);
   }
 
   // --- SUB-MODE SWITCHER HANDLER ---
@@ -1074,6 +994,8 @@
 
   function closeMachineView() {
     $('#trikno-machine-view').removeClass('active');
+    $('.machine-stage-pane').removeClass('active').hide();
+    currentProduct = null;
     // Show homepage lang btn only if no other inner page is active
     if (!$('#trikno-about-view').hasClass('active') && !$('#trikno-products-view').hasClass('active') && !$('#trikno-applications-view').hasClass('active')) {
       $('#homepage-lang-fixed').show();
