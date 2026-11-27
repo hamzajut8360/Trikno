@@ -572,6 +572,32 @@
     };
   }
 
+  function resolveProductPdf(rawPdf) {
+    if (!rawPdf) return 'assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf';
+    var isGerman = (currentLang === 'de');
+    if (isGerman) {
+      if (rawPdf.indexOf('_Technisches Datenblatt_EN.pdf') !== -1) {
+        return rawPdf.replace('_Technisches Datenblatt_EN.pdf', '_Technisches Datenblatt.pdf');
+      }
+      if (rawPdf.indexOf('_Technical DataSheet_EN.pdf') !== -1) {
+        return rawPdf.replace('_Technical DataSheet_EN.pdf', '_Technisches Datenblatt.pdf');
+      }
+      return rawPdf;
+    } else {
+      // For English, French, and Spanish: use English datasheet
+      if (rawPdf.indexOf('_Technisches Datenblatt.pdf') !== -1) {
+        return rawPdf.replace('_Technisches Datenblatt.pdf', '_Technisches Datenblatt_EN.pdf');
+      }
+      if (rawPdf.indexOf('_Technical DataSheet_DE.pdf') !== -1) {
+        return rawPdf.replace('_Technical DataSheet_DE.pdf', '_Technisches Datenblatt_EN.pdf');
+      }
+      if (rawPdf.indexOf('german') !== -1) {
+        return rawPdf.replace('german', 'english');
+      }
+      return rawPdf;
+    }
+  }
+
   function renderSubModePills(modeData) {
     if (!modeData || !modeData.hasSubModes) return '';
     var btns = modeData.subModesList.map(function(m) {
@@ -607,9 +633,12 @@
     $('#machine-subhead').text(variantsTitle);
     $('#machine-subtext').text(variantsText);
 
-    // Datasheet PDF (subMode can override if specified, e.g. Alpha Nuss / Eta Nuss)
-    var pdfHref = modeData.pdf || product.pdf || 'assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf';
+    // Datasheet PDF (dynamic by language: German -> German datasheet; English/Spanish/French -> English datasheet)
+    var rawPdf = modeData.pdf || product.pdf || 'assets/pdf/Trikno_Imagebrochure_2026-08_EN_V5.pdf';
+    var pdfHref = resolveProductPdf(rawPdf);
+    var datasheetLabel = (currentLang === 'de') ? 'Technisches Datenblatt' : (currentLang === 'es' ? 'Ficha técnica' : (currentLang === 'fr' ? 'Fiche technique' : 'Technical Datasheet'));
     $('#btn-machine-datasheet').attr('href', pdfHref).show();
+    $('#btn-machine-datasheet-text').text(datasheetLabel);
 
     // Machine Video Button
     var videoSrc = modeData.video || product.video;
