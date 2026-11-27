@@ -120,10 +120,18 @@
     });
   }
 
-  // --- 1C. LANGUAGE CONTROLLER (GERMAN & ENGLISH DROPDOWN) ---
+  // --- 1C. LANGUAGE CONTROLLER (GERMAN, ENGLISH, SPANISH, FRENCH DROPDOWN) ---
   function initLanguageController() {
-    // Toggle dropdown open / close
-    $(document).on('click', '.btn-lang-toggle', function(e) {
+    var lastInteraction = 0;
+
+    // Toggle dropdown open / close (debounced for touch + click on mobile)
+    $(document).on('click touchend', '.btn-lang-toggle', function(e) {
+      var now = Date.now();
+      if (now - lastInteraction < 320) {
+        e.preventDefault();
+        return;
+      }
+      lastInteraction = now;
       e.preventDefault();
       e.stopPropagation();
       var $parent = $(this).closest('.trikno-lang-dropdown');
@@ -135,8 +143,15 @@
     });
 
     // Select language option
-    $(document).on('click', '.lang-option-btn', function(e) {
+    $(document).on('click touchend', '.lang-option-btn', function(e) {
+      var now = Date.now();
+      if (now - lastInteraction < 320) {
+        e.preventDefault();
+        return;
+      }
+      lastInteraction = now;
       e.preventDefault();
+      e.stopPropagation();
       var lang = $(this).attr('data-lang');
       if (lang && (['de', 'en', 'es', 'fr'].includes(lang))) {
         setLanguage(lang);
@@ -144,8 +159,9 @@
       $('.trikno-lang-dropdown').removeClass('open');
     });
 
-    // Close dropdown when clicking outside
-    $(document).on('click', function(e) {
+    // Close dropdown when clicking or touching outside
+    $(document).on('click touchend', function(e) {
+      if (Date.now() - lastInteraction < 320) return;
       if (!$(e.target).closest('.trikno-lang-dropdown').length) {
         $('.trikno-lang-dropdown').removeClass('open');
       }

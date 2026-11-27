@@ -236,6 +236,8 @@
     align-items: center !important;
     gap: 5px !important;
     z-index: 999999 !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
   }
 
   .homepage-lang-fixed .btn-topbar-portal {
@@ -245,8 +247,11 @@
   }
 
   .homepage-lang-fixed .btn-lang-toggle {
-    padding: 5px 10px !important;
+    padding: 6px 11px !important;
     font-size: 11.5px !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
   }
 
   /* Hide homepage fixed language when any overlay view is active */
@@ -281,7 +286,7 @@
     -webkit-backdrop-filter: blur(14px) !important;
     border-bottom: 1px solid var(--line) !important;
     z-index: 1000 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .about-brand,
@@ -336,13 +341,79 @@
 
   .trikno-lang-dropdown {
     flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 100050 !important;
+  }
+
+  .trikno-lang-dropdown.open {
+    z-index: 100060 !important;
   }
 
   .trikno-lang-dropdown .btn-lang-toggle {
-    padding: 5px 8px !important;
-    font-size: 10.5px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
-    gap: 2px !important;
+    gap: 3px !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: transparent !important;
+    background: #ffffff !important;
+    border: 1px solid var(--line, #dce7ea) !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .trikno-lang-dropdown .lang-dropdown-menu {
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    right: 0 !important;
+    left: auto !important;
+    min-width: 165px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--line, #dce7ea) !important;
+    border-radius: 14px !important;
+    padding: 6px !important;
+    box-shadow: 0 16px 36px -8px rgba(40, 45, 50, 0.4) !important;
+    display: none;
+    flex-direction: column !important;
+    gap: 4px !important;
+    z-index: 100070 !important;
+    pointer-events: auto !important;
+  }
+
+  .trikno-lang-dropdown.open .lang-dropdown-menu {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .trikno-lang-dropdown .lang-option-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 9px 12px !important;
+    font-size: 12px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--ink, #282d32) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+  }
+
+  .trikno-lang-dropdown .lang-option-btn:hover,
+  .trikno-lang-dropdown .lang-option-btn:active,
+  .trikno-lang-dropdown .lang-option-btn.active {
+    background: #eef6f8 !important;
+    color: var(--blue-dark, #4f93ab) !important;
   }
 
   /* =========================================================================
