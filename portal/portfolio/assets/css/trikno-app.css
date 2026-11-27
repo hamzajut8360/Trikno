@@ -2457,7 +2457,9 @@ body.inner-page-open #homepage-lang-fixed {
 
 .about-page-action .btn-gold-large {
   background: var(--blue-grad) !important;
-  border: 2px solid transparent !important;
+  border: none !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
   border-radius: var(--radius-btn) !important;
   padding: 11px 24px !important;
   color: #ffffff !important;
@@ -2475,6 +2477,7 @@ body.inner-page-open #homepage-lang-fixed {
   height: 48px !important;
   box-sizing: border-box !important;
   white-space: nowrap !important;
+  outline: none !important;
 }
 
 .about-page-action .btn-gold-large:hover {
