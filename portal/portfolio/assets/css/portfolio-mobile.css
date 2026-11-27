@@ -552,7 +552,8 @@
     border: none !important;
     background: var(--blue-grad) !important;
     background-origin: border-box !important;
-    background-clip: padding-box, border-box !important;
+    background-clip: border-box !important;
+    background-repeat: no-repeat !important;
     outline: none !important;
     box-shadow: 0 4px 14px -4px rgba(79, 147, 171, 0.6) !important;
   }

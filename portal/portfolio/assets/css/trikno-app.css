@@ -649,6 +649,9 @@ body.inner-page-open #homepage-lang-fixed {
 
 .btn-gold-large {
   background: var(--blue-grad) !important;
+  background-origin: border-box !important;
+  background-clip: border-box !important;
+  background-repeat: no-repeat !important;
   border: none !important;
   border-radius: var(--radius-btn) !important;
   padding: 16px 56px !important;
@@ -664,6 +667,7 @@ body.inner-page-open #homepage-lang-fixed {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  outline: none !important;
 }
 
 .btn-gold-large:hover {
@@ -2459,7 +2463,8 @@ body.inner-page-open #homepage-lang-fixed {
   background: var(--blue-grad) !important;
   border: none !important;
   background-origin: border-box !important;
-  background-clip: padding-box, border-box !important;
+  background-clip: border-box !important;
+  background-repeat: no-repeat !important;
   border-radius: var(--radius-btn) !important;
   padding: 11px 24px !important;
   color: #ffffff !important;
