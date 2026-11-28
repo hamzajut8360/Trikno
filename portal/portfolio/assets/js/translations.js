@@ -1823,7 +1823,7 @@ window.TRIKNO_PRODUCTS_EN = {
     ]
   },
   "vibrationstisch": {
-    "name": "Vibrationstisch",
+    "name": "Vibration Table",
     "kicker": "Quiet & Highly Effective",
     "lead": "Highly efficient vibrating table with specially developed low-noise oscillating plate.",
     "description": "The TRIKNO vibrating table de-aerates deposited chocolate reliably, ensuring mirror-smooth surfaces without air bubbles.",

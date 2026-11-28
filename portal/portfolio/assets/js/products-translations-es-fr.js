@@ -64,7 +64,7 @@ window.TRIKNO_PRODUCTS_ES = {
       {
         "id": "var-execution",
         "title": "Configuraciones Z",
-        "desc": "Soltero o Boxer",
+        "desc": "Single o Boxer",
         "pos": "left"
       },
       {
@@ -234,7 +234,7 @@ window.TRIKNO_PRODUCTS_ES = {
     "variantsTitle": "Variantes de diseño",
     "variantsText": "Disponible en configuraciones Single o Boxer con tamaños de pistón variables para ganaches delicadas hasta pastas densas de avellana.",
     "diagramTitleUSP": "TCM Omega USP",
-    "diagramTitleVariants": "Variantes Omega de la MTC",
+    "diagramTitleVariants": "Variantes TCM Omega",
     "usps": [
       {
         "id": "water",
@@ -271,7 +271,7 @@ window.TRIKNO_PRODUCTS_ES = {
       {
         "id": "exec",
         "title": "Configuraciones Z",
-        "desc": "Soltero o Boxer"
+        "desc": "Single o Boxer"
       },
       {
         "id": "screen",
@@ -479,7 +479,7 @@ window.TRIKNO_PRODUCTS_ES = {
       {
         "id": "exec",
         "title": "Configuraciones Z",
-        "desc": "Soltero o Boxer"
+        "desc": "Single o Boxer"
       },
       {
         "id": "screen",
@@ -700,7 +700,7 @@ window.TRIKNO_PRODUCTS_ES = {
           {
             "id": "exec",
             "title": "Configuraciones Z, X, CAD",
-            "desc": "Soltero o Boxer"
+            "desc": "Single o Boxer"
           },
           {
             "id": "hopper",
@@ -898,7 +898,7 @@ window.TRIKNO_PRODUCTS_ES = {
           {
             "id": "exec",
             "title": "Configuraciones Z, X, CAD",
-            "desc": "Soltero o Boxer"
+            "desc": "Single o Boxer"
           },
           {
             "id": "hopper",
@@ -1118,7 +1118,7 @@ window.TRIKNO_PRODUCTS_ES = {
     ]
   },
   "eta": {
-    "name": "eta",
+    "name": "ETA",
     "kicker": "Depósito industrial ultrarrápido",
     "lead": "La potencia de alta capacidad para entornos de producción automatizados exigentes.",
     "description": "Diseñado para líneas industriales pesadas que funcionan las 24 horas del día, los 7 días de la semana, y ofrece el máximo rendimiento con precisión quirúrgica y tiempos de cambio mínimos.",
@@ -1181,7 +1181,7 @@ window.TRIKNO_PRODUCTS_ES = {
           {
             "id": "exec",
             "title": "Configuraciones Z, X, CAD",
-            "desc": "Soltero o Boxer"
+            "desc": "Single o Boxer"
           },
           {
             "id": "hopper",
@@ -1390,7 +1390,7 @@ window.TRIKNO_PRODUCTS_ES = {
           {
             "id": "exec",
             "title": "Configuraciones Z, X, CAD",
-            "desc": "Soltero o Boxer"
+            "desc": "Single o Boxer"
           },
           {
             "id": "hopper",
@@ -2063,7 +2063,7 @@ window.TRIKNO_PRODUCTS_ES = {
     ]
   },
   "spinner": {
-    "name": "máquina de hilar",
+    "name": "Centrifugadora",
     "kicker": "Figura hueca biaxial giratoria",
     "lead": "Máquina de rotación biaxial para espesor de pared uniforme en figuras huecas de chocolate.",
     "description": "La suave rotación biaxial 3D distribuye el chocolate líquido de manera uniforme a través de complejos moldes huecos 3D (conejitos de Pascua, Papá Noel, esferas).",
@@ -2801,7 +2801,7 @@ window.TRIKNO_PRODUCTS_ES = {
     ]
   },
   "elevator": {
-    "name": "ascensor",
+    "name": "Elevador",
     "fullName": "Ascensor TCM",
     "kicker": "Almacenamiento vertical que ahorra espacio",
     "lead": "Buffer de molde vertical de alta capacidad para líneas de automatización continua.",
@@ -2901,7 +2901,7 @@ window.TRIKNO_PRODUCTS_ES = {
     ]
   },
   "alpha-nuss": {
-    "name": "Tuerca alfa",
+    "name": "Alfa Nuez",
     "kicker": "Ideal para inclusiones",
     "lead": "Diseñado para masas con grandes inclusiones, hasta un 40 % de participación; disponible como máquina híbrida o para tuercas dedicada.",
     "description": "TCM Alpha Nut combina la más alta precisión de dosificación con pistones de hasta Ø70 mm para masas gruesas, tuercas enteras y aplicaciones híbridas exigentes de hasta 650 mm de ancho de molde.",
@@ -3036,7 +3036,7 @@ window.TRIKNO_PRODUCTS_ES = {
       {
         "id": "exec",
         "title": "Configuraciones Z, X, CAD",
-        "desc": "Soltero o Boxer"
+        "desc": "Single o Boxer"
       },
       {
         "id": "hopper",
@@ -3126,7 +3126,7 @@ window.TRIKNO_PRODUCTS_ES = {
     }
   },
   "eta-nuss": {
-    "name": "nuez eta",
+    "name": "Eta Nuez",
     "kicker": "Diseñado para líneas de terceros (>650 mm)",
     "lead": "Máquina compacta retroadaptada y de alto rendimiento para inclusiones de hasta un 40% de participación y anchos de molde de hasta 1200 mm.",
     "description": "TCM Eta Nut está diseñado para una integración perfecta en líneas existentes de terceros o moldes anchos >650 mm, con o sin caja de seguridad.",
@@ -3266,7 +3266,7 @@ window.TRIKNO_PRODUCTS_ES = {
       {
         "id": "exec",
         "title": "Configuraciones Z, X, CAD",
-        "desc": "Soltero o Boxer"
+        "desc": "Single o Boxer"
       },
       {
         "id": "hopper",
@@ -3428,7 +3428,7 @@ window.TRIKNO_PRODUCTS_FR = {
       {
         "id": "var-execution",
         "title": "Configurations Z",
-        "desc": "Célibataire ou boxeur",
+        "desc": "Single ou Boxer",
         "pos": "left"
       },
       {
@@ -3598,7 +3598,7 @@ window.TRIKNO_PRODUCTS_FR = {
     "variantsTitle": "Variantes de conception",
     "variantsText": "Disponible en configurations Single ou Boxer avec tailles de piston variables pour des ganaches délicates jusqu'aux pâtes denses de noisettes.",
     "diagramTitleUSP": "MTC Omega USP",
-    "diagramTitleVariants": "Variantes MTC Oméga",
+    "diagramTitleVariants": "Variantes TCM Oméga",
     "usps": [
       {
         "id": "water",
@@ -3635,7 +3635,7 @@ window.TRIKNO_PRODUCTS_FR = {
       {
         "id": "exec",
         "title": "Configuration Z",
-        "desc": "Célibataire ou boxeur"
+        "desc": "Single ou Boxer"
       },
       {
         "id": "screen",
@@ -3843,7 +3843,7 @@ window.TRIKNO_PRODUCTS_FR = {
       {
         "id": "exec",
         "title": "Configuration Z",
-        "desc": "Célibataire ou boxeur"
+        "desc": "Single ou Boxer"
       },
       {
         "id": "screen",
@@ -4064,7 +4064,7 @@ window.TRIKNO_PRODUCTS_FR = {
           {
             "id": "exec",
             "title": "Configurations Z, X, CAO",
-            "desc": "Célibataire ou boxeur"
+            "desc": "Single ou Boxer"
           },
           {
             "id": "hopper",
@@ -4262,7 +4262,7 @@ window.TRIKNO_PRODUCTS_FR = {
           {
             "id": "exec",
             "title": "Configurations Z, X, CAO",
-            "desc": "Célibataire ou boxeur"
+            "desc": "Single ou Boxer"
           },
           {
             "id": "hopper",
@@ -4545,7 +4545,7 @@ window.TRIKNO_PRODUCTS_FR = {
           {
             "id": "exec",
             "title": "Configurations Z, X, CAO",
-            "desc": "Célibataire ou boxeur"
+            "desc": "Single ou Boxer"
           },
           {
             "id": "hopper",
@@ -4754,7 +4754,7 @@ window.TRIKNO_PRODUCTS_FR = {
           {
             "id": "exec",
             "title": "Configurations Z, X, CAO",
-            "desc": "Célibataire ou boxeur"
+            "desc": "Single ou Boxer"
           },
           {
             "id": "hopper",
@@ -4980,7 +4980,7 @@ window.TRIKNO_PRODUCTS_FR = {
     ]
   },
   "vibrationstisch": {
-    "name": "Vibrationstisch",
+    "name": "Table vibrante",
     "kicker": "Silencieux et très efficace",
     "lead": "Table vibrante très efficace avec plaque oscillante à faible bruit spécialement développée.",
     "description": "La table vibrante TRIKNO désaère le chocolat déposé de manière fiable et garantit ainsi des surfaces lisses comme un miroir et sans bulles d'air.",
@@ -6400,7 +6400,7 @@ window.TRIKNO_PRODUCTS_FR = {
       {
         "id": "exec",
         "title": "Configurations Z, X, CAO",
-        "desc": "Célibataire ou boxeur"
+        "desc": "Single ou Boxer"
       },
       {
         "id": "hopper",
@@ -6490,7 +6490,7 @@ window.TRIKNO_PRODUCTS_FR = {
     }
   },
   "eta-nuss": {
-    "name": "Écrou d'éta",
+    "name": "Eta Noix",
     "kicker": "Conçu pour les lignes tierces (>650 mm)",
     "lead": "Machine compacte de modernisation et à haut rendement pour des inclusions jusqu'à 40 % de part et des largeurs de moule jusqu'à 1 200 mm.",
     "description": "Le TCM Eta Nut est conçu pour une intégration transparente dans les lignes tierces existantes ou dans les moules larges >650 mm — avec ou sans boîtier de sécurité.",
@@ -6630,7 +6630,7 @@ window.TRIKNO_PRODUCTS_FR = {
       {
         "id": "exec",
         "title": "Configurations Z, X, CAO",
-        "desc": "Célibataire ou boxeur"
+        "desc": "Single ou Boxer"
       },
       {
         "id": "hopper",
