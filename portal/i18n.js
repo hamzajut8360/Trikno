@@ -57,6 +57,7 @@
       // Footer
       footerDesc: "TRIKNO AG – Schweizer Experten für hochpräzise Schokoladen- und Confiseriemaschinen von der handwerklichen Kleinmaschine bis zur industriellen Produktionslinie.",
       footerAddressTitle: "Adresse",
+      footerCountry: "Schweiz",
       footerContactTitle: "Kontakt",
       footerSecurityTitle: "Sicherheit",
       footerSecurityDesc: "Dieser Bereich ist verschlüsselt und ausschliesslich autorisierten Kunden, Lieferanten und Partnern vorbehalten.",
@@ -142,6 +143,7 @@
       // Footer
       footerDesc: "TRIKNO AG – Swiss experts in high-precision chocolate and confectionery machinery, from artisanal compact units to industrial manufacturing lines.",
       footerAddressTitle: "Address",
+      footerCountry: "Switzerland",
       footerContactTitle: "Contact",
       footerSecurityTitle: "Security",
       footerSecurityDesc: "This area is encrypted and strictly reserved for authorized clients, suppliers, and partners.",
@@ -227,6 +229,7 @@
       // Footer
       footerDesc: "TRIKNO AG – Expertos suizos en maquinaria de alta precisión para chocolate y confitería, desde unidades artesanales compactas hasta líneas de producción industriales.",
       footerAddressTitle: "Dirección",
+      footerCountry: "Suiza",
       footerContactTitle: "Contacto",
       footerSecurityTitle: "Seguridad",
       footerSecurityDesc: "Esta área está encriptada y estrictamente reservada para clientes, proveedores y socios autorizados.",
@@ -312,6 +315,8 @@
       // Footer
       footerDesc: "TRIKNO AG – Experts suisses des machines de haute précision pour le chocolat et la confiserie, des appareils artisanaux compacts aux lignes industrielles complètes.",
       footerAddressTitle: "Adresse",
+      footerCountry: "Suisse",
+      footerCountry: "Schweiz",
       footerContactTitle: "Contact",
       footerSecurityTitle: "Sécurité",
       footerSecurityDesc: "Cette zone est cryptée et strictement réservée aux clients, fournisseurs et partenaires autorisés.",
