@@ -316,7 +316,6 @@
       footerDesc: "TRIKNO AG – Experts suisses des machines de haute précision pour le chocolat et la confiserie, des appareils artisanaux compacts aux lignes industrielles complètes.",
       footerAddressTitle: "Adresse",
       footerCountry: "Suisse",
-      footerCountry: "Schweiz",
       footerContactTitle: "Contact",
       footerSecurityTitle: "Sécurité",
       footerSecurityDesc: "Cette zone est cryptée et strictement réservée aux clients, fournisseurs et partenaires autorisés.",
