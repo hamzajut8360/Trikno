@@ -889,49 +889,72 @@
     $container.html(html);
   }
 
-  // --- SAFE DIAGRAM LINE UPDATER ---
-  function updateActiveDiagramLines() {
+  // --- SVG CONNECTOR LINES CALCULATION ---
+  function drawDiagramLines(diagramId, svgId) {
     try {
-      var $activePane = $('.machine-stage-pane.active');
-      if (!$activePane.length) return;
-      var $view = $activePane.find('.trikno-diagram-view');
-      if (!$view.length) return;
-      var $svg = $view.find('.diagram-lines-svg');
-      if (!$svg.length) return;
+      var $diagram = $('#' + diagramId);
+      var $svg = $('#' + svgId);
+      if (!$diagram.length || !$svg.length || !$diagram.is(':visible')) return;
 
-      var viewOffset = $view.offset();
-      if (!viewOffset) return;
+      var $img = $diagram.find('.diagram-machine-img');
+      if (!$img.length) return;
 
-      $svg.empty();
+      var imgEl = $img[0];
+      if (!imgEl.complete || imgEl.naturalWidth === 0) {
+        $img.off('load.lines').one('load.lines', function() {
+          drawDiagramLines(diagramId, svgId);
+        });
+        return;
+      }
 
-      var $activeCard = $view.find('.diagram-card.is-active');
-      if (!$activeCard.length) return;
+      var svgEl = $svg[0];
+      var svgRect = svgEl.getBoundingClientRect();
+      var imgRect = imgEl.getBoundingClientRect();
+      if (!svgRect.width || !svgRect.height || !imgRect.width || !imgRect.height) return;
 
-      var targetId = $activeCard.attr('data-target');
-      var $dot = $view.find('.diagram-dot[data-target="' + targetId + '"]');
-      if (!$dot.length) return;
+      var svgLinesHtml = '';
 
-      var cardOffset = $activeCard.offset();
-      var dotOffset = $dot.offset();
-      if (!cardOffset || !dotOffset) return;
+      function appendSideLines(selector, useRightEdge) {
+        $diagram.find(selector).each(function() {
+          var $card = $(this);
+          var targetId = $card.attr('data-target');
+          var $dot = $diagram.find(`.diagram-dot[data-target="${targetId}"]`);
+          if (!$card.length || !$dot.length) return;
 
-      var isLeft = $activeCard.closest('.diagram-cards-left').length > 0;
-      var cardX = isLeft
-        ? (cardOffset.left + $activeCard.outerWidth() - viewOffset.left)
-        : (cardOffset.left - viewOffset.left);
-      var cardY = cardOffset.top + ($activeCard.outerHeight() / 2) - viewOffset.top;
+          var dotXPercent = parseFloat($dot.attr('data-dot-x'));
+          var dotYPercent = parseFloat($dot.attr('data-dot-y'));
+          var dotX = (imgRect.left - svgRect.left) + (dotXPercent / 100 * imgRect.width);
+          var dotY = (imgRect.top - svgRect.top) + (dotYPercent / 100 * imgRect.height);
 
-      var dotX = dotOffset.left + ($dot.outerWidth() / 2) - viewOffset.left;
-      var dotY = dotOffset.top + ($dot.outerHeight() / 2) - viewOffset.top;
+          $dot.css({
+            left: dotX + 'px',
+            top: dotY + 'px',
+            display: 'flex'
+          });
 
-      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', cardX);
-      line.setAttribute('y1', cardY);
-      line.setAttribute('x2', dotX);
-      line.setAttribute('y2', dotY);
-      line.setAttribute('class', 'diagram-line is-active');
-      $svg.append(line);
+          var cardRect = $card[0].getBoundingClientRect();
+          var cardX = (useRightEdge ? cardRect.right : cardRect.left) - svgRect.left;
+          var cardY = cardRect.top + (cardRect.height / 2) - svgRect.top;
+          var isActive = $card.hasClass('is-active') ? ' is-active' : '';
+          var isDimmed = $card.hasClass('is-dimmed') ? ' is-dimmed' : '';
+
+          svgLinesHtml += `<line class="diagram-line${isActive}${isDimmed}" data-target="${targetId}" x1="${cardX}" y1="${cardY}" x2="${dotX}" y2="${dotY}" />`;
+        });
+      }
+
+      appendSideLines('.diagram-cards-left .diagram-card', true);
+      appendSideLines('.diagram-cards-right .diagram-card', false);
+
+      $svg.html(svgLinesHtml);
     } catch (err) {}
+  }
+
+  function updateActiveDiagramLines() {
+    if (currentTab === '03') {
+      drawDiagramLines('omega-usp-diagram', 'omega-usp-lines');
+    } else if (currentTab === '04') {
+      drawDiagramLines('omega-variants-diagram', 'omega-variants-lines');
+    }
   }
 
   // Tab 06: Application / Anwendung (Datasheet-accurate layout with circular images, categories & bullet lists)
