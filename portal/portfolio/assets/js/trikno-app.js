@@ -10,7 +10,19 @@
   var currentProduct = null;
   var currentTab = '02';
   var currentSubMode = null;
-  var currentLang = localStorage.getItem('trikno_lang') || 'en';
+  function detectInitialLang() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var qLang = (params.get('lang') || '').toLowerCase();
+      if (qLang === 'de' || qLang === 'en' || qLang === 'es' || qLang === 'fr') return qLang;
+    } catch (e) {}
+    try {
+      var saved = localStorage.getItem('trikno_portal_lang') || localStorage.getItem('trikno_site_lang') || localStorage.getItem('trikno_lang');
+      if (saved === 'de' || saved === 'en' || saved === 'es' || saved === 'fr') return saved;
+    } catch (e) {}
+    return 'de';
+  }
+  var currentLang = detectInitialLang();
 
   $(function() {
     // Hide default In5 navigation everywhere
@@ -175,12 +187,20 @@
     });
   }
 
+  function getLocalizedProductMap() {
+    if (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN) return window.TRIKNO_PRODUCTS_EN;
+    if (currentLang === 'es' && window.TRIKNO_PRODUCTS_ES) return window.TRIKNO_PRODUCTS_ES;
+    if (currentLang === 'fr' && window.TRIKNO_PRODUCTS_FR) return window.TRIKNO_PRODUCTS_FR;
+    return null;
+  }
+
   function getProdText(p, field) {
     if (!p) return '';
-    if (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[p.id]) {
-      var en = window.TRIKNO_PRODUCTS_EN[p.id];
-      if (en[field] !== undefined) {
-        return en[field];
+    var locMap = getLocalizedProductMap();
+    if (locMap && locMap[p.id]) {
+      var loc = locMap[p.id];
+      if (loc[field] !== undefined) {
+        return loc[field];
       }
     }
     return p[field] || '';
@@ -190,7 +210,10 @@
     currentLang = lang;
     try {
       localStorage.setItem('trikno_lang', lang);
+      localStorage.setItem('trikno_portal_lang', lang);
+      localStorage.setItem('trikno_site_lang', lang);
     } catch (e) {}
+    $('.btn-topbar-portal').attr('href', '/portal/index.html?lang=' + lang);
 
     var t = (window.TRIKNO_TRANSLATIONS && window.TRIKNO_TRANSLATIONS[lang]) || window.TRIKNO_TRANSLATIONS.en;
 
@@ -509,9 +532,8 @@
    * merging structural properties (dots, images, layouts) with localized text.
    */
   function resolveModeData(product) {
-    var enProd = (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[product.id])
-      ? window.TRIKNO_PRODUCTS_EN[product.id]
-      : null;
+    var locMap = getLocalizedProductMap();
+    var enProd = (locMap && locMap[product.id]) ? locMap[product.id] : null;
 
     var baseSubModes = product.subModes || [];
     var hasSubModes = baseSubModes.length > 0;
@@ -687,7 +709,7 @@
         locKey: 'variantsCustom',
         titleKey: 'diagramTitleVariants',
         imageKey: 'variantsDiagramImage',
-        fallbackTitle: name + ((currentLang === 'de') ? ' Varianten' : ' Variants')
+        fallbackTitle: name + ((currentLang === 'de') ? ' Varianten' : (currentLang === 'es' ? ' Variantes' : (currentLang === 'fr' ? ' Variantes' : ' Variants')))
       });
     } else {
       renderFallbackVariants($varContainer, variantsDetail, variantsText, t);
@@ -795,7 +817,7 @@
   function renderCustomOptions($container, product, modeData) {
     var options = modeData.optionsCustom || [];
     var optionsNote = modeData.optionsNote || '';
-    var heading = (currentLang === 'de') ? "Optionen" : "Options";
+    var heading = (currentLang === 'de') ? "Optionen" : ((currentLang === 'es') ? "Opciones" : ((currentLang === 'fr') ? "Options" : "Options"));
     var imgSrc = modeData.diagramImage || product.diagramImage || product.cutoutImage || product.image;
     var subModeHtml = renderSubModePills(modeData);
     var denseClass = (options.length > 6) ? ' is-dense' : '';
@@ -840,7 +862,7 @@
 
   // --- FALLBACK RENDERERS FOR MACHINES WITHOUT INTERACTIVE DIAGRAMS ---
   function renderFallbackCharacteristics($container, characteristics, specs) {
-    var title = (currentLang === 'de') ? "Eigenschaften" : "Characteristics";
+    var title = (currentLang === 'de') ? "Eigenschaften" : ((currentLang === 'es') ? "Características" : ((currentLang === 'fr') ? "Caractéristiques" : "Characteristics"));
     var html = `
       <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
         <div class="diagram-header"><h2 class="diagram-heading">${title}</h2></div>
@@ -854,7 +876,7 @@
   }
 
   function renderFallbackVariants($container, variantsDetail, variantsText, t) {
-    var title = (currentLang === 'de') ? "Varianten" : "Variants";
+    var title = (currentLang === 'de') ? "Varianten" : ((currentLang === 'es') ? "Variantes" : ((currentLang === 'fr') ? "Variantes" : "Variants"));
     var html = `
       <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
         <div class="diagram-header"><h2 class="diagram-heading">${title}</h2></div>
@@ -868,7 +890,7 @@
   }
 
   function renderFallbackOptions($container, options, t) {
-    var heading = (currentLang === 'de') ? "Optionen" : "Options";
+    var heading = (currentLang === 'de') ? "Optionen" : ((currentLang === 'es') ? "Opciones" : ((currentLang === 'fr') ? "Options" : "Options"));
     var optionsList = Array.isArray(options) ? options : (options ? [options] : []);
     var itemsHtml = optionsList.map(function(opt) {
       return `
@@ -882,7 +904,7 @@
       <div class="trikno-diagram-view fallback-view" style="padding: 40px; max-width: 900px; margin: 0 auto;">
         <div class="diagram-header"><h2 class="diagram-heading">${heading}</h2></div>
         <div class="options-clean-card" style="margin-top: 20px; padding: 24px; background: #fff; border-radius: 16px; border: 1px solid #dce8ec; box-shadow: 0 4px 14px rgba(40,45,50,0.06);">
-          ${itemsHtml || '<p style="color: #64748b;">' + ((currentLang === 'de') ? 'Keine speziellen Optionen aufgeführt.' : 'No special options listed.') + '</p>'}
+          ${itemsHtml || '<p style="color: #64748b;">' + ((currentLang === 'de') ? 'Keine speziellen Optionen aufgeführt.' : ((currentLang === 'es') ? 'No se enumeran opciones especiales.' : ((currentLang === 'fr') ? 'Aucune option spéciale répertoriée.' : 'No special options listed.'))) + '</p>'}
         </div>
       </div>
     `;
@@ -965,8 +987,10 @@
                       ((currentLang === 'es') ? 'Posibles aplicaciones' :
                       ((currentLang === 'fr') ? 'Possibilités d\'application' : 'Anwendungsmöglichkeiten'));
 
-    var prodName = (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[product.id] && (window.TRIKNO_PRODUCTS_EN[product.id].fullName || window.TRIKNO_PRODUCTS_EN[product.id].name)) || product.fullName || product.name;
-    var prodKicker = (currentLang === 'en' && window.TRIKNO_PRODUCTS_EN && window.TRIKNO_PRODUCTS_EN[product.id] && window.TRIKNO_PRODUCTS_EN[product.id].kicker) || product.kicker || '';
+    var locMap = getLocalizedProductMap();
+    var locProd = (locMap && locMap[product.id]) ? locMap[product.id] : null;
+    var prodName = (locProd && (locProd.fullName || locProd.name)) || product.fullName || product.name;
+    var prodKicker = (locProd && locProd.kicker) || product.kicker || '';
 
     var cardsCount = appsList.length;
     var gridClass = (cardsCount <= 2) ? 'cols-2' : ((cardsCount <= 4) ? 'cols-2-or-4' : 'cols-3');

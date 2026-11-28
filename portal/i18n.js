@@ -352,9 +352,10 @@
     const paramLang = urlParams.get('lang');
     if (paramLang && SUPPORTED_LANGS.includes(paramLang)) {
       localStorage.setItem(LANG_KEY, paramLang);
+      localStorage.setItem('trikno_site_lang', paramLang);
       return paramLang;
     }
-    const saved = localStorage.getItem(LANG_KEY);
+    const saved = localStorage.getItem(LANG_KEY) || localStorage.getItem('trikno_site_lang');
     if (saved && SUPPORTED_LANGS.includes(saved)) {
       return saved;
     }
@@ -375,6 +376,7 @@
   function setLang(lang) {
     if (!SUPPORTED_LANGS.includes(lang)) lang = 'de';
     localStorage.setItem(LANG_KEY, lang);
+    localStorage.setItem('trikno_site_lang', lang);
     try {
       const url = new URL(window.location.href);
       url.searchParams.set('lang', lang);
@@ -427,6 +429,14 @@
     const mainHref = (lang === 'es') ? '/es/index' : (lang === 'fr') ? '/fr/index' : (lang === 'en') ? '/en/index' : '/index.html';
     document.querySelectorAll('.btn-back-main, [data-i18n="mainSite"]').forEach(el => {
       if (el.tagName === 'A') el.setAttribute('href', mainHref);
+    });
+
+    // Propagate selected language to Configurator and Portfolio links
+    document.querySelectorAll('a[href*="/portal/configurator/"]').forEach(el => {
+      el.setAttribute('href', '/portal/configurator/index.html?lang=' + lang);
+    });
+    document.querySelectorAll('a[href*="/portal/portfolio/"]').forEach(el => {
+      el.setAttribute('href', '/portal/portfolio/index.html?lang=' + lang);
     });
 
     updateLangSwitchUI(lang);
